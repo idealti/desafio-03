@@ -11,3 +11,8 @@ export interface Product {
       count: number;
    }
 }
+
+export interface UpdateProductAmountProps {
+   productId: number;
+   amount: number;
+}

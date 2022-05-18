@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import api from '../services/api'
-// import ProductsFilter from '../components/ProductsFilter.vue';
 import { formatPrice } from '../util/format';
 import { Product } from '../types';
+import { useCart } from '../stores/useCart';
+
+interface CartItemsAmount {
+  [key: number]: number;
+}
 
 const products = ref([] as Product[]);
-const loading = ref(true)
+const loading = ref(true);
+const { cart, addProduct} = useCart();
 
 const fetchProducts = async () => {
    const response = await api.get('/products', {
@@ -17,9 +22,18 @@ const fetchProducts = async () => {
    })
    products.value = response.data
    loading.value = false
+}  
+fetchProducts()
+
+const cartItemsAmount = cart.reduce((sumAmount, product) => {
+   sumAmount[product.id] = product.amount;
+   return sumAmount;
+}, {} as CartItemsAmount)
+
+const handleAddProduct = (id: number) => {
+   addProduct(id)
 }
 
-fetchProducts()
 
 </script>
 
@@ -38,6 +52,15 @@ fetchProducts()
             </div>
          </section>
          <p>{{ product.description }}</p>
+         <button
+            type="button"
+            @click="handleAddProduct(product.id)"
+         >
+            <div>
+               {{cartItemsAmount[product.id] || 0}}
+            </div>
+            <span>ADICIONAR AO CARRINHO</span>
+         </button>
       </div>
    </div>
 </template>
