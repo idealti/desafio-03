@@ -1,9 +1,11 @@
 ## Detalhes
-- Para criar um e-commerce com a melhor performance, eu utilizaria nuxt, mas nesse desafio utilizei Vue.js demostrando as funcionalidades de um e-commerce
+- Para criar um e-commerce com a melhor performance, eu utilizaria nuxt, mas neste desafio utilizei Vue.js demostrando as funcionalidades de um e-commerce assim como foi requerido
 - Projeto iniciado com Vite.js, com template vue-ts
-- Utilizando o préprocesssador SCSS (dart-sass)
-- Usando axios para controlar chamadas API
-- Utilizando vue-router para criar rota home e cart, com header estático
+- Busquei implementar uma melhor estrutura na aplicação, seguindo boas práticas
+- Utilizei o pré-processsador SCSS
+- Usei axios para controlar chamadas API
+- Criei rotas home e cart, com header estático, utilizando vue-routes
+- Formatei todos os preços para padrão R$
 
 # Desafio 3 - Vaga de Pessoa Desenvolvedora Frontend Jr
 

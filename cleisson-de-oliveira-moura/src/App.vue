@@ -18,6 +18,10 @@ import Header from './components/Header.vue'
    -webkit-font-smoothing: antialiased;
 }
 
+body {
+   background-color: #333;
+}
+
 @media (max-width: 1279px) {
    html {
       font-size: 93.75%; //15px
