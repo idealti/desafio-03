@@ -3,19 +3,7 @@ import { ref } from 'vue'
 import api from '../services/api'
 // import ProductsFilter from '../components/ProductsFilter.vue';
 import { formatPrice } from '../util/format';
-
-interface Product {
-   id: number;
-   title: string;
-   price: number;
-   description: string;
-   image: string;
-   category: string;
-   rating: {
-      rate: number;
-      count: number;
-   }
-}
+import { Product } from '../types';
 
 const products = ref([] as Product[]);
 const loading = ref(true)

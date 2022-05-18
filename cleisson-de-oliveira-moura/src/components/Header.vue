@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import cartIcon from '../assets/shopping-cart.svg'
+import { useCart } from '../stores/useCart'
+
+const { cart } = useCart()
+const cartSize = cart.length
+
 </script>
 
 <template>
@@ -10,7 +15,8 @@ import cartIcon from '../assets/shopping-cart.svg'
       <router-link to="/cart" class="cartButton">
          <div>
             <strong>Carrinho</strong>
-            <span>5 Itens</span>
+            <span v-if="cartSize === 1">{{cartSize}} Item</span>
+            <span v-else>{{cartSize}} Itens</span>
          </div>
          <img :src="cartIcon" alt="Carrinho de compras">
       </router-link>
