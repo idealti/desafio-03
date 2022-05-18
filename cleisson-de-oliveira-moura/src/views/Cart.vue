@@ -38,6 +38,9 @@ function handleRemoveProduct(productId: number) {
 
 <template>
    <div class="container">
+      <router-link class="backToHome" to="/">
+         Voltar
+      </router-link>
       <table>
          <thead>
             <tr>
@@ -107,9 +110,28 @@ function handleRemoveProduct(productId: number) {
 .container {
    max-width: 1020px;
    margin: 0 auto;
-   padding-top: 10rem;
+   padding-top: 9rem;
    background: #fff;
    border-radius: 4px;
+
+   .backToHome {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+
+      background-color: #121414;
+      border-radius: 4px;
+      color: #fff;
+      padding: 0.5rem 1rem;
+
+      transition: all 200ms;
+
+      &:hover {
+         background: #535a5a;
+      }
+   }
 
    table {
       width: 100%;
@@ -210,7 +232,7 @@ function handleRemoveProduct(productId: number) {
 
       div {
          display: flex;
-         align-items: baseline;
+         align-items: center;
 
          span {
             color: #999;

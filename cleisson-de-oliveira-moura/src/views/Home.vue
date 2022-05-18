@@ -4,6 +4,7 @@ import api from '../services/api'
 import { formatPrice } from '../util/format';
 import { Product } from '../types';
 import { useCart } from '../stores/useCart';
+import cartIcon from '../assets/shopping-cart.svg';
 
 interface CartItemsAmount {
   [key: number]: number;
@@ -43,7 +44,7 @@ const handleAddProduct = (id: number) => {
          Loading...
       </div>
       <div class="product" v-else v-for="product in products" :key="product.id">
-         <img :src="product.image" :alt="product.title" />
+         <img class="productImage" :src="product.image" :alt="product.title" />
          <section>
             <h4>{{ product.title }}</h4>
             <div>
@@ -56,6 +57,7 @@ const handleAddProduct = (id: number) => {
             type="button"
             @click="handleAddProduct(product.id)"
          >
+            <img :src="cartIcon" alt="icone de Carrinho de compras">
             <div>
                {{cartItemsAmount[product.id] || 0}}
             </div>
@@ -86,7 +88,7 @@ const handleAddProduct = (id: number) => {
       background-color: #fff;
       box-shadow: 0 0 30px 10px rgba(0,0,0, 0.5);
 
-      img {
+      .productImage {
          max-height: 150px;
          object-fit: contain;
          margin-bottom: 2rem;
@@ -125,6 +127,33 @@ const handleAddProduct = (id: number) => {
          margin-bottom: 0.5rem;
          max-height: 5rem;
          overflow-y: scroll;
+      }
+
+      button {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+         height: 2rem;
+         border: none;
+         border-radius: 0.5rem;
+         background-color: #121414;
+         color: #fff;
+         font-size: 0.8rem;
+         font-weight: 600;
+         cursor: pointer;
+         padding: 0.5rem 1rem;
+
+         img {
+            height: 1rem;
+            margin-right: 0.5rem;
+         }
+
+         span {
+            margin-left: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+         }
       }
    }
 }
