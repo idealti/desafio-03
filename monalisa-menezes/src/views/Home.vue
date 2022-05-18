@@ -11,9 +11,13 @@
         />
       </section>
 
-      <div class="container--input">
-        <input type="text" />
-        <button>Pesquisar</button>
+      <div class="container__cart">
+        <div class="container--input">
+          <input type="text" />
+          <button>Search</button>
+        </div>
+
+        <d-cart />
       </div>
     </div>
   </div>
@@ -22,11 +26,13 @@
 <script>
 import DHeader from "../components/DHeader.vue";
 import DCard from "../components/DCard.vue";
+import DCart from "../components/DCart.vue";
 import { http } from "../services/config";
 export default {
   components: {
     DHeader,
     DCard,
+    DCart,
   },
   data() {
     return {
@@ -43,12 +49,12 @@ export default {
 </script>
 
 <style scoped>
-
 .section__card {
   max-width: 900px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .container {
@@ -80,5 +86,17 @@ export default {
   border: 2px solid #37268c;
   margin-top: 20px;
   color: #f5f5f5;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #7364bb;
+  transition: 500ms;
+}
+
+.container__cart {
+  display: flex;
+  flex-direction: column;
 }
 </style>

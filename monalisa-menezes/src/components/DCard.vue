@@ -5,9 +5,8 @@
     </div>
     <button>{{ list.category }}</button>
     <h3 class="cut-text">{{ list.title }}</h3>
-    <span class="cut-text">{{ list.description }}</span>
-    <h4>R$ {{ list.price.toFixed(2).replace(".", ",") }}</h4>
-    <h5>Adicionar ao carrinho</h5>
+    <h4>$ {{ list.price.toFixed(2).replace(".", ",") }}</h4>
+    <h5>Add to cart</h5>
   </div>
 </template>
 
@@ -25,15 +24,15 @@ export default {
   justify-content: start;
   align-items: center;
   width: 270px;
-  height: 408px;
+  height: 328px;
   margin-top: 20px;
   border: 2px solid #f5f5f5;
-  transition: 1s;
+  transition: 500ms;
 }
 
 .card:hover {
   border: 2px solid #2e245e;
-  transition: 1s;
+  transition: 500ms;
 }
 
 .card__image {
@@ -43,10 +42,11 @@ export default {
   display: flex;
   justify-content: center;
   margin-bottom: 8px;
+  align-items: center;
 }
 .card__image img {
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
 }
 
 .card button {
@@ -58,14 +58,13 @@ export default {
   margin-bottom: 12px;
   align-self: flex-start;
   margin-left: 20px;
-  transition: 1s;
+  transition: 500ms;
   cursor: pointer;
 }
 
 .card button:hover {
-  background-color: #f5f5f5;
-  color: #2e245e;
-  transition: 1s;
+  background-color: #7364bb;
+  transition: 500ms;
 }
 
 .card h3 {
@@ -102,12 +101,12 @@ export default {
   margin: 0;
   margin-bottom: 12px;
   cursor: pointer;
-  transition: 1s;
+  transition: 500ms;
 }
 
 .card h5:hover {
   color: #37268c;
-  transition: 1s;
+  transition: 500ms;
   text-decoration: underline;
 }
 
