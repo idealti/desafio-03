@@ -26,13 +26,11 @@ export default {};
   font-family: "Inter";
   box-shadow: 0px 4px 30px -10px rgba(0, 0, 0, 0.25);
 }
-
 .header__tittle {
   font-weight: 700;
   font-size: 30px;
   color: #292929;
 }
-
 .header__nav span {
   margin-left: 12px;
   font-weight: 400;
@@ -41,14 +39,11 @@ export default {};
   cursor: pointer;
   transition: 1s;
 }
-
 .header__nav span:hover {
     color: #37268C;
     transition: 1s;
     text-decoration: underline;
 }
-
-
 #nav__category {
   font-weight: 600;
 }
