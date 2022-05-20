@@ -5,7 +5,7 @@
     <div class="container">
       <section class="section__card">
         <d-card
-          v-for="product in productList"
+          v-for="product in products"
           :key="product.id"
           :list="product"
         />
@@ -39,11 +39,10 @@ export default {
       productList: "",
     };
   },
-  created() {
-    http
-      .get("/products")
-      .then((response) => (this.productList = response.data))
-      .catch((err) => console.log(err));
+  computed: {
+    products() {
+      return this.$store.state.products.products;
+    },
   },
 };
 </script>

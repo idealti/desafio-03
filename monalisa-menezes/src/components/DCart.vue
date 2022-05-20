@@ -30,6 +30,7 @@ export default {
       isProduct: true,
     };
   },
+
 };
 </script>
 
