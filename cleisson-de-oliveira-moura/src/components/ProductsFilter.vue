@@ -54,7 +54,7 @@ const categorySelected = ref('all')
 div {
    width: 100%;
    background-color: #fff;
-   padding-top: 4rem;
+   padding-top: 4rem; 
 
    .container {
       max-width: 1020px;
