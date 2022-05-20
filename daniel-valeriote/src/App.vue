@@ -18,6 +18,10 @@ body {
   min-height: 100vh;
   background-color: #f6f6f6;
 }
+a {
+  text-decoration: none;
+  color: unset;
+}
 #app {
   font-family: "Open Sans", sans-serif, Arial, Helvetica;
 }
