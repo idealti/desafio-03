@@ -53,16 +53,39 @@ const categorySelected = ref('all')
 <style scoped lang="scss">
 div {
    width: 100%;
-   background-color: #e1e1e1;
-   padding-top: 5rem;
+   background-color: #fff;
+   padding-top: 4rem;
 
    .container {
       max-width: 1020px;
       margin: 0 auto;
+      padding-bottom: 0.5rem;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
+      font-size: 1.25rem;
+
+      section {
+         height: 2rem;
+         
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         label {
+            margin-right: 1rem;
+            line-height: 2rem;
+         }
+
+         select {
+            height: 100%;
+            font-size: 1rem;
+            border: 1.5px solid #121414;
+            border-radius: 0.25rem;
+            padding: 0 1rem;
+         }
+      }
    }
 }
 </style>
