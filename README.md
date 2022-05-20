@@ -9,18 +9,18 @@ Olá para esse desafio estamos buscando alguém que consiga combinar habilidades
 
 ### Desafio
 
-Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu estilista Alexs Dubois ambos querendo construir um e-commerce. Eles já possuem todas as informações cadastradas de seus produtos e estão disponibilizando para você em uma [API](https://fakestoreapi.com/). 
+Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu estilista Alexs Dubois ambos querendo construir um e-commerce. Eles já possuem todas as informações cadastradas de seus produtos e estão disponibilizando para você em uma [API](https://fakestoreapi.com/).
 
 
 #### Casos de uso
 
 1) Exibir listagem de produtos disponibilizando opções de ordenação e filtros por categoria ( 1 ou mais ), se possível disponibilizar filtro por rate (nota do produto).
-   
+
 2) Disponibilize a opção de selecionar o produto para o carrinho de compra.
 
 3) Exibir detalhes do carrinho de compra. Mostre o valor total dos produtos, descrição, thumbnail, valor unitário e quantidade.
 
-#### Requisitos 
+#### Requisitos
 
 - Nesse desafio você não poderá usar um framework css;
 - O projeto deve ser entregue com Vue.js;
