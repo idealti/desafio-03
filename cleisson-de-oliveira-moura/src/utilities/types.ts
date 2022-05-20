@@ -16,3 +16,7 @@ export interface UpdateProductAmountProps {
    productId: number;
    amount: number;
 }
+
+export interface CartItemsAmount {
+   [key: number]: number;
+ }

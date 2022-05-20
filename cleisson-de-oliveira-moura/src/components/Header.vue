@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
 import cartIcon from '../assets/shopping-cart.svg'
 import { useCart } from '../stores/useCart'
 
-const { cart } = useCart()
-const cartSize = cart.length
+const { getCart } = storeToRefs(useCart())
+console.log(getCart.value)
+const cartSize = getCart.value.length
 
 </script>
 

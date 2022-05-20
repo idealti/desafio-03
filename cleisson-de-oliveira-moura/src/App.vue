@@ -56,10 +56,10 @@ button, a {
    cursor: pointer;
 }
 
-[disabled] {
+/* [disabled] {
    opacity: 0.6;
    cursor: not-allowed;
-}
+} */
 
 a {
    text-decoration: none;

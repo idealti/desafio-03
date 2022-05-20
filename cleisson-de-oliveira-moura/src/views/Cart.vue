@@ -1,21 +1,23 @@
 <script setup lang="ts">
 import { useCart } from '../stores/useCart';
-import { formatPrice } from '../util/format';
-import { Product } from '../types';
+import { formatPrice } from '../utilities/format';
+import { Product } from '../utilities/types';
 import deleteIcon from '../assets/trash-2.svg'
 import incrementIcon from '../assets/plus-circle.svg'
 import decrementIcon from '../assets/minus-circle.svg'
+import { storeToRefs } from 'pinia';
 
-const { cart, removeProduct, updateProductAmount } = useCart();
+const { removeProduct, updateProductAmount } = useCart()
+const { getCart } = storeToRefs(useCart())
 
-const cartFormatted = cart.map((product) => ({
+const cartFormatted = getCart.value.map((product) => ({
    ...product,
    priceFormatted: formatPrice(product.price),
    subTotal: formatPrice(product.price * product.amount),
 }));
 
 const total = formatPrice(
-   cart.reduce((sumTotal, product) => {
+   getCart.value.reduce((sumTotal, product) => {
       return (sumTotal = sumTotal + product.price * product.amount);
    }, 0)
 );
@@ -53,12 +55,13 @@ function handleRemoveProduct(productId: number) {
          </thead>
          <tbody>
             <tr v-for="product in cartFormatted" :key="product.id">
-              <td>
+              <td class="imageTd">
                 <img :src="product.image" :alt="product.title" />
               </td>
               <td>
                 <strong>{{product.title}}</strong>
                 <span>{{product.priceFormatted}}</span>
+                <p>{{product.description}}</p>
               </td>
               <td>
                 <div>
@@ -148,6 +151,10 @@ function handleRemoveProduct(productId: number) {
          border-bottom: 1px solid #eee;
       }
 
+      .imageTd {
+         text-align: center;
+      }
+
       img {
          height: 100px;
       }
@@ -159,9 +166,14 @@ function handleRemoveProduct(productId: number) {
 
       span {
          display: block;
-         margin-top: 5px;
-         font-size: 18px;
+         margin-top: 0.35rem;
+         font-size: 1.15rem;
          font-weight: bold;
+      }
+
+      p {
+         font-size: 0.85rem;
+         margin-top: 0.35rem;
       }
 
       div {

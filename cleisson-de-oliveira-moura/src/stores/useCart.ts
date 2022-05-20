@@ -1,15 +1,16 @@
+import { useLocalStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
-import { ref } from "vue";
-import api from "../services/api";
-import { Product, UpdateProductAmountProps } from '../types';
+import { computed, ref, watch } from "vue";
+import { Product, UpdateProductAmountProps } from '../utilities/types';
 
-export const useCart = defineStore('cart', () => {
-   const cart = ref<Product[]>([]);
-   cart.value = JSON.parse(localStorage.getItem('cart') as string) || [];
-   
-   const addProduct = async (productId: number) => {
+export const useCart = defineStore('cart',() => {
+   const cart = ref(
+      useLocalStorage('cart', [] as Product[])
+   );
+
+   const addProduct = (productSelected: Product) => {
       const newCart = [...cart.value];
-      const productOnCart = newCart.find(product => product.id === productId);
+      const productOnCart = newCart.find(product => product.id === productSelected.id);
 
       const currentAmount = productOnCart ? productOnCart.amount : 0;
       const amount = currentAmount + 1;
@@ -17,15 +18,13 @@ export const useCart = defineStore('cart', () => {
       if(productOnCart) {
          productOnCart.amount = amount;
       } else {
-         const product = await api.get<Product>(`/products/${productId}`);
-         newCart.push({ ...product.data, amount: 1 });
+         newCart.push({ ...productSelected, amount: 1 });
       }
-
-      cart.value = newCart;
+      
       localStorage.setItem('cart', JSON.stringify(newCart));
-   };
-
-   const removeProduct = async (productId: number) => {
+      cart.value = newCart;
+   }
+   const removeProduct = (productId: number) => {
       const newCart = [...cart.value];
 
       const productIndex = newCart.findIndex(product => product.id === productId);
@@ -37,9 +36,8 @@ export const useCart = defineStore('cart', () => {
       } else {
          throw new Error();   
       }
-   };
-
-   const updateProductAmount = async ({
+   }
+   const updateProductAmount = ({
       productId,
       amount
    }: UpdateProductAmountProps) => {
@@ -52,15 +50,17 @@ export const useCart = defineStore('cart', () => {
          productOnCart.amount = amount;
          cart.value = newCart;
          localStorage.setItem('cart', JSON.stringify(newCart));
-       }
-   };
+         }
+   }
+   const getCart = computed(() => cart.value);
 
    return {
-      cart,
       addProduct,
       removeProduct,
-      updateProductAmount
+      updateProductAmount,
+      getCart
    }
-}, {
+},
+{
    persist: true
 });

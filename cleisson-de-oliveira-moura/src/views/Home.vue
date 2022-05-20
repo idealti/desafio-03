@@ -1,44 +1,50 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import api from '../services/api'
-import { formatPrice } from '../util/format';
-import { Product } from '../types';
-import { useCart } from '../stores/useCart';
-import cartIcon from '../assets/shopping-cart.svg';
+   import { onMounted, ref, watch } from 'vue'
+   import ProductsAPI from '../services/ProductsAPI'
+   import { formatPrice } from '../utilities/format';
+   import { Product, CartItemsAmount } from '../utilities/types';
+   import { useCart } from '../stores/useCart';
+   import cartIcon from '../assets/shopping-cart.svg';
+   import { storeToRefs } from 'pinia';
+   import ProductsFilterVue from '../components/ProductsFilter.vue';
 
-interface CartItemsAmount {
-  [key: number]: number;
-}
+   const { addProduct } = useCart()
+   const { getCart } = storeToRefs(useCart())
 
-const products = ref([] as Product[]);
-const loading = ref(true);
-const { cart, addProduct} = useCart();
+   const products = ref<Product[]>([]);
+   const loading = ref(true);
 
-const fetchProducts = async () => {
-   const response = await api.get('/products', {
-      headers: {
-         'content-type' : 'application/json',
-         'accept':'application/json'
-      }
+   const category = ref('all');
+   const fetchProducts = async () => {
+      const { data } = await ProductsAPI.getProducts(category.value)
+      products.value = data
+      loading.value = false
+   }
+   onMounted(() => {
+      fetchProducts()
    })
-   products.value = response.data
-   loading.value = false
-}  
-fetchProducts()
+   const setCategory = (newCategory: string) => {
+      category.value = newCategory
+      fetchProducts()
+   }
 
-const cartItemsAmount = cart.reduce((sumAmount, product) => {
-   sumAmount[product.id] = product.amount;
-   return sumAmount;
-}, {} as CartItemsAmount)
+   const sorterProducts = ref('descRating');
+   const setSorterProducts = (newSort: string) => {
+      sorterProducts.value = newSort
+   }
 
-const handleAddProduct = (id: number) => {
-   addProduct(id)
-}
+   const cartItemsAmount = getCart.value.reduce((sumAmount, product) => {
+      sumAmount[product.id] = product.amount;
+      return sumAmount;
+   }, {} as CartItemsAmount)
 
-
+   const handleAddProduct = (product: Product) => {
+      addProduct(product)
+   }
 </script>
 
 <template>
+   <ProductsFilterVue @changeCategory="setCategory" @changeSort="setSorterProducts" />
    <div class="wrapProducts">
       <div v-if="loading">
          Loading...
@@ -55,7 +61,7 @@ const handleAddProduct = (id: number) => {
          <p>{{ product.description }}</p>
          <button
             type="button"
-            @click="handleAddProduct(product.id)"
+            @click="handleAddProduct(product)"
          >
             <img :src="cartIcon" alt="icone de Carrinho de compras">
             <div>
@@ -72,7 +78,6 @@ const handleAddProduct = (id: number) => {
 .wrapProducts {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   padding-top: 8rem;
    padding-bottom: 2rem;
    margin: 0 auto;
    max-width: 1020px;
@@ -158,13 +163,13 @@ const handleAddProduct = (id: number) => {
    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 998px) {
    .wrapProducts {
       grid-template-columns: repeat(2, 1fr);
    }
 }
 
-@media (max-width: 548px) {
+@media (max-width: 648px) {
    .wrapProducts {
       grid-template-columns: 1fr;
    }
