@@ -64,6 +64,7 @@ div {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-direction: row;
       font-size: 1.25rem;
 
       section {
@@ -86,6 +87,27 @@ div {
             padding: 0 1rem;
          }
       }
+
+      .categorySelector {
+         margin-left: 2rem;
+      }
+      .sorterInput {
+         margin-right: 1rem;
+      }
+   }
+   @media (max-width: 648px) {
+      .container {
+         flex-direction: column;
+      }
+      .sorterInput {
+         margin-top: 1rem;
+      }
+   }
+}
+
+@media (max-width: 1020px) {
+   .sorterInput {
+      margin-right: 2rem;
    }
 }
 </style>

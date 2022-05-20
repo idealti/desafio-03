@@ -29,8 +29,29 @@
    }
 
    const sorterProducts = ref('descRating');
+   const sortProducts = (sortBy: string) => {
+      products.value = products.value.sort((a: Product, b: Product): any | undefined => {
+         if (sortBy === 'descPrice') {
+            return b.price - a.price
+         }
+         if (sortBy === 'ascPrice') {
+            return a.price - b.price
+         }
+         if (sortBy === 'descRating') {
+            return b.rating.rate - a.rating.rate
+         }
+         if (sortBy === 'ascRating') {
+            return a.rating.rate - b.rating.rate
+         }
+      })
+      console.log(`Sorting by ${sortBy}`)
+   }
+   onMounted(() => {
+      sortProducts(sorterProducts.value)
+   })
    const setSorterProducts = (newSort: string) => {
       sorterProducts.value = newSort
+      sortProducts(newSort)
    }
 
    const cartItemsAmount = getCart.value.reduce((sumAmount, product) => {
