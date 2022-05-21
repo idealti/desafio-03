@@ -3,10 +3,27 @@
     <h1>home</h1>
 
     <main class="listProducts">
+
+    <!--  <Product nome="sara"/> -->
+
+      <div class="filters">
+        <ul>
+          <li>Electronics</li>
+          <li>Jewelery</li>
+          <li>Mens's clothing</li>
+          <li>Women's clothing</li>
+        </ul>
+      </div>
       
-      <div v-if="listProducts !== null">
+      <div class="productsContainer" v-if="listProducts !== null">
         <div v-for="product in listProducts" :key="product.id">
-          <p>{{ product.title }}</p>
+         
+          <Product 
+            :id="product.id" 
+            :title="product.title"
+            :image="product.image" 
+            :price="product.price"
+          />
         </div>
       </div>
 
@@ -18,8 +35,13 @@
 </template>
 
 <script>
+import Product from "../components/Product.vue";
+
 export default {
   name: "HomeView",
+  components:{
+    Product,
+  },
 
   data() {
     return {
@@ -49,4 +71,11 @@ main{
   margin: 0 auto;
   border: 1px solid red;
 }
+
+  .productsContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px 20px;
+
+  }
 </style>
