@@ -8,9 +8,12 @@
    import { storeToRefs } from 'pinia';
    import ProductsFilterVue from '../components/ProductsFilter.vue';
  
+   // Using useCart hook
    const { addProduct } = useCart()
    const { getCartItemsAmount } = storeToRefs(useCart())
 
+
+   // Rendering products filtered and sorted
    const products = ref<Product[]>([]);
    const loading = ref(true);
 
@@ -55,6 +58,7 @@
       sortProducts(newSort)
    }
 
+   // Adding product on cart
    const handleAddProduct = (product: Product) => {
       addProduct(product)
    }

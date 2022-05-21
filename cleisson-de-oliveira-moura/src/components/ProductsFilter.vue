@@ -1,28 +1,29 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import ProductsAPI from '../services/ProductsAPI';
+   import { ref } from 'vue';
+   import ProductsAPI from '../services/ProductsAPI';
 
-const emit = defineEmits<{
-  (e: 'changeCategory', newCategory: string): void,
-  (e: 'changeSort', newFilter: string): void
-}>()
+   // Sending the filter and sort value to Home
+   const emit = defineEmits<{
+   (e: 'changeCategory', newCategory: string): void,
+   (e: 'changeSort', newFilter: string): void
+   }>()
+   const handleCategory = () => {
+      emit('changeCategory', categorySelected.value)
+   }
+   const handleSort = () => {
+      emit('changeSort', sorterSelected.value)
+   }
 
-const handleCategory = () => {
-   emit('changeCategory', categorySelected.value)
-}
-const handleSort = () => {
-   emit('changeSort', sorterSelected.value)
-}
+   // Fetching the products categories from API
+   const categoriesAvailable = ref<string[]>([]);
+   const fecthCategories = async () => {
+   const { data } = await ProductsAPI.getCategories();
+   categoriesAvailable.value = data;
+   };
+   fecthCategories();
 
-const categoriesAvailable = ref<string[]>([]);
-const fecthCategories = async () => {
-  const { data } = await ProductsAPI.getCategories();
-  categoriesAvailable.value = data;
-};
-fecthCategories();
-
-const sorterSelected = ref('descRating')
-const categorySelected = ref('all')
+   const sorterSelected = ref('descRating')
+   const categorySelected = ref('all')
 </script>
 
 <template>
