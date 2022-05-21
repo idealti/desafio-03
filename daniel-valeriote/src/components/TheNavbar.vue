@@ -81,7 +81,7 @@ onMounted(() => {
 
 <style scoped>
 	.header {
-		background-color: #303030;
+		background-color: var(--main-black);
 		display: flex;
 		align-items: center;
 		padding: 20px;
@@ -97,10 +97,10 @@ onMounted(() => {
 	}
 	.nav-link:hover {
 		text-shadow: 0px 0px 4px rgba(246, 246, 246, 0.3);
-		color: #f6f6f6;
+		color: var(--main-white);
 	}
 	.router-link-active {
-		color: #f6f6f6; 
+		color: var(--main-white); 
 	}
 	/* Default navbar */
 	.navbar-list {
@@ -114,7 +114,7 @@ onMounted(() => {
 		width: 40px;
 		height: 40px;
 		font-size: 35px;
-		color: #f6f6f6;
+		color: var(--main-white);
 		background-color: transparent;
 		border-radius: 8px;
 		border: 0;
@@ -138,7 +138,7 @@ onMounted(() => {
 		top: 0;
 		width: 200px;
 		height: 100vh;
-		background-color: #303030;
+		background-color: var(--main-black);
 		padding: 15px;
 		transition: all ease .4s;
 	}

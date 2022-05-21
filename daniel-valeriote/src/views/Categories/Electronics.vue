@@ -1,3 +1,6 @@
 <template>
-<h1>Eletrônicos</h1>
+	<h1>Eletrônicos</h1>
 </template>
+
+<script>
+</script>

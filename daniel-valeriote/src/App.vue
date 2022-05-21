@@ -9,7 +9,14 @@ import TheNavbar from './components/TheNavbar.vue';
 
 <style>
 /* Import Open Sans - Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+:root {
+  --main-black: #303030;
+  --main-white: #f6f6f6;
+  --main-blue: #4677bb;
+  --main-green: #00A000;
+  --dark-blue: #426eac;
+}
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +25,7 @@ import TheNavbar from './components/TheNavbar.vue';
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: #f6f6f6;
+  background-color: var(--main-white);
 }
 a {
   text-decoration: none;
