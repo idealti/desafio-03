@@ -9,6 +9,3 @@
 - Formatei todos os preços para padrão R$
 - Adicionei filtros para todas as categorias fornecidas pela API e ordenação por preço e avaliação 
 - Pinia para gerenciamente e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
-
-### REPORT
-- Até o momento em que atualizei esse REAME.md, existe um problema de reatividade do Pinia, em que estou tentando resolver, já consegui identificá-lo, mas não solucioná-lo.

@@ -1,13 +1,16 @@
 import { useLocalStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
 import { computed, ref, watch } from "vue";
-import { Product, UpdateProductAmountProps } from '../utilities/types';
+import { formatPrice } from "../utilities/format";
+import { CartItemsAmount, Product, UpdateProductAmountProps } from '../utilities/types';
 
 export const useCart = defineStore('cart',() => {
+   // State
    const cart = ref(
       useLocalStorage('cart', [] as Product[])
    );
 
+   // Actions
    const addProduct = (productSelected: Product) => {
       const newCart = [...cart.value];
       const productOnCart = newCart.find(product => product.id === productSelected.id);
@@ -52,13 +55,37 @@ export const useCart = defineStore('cart',() => {
          localStorage.setItem('cart', JSON.stringify(newCart));
          }
    }
-   const getCart = computed(() => cart.value);
+
+   // Getters
+   const getCartLength = computed(() => cart.value.length);
+   const getTotal = computed(() => {
+      return cart.value.reduce((sumTotal, product) => {
+         return (sumTotal = sumTotal + product.price * product.amount);
+      }, 0)
+   })
+   const getFormattedCart = computed(() => {
+      const cartFormatted = ref(cart.value.map((product) => ({
+         ...product,
+         priceFormatted: formatPrice(product.price),
+         subTotal: formatPrice(product.price * product.amount)
+      })));
+      return cartFormatted.value;
+   })
+   const getCartItemsAmount = computed(() => {
+      return cart.value.reduce((sumAmount, product) => {
+         sumAmount[product.id] = product.amount;
+         return sumAmount;
+      }, {} as CartItemsAmount)
+   })
 
    return {
       addProduct,
       removeProduct,
       updateProductAmount,
-      getCart
+      getCartLength,
+      getTotal,
+      getFormattedCart,
+      getCartItemsAmount
    }
 },
 {

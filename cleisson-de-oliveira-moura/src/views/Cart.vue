@@ -6,21 +6,9 @@ import deleteIcon from '../assets/trash-2.svg'
 import incrementIcon from '../assets/plus-circle.svg'
 import decrementIcon from '../assets/minus-circle.svg'
 import { storeToRefs } from 'pinia';
-
+ 
 const { removeProduct, updateProductAmount } = useCart()
-const { getCart } = storeToRefs(useCart())
-
-const cartFormatted = getCart.value.map((product) => ({
-   ...product,
-   priceFormatted: formatPrice(product.price),
-   subTotal: formatPrice(product.price * product.amount),
-}));
-
-const total = formatPrice(
-   getCart.value.reduce((sumTotal, product) => {
-      return (sumTotal = sumTotal + product.price * product.amount);
-   }, 0)
-);
+const { getTotal, getFormattedCart } = storeToRefs(useCart())
 
 function handleProductIncrement(product: Product) {
    const amount = product.amount + 1;
@@ -35,7 +23,6 @@ function handleProductDecrement(product: Product) {
 function handleRemoveProduct(productId: number) {
    removeProduct(productId);
 }
-
 </script>
 
 <template>
@@ -54,7 +41,7 @@ function handleRemoveProduct(productId: number) {
             </tr>
          </thead>
          <tbody>
-            <tr v-for="product in cartFormatted" :key="product.id">
+            <tr v-for="product in getFormattedCart" :key="product.id">
               <td class="imageTd">
                 <img :src="product.image" :alt="product.title" />
               </td>
@@ -103,7 +90,7 @@ function handleRemoveProduct(productId: number) {
          <button type="button">Finalizar pedido</button>
          <div>
             <span>TOTAL</span>
-            <strong>{{total}}</strong>
+            <strong>{{formatPrice(getTotal)}}</strong>
          </div>
       </footer>
    </div>

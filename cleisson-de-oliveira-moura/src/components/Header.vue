@@ -3,12 +3,10 @@ import { storeToRefs } from 'pinia';
 import cartIcon from '../assets/shopping-cart.svg'
 import { useCart } from '../stores/useCart'
 
-const { getCart } = storeToRefs(useCart())
-console.log(getCart.value)
-const cartSize = getCart.value.length
+const { getCartLength } = storeToRefs(useCart())
 
 </script>
-
+ 
 <template>
    <header class="container">
       <router-link to="/" class="logo">
@@ -17,8 +15,8 @@ const cartSize = getCart.value.length
       <router-link to="/cart" class="cartButton">
          <div>
             <strong>Carrinho</strong>
-            <span v-if="cartSize === 1">{{cartSize}} Item</span>
-            <span v-else>{{cartSize}} Itens</span>
+            <span v-if="getCartLength === 1">{{getCartLength}} Item</span>
+            <span v-else>{{getCartLength}} Itens</span>
          </div>
          <img :src="cartIcon" alt="Carrinho de compras">
       </router-link>
