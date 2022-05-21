@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 const Header = styled.header`
-	height: 5em;
+	flex: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 	background: tomato;
 `;
 

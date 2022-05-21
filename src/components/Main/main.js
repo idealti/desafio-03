@@ -1,11 +1,8 @@
-// import styled from 'styled-components';
+import styled from "styled-components";
 
-// const Main = styled.main`
-// 	display: flex;
-// 	flex-direction: column;
-// 	align-items: center;
-// 	justify-content: center;
-// 	height: 100vh;
-// `;
+const Main = styled.main`
+	flex: 6;
+	background: blueviolet;
+`;
 
-// export default Main;
+export default Main;
