@@ -12,7 +12,7 @@
 			<h4 class="product-price">R${{Number(price).toLocaleString()}}</h4>
 			<h4 class="product-rating">
 				<abbr :title="rating.count + ' votos'">
-					<star-rating read-only="true" :round-start-rating="false" star-size="15" :rating="rating.rate"/>
+					<star-rating :read-only="true" :round-start-rating="false" :star-size="15" :rating="rating.rate"/>
 				</abbr>
 			</h4>
 		</div>
@@ -26,7 +26,7 @@
 	import StarRating from 'vue-star-rating';
 	export default {
 		props: {
-			id: Number,
+			id: Number || String,
 			title: String,
 			img: String,
 			price: Number,
@@ -43,7 +43,8 @@
 
 <style>
 	.product-item {
-		width: 250px;
+		min-width: 220px;
+		max-width: 250px;
 		height: 410px;
 		overflow: hidden;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);

@@ -1,6 +1,11 @@
 <template>
 	<h1>Eletrônicos</h1>
+	<ProductsList :products="products"/>
 </template>
 
-<script>
+<script setup>
+import ProductsList from '../../components/ProductsList.vue';
+import {ref} from 'vue';
+
+const products = ref([]);
 </script>
