@@ -1,7 +1,9 @@
 <script setup>
+import TheNavbar from './components/TheNavbar.vue';
 </script>
 
 <template>
+<TheNavbar />
 <router-view />
 </template>
 
@@ -21,6 +23,9 @@ body {
 a {
   text-decoration: none;
   color: unset;
+}
+ul {
+  list-style: none;
 }
 #app {
   font-family: "Open Sans", sans-serif, Arial, Helvetica;
