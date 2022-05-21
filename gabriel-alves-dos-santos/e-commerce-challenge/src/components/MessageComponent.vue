@@ -9,9 +9,7 @@ import { reactive } from '@vue/reactivity'
 import { watch } from '@vue/runtime-core'
 export default {
   name: 'MessageComponent',
-  props: {
-    msg: String
-  },
+  props: ['msg'],
   setup (props) {
     const state= reactive({
         msg: null
