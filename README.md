@@ -1,4 +1,22 @@
-#O link do projeto concluído: https://desafio-03-rho.vercel.app/
+# Link do Projeto: 
+> O link do projeto concluído: https://desafio-03-rho.vercel.app/
+
+# Explicando algumas funcionalidades:
+
+Adicionei algumas pequenas funcionalidades no carrinho de compras para trazer um pouco mais de realismo com um real carrinho de compras (não sei se era permitido), como: 
+* Botão de remover uma unidade de um item;
+* Botão de remover todos os itens de uma categoria;
+* Botão de finalizar a compra (o botão apenas simula uma operação de compra apagando a lista, não utilizei requisições para simular);
+
+> * Também adicionei componentes de carregamento pelo fato de que em alguns momentos os dados da API demoram a ser carregados.
+> * Componentizei o App ao máximo para melhor entendimento, além de poder reutilizar alguns componentes, como o 'loading'.
+ 
+
+
+
+
+
+
 # Desafio 3 - Vaga de Pessoa Desenvolvedora Frontend Jr
 
 Olá para esse desafio estamos buscando alguém que consiga combinar habilidades para:
