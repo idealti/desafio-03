@@ -63,7 +63,7 @@ export default {
       store.commit(CLEAN_DATA)
       state.turnToLoad = true
       if(category === 'tudo'){
-        store.dispatch('getAllData')
+        return store.dispatch('getAllData')
       } 
       store.dispatch('getSpecificCategory', category)
     }
