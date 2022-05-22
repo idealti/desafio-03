@@ -222,6 +222,10 @@
          cursor: pointer;
          padding: 0.5rem 1rem;
 
+         &:hover {
+            background: #535a5a;
+         }
+
          img {
             height: 1rem;
             margin-right: 0.5rem;

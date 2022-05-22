@@ -14,5 +14,18 @@
 - Adicionei filtros para todas as categorias fornecidas pela API e ordenação por preço e avaliação 
 - Pinia para gerenciamente e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
 
+## Instruções
+- **Instale as dependencias**
+  `yarn` ou `npm install`
+
+- **Rode o Projeto em ambiente de desenvolvimento**
+  `yarn dev` ou `npm run dev`
+
+- **Crie o Build do projeto**
+  `yarn buil` ou `npm run build`
+
+- **Visualize o preview do projeto**
+  `yarn preview` ou `npm run preview`
+
 ## IDE Setup
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)

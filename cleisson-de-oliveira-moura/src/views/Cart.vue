@@ -87,7 +87,9 @@ function handleRemoveProduct(productId: number) {
          </tbody>
       </table>
       <footer>
-         <button type="button">Finalizar pedido</button>
+         <router-link to="/checkout" class="finishOrder">
+            Finalizar Pedido
+         </router-link>
          <div>
             <span>TOTAL</span>
             <strong>{{formatPrice(getTotal)}}</strong>
@@ -198,9 +200,10 @@ function handleRemoveProduct(productId: number) {
          }
 
          &:disabled {
+            cursor: not-allowed;
+            
             svg {
-               color: rgb(36, 36, 36);
-               cursor: not-allowed;
+               color: rgb(100, 100, 100);
             }
          }
       }
@@ -214,7 +217,7 @@ function handleRemoveProduct(productId: number) {
       justify-content: space-between;
       align-items: center;
 
-      button {
+      .finishOrder {
          background: #121414;
          color: #fff;
          border: 0;
