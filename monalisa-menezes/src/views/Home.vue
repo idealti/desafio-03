@@ -52,7 +52,7 @@ export default {
   max-width: 900px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-bottom: 12px;
 }
 
@@ -60,12 +60,14 @@ export default {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  align-self: flex-start;
 }
 
 .container--input {
   height: 50px;
   display: flex;
   justify-content: space-between;
+  align-self: flex-end;
 }
 
 .container input {
@@ -97,5 +99,6 @@ export default {
 .container__cart {
   display: flex;
   flex-direction: column;
+  align-self: initial;
 }
 </style>

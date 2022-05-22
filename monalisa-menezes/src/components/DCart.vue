@@ -4,33 +4,42 @@
       <h3>Shopping cart</h3>
     </div>
     <div class="cart__content">
-      <d-item v-if="isProduct" />
+      <div v-if="isProduct">
+        <d-item v-for="item in cartList" :key="item.id" :item="item" />
+      </div>
+
       <h3 v-if="!isProduct">Empty cart</h3>
       <span v-if="!isProduct">Add items</span>
     </div>
 
     <div class="cart__value" v-if="isProduct">
-      <span>Quantity: </span>
-      <span>Total: $ </span>
-      <router-link id="cart__link" to="/"> Finalize purchase </router-link>
+      <span>Quantity: {{ cartList.length }}</span>
+      <span>Total: $ {{ total.toFixed(2) }}</span>
+      <router-link id="cart__link" to="/"> Checkout </router-link>
       <h4>Remove all</h4>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import DItem from "../components/DItem.vue";
 
 export default {
   components: {
     DItem,
   },
-  data() {
-    return {
-      isProduct: true,
-    };
+  computed: {
+    ...mapGetters({
+      total: "valueTotal",
+    }),
+    cartList() {
+      return this.$store.state.cart.cart;
+    },
+    isProduct() {
+      return this.$store.state.cart.isProduct;
+    },
   },
-
 };
 </script>
 
@@ -63,6 +72,21 @@ export default {
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  max-height: 250px;
+}
+
+.cart__content::-webkit-scrollbar {
+  width: 2px;
+}
+
+.cart__content::-webkit-scrollbar-track-piece {
+  background-color: #eee;
+  border-left: 2px solid #ccc;
+}
+
+.cart__content::-webkit-scrollbar-thumb:vertical {
+  background-color: #37268c;
 }
 
 .cart__content h3 {

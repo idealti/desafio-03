@@ -1,29 +1,29 @@
 <template>
   <div class="item">
-    <img
-      src="https://images.lojanike.com.br/1024x1024/produto/camisa-nike-x-banheiristas-fc-dri-fit-unissex-BV6708-547-1-11637959727.jpg"
-      alt=""
-    />
+    <img :src="item.image" alt="" />
     <div class="container__item">
-      <h4>Lightweight Jacket</h4>
-      <h6>$ 100.00</h6>
-      <span>Descrição...</span>
+      <h4 class="cut-text">{{ item.title }}</h4>
+      <h6>$ {{ item.price }}</h6>
+      <span></span>
       <span id="item__remove">Remove item</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["item"],
+};
 </script>
 
 <style scoped>
 .item {
   display: flex;
-  padding: 4px;
-  width: 280px;
+  width: 100%;
   height: 90px;
   background: #ffffff;
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 
 .item img {
@@ -34,15 +34,17 @@ export default {};
 }
 
 .container__item {
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+
 }
 
 .container__item h4 {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   color: #333333;
   margin: 0;
 }
@@ -70,5 +72,9 @@ export default {};
   color: #7364bb;
   transition: 500ms;
   text-decoration: underline;
+}
+
+.cut-text {
+  
 }
 </style>

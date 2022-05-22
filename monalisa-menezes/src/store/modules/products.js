@@ -1,5 +1,4 @@
 import { http } from "../../services/config";
-import { createStore } from "vuex";
 
 export default {
   state: {

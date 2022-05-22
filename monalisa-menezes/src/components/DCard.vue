@@ -5,14 +5,24 @@
     </div>
     <button>{{ list.category }}</button>
     <h3 class="cut-text">{{ list.title }}</h3>
-    <h4>$ {{ list.price.toFixed(2).replace(".", ",") }}</h4>
-    <h5>Add to cart</h5>
+    <h4>$ {{ list.price.toFixed(2) }}</h4>
+    <h5 @click="addToCart">Buy now</h5>
   </div>
 </template>
 
 <script>
+import { mapActions, mapMutations } from 'vuex';
 export default {
   props: ["list"],
+  computed:{
+    ...mapActions(['addItem', 'verifyProduct']),
+  },
+  methods: {
+    addToCart() {
+      this.$store.commit('verifyProduct')
+      this.$store.commit('addItem',this.list)
+    }
+  }
 };
 </script>
 
@@ -28,6 +38,7 @@ export default {
   margin-top: 20px;
   border: 2px solid #f5f5f5;
   transition: 500ms;
+  overflow: auto;
 }
 
 .card:hover {
