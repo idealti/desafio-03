@@ -5,8 +5,8 @@
             <router-link to="/">Início</router-link>
         </nav>
         <div>
-            <cart-button @toggleBtn='toggleCartView()'/>
-            <cart-component v-show="state.appearCart"/>
+            <cart-button @toggleBtn='toggleCartView()' @openView='open()' />
+            <cart-component v-show="state.appearCart" @closeView='toggleCartView()' />
         </div>
     </header>
 </template>
@@ -25,12 +25,16 @@ export default {
     const state = reactive({
         appearCart: false    
     })
+    function open(){
+        state.appearCart = true
+    }
     function toggleCartView() {
         state.appearCart = !state.appearCart 
     }
     return{
         state,
-        toggleCartView
+        toggleCartView,
+        open
     }
   }
 }

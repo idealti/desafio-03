@@ -1,5 +1,5 @@
 <template>
-    <section class="cart-container">
+    <section class="cart-container" @mouseleave="close()">
         <h4>Carrinho</h4>
         <div class="scroll">
             <div class="vazio" v-show="state.cartData.length === 0">
@@ -15,15 +15,15 @@
                     <small class="title">Produto: {{ props.title }} </small>  <br>
                 </div>
                 <div class="description">
-                    <small> Descrição: {{ props.description }} </small> <br>
-                    <small> Preço Unitário: ${{ props.price }} </small>
-                    <small> Nº de Itens: {{ props.quantidade }}</small><small> Total: ${{ turnToFixed(props.totalPrice) }} </small>
+                    <small style="text-align: justify;"> <strong>Descrição:</strong> {{ props.description }} </small> <br>
+                    <small> Preço Unitário: {{ turnToPrice(props.price) }} </small>
+                    <small> Nº de Itens: {{ props.amount }}</small><small> Total: {{ turnToPrice(props.totalPrice) }} </small>
                     <remove-from-cart-btn :id="props.id"/>
                 </div>
             </div>
         </div>
-        <small>total a pagar: ${{ state.totalPrice }} </small>
-        <small>Total de Itens: {{ state.totalItens }} </small>
+        <small>Total a pagar: <strong> {{ turnToPrice(state.totalPrice) }} </strong></small>
+        <small>Total de Itens: <strong>{{ state.totalItens }}</strong> </small>
         <button @click='sendData()' >Finalizar Pedido</button>
         <message-component :msg="state.msg"/>
     </section>
@@ -33,6 +33,7 @@
 import { reactive, ref } from '@vue/reactivity'
 import { useStore } from 'vuex'
 import { computed } from '@vue/runtime-core'
+import { types } from '../store/mutationTypes'
 import RemoveFromCartBtn from './RemoveFromCartBtn.vue'
 import MessageComponent from './MessageComponent.vue'
 export default {
@@ -41,14 +42,17 @@ export default {
     RemoveFromCartBtn,
     MessageComponent
   },
-  setup () {
+  setup (props, { emit }) {
     const state = reactive({
-        cartData: [],
+        cartData: null,
         totalPrice: null,
         totalItens: null,
         msg: null
 
     })
+    function close (){
+        emit('closeView')
+    }
     function showMsg (msg) {
         state.msg = msg
         setTimeout(() => {
@@ -58,25 +62,28 @@ export default {
     function sendData () {
         try{
             if (state.cartData.length === 0) throw new Error('Adicione itens ao carrinho antes de finalizar uma compra.')
-            store.commit('CLEAN_LIST')
+            store.commit(CLEAN_LIST)
             showMsg('Compra Realizada com Sucesso!')
         } catch(erro){
             showMsg(erro)
         }
     }
-    function turnToFixed(num){
-        return num.toFixed(2)
+    function turnToPrice(num){
+      num.toFixed(2).replace('.',',')
+      return num.toLocaleString('eua', {style: 'currency', currency: 'USD'})
     }
     const store = useStore()
-    const getData = computed(() => store.state.listaDeCompras)
+    const { CLEAN_LIST } = types
+    
+    state.cartData = computed(() => store.state.listaDeCompras)
     state.totalPrice = computed(() => store.getters.getTotalPrice)
     state.totalItens = computed(() => store.getters.getTotalItens)
 
-    state.cartData = ref(getData)
     return {
         state,
-        turnToFixed,
-        sendData
+        sendData,
+        close,
+        turnToPrice
     }  
   } 
 }
@@ -94,17 +101,16 @@ export default {
         height: 480px;
         width: 50%;
         border-radius: 8px;
-        border: 2px solid $militar-green-var;
-        background-color: $light-brown-var;
+        box-shadow: 1px 1px 10px black;
+        background-color: rgb(228, 226, 226);
         padding: 10px;
         & h4{
             text-transform: uppercase;
+            margin:10px 0;
         }
         & small{
             margin: 10px;
             display: inline-block;
-            background-color: $grey-var;
-            border: 2px solid $militar-green-var;
             color: black;
             border-radius: 8px;
             padding: 5px 7px;
@@ -129,7 +135,7 @@ export default {
             overflow-y: scroll;
             height: 300px;
             background-color: white;
-            border: 2px solid $grey-var;
+            box-shadow: 1px 1px 10px black;
             border-radius: 8px;
             & .cont{
                 animation: appearCart .5s forwards;

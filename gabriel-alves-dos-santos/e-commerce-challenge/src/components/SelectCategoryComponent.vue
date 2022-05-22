@@ -5,6 +5,7 @@
             <label  for="categoria">Categoria: </label>
             <select name="categoria" id="categoria">
                 <option value="">Selecione</option>
+                <option value="tudo" @click.prevent="sendOpt('tudo')">Tudo</option>
                 <option :value="category" @click.prevent="sendOpt(category)"
                     v-for="category in state.categoryList" :key="category"
                 > {{ category }} </option>
@@ -18,6 +19,7 @@ import { reactive } from '@vue/reactivity'
 import { onMounted } from '@vue/runtime-core'
 import LoadingComponent from './LoadingComponent.vue'
 import { useStore } from 'vuex'
+import { types } from '../store/mutationTypes'
 export default {
   name: 'SelectCategoryComponent',
   components: {
@@ -29,19 +31,22 @@ export default {
     })
 
     const store = useStore()
+    const { ADD_CATEGORY } = types
 
-    async function getCategory () {
+    async function getAllCategories () {
       const req = await fetch('https://fakestoreapi.com/products/categories')
       const res = await req.json()
       state.categoryList = [...res]
     }
 
-    function sendOpt (category) {
-      store.commit('ADD_CATEGORY', category)
+    function sendOpt (category) { // send option
+      store.commit(ADD_CATEGORY, category)
     }
+
     onMounted(() => {
-      getCategory()
+      getAllCategories()
     })
+    
     return {
       state,
       sendOpt
@@ -50,6 +55,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

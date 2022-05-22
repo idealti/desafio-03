@@ -1,25 +1,23 @@
 <template>
     <div>
-        <button class="toggle-btn" @click.prevent="toggleCartView()"><ion-icon name="basket" size="large"></ion-icon></button>
+        <button class="toggle-btn" @mouseover="openView()" @click.prevent="toggleCartView()"><ion-icon name="basket" size="large"></ion-icon></button>
     </div>
 </template>
 
 <script>
-import { reactive } from '@vue/reactivity'
 
 export default {
   name: 'CartButton',
   setup (props, { emit }) {
-    const state = reactive({
-        active: false
-    })
     function toggleCartView(){
         emit('toggleBtn')
-        state.active = !state.active
+    }
+    function openView () {
+        emit('openView')
     }
     return {
-        state,
-        toggleCartView
+        toggleCartView,
+        openView
     }
   }
 }

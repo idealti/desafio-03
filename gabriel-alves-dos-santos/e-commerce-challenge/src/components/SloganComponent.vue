@@ -31,7 +31,7 @@ export default {
   }
   @keyframes upAndDown {
     to{
-        transform: translateY(-5px);
+      transform: translateY(-5px);
     }
 }
 </style>

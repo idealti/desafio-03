@@ -13,22 +13,29 @@
 
 <script>
 import { useStore } from 'vuex'
+import { types } from '../store/mutationTypes'
 export default {
   name: 'DataSorting',
   setup () {
     const store = useStore()
+    const {
+        SORT_BY_ASC,
+        SORT_BY_DESC,
+        SORT_BY_ASC_RATE,
+        SORT_BY_DESC_RATE
+    } = types
 
     function sortByDesc () {
-        store.commit ('SORT_BY_DESC')
+        store.commit (SORT_BY_DESC)
     }
     function sortByAsc () {
-        store.commit ('SORT_BY_ASC')
+        store.commit (SORT_BY_ASC)
     }
     function sortByAscRate () {
-        store.commit ('SORT_BY_ASC_RATE')
+        store.commit (SORT_BY_ASC_RATE)
     }
     function sortByDescRate () {
-        store.commit ('SORT_BY_DESC_RATE')
+        store.commit (SORT_BY_DESC_RATE)
     }
     
     return{

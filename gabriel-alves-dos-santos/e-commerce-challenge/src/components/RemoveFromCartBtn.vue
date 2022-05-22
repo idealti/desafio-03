@@ -7,6 +7,7 @@
 
 <script>
 import { useStore } from 'vuex'
+import { types } from '../store/mutationTypes'
 export default {
   name: 'RemoveFromCartBtn',
   props: {
@@ -14,12 +15,14 @@ export default {
     objeto: Object
   },
   setup () {
-      const store = useStore()
+    const store = useStore()
+    const { REMOVE_ONE, REMOVE_ALL } = types 
+     
     function removeOne (id) {
-        store.commit('REMOVE_ONE', id)
+        store.commit(REMOVE_ONE, id)
     }
     function removeAll(id) {
-        store.commit('REMOVE_ALL', id)
+        store.commit(REMOVE_ALL, id)
     }
     return{
         removeOne,
@@ -41,12 +44,14 @@ export default {
     }
     & .remove-one{
       background-color: orange;
-      border: 2px solid orangered;
+      border: none;
+      box-shadow: 1px 1px 5px orangered;
     }
     & .remove-all{
       background-color: red;
       color: white;
-      border: 2px solid red;
+      box-shadow: 1px 1px 5px red;
+      border: none;
     }
   }
 

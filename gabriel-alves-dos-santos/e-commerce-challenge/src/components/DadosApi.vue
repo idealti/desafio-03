@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { reactive } from '@vue/reactivity'
 import SelectCategoryComponent from './SelectCategoryComponent.vue'
 import LoadingComponent from './LoadingComponent.vue'
 import DataContainer from './DataContainer.vue'
@@ -23,31 +22,27 @@ export default {
     LoadingComponent,
     DataContainer,
     DataSorting
-  },
-  setup () {
-    const state = reactive({
-      
-    })
-    return {
-      state
-    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import '../variaveis/variaveis.scss';
 section{
     & div.config{
-        display: flex;
-        justify-content: space-around;
-        border: 2px solid $militar-green-var;
-        width: 95%;
-        padding: 20px;
-        margin: 10px auto;
-        & div{
-            flex-direction: column;
-        }
+      box-shadow: 1px 1px 10px black;
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      width: 95%;
+      padding: 20px;
+      margin: 10px auto;
+      & label{
+        color: black;
+      }
+      & select{
+        padding: 3px 7px;
+      }
     }
     & section{
         display: flex;

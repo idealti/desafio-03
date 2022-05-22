@@ -21,9 +21,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../variaveis/variaveis.scss';
   body{
     min-height: 600px;
-    background-color:$light-skin-var;
+    background-color:rgb(228, 226, 226);
+    & h1{
+      margin: 30px 0;
+    }
   }
 </style>

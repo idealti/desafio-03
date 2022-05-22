@@ -1,47 +1,48 @@
 import { createStore } from 'vuex'
-
+import { types } from '../store/mutationTypes'
+const { ADD_TO_DATA_CONTAINER } = types
 export default createStore({
   state: {
     listaDeCompras: [],
     dataContainer: [],
-    selectedCategory: ''
+    selectedCategory: '',
+    allItensUrl: 'https://fakestoreapi.com/products'
   },
   getters: {
-    getTotalPrice (state){
-      const arraySoma = []
-      state.listaDeCompras.filter((el) => {
-        return arraySoma.push(el.totalPrice)
-      })
-      const total = arraySoma.reduce((a, acc) => {
-        return a + acc
-      }, 0)
-      return total.toFixed(2)
-    },
-    getTotalItens (state) {
-      const arraySoma = []
-      state.listaDeCompras.filter((el) => {
-        return arraySoma.push(el.quantidade)
-      })
-      const total = arraySoma.reduce((a, acc) => {
-        return a + acc
-      }, 0)
-      return total
-    }
+      getTotalPrice (state){
+        const arraySoma = []
+        state.listaDeCompras.filter((el) => {
+          return arraySoma.push(el.totalPrice)
+        })
+        const total = arraySoma.reduce((a, acc) => {
+          return a + acc
+        }, 0)
+        return total
+      },
+      getTotalItens (state) {
+        const arraySoma = []
+        state.listaDeCompras.filter((el) => {
+          return arraySoma.push(el.amount)
+        })
+        const total = arraySoma.reduce((a, acc) => {
+          return a + acc
+        }, 0)
+        return total
+      }
   },
   mutations: {
     ADD_TO_CART (state, payload) {
-     
       state.listaDeCompras.filter((el) => {
         if(el.id === payload.id){
           el.totalPrice += el.price
-          el.quantidade += 1
+          el.amount += 1
         }
       })
       const contemEl = state.listaDeCompras.some((x) => {
         return x.id === payload.id
       })
       if(contemEl === false){
-        payload.quantidade += 1
+        payload.amount += 1
         state.listaDeCompras.push(payload)
       }
     },
@@ -84,10 +85,10 @@ export default createStore({
     REMOVE_ONE (state, payload) {
       state.listaDeCompras.find((x) => {
         if(x.id === payload){
-          if(x.quantidade === 1){
+          if(x.amount === 1){
             return state.listaDeCompras.splice(state.listaDeCompras.indexOf(x),1)
           }
-          x.quantidade--
+          x.amount--
           x.totalPrice -= x.price
         }
       })
@@ -98,11 +99,20 @@ export default createStore({
           return state.listaDeCompras.splice(state.listaDeCompras.indexOf(x),1)
         }
       })
-      
-    }
+    }        
+},
+actions: {
+  async getSpecificCategory({ commit }, payload) {
+    const req = await fetch(`https://fakestoreapi.com/products/category/${payload}`)
+    const res = await req.json()
+    commit(ADD_TO_DATA_CONTAINER, res)
   },
-  actions: {
-  },
+  async getAllData({ commit, state }) {
+    const req = await fetch(state.allItensUrl)
+    const res = await req.json()
+    commit(ADD_TO_DATA_CONTAINER, res)
+  }
+},
   modules: {
   }
 })
