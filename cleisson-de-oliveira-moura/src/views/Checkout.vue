@@ -1,5 +1,8 @@
 <script setup lang="ts">
    import { ref } from 'vue';
+   import { useCart } from '../stores/useCart';
+   const { cleanCart } = useCart();
+
    const numberValue = ref('################')
    const holderName = ref('Nome Completo')
    const monthExpire = ref('mm')
@@ -80,7 +83,7 @@
                   <input type="text" maxlength="4" class="cvv-input" v-model="cvvValue">
                </div>
          </div>
-         <router-link to="/">
+         <router-link to="/" @click="cleanCart">
             <input type="button" href="" value="Finalizar" class="submit-btn">
          </router-link>
       </form>

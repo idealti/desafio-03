@@ -40,6 +40,10 @@ export const useCart = defineStore('cart',() => {
          throw new Error();   
       }
    }
+   const cleanCart = (productId: number) => {
+      cart.value = [];
+      localStorage.setItem('cart', JSON.stringify([]));
+   }
    const updateProductAmount = ({
       productId,
       amount
@@ -82,6 +86,7 @@ export const useCart = defineStore('cart',() => {
       addProduct,
       removeProduct,
       updateProductAmount,
+      cleanCart,
       getCartLength,
       getTotal,
       getFormattedCart,
