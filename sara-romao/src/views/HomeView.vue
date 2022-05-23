@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>home</h1>
+    <h1>home {{$store.state.count}}</h1>
+    <button @click="add">Increment</button>
 
     <main class="listProducts">
       <!--  <Product nome="sara"/> -->
@@ -54,6 +55,10 @@ export default {
       const data = await res.json();
       this.listProducts = data;
     },
+
+    add(){
+      this.$store.commit('increment')
+    }
     
   },
 
