@@ -2,7 +2,7 @@
 
 
 <h1 align="center">
-    <a>🔗 TechShop</a>
+    <a href="https://monalisa-menezes.vercel.app/">🔗 TechShop</a>
 </h1>
 <p align="center">E-commerce que consome a API <a href="https://fakestoreapi.com/">Fake Store API</a> e renderiza os produtos na tela. Nesta é possível filtrar por categoria, nome do produto, adicionar e remover os produtos do carrinho, bem como clicar no nome do produto e acessar uma página com a descrição.</p>
 
