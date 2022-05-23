@@ -16,7 +16,7 @@
       <span>Quantity: {{ cartList.length }}</span>
       <span>Total: $ {{ total.toFixed(2) }}</span>
       <router-link id="cart__link" to="/"> Checkout </router-link>
-      <h4>Remove all</h4>
+      <h4 @click="remove">Remove all</h4>
     </div>
   </div>
 </template>
@@ -40,6 +40,11 @@ export default {
       return this.$store.state.cart.isProduct;
     },
   },
+  methods: {
+    remove(){
+      this.$store.commit('removeAll')
+    }
+  }
 };
 </script>
 

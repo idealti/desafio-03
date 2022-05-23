@@ -4,25 +4,26 @@
       <img :src="list.image" :alt="list.name" />
     </div>
     <button>{{ list.category }}</button>
-    <h3 class="cut-text">{{ list.title }}</h3>
+    <h3 class="cut-text">{{ list.title.split(" ").slice(0, 4).join(' ') }}</h3>
+    <span>⭐ {{ list.rating.rate }}</span>
     <h4>$ {{ list.price.toFixed(2) }}</h4>
     <h5 @click="addToCart">Buy now</h5>
   </div>
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex';
+import { mapActions, mapMutations } from "vuex";
 export default {
   props: ["list"],
-  computed:{
-    ...mapActions(['addItem', 'verifyProduct']),
+  computed: {
+    ...mapActions(["addItem", "verifyProduct"]),
   },
   methods: {
     addToCart() {
-      this.$store.commit('verifyProduct')
-      this.$store.commit('addItem',this.list)
-    }
-  }
+      this.$store.commit("verifyProduct");
+      this.$store.commit("addItem", this.list);
+    },
+  },
 };
 </script>
 
@@ -36,6 +37,7 @@ export default {
   width: 270px;
   height: 328px;
   margin-top: 20px;
+  margin-right: 8px;
   border: 2px solid #f5f5f5;
   transition: 500ms;
   overflow: auto;

@@ -2,10 +2,9 @@
   <div class="item">
     <img :src="item.image" alt="" />
     <div class="container__item">
-      <h4 class="cut-text">{{ item.title }}</h4>
+      <h4 class="cut-text">{{  item.title.split(" ").slice(0, 4).join(' ') }}</h4>
       <h6>$ {{ item.price }}</h6>
-      <span></span>
-      <span id="item__remove">Remove item</span>
+      <span id="item__remove" @click="remove">Remove item</span>
     </div>
   </div>
 </template>
@@ -13,6 +12,11 @@
 <script>
 export default {
   props: ["item"],
+  methods: {
+    remove() {
+      this.$store.commit("remove", this.item);
+    },
+  },
 };
 </script>
 
@@ -24,6 +28,7 @@ export default {
   background: #ffffff;
   margin-bottom: 2px;
   margin-top: 2px;
+  align-items: center;
 }
 
 .item img {
@@ -39,7 +44,6 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-
 }
 
 .container__item h4 {
@@ -75,6 +79,5 @@ export default {
 }
 
 .cut-text {
-  
 }
 </style>
