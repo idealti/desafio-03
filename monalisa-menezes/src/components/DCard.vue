@@ -3,8 +3,13 @@
     <div class="card__image">
       <img :src="list.image" :alt="list.name" />
     </div>
-    <button @click="filteredProducts">{{ list.category }}</button>
-    <h3 class="cut-text">{{ list.title.split(" ").slice(0, 4).join(' ') }}</h3>
+    <d-button @click="filteredProducts">{{ list.category }}</d-button>
+    <router-link
+      :to="{ name: 'Product', params: { id: list.id } }"
+      id="title"
+      class="cut-text"
+      >{{ list.title.split(" ").slice(0, 4).join(" ") }}</router-link
+    >
     <span>⭐ {{ list.rating.rate }}</span>
     <h4>$ {{ list.price.toFixed(2) }}</h4>
     <h5 @click="addToCart">Buy now</h5>
@@ -13,7 +18,9 @@
 
 <script>
 import { mapActions, mapMutations } from "vuex";
+import DButton from "./DButton.vue";
 export default {
+  components: { DButton },
   props: ["list"],
   computed: {
     ...mapActions(["addItem", "verifyProduct"]),
@@ -24,9 +31,8 @@ export default {
       this.$store.commit("addItem", this.list);
     },
     filteredProducts() {
-      console.log('clicou')
-      this.$store.commit('setFilteredProducts', this.list.category)
-    }
+      this.$store.commit("setFilteredProducts", this.list.category);
+    },
   },
 };
 </script>
@@ -66,37 +72,24 @@ export default {
   height: 130px;
 }
 
-.card button {
-  width: 120px;
-  height: 30px;
-  background: #2e245e;
-  border: 2px solid #2e245e;
-  color: #f5f5f5;
-  margin-bottom: 12px;
-  align-self: flex-start;
-  margin-left: 20px;
-  transition: 500ms;
-  cursor: pointer;
-}
-
-.card button:hover {
-  background-color: #7364bb;
-  transition: 500ms;
-}
-
-.card h3 {
+#title {
   font-weight: 700;
   font-size: 14px;
   color: #292929;
   margin: 0;
   margin-bottom: 12px;
   text-align: center;
+  text-decoration: none;
+  transition: 500ms;
+}
+#title:hover {
+  color: #7364bb;
+  transition: 500ms;
 }
 
 .card span {
   font-weight: 400;
   font-size: 12px;
-  line-height: 24px;
   margin: 0;
   margin-bottom: 12px;
   padding: 4px;

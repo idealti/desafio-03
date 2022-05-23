@@ -2,7 +2,9 @@
   <div class="item">
     <img :src="item.image" alt="" />
     <div class="container__item">
-      <h4 class="cut-text">{{  item.title.split(" ").slice(0, 4).join(' ') }}</h4>
+      <h4 class="cut-text">
+        {{ item.title.split(" ").slice(0, 4).join(" ") }}
+      </h4>
       <h6>$ {{ item.price }}</h6>
       <span id="item__remove" @click="remove">Remove item</span>
     </div>

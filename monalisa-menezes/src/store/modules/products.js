@@ -11,11 +11,22 @@ export default {
       state.products = payload
     },
     setFilteredProducts (state, payload) {
-      console.log(payload)
       state.filteredProducts = state.products.filter(
-        product => product.category === payload 
+        product => product.category.toLowerCase() === payload.toLowerCase()
       )
       state.isFilter = true
+    },
+    searchFilter (state, payload) {
+      if (payload.length > 0) {
+        state.filteredProducts = state.products.filter(
+          product =>
+            product.category.toLowerCase().includes(payload.toLowerCase()) ||
+            product.title.toLowerCase().includes(payload.toLowerCase())
+        )
+        state.isFilter = true
+      } else {
+        state.isFilter = false
+      }
     },
     setIsFilter (state, payload) {
       state.isFilter = payload
@@ -33,6 +44,9 @@ export default {
     },
     setIsFilter ({ commit }, payload) {
       commit('setIsFilter', payload)
+    },
+    searchFilter ({ commit }, payload) {
+      commit('searchFilter', payload)
     }
   }
 }

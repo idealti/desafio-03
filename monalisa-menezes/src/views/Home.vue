@@ -1,6 +1,11 @@
 <template>
   <div class="home__container">
-    <d-header />
+    <div class="container__cart" id="input">
+      <div class="container--input">
+        <input type="text" v-model="search" @keydown.enter="filterProducts" />
+        <button @click="filterProducts">Search</button>
+      </div>
+    </div>
 
     <div class="container">
       <section v-if="isFilter" class="section__card">
@@ -16,8 +21,8 @@
       </section>
 
       <div class="container__cart">
-        <div class="container--input">
-          <input type="text" v-model="search" />
+        <div class="container--input" id="input__cart">
+          <input type="text" v-model="search" @keydown.enter="filterProducts" />
           <button @click="filterProducts">Search</button>
         </div>
 
@@ -37,10 +42,10 @@ export default {
     DCard,
     DCart,
   },
-  data(){
-    return{
-      search: ''
-    }
+  data() {
+    return {
+      search: "",
+    };
   },
   computed: {
     products() {
@@ -55,14 +60,18 @@ export default {
   },
   methods: {
     filterProducts() {
-    
-      return this.$store.commit('setFilteredProducts', this.search)
-    }
-  }
+      return this.$store.commit("searchFilter", this.search);
+    },
+  },
 };
 </script>
 
 <style scoped>
+.home__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .section__card {
   max-width: 900px;
   display: flex;
@@ -74,7 +83,7 @@ export default {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  align-self: flex-start;
+  flex-wrap: wrap;
 }
 
 .container--input {
@@ -84,7 +93,7 @@ export default {
   align-self: flex-end;
 }
 
-.container input {
+.container--input input {
   box-sizing: border-box;
   width: 200px;
   height: 50px;
@@ -94,7 +103,7 @@ export default {
   margin-right: 8px;
 }
 
-.container button {
+.container--input button {
   width: 76px;
   height: 50px;
   background: #37268c;
@@ -114,5 +123,29 @@ export default {
   display: flex;
   flex-direction: column;
   align-self: initial;
+  margin-bottom: 12px;
+}
+
+#input__cart {
+  display: flex;
+}
+
+#input {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .section__card {
+    justify-content: center;
+  }
+
+  #input {
+    display: flex;
+    margin-bottom: 18px;
+  }
+
+  #input__cart {
+    display: none;
+  }
 }
 </style>

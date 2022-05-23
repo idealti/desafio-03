@@ -41,10 +41,10 @@ export default {
     },
   },
   methods: {
-    remove(){
-      this.$store.commit('removeAll')
-    }
-  }
+    remove() {
+      this.$store.commit("removeAll");
+    },
+  },
 };
 </script>
 
