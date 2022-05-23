@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const Logo = styled.div`
-	height: fit-content;
 	width: fit-content;
-	/* flex: 1; */
+	height: fit-content;
+	margin-left: 8%;
 	font-size: 3rem;
-	background-color: aquamarine;
+	font-weight: lighter;
 `;
 
 export default Logo;

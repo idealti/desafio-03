@@ -2,8 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 const Base = createGlobalStyle`
     body {
-		/* font-family: ; */
-      background-color: gray;
+		font-size: 62.5%;
+		font-family: 'Quicksand', sans-serif;
+		background-color: #fff;
     }
 `;
 
