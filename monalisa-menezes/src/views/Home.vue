@@ -49,7 +49,13 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.state.products.products;
+      return this.$store.state.products.products.sort((a, b) =>
+        a.rating.rate > b.rating.rate
+          ? -1
+          : a.rating.rate < b.rating.rate
+          ? 1
+          : 0
+      );
     },
     isFilter() {
       return this.$store.state.products.isFilter;
