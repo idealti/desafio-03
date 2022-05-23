@@ -87,9 +87,12 @@ function handleRemoveProduct(productId: number) {
          </tbody>
       </table>
       <footer>
-         <router-link to="/checkout" class="finishOrder">
+         <router-link v-if="getTotal > 0" to="/checkout" class="finishOrder">
             Finalizar Pedido
          </router-link>
+         <a v-else href="#" disabled class="finishOrder">
+            Finalizar Pedido
+         </a>
          <div>
             <span>TOTAL</span>
             <strong>{{formatPrice(getTotal)}}</strong>
