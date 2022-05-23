@@ -97,29 +97,29 @@ const cvvValue = ref('xxx')
     padding-top: 9rem;
     background: #fff;
     border-radius: 4px;
-    min-height: 100vh;
+    min-height: 95vh;
     background: #eee;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: column;
-    padding-bottom: 60px;
+    padding-bottom: 3.75rem;
 
    form {
       background: #fff;
       border-radius: 5px;
       box-shadow: 0 10px 15px rgba(0,0,0,.1);
-      padding: 20px;
-      width: 600px;
-      padding-top: 160px;
+      padding: 1.25rem;
+      width: 37.5rem;
+      padding-top: 10rem;
 
       .inputBox{
-         margin-top: 20px;
+         margin-top: 1.25rem;
 
          span{
             display: block;
             color:#999;
-            padding-bottom: 5px;
+            padding-bottom: 0.32rem;
          }
 
          input, select{
@@ -133,24 +133,24 @@ const cvvValue = ref('xxx')
 
       .flexbox{
          display: flex;
-         gap:15px;
+         gap: 1rem;
 
          .inputBox{
-            flex:1 1 150px;
+            flex:1 1 9.4rem;
          }
       }
 
       .submit-btn{
          width: 100%;
          background:linear-gradient(45deg, #121414, #3b3e3e);
-         margin-top: 20px;
-         padding: 10px;
-         font-size: 20px;
+         margin-top: 1.25rem;
+         padding: 1.6rem;
+         font-size: 1.25rem;
          color:#fff;
          border-radius: 10px;
-         border:none;
+         border: none;
          cursor: pointer;
-         transition: .2s linear;
+         transition: 200ms linear;
 
          &:hover{
             opacity: .8;
@@ -159,10 +159,10 @@ const cvvValue = ref('xxx')
    }
 }
 .cardContainer{
-    margin-bottom: -150px;
+    margin-bottom: -9.4rem;
     position: relative;
-    height: 250px;
-    width: 400px;
+    height: 15rem;
+    width: 25rem;
 }
 
 .front{
@@ -174,24 +174,22 @@ const cvvValue = ref('xxx')
     border-radius: 5px;
     backface-visibility: hidden;
     box-shadow: 0 15px 25px rgba(0,0,0,.2);
-    padding:20px;
-    transform:perspective(1000px) rotateY(0deg);
-    transition:transform .4s ease-out;
+    padding: 1.25rem;
 
     .image{
       display: flex;
       align-items:center;
       justify-content: space-between;
-      padding-top: 10px;
+      padding-top: 0.6rem;
 
       img{
-         height: 50px;
+         height: 3.25rem;
       }
    }
 
    .cardNumberBox{
-      padding:30px 0;
-      font-size: 22px;
+      padding: 2rem 0;
+      font-size: 1.3rem;
       color:#fff;
    }
 
@@ -199,13 +197,24 @@ const cvvValue = ref('xxx')
       display: flex;
 
       .box{
-         font-size: 15px;
+         font-size: 1rem;
          color:#fff;
       }
 
       .box:nth-child(1){
          margin-right: auto;
       }
+   }
+}
+
+@media (max-width: 500px){
+   .container form {
+      width: 30rem;
+   }
+}
+@media (max-width: 358px){
+   .container form {
+      width: 25rem;
    }
 }
 </style>
