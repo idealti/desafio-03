@@ -3,18 +3,22 @@
     <d-header />
 
     <div class="container">
-      <section class="section__card">
+      <section v-if="isFilter" class="section__card">
         <d-card
-          v-for="product in products"
+          v-for="product in filteredProducts"
           :key="product.id"
           :list="product"
         />
       </section>
 
+      <section v-else class="section__card">
+        <d-card v-for="product in products" :key="product.id" :list="product" />
+      </section>
+
       <div class="container__cart">
         <div class="container--input">
-          <input type="text" />
-          <button>Search</button>
+          <input type="text" v-model="search" />
+          <button @click="filterProducts">Search</button>
         </div>
 
         <d-cart />
@@ -27,23 +31,34 @@
 import DHeader from "../components/DHeader.vue";
 import DCard from "../components/DCard.vue";
 import DCart from "../components/DCart.vue";
-import { http } from "../services/config";
 export default {
   components: {
     DHeader,
     DCard,
     DCart,
   },
-  data() {
-    return {
-      productList: "",
-    };
+  data(){
+    return{
+      search: ''
+    }
   },
   computed: {
     products() {
       return this.$store.state.products.products;
     },
+    isFilter() {
+      return this.$store.state.products.isFilter;
+    },
+    filteredProducts() {
+      return this.$store.state.products.filteredProducts;
+    },
   },
+  methods: {
+    filterProducts() {
+    
+      return this.$store.commit('setFilteredProducts', this.search)
+    }
+  }
 };
 </script>
 
@@ -52,7 +67,6 @@ export default {
   max-width: 900px;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
   margin-bottom: 12px;
 }
 

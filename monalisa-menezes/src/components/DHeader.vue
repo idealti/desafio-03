@@ -2,17 +2,26 @@
   <section class="header">
     <h1 class="header__tittle">TechShop</h1>
     <nav class="header__nav">
-      <span id="nav__category">All</span>
-      <span>Men's Clothing</span>
-      <span>Women's Clothing</span>
-      <span>Electronics</span>
-      <span>Jewelery</span>
+      <span id="nav__category" @click="listAll">All</span>
+      <span @click="listCategory(`men's clothing`)" >Men's Clothing</span>
+      <span @click="listCategory(`women's clothing`)">Women's Clothing</span>
+      <span @click="listCategory('electronics')" >Electronics</span>
+      <span @click="listCategory('jewelery')">Jewelery</span>
     </nav>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    listAll(){
+      this.$store.commit('setIsFilter', false)
+    },
+    listCategory(category){
+      this.$store.commit('setFilteredProducts', category)
+    }
+  }
+};
 </script>
 
 <style scoped>

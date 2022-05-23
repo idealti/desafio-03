@@ -3,7 +3,7 @@
     <div class="card__image">
       <img :src="list.image" :alt="list.name" />
     </div>
-    <button>{{ list.category }}</button>
+    <button @click="filteredProducts">{{ list.category }}</button>
     <h3 class="cut-text">{{ list.title.split(" ").slice(0, 4).join(' ') }}</h3>
     <span>⭐ {{ list.rating.rate }}</span>
     <h4>$ {{ list.price.toFixed(2) }}</h4>
@@ -23,6 +23,10 @@ export default {
       this.$store.commit("verifyProduct");
       this.$store.commit("addItem", this.list);
     },
+    filteredProducts() {
+      console.log('clicou')
+      this.$store.commit('setFilteredProducts', this.list.category)
+    }
   },
 };
 </script>
