@@ -1,4 +1,3 @@
-
 <template>
   <header>
     <nav>
@@ -39,8 +38,12 @@ header {
   font-size: 2rem;
   background-color: #212529;
   color: #f97f51;
-  height: 10rem;
   padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  height: 15vh;
 }
 nav ul {
   display: flex;
