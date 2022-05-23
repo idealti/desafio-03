@@ -16,7 +16,7 @@
 
 ### ✅ Demonstração da aplicação
 
-Vercel:[https://monalisa-menezes.vercel.app/](https://monalisa-menezes.vercel.app/))
+Vercel:[https://monalisa-menezes.vercel.app/](https://monalisa-menezes.vercel.app/)
 
 #### 🏠 Página Home
 ![Captura de tela de 2022-05-23 17-17-55](https://user-images.githubusercontent.com/85262397/169901477-d22d9ac9-1d91-4d4e-a585-f16f8573c22e.png)
