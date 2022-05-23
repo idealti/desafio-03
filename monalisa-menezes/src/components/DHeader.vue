@@ -1,6 +1,10 @@
 <template>
   <section class="header">
-    <h1 class="header__tittle">TechShop</h1>
+    <div class="header__container">
+      <img src="../static/buy.png" alt="" />
+      <h1 class="header__tittle">TechShop</h1>
+    </div>
+
     <nav class="header__nav">
       <span id="nav__category" @click="listAll">All</span>
       <span @click="listCategory(`men's clothing`)">Men's Clothing</span>
@@ -35,6 +39,18 @@ export default {
   font-family: "Inter";
   box-shadow: 0px 4px 30px -10px rgba(0, 0, 0, 0.25);
 }
+
+.header__container{
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  margin-right: 12px;
+}
+
 .header__tittle {
   font-weight: 700;
   font-size: 30px;

@@ -111,7 +111,7 @@ export default {
 .cart__value {
   width: 284px;
   height: 136px;
-  background: #292929;
+  background:  #37268c;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -119,7 +119,7 @@ export default {
 }
 
 .cart__value span {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   color: #ffffff;
   margin-left: 8px;
@@ -130,12 +130,12 @@ export default {
   align-self: center;
   margin-top: 12px;
   text-decoration: none;
-  color: #7364bb;
+  color: #ffffff;
   transition: 500ms;
 }
 
 #cart__link:hover {
-  color: #ffffff;
+  text-decoration: underline;
   transition: 500ms;
 }
 
@@ -149,7 +149,6 @@ export default {
 }
 
 .cart__value h4:hover {
-  color: #7364bb;
   transition: 500ms;
   text-decoration: underline;
 }
