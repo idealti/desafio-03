@@ -2,7 +2,7 @@
   <header>
     <nav>
     <router-link class="logo" to="/"><img src="/assets/logo.svg" alt="logo style Store"/></router-link> 
-    <router-link class="cartIcon" to="/carrinho"><img src="/assets/cart.svg"  alt="Carrinho" /> <p class="inCart" v-if="cart"></p></router-link>
+    <router-link class="cartIcon" to="/carrinho"><img src="/assets/cart.svg"  alt="Carrinho" /> <!-- <p class="inCart" v-if="cart"></p> --></router-link>
   </nav>
   </header>
   
@@ -14,7 +14,7 @@ export default {
 
   data(){
     return{
-      
+     
        
     }
   }
