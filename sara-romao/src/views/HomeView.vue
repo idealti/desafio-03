@@ -3,8 +3,7 @@
     <h1>home</h1>
 
     <main class="listProducts">
-
-    <!--  <Product nome="sara"/> -->
+      <!--  <Product nome="sara"/> -->
 
       <div class="filters">
         <ul>
@@ -14,14 +13,13 @@
           <li>Women's clothing</li>
         </ul>
       </div>
-      
+
       <div class="productsContainer" v-if="listProducts !== null">
         <div v-for="product in listProducts" :key="product.id">
-         
-          <Product 
-            :id="product.id" 
+          <Product
+            :id="product.id"
             :title="product.title"
-            :image="product.image" 
+            :image="product.image"
             :price="product.price"
           />
         </div>
@@ -39,14 +37,14 @@ import Product from "../components/Product.vue";
 
 export default {
   name: "HomeView",
-  components:{
+  components: {
     Product,
   },
 
   data() {
     return {
       listProducts: null,
-      id: 1
+      id: 1,
     };
   },
 
@@ -55,8 +53,8 @@ export default {
       const res = await fetch(`https://fakestoreapi.com/products`);
       const data = await res.json();
       this.listProducts = data;
-      
     },
+    
   },
 
   mounted() {
@@ -66,16 +64,17 @@ export default {
 </script>
 
 <style scoped>
-main{
+main {
   max-width: 1200px;
   margin: 0 auto;
   border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 
-  .productsContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px 20px;
-
-  }
+.productsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px 20px;
+}
 </style>
