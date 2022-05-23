@@ -59,7 +59,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Vue.js](https://vuejs.org/guide/introduction.html)
 - [Axios](https://axios-http.com/ptbr/docs/intro)
 - [Vue-router](https://router.vuejs.org/installation.html)
-- [Vuex]([https://www.coingecko.com/en/api/documentation](https://vuex.vuejs.org/ptbr/))
+- [Vuex](https://www.coingecko.com/en/api/documentation](https://vuex.vuejs.org/ptbr/)
 
 
 ### ✅ Autor
