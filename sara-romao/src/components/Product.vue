@@ -1,8 +1,10 @@
 <template>
   <div class="productCart">
-    <img :src="image" :alt="title" class="productImg" />
-    <p class="productTitle">{{ title }}</p>
-    <h3>${{ price }}</h3>
+    <router-link to="/">
+      <img :src="image" :alt="title" class="productImg" />
+      <p class="productTitle">{{ title }}</p>
+      <h3>${{ price }}</h3>
+    </router-link>
     <button>
       <div class="infoCart">
         <img src="/assets/cart-btn.svg" />
@@ -26,20 +28,30 @@ export default {
 
 <style scoped>
 .productCart {
-  max-width: 200px;
+  max-width: 250px;
   border-radius: 10px;
   padding: 20px 10px;
   text-align: center;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.productCart a {
+  text-decoration: none;
+  color: rgb(49, 49, 49);
+
+  transition: 0.3s;
+}
+
+.productCart a:hover {
+  color: rgb(0, 0, 0);
 }
 
 .productImg {
   width: 100%;
-  height: 150px;
+  height: 250px;
   background: #fff;
-  border-radius: 10px;
-
+  border: 1px solid rgb(240, 240, 240);
   object-fit: contain;
+  padding: 10px 5px;
 }
 
 .productTitle {
@@ -47,6 +59,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 0px 5px;
 }
 .productCart button {
   width: 100%;
@@ -63,12 +76,16 @@ export default {
 }
 
 .productCart button:hover {
-  background: #68e69c;
+  background: #5cee99;
 }
 
 .infoCart {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.productCart h3 {
+  margin: 5px 0px 10px;
 }
 </style>
