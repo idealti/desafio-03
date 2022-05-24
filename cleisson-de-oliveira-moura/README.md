@@ -1,8 +1,7 @@
-## Vue3 ( SFC + CompositionAPI + script-setup )
-## TypeScript + Vite + Pinia + vue-router + Vitest + Vue Testing Library + Docker
+## Vue3 ( SFC + CompositionAPI + script-setup ) - TypeScript + Vite + Pinia + vue-router + Vitest + Vue Testing Library + Docker
 - Aprendi bastante com esse desafio!
 
-## Detalhes
+## 📝 Detalhes
 - Para criar um e-commerce com a melhor performance, eu utilizaria Nuxt, mas neste desafio utilizei Vue.js demostrando as funcionalidades de um e-commerce assim como foi requerido
 - Projeto iniciado com Vite.js, com template vue-typescript
 - Busquei implementar uma melhor estrutura na aplicação, seguindo boas práticas, com objetivo de melhorar a legibilidade do código e sua manutenção
@@ -16,23 +15,29 @@
 - Docker para conteinerização da aplicação
 - Testes unitários e componentes com Vitest(similar ao Jest) e Vue Testing Library
 
-## Instruções
-- **Instale as dependencias**
+## ⚙️ Instruções
+
+- **Rode a aplicação em um Docker Container** <br>
+   `docker run -it -p 3000:3000 cleissonom/desafio03-vueapp:1.0.0`
+
+#### OU
+
+- **Instale as dependencias** <br>
   `yarn` ou `npm install`
 
-- **Rode o Projeto em ambiente de desenvolvimento**
+- **Rode o Projeto em ambiente de desenvolvimento** <br>
   `yarn dev` ou `npm run dev`
 
-- **Crie o Build do projeto**
+- **Crie o Build do projeto** <br>
   `yarn buil` ou `npm run build`
 
-- **Visualize o preview do projeto**
+- **Visualize o preview do projeto** <br>
   `yarn preview` ou `npm run preview`
 
-## IDE Setup
+## 🧰 IDE Setup
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
-## Images Preview
+## 📷 Images Preview
 
 - ### HomePage
 <img src="./.github/home.png" width="50%">
