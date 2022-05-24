@@ -1,0 +1,302 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body, html {
+    position: absolute;    
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+a{
+    text-decoration: none;
+}
+#app{
+    height:100vh
+}
+.width-full{
+    width:100%;
+}
+.row{
+    display: flex;
+    padding: 5px;
+}
+.img-item-list{
+    width: 7vw;
+    border-radius:5px;
+}
+.limit-text {
+    text-overflow: ellipsis;
+    white-space: break-spaces;
+    max-width: 800px;
+    overflow: hidden;
+}
+.container {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2.6em;
+    box-sizing: content-box;
+}
+@media (min-width: 640px){
+    .container {
+        width: 90%;
+        max-width: 80em;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 2.6em;
+        box-sizing: content-box;
+    }
+}
+@media (min-width: 990px){
+    .container {
+        width: 70%;
+        max-width: 80em;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 2.6em;
+        box-sizing: content-box;
+    }
+}
+input{
+    padding:10px;
+    font-weight: bold;
+    color:#444;
+    
+}
+input:focus-visible{
+    outline: -webkit-focus-ring-color auto 0;
+}
+.bold{
+    font-weight: bold;
+}
+.spacer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {   
+    background-color: #297cac;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius:3px;
+}
+.button-success {
+    background-color: #4CAF50;
+}
+.button-danger {
+    background-color: #d63a3a;
+}
+.button-text{
+    color:grey;
+    background: none;
+}
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+hr{
+    height: 1px;
+    background: #ddd;
+    display: block;
+    border-style: none;
+    border-width: 0;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+}
+.legend{
+    font-size: 14px;
+    color: grey;
+}
+.muted{
+    color: grey;
+}
+.m-1{
+    margin: 10px;
+}
+.m-2{
+    margin: 20px;
+}
+.m-3{
+    margin: 30px;
+}
+.p-1{
+    padding: 10px;
+}
+.p-2{
+    padding: 20px;
+}
+.p-3{
+    padding: 30px;
+}
+.txt-1{
+    font-size: 10px;
+}
+.txt-2{
+    font-size: 12px;
+}
+.txt-3{
+    font-size: 14px;
+}
+.txt-4{
+    font-size: 16px;
+}
+.pointer{
+    cursor: pointer;
+}
+.text-danger{
+    color: #d63a3a;
+}
+.text-success {
+    color: #4CAF50;
+}
+.align-self-center{
+    align-self:center !important;
+}
+.no-border{
+    border-width: 0;
+}
+.filter-selected{
+    background: #ddd;
+    padding: 3px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ccc;
+    display: flex;
+}
+.filter-selected>.checked{
+    color: #3498db;
+}
+#search-field{
+    display: flex;
+}
+.sidebar-filter{
+    display: block;
+}
+@media (max-width: 600px){
+    .spacer {
+        display: block;
+    }
+    .spacer.inc-dec {
+        display: flex;
+    }
+    .sidebar-filter{
+        display: flex;
+        justify-content: center;
+    }
+    .sidebar-filter > div{
+        text-align: -webkit-center;
+    }
+    .sidebar-filter > div > input{
+        display:block;
+    }
+    #search-field{
+        display: none;
+    }
+    
+}
+.brand{
+    font-size: 28px;
+}
+.sidebar{
+    min-width: 166px;
+}
+footer>div{
+    padding: 30px;
+    background-color: #3498DB;
+    color:white;
+}
+/* footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} */
+
+
+
+/* BOTÃO FLOAT */
+@keyframes come-in {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.floating-container {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    bottom: 0;
+    right: 0;
+    margin: 20px 20px;
+    -webkit-animation: come-in 0.5s forwards 0.2s;
+    animation: come-in 0.5s forwards infinite;
+    
+}
+/* Adicionar o valor total no botão float, o content vai no component - style inline */
+div.floating-legend:before {
+    content: var(--total-price);
+    color: white;
+    top: -20px;
+    right: -5px;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    display: flex;
+    /* Não quebrar o valor e ficar sobreposto no botão */
+    white-space: nowrap;
+    background: #cc3e4a;
+    height: 9px;
+    padding: 3px;
+    line-height: 10px;
+    border-radius: 4px;
+}
+  .floating-container:hover {
+    height: 300px;
+  }
+  .floating-container:hover .floating-button {
+    box-shadow: 0 10px 25px rgba(179, 43, 43, 0.6);
+    -webkit-transform: translatey(-2px);
+    transform: translatey(-2px);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .floating-container .floating-button {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: #ee2a2a;
+    bottom: 0;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+    line-height: 45px;
+    text-align: center;
+    font-size: 23px;
+    z-index: 100;
+    box-shadow: 0 10px 25px -5px #ddd;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
