@@ -6,10 +6,10 @@
           <a>{{ nome }}</a>
         </li>
         <li>
-          <a class="nav-link" href="#">Produtos</a>
+          <a class="nav-link" href="#">produtos</a>
         </li>
         <li>
-          <a class="nav-link" href="/contact">Contato</a>
+          <a class="nav-link" href="/contact">contato</a>
         </li>
       </ul>
     </nav>
@@ -21,7 +21,7 @@ export default {
   name: "HeaderComponent",
   data() {
     return {
-      nome: "HOME",
+      nome: "home",
     };
   },
 };
@@ -36,7 +36,6 @@ body {
 header {
   width: 100%;
   font-size: 2rem;
-  background-color: #212529;
   color: #f97f51;
   padding: 2rem;
   display: flex;

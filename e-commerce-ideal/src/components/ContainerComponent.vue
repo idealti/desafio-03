@@ -1,35 +1,24 @@
 <template>
-  <div class="container">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+  <div>
+    <div class="container-text">blablabla</div>
     <Card />
   </div>
 </template>
 
 <script>
 import Card from "./CardComponent.vue";
+
 export default {
   name: "ContainerComponent",
   components: {
     Card,
   },
-  data() {
-    return {
-      nome: "teste",
-    };
-  },
 };
 </script>
 
 <style>
-.container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.container-text {
   width: 100%;
-  min-height: 100vh;
-  background-color: #ecb39e;
+  background-color: #f97f51;
 }
 </style>
