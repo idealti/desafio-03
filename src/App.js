@@ -7,7 +7,10 @@ import FooterDiv from "./components/Footer/Footer-div.js";
 import FooterHeadingTitle from "./components/Footer/footer-heading-title.js";
 import FooterHeadings from "./components/Footer/footer-headings.js";
 import FooterNav from "./components/Footer/footer-nav.js";
-import FooterScrollPage from "./components/Footer/footer-paginacao.js";
+import FooterPageDirection from "./components/Footer/footer-page-direction.js";
+import FooterPagination from "./components/Footer/footer-pagination.js";
+import FooterScrollPage from "./components/Footer/footer-scroll-page.js";
+import FooterScroll from "./components/Footer/footer-scroll.js";
 import FooterSection from "./components/Footer/footer-section.js";
 import FooterSubheading from "./components/Footer/footer-subheading.js";
 import Footer from "./components/Footer/footer.js";
@@ -46,7 +49,13 @@ function App() {
 							</FooterHeadings>
 							<FooterDiv />
 						</FooterDiv>
-						<FooterDiv>footer div</FooterDiv>
+						<FooterDiv>
+							<FooterPagination>
+								<FooterScroll>scroll</FooterScroll>
+								<FooterPageDirection>xxx / xxx</FooterPageDirection>
+							</FooterPagination>
+							<Button>mais produtos</Button>
+						</FooterDiv>
 					</FooterAside>
 				</FooterSection>
 				<FooterSection>
