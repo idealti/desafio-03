@@ -22,7 +22,7 @@ export default defineComponent({
 
 .header {
   width: 100vw;
-  background-image: linear-gradient(to right, #c0c0c0, #bbb6b6);
+  background-image: linear-gradient(to right, #969292, #ccc9c9);
   height: 90px;
   display: flex;
   align-items: center;
