@@ -40,10 +40,4 @@ export default {
 	grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
 	margin: 0 auto;
 }
-@media screen and (max-width: 535px) {
-	.products-list {
-		margin: 5px
-	}
-}
-
 </style>
