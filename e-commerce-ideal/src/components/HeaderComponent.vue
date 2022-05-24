@@ -3,13 +3,10 @@
     <nav>
       <ul>
         <li class="nav-link">
-          <a>{{ nome }}</a>
+          <a>Petit Fashion </a>
         </li>
         <li>
-          <a class="nav-link" href="#">produtos</a>
-        </li>
-        <li>
-          <a class="nav-link" href="/contact">contato</a>
+          <a class="nav-link">Carrinho</a>
         </li>
       </ul>
     </nav>
@@ -28,22 +25,24 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
 
-body {
-  font-family: "Abel", sans-serif;
-}
 header {
   width: 100%;
   font-size: 2rem;
-  color: #f97f51;
+  background-color: #e7eaef;
+  z-index: 1;
   padding: 2rem;
+  font-weight: 900;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
   height: 15vh;
+  position: fixed;
+  font-style: italic;
 }
+
 nav ul {
   display: flex;
   justify-content: space-between;
@@ -53,9 +52,9 @@ nav ul {
 .nav-link {
   display: inline-flex;
   text-decoration: none;
-  color: #f97f51;
 }
 .nav-link:hover {
-  background-color: #6faae6;
+  background-color: #f97f51;
+  color: black;
 }
 </style>

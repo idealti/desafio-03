@@ -1,7 +1,6 @@
-
 <template>
   <div>
-    <Header />
+    <Header :cart="cart"/>
     <Container />
     <Footer />
   </div>
@@ -22,5 +21,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

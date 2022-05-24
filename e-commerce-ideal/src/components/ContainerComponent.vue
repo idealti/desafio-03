@@ -17,8 +17,12 @@ export default {
 </script>
 
 <style>
+body {
+  font-family: "Bodoni Moda", serif;
+}
 .container-text {
   width: 100%;
-  background-color: #f97f51;
+  height: 20rem;
+  background-color: #e7eaef;
 }
 </style>
