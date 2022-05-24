@@ -1,23 +1,8 @@
 <template>
-	<h1>Eletrônicos</h1>
-	<TheLoader v-if="isLoading"/>
-	<ProductsList v-else :products="products"/>
+	<ProductsPageTemplate :urlPath="urlPath" v-if="urlPath"/>
 </template>
 
 <script setup>
-import ProductsList from '../../components/ProductsList.vue';
-import TheLoader from '../../components/TheLoader.vue';
-import fetchProducts from '../../utils/fetchProducts';
-import {ref, onMounted} from 'vue';
-
-const products = ref([]);
-const isLoading = ref(true);
-onMounted(() => {
-	fetchProducts('https://fakestoreapi.com/products/category/electronics')
-		.then(res => {
-			products.value = res;
-			isLoading.value = false;
-		})
-		.then(err => console.error(err.error))
-})
+import ProductsPageTemplate from '../../components/ProductsPageTemplate.vue';
+defineProps({urlPath: String})
 </script>
