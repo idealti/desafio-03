@@ -7,7 +7,6 @@ const FooterDiv = styled.div`
 	&:nth-child(2) {
 		flex: 1;
 		display: flex;
-		background-color: tomato;
 	}
 `;
 
