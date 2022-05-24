@@ -1,5 +1,5 @@
 <template>
-	<SearchInput v-model="searchText"/>
+	<SearchInput v-model="searchText" v-show="!isLoading"/>
 	<TheLoader v-if="isLoading"/>
 	<ProductsList v-else :products="filteredProducts"/>
 </template>

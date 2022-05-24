@@ -1,5 +1,11 @@
 <script setup>
 import TheNavbar from './components/TheNavbar.vue';
+import {useRouter} from 'vue-router';
+const router = useRouter();
+const DEFAULT_TITLE = 'Loja';
+router.beforeEach((to) => {
+  document.title = to.meta.title || DEFAULT_TITLE;
+});
 </script>
 
 <template>

@@ -8,12 +8,12 @@ import MensClothing from '../views/Categories/MensClothing.vue'
 import WomensClothing from '../views/Categories/WomensClothing.vue'
 
 const routes = [
-	{path:'/', name:'Home', component: Home, props: {urlPath: 'products'}},
+	{path:'/', name:'Home', component: Home, props: {urlPath: 'products'}, meta: {title: 'Início'}},
 
-	{path:'/categories/electronics', name:"Electronics", component: Electronics, props: {urlPath: 'products/category/electronics'}},
-	{path:'/categories/jewelery', name:"Jewelery", component: Jewelery, props: {urlPath: 'products/category/jewelery'}},
-	{path:"/categories/men's clothing", name:"Men's clothing", component: MensClothing, props: {urlPath: "products/category/men's clothing"}},
-	{path:"/categories/women's clothing", name:"Women's clothing", component: WomensClothing, props: {urlPath: "products/category/women's clothing"}},
+	{path:'/categories/electronics', name:"Electronics", component: Electronics, props: {urlPath: 'products/category/electronics'}, meta: {title: 'Eletrônicos'}},
+	{path:'/categories/jewelery', name:"Jewelery", component: Jewelery, props: {urlPath: 'products/category/jewelery'}, meta: {title: 'Joalheria'}},
+	{path:"/categories/men's clothing", name:"Men's clothing", component: MensClothing, props: {urlPath: "products/category/men's clothing"}, meta: {title: 'Moda masculina'}},
+	{path:"/categories/women's clothing", name:"Women's clothing", component: WomensClothing, props: {urlPath: "products/category/women's clothing"}, meta: {title: 'Moda feminina'}},
 
 	{path:'/:pathMatch(.*)*', name:'NotFound', component: NotFound}
 ];
