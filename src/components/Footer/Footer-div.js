@@ -5,7 +5,7 @@ const FooterDiv = styled.div`
 	display: flex;
 
 	&:nth-child(1) {
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #bfbfbf;
 	}
 
 	&:nth-child(2) {
