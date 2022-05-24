@@ -43,9 +43,6 @@
 
 <style>
 	.product-item {
-		min-width: 220px;
-		max-width: 250px;
-		height: 410px;
 		overflow: hidden;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 		border-radius: 5px;
@@ -61,8 +58,9 @@
 		align-items: center;
 	}
 	.product-image {
-		width: 70%;
-		max-height: 240px;
+		height: 100%;
+		width: 100%;
+		object-fit: contain;
 	}
 	.product-title {
 		grid-area: title;
@@ -92,6 +90,8 @@
 		padding: 5px;
 		justify-content: center;
 		align-items: center;
+		max-width: 300px;
+		margin: 0 auto;
 	}
 	.add-to-cart-btn {
 		background-color: var(--main-blue);

@@ -14,7 +14,7 @@
 					</router-link>
 				</li>
 				<li class="navbar-item">
-					<router-link to="/categories/jewelry" class="nav-link">
+					<router-link to="/categories/jewelery" class="nav-link">
 						Joalheria
 					</router-link>
 				</li>
@@ -40,7 +40,7 @@
 					</router-link>
 				</li>
 				<li class="mobile-navbar-item">
-					<router-link to="/categories/jewelry" class="nav-link" @click="toggleShowMobileNav">
+					<router-link to="/categories/jewelery" class="nav-link" @click="toggleShowMobileNav">
 						Joalheria
 					</router-link>
 				</li>

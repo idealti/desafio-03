@@ -1,5 +1,5 @@
 <template>
-	<h1>Moda Masculina</h1>
+	<h1>Joalheria</h1>
 	<TheLoader v-if="isLoading"/>
 	<ProductsList v-else :products="products"/>
 </template>
@@ -13,7 +13,7 @@ import {ref, onMounted} from 'vue';
 const products = ref([]);
 const isLoading = ref(true);
 onMounted(() => {
-	fetchProducts("https://fakestoreapi.com/products/category/men's clothing")
+	fetchProducts('https://fakestoreapi.com/products/category/jewelery')
 		.then(res => {
 			products.value = res;
 			isLoading.value = false;

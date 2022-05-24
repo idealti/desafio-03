@@ -15,30 +15,32 @@
 </template>
 
 <script>
-import ProductItem from './ProductItem.vue'
+import ProductItem from './ProductItem.vue';
 export default {
 	props: {
 		products: Array
 	},
 	components: {
-		ProductItem
+		ProductItem,
 	}
 }
 </script>
 
 <style>
+.products-list-container {
+	margin: 25px 0px 50px 0px;
+	padding: 25px;
+}
+.product-title {
+	padding: 0px 5px;
+}
 .products-list {
-	display: flex;
-	gap: 20px;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+	display: grid;
+	gap: 25px;
+	grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+	margin: 0 auto;
 }
 @media screen and (max-width: 535px) {
-	.product-item {
-		min-width: 220px;
-		max-width: 350px;
-	}
 	.products-list {
 		margin: 5px
 	}
