@@ -1,36 +1,35 @@
-# Desafio 3 - Vaga de Pessoa Desenvolvedora Frontend Jr
+# vue-project
 
-Olá para esse desafio estamos buscando alguém que consiga combinar habilidades para:
+This template should help get you started developing with Vue 3 in Vite.
 
-- Elaborar wireframes propondo iterações mais objetivas e consistentes entre cliente e sistema;
-- Converter wireframes em componentes e páginas que serão reutilizados pela equipe;
-- Transcrever iterações em funcionalidades junto com o time.
-- Colaborar com a experiência do usuário propondo melhorias no uso do sistema.
+## Recommended IDE Setup
 
-### Desafio
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
 
-Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu estilista Alexs Dubois ambos querendo construir um e-commerce. Eles já possuem todas as informações cadastradas de seus produtos e estão disponibilizando para você em uma [API](https://fakestoreapi.com/). 
+## Customize configuration
 
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-#### Casos de uso
+## Project Setup
 
-1) Exibir listagem de produtos disponibilizando opções de ordenação e filtros por categoria ( 1 ou mais ), se possível disponibilizar filtro por rate (nota do produto).
-   
-2) Disponibilize a opção de selecionar o produto para o carrinho de compra.
+```sh
+npm install
+```
 
-3) Exibir detalhes do carrinho de compra. Mostre o valor total dos produtos, descrição, thumbnail, valor unitário e quantidade.
+### Compile and Hot-Reload for Development
 
-#### Requisitos 
+```sh
+npm run dev
+```
 
-- Nesse desafio você não poderá usar um framework css;
-- O projeto deve ser entregue com Vue.js;
+### Compile and Minify for Production
 
+```sh
+npm run build
+```
 
-#### Como enviar
+### Lint with [ESLint](https://eslint.org/)
 
-- Crie um fork do projeto;
-- Crie um diretório com seu-nome incluindo o seu nome no formato lowercase usando hífen (-) quando necessário;
-- Crie os arquivos que achar necessário;
-- Envie o PULL-REQUEST;
-- Esperamos que você se divirta e aprenda algo fazendo esse desafio. Se não conseguir algum detalhe, pode nos mandar mesmo assim, que avaliaremos com todo o prazer (e talvez possamos-lhe auxiliar no que faltou).
-- Esse repositório ficará disponível para receber o seu PR até `2022-05-31T23:59:59-03:00`.
+```sh
+npm run lint
+```
