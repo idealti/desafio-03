@@ -1,9 +1,9 @@
 <template>
   <div class="item" @click="addToCart">
-      <div class="container">
-        <p class="item--rate">{{ item.rating.rate }}</p>
-      <img class="item--img" :src="item.image" alt="">
-      </div>
+          <div class="container" >
+            <p class="item--rate">{{ item.rating.rate }}</p>
+          <img class="item--img" :src="item.image" alt="">
+          </div>
       <div class="content">
           <h2 class="item--title">{{item.title}}</h2>
           <p class="item--description"> {{ item.description }}</p>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'ProductsList',
     filters:{
@@ -27,7 +28,7 @@ export default {
         addToCart() {
             this.$store.dispatch('addToCart', this.item)
         }
-    }
+    },
 }
 </script>
 

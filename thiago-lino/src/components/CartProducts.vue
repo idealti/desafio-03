@@ -3,10 +3,14 @@
       <router-link to="/" class="cart--go-back" v-if="isPhone()">← Voltar</router-link>
       <h2 class="cart--title">Seu Pedido &#11088; </h2>
       <p v-if="hasItem">Seu carrinho ainda está vazio</p>
-      <CartItem v-for="item in cardList" :key="item.id" :item="item"/>
+      <transition-group name="list">
+          <CartItem v-for="item in cardList" :key="item.id" :item="item"/>
+      </transition-group>
       <div class="cart--total" v-if="!hasItem">
           <span>Total:</span>
           <span class="price">{{ getCardTotal | currency }}</span>
+
+          <div v-html="circleIcon"></div>
       </div>
         
         <!-- <button class="cart--button" v-if="!hasItem">Finalizar Compra</button> -->
@@ -17,6 +21,7 @@
 import CartItem from './CartItem.vue'
 import { mapGetters } from 'vuex';
 import Mixin from '@/mixins/mixins'
+import feather from 'feather-icons'
 
 export default {
     name: "CartProducts",
@@ -38,6 +43,9 @@ export default {
         },
         hasItem(){
             return !this.cardList.length;
+        },
+        circleIcon(){
+            return feather.icons.circle.toSvg()
         }
     },
 }
@@ -84,6 +92,13 @@ export default {
         border: 0;
         cursor: pointer;
         margin: 50px;
+    }
+    .list-enter-active, .list-leave-active{
+        transition: all 1s;
+    }
+    .list-enter, .list-leave-to{
+        opacity: 0;
+        transform: translateX(-30px);
     }
     @media  @tablets{
         width: 100%;
