@@ -12,7 +12,9 @@
 - Criei rotas home, cart e checkout, com header e filtros estáticos, utilizando vue-router
 - Formatei todos os preços para padrão R$
 - Adicionei filtros para todas as categorias fornecidas pela API e ordenação por preço e avaliação 
-- Pinia para gerenciamente e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
+- Pinia para gerenciamento e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
+- Docker para conteinerização da aplicação
+- Testes unitários e componentes com Vitest(similar ao Jest) e Vue Testing Library
 
 ## Instruções
 - **Instale as dependencias**
@@ -29,3 +31,14 @@
 
 ## IDE Setup
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+
+## Images Preview
+
+- ### HomePage
+<img src="./.github/home.png" width="50%">
+
+- ### CartPage
+<img src="./.github/cart.png" width="50%">
+
+- ### CheckoutPage
+<img src="./.github/checkout.png" width="50%">

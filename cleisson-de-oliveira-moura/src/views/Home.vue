@@ -5,6 +5,7 @@
    import { Product } from '../utilities/types';
    import { useCart } from '../stores/useCart';
    import cartIcon from '../assets/shopping-cart.svg';
+   import starIcon from '../assets/star.svg';
    import { storeToRefs } from 'pinia';
    import ProductsFilterVue from '../components/ProductsFilter.vue';
  
@@ -81,7 +82,7 @@
          <section>
             <h4>{{ product.title }}</h4>
             <div>
-               <h6>{{product.rating.count}} avaliações de {{product.rating.rate}}/5</h6>
+               <h6>{{product.rating.rate}}/5 <img :src="starIcon" alt="Estrela"> - {{product.rating.count}}</h6>
                <h5>{{ formatPrice(product.price) }}</h5>
             </div>
          </section>
@@ -189,6 +190,11 @@
                font-size: 0.8rem;
                font-weight: 400;
                color: gray;
+
+               img {
+                  display: inline-block;
+                  vertical-align: top;
+               }
             }
 
             h5 {
@@ -196,6 +202,10 @@
                font-weight: 600;
                margin-bottom: 0.75rem;
                text-align: right;
+
+               display: flex;
+               align-items: center;
+
             }
          }
       }
