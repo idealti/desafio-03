@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import CheckoutModal from '../components/modals/CheckoutModal.vue';
 import { useCart } from '../stores/useCart';
+
 const { cleanCart } = useCart();
+const modalIsOpen = ref(false)
 
 const numberValue = ref('################')
 const holderName = ref('Full Name')
 const monthExpire = ref('mm')
 const yearExpire = ref('yy')
 const cvvValue = ref('xxx')
+
+function handleFinishOrder () {
+   cleanCart()
+   modalIsOpen.value = true
+}
 </script>
 
 <template>
@@ -83,9 +91,10 @@ const cvvValue = ref('xxx')
                <input type="text" maxlength="4" class="cvv-input" v-model="cvvValue" @click="cvvValue = ''">
             </div>
       </div>
-      <router-link to="/" @click="cleanCart">
-         <input type="button" href="" value="Finish Order" class="submit-btn">
-      </router-link>
+      <button type="button" class="submit-btn" @click="handleFinishOrder">Finish Order</button>
+      <Teleport to="#modal">
+         <CheckoutModal v-if="modalIsOpen" @close="modalIsOpen = false" />
+      </Teleport>
    </form>
 </div>    
 </template>

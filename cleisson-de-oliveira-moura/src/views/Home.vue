@@ -8,7 +8,10 @@
    import starIcon from '../assets/star.svg';
    import { storeToRefs } from 'pinia';
    import ProductsFilterVue from '../components/ProductsFilter.vue';
+   import ItemModal from '../components/modals/ItemModal.vue';
    import Loading from '../components/Loading.vue';
+
+   const modalIsOpen = ref(false)
  
    // Using useCart hook
    const { addProduct } = useCart()
@@ -63,6 +66,7 @@
    // Adding product on cart
    const handleAddProduct = (product: Product) => {
       addProduct(product)
+      modalIsOpen.value = true
    }
 </script>
 
@@ -93,6 +97,9 @@
             </div>
             <span>ADD TO CART</span>
          </button>
+         <Teleport to="#modal">
+            <ItemModal v-if="modalIsOpen" @close="modalIsOpen = false" :key="product.id" />
+         </Teleport>
       </div>
    </div>
 </template>

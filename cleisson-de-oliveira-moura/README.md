@@ -10,7 +10,7 @@
 - Otimizei ao máximo para a aplicação fazer a menor quantidade de requisições à API possível, porém, sempre em mente a não dependência da API fornecida, criando estrutura que pode facilmente se adaptar à outras APIs
 - Utilizei o pré-processsador SCSS
 - Usei axios para controlar chamadas API
-- Criei rotas home, cart e checkout, com header e filtros estáticos, utilizando vue-router
+- Criei rotas home, product, cart e checkout, com header e filtros estáticos, utilizando vue-router
 - Formatei todos os preços para padrão R$
 - Adicionei filtros para todas as categorias fornecidas pela API e ordenação por preço e avaliação 
 - Pinia para gerenciamento e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
@@ -43,6 +43,9 @@
 
 - ### HomePage
 <img src="./.github/home.png" width="50%">
+
+- ### ProductPage
+<img src="./.github/product.png" width="50%">
 
 - ### CartPage
 <img src="./.github/cart.png" width="50%">

@@ -40,7 +40,7 @@ export const useCart = defineStore('cart',() => {
          throw new Error();   
       }
    }
-   const cleanCart = (productId: number) => {
+   const cleanCart = () => {
       cart.value = [];
       localStorage.setItem('cart', JSON.stringify([]));
    }

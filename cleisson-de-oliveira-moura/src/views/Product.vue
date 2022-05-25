@@ -6,11 +6,14 @@ import { useCart } from '../stores/useCart';
 import { storeToRefs } from 'pinia';
 import { Product } from '../utilities/types';
 import Loading from '../components/Loading.vue';
+import ItemModal from '../components/modals/ItemModal.vue';
 import { formatPrice } from '../utilities/format';
 import cartIcon from '../assets/shopping-cart.svg';
 
 const { addProduct } = useCart()
 const { getCartItemsAmount } = storeToRefs(useCart())
+
+const modalIsOpen = ref(false)
 
 const route = useRoute()
 const product = ref({} as Product)
@@ -28,6 +31,7 @@ onMounted(() => {
 
 function handleAddProduct (product: Product) {
    addProduct(product)
+   modalIsOpen.value = true
 }
 </script>
 
@@ -55,6 +59,9 @@ function handleAddProduct (product: Product) {
                   </div>
                   <span>ADD TO CART</span>
                </button>
+               <Teleport to="#modal">
+                  <ItemModal v-if="modalIsOpen" @close="modalIsOpen = false" />
+               </Teleport>
             </div>
          </div>
       </div>
@@ -71,8 +78,6 @@ function handleAddProduct (product: Product) {
    margin: 0 auto;
    max-width: 1020px;
    padding: 2rem 2rem 5rem;
-   border-bottom-left-radius: 0.5rem;
-   border-bottom-right-radius: 0.5rem;
 
    background-color: #fff;
    box-shadow: 0 0 30px 10px rgba(0,0,0, 0.5);
@@ -90,7 +95,8 @@ function handleAddProduct (product: Product) {
          justify-content: center;
 
          img {
-            max-width: 300px;
+            max-width: 400px;
+            max-height: 400px;
             margin: 0 auto 2rem;
          }
       }
