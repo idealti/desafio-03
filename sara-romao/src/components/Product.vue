@@ -1,28 +1,59 @@
 <template>
   <div class="productCart">
     <router-link to="/">
-      <img :src="image" :alt="title" class="productImg" />
-      <p class="productTitle">{{ title }}</p>
-      <h3>${{ price }}</h3>
+      <img :src="product.image" :alt="product.title" class="productImg" />
+      <p class="productTitle">{{ product.title }}</p>
+      <h3>${{ product.price }}</h3>
     </router-link>
-    <button>
+    <button @click="addCart(product.id, product.title, product.price)">
       <div class="infoCart">
         <img src="/assets/cart-btn.svg" />
         <p>0</p>
       </div>
       Add
     </button>
+
+   
+     
   </div>
 </template>
 
 <script>
 export default {
   name: "Product",
-  props: ["id", "title", "price", "image"],
+  props: ["product"],
 
   data() {
     return {};
   },
+
+  methods:{
+    addCart(id, title, price){
+       const product ={
+        id:id,
+        title:title,
+        price:price,
+      }
+     
+    
+     
+      this.$store.commit('addInCart', product)
+      console.log("carrinho", this.$store.state.cart)
+    },
+
+    add(id, title, price){
+      const product ={
+        id:id,
+        title:title,
+        price:price,
+      }
+      this.$store.commit('increment')
+      this.$store.commit('addInCart', product)
+      console.log("carrinho", this.$store.state.cart)
+    }
+  }
+
+ 
 };
 </script>
 

@@ -3,6 +3,15 @@
     <h1>home {{$store.state.count}}</h1>
     <button @click="add">Increment</button>
 
+    <h2>carrinho {{carrinho.length}}</h2>
+
+   
+     <ul>
+      
+       <li v-for="(item, index) in carrinho" :key="index">{{item.title}}</li>
+     </ul>
+     
+
     <main class="listProducts">
       <!--  <Product nome="sara"/> -->
 
@@ -17,12 +26,7 @@
 
       <div class="productsContainer" v-if="listProducts !== null">
         <div v-for="product in listProducts" :key="product.id">
-          <Product
-            :id="product.id"
-            :title="product.title"
-            :image="product.image"
-            :price="product.price"
-          />
+          <Product :product="product"/>
         </div>
       </div>
 
@@ -46,6 +50,7 @@ export default {
     return {
       listProducts: null,
       id: 1,
+      carrinho: this.$store.state.cart,
     };
   },
 
@@ -58,6 +63,8 @@ export default {
 
     add(){
       this.$store.commit('increment')
+      
+      console.log("carrinho", this.$store.state.cart)
     }
     
   },
