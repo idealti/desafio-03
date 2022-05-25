@@ -33,6 +33,7 @@ export default defineComponent({
   margin-left: auto;
   margin-right: auto;
   letter-spacing: 4px;
+  align-items: center;
 }
 
 .cart_container {

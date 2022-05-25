@@ -1,15 +1,16 @@
 <template>
   <div class="body">
     <Home
+    v-bind:products='products'
     @emit-categories="fillCategoriesArray"
     />
   </div>
 </template>
 
 <script>
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent } from 'vue'
 import Home from './components/Home.vue'
-import api from './services/api'
+import products from './services/products'
 
 export default defineComponent({
   name: 'App',
@@ -18,8 +19,15 @@ export default defineComponent({
   },
   data() {
     return {
-      categoriesSelected: []
+      products: [],
+      categoriesSelected: ['mens clothing', 'womens clothing', 'jewelery', 'electronics']
     }
+  },
+  mounted() {
+    products.list().then(response => {
+      console.log(response.data)
+      this.products = response.data
+    })
   },
   methods: {
     fillCategoriesArray(category) {
@@ -33,26 +41,22 @@ export default defineComponent({
       else {
         this.categoriesSelected.push(category)
       }
-      console.log(this.categoriesSelected)
+      // console.log(this.categoriesSelected)
     }
   },
-  setup() {
-    let products
-    const fetchProducts = () =>
-      api.get('https://fakestoreapi.com/products').then(response => {
-        products = response.data
-        console.log(products)
-      })
-    onMounted(fetchProducts)
-  }
 })
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-
-body {
+* {
+  padding: 0;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
 }
 </style>
