@@ -4,11 +4,15 @@
     <button @click="add">Increment</button>
 
     <h2>carrinho {{carrinho.length}}</h2>
+   
+   <p>Total: {{$store.getters.total.toFixed(2)}}</p>
+   <p>Qtd: {{$store.getters.qtdCart}}</p>
+    
 
    
      <ul>
       
-       <li v-for="(item, index) in carrinho" :key="index">{{item.title}}</li>
+       <li v-for="(item, index) in carrinho" :key="index">{{item.title}} qtd: {{item.qtd}}</li>
      </ul>
      
 

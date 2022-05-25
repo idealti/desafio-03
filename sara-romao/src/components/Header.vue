@@ -4,7 +4,7 @@
     <router-link class="logo" to="/"><img src="/assets/logo.svg" alt="logo style Store"/></router-link> 
     <router-link class="cartIcon" to="/carrinho">
         <img src="/assets/cart.svg"  alt="Carrinho" /> 
-        <p class="inCart" >{{$store.state.cart.length}}</p>
+        <p class="inCart">{{$store.getters.qtdCart}}</p>
        
     </router-link>
   </nav>
