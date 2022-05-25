@@ -1,5 +1,7 @@
-## Vue3 ( SFC + CompositionAPI + script-setup ) - TypeScript + Vite + Pinia + vue-router + Vitest + Vue Testing Library + Docker
+### Vue3 ( SFC + CompositionAPI + script-setup ) + TypeScript + Vite + Pinia + vue-router + Vitest + Vue Testing Library + Docker
 - Aprendi bastante com esse desafio!
+
+---
 
 ## 📝 Detalhes
 - Para criar um e-commerce com a melhor performance, eu utilizaria Nuxt, mas neste desafio utilizei Vue.js demostrando as funcionalidades de um e-commerce assim como foi requerido
@@ -13,7 +15,7 @@
 - Adicionei filtros para todas as categorias fornecidas pela API e ordenação por preço e avaliação 
 - Pinia para gerenciamento e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
 - Docker para conteinerização da aplicação
-- Testes unitários e componentes com Vitest(similar ao Jest) e Vue Testing Library
+- Testes unitários e componentes com Vitest(similar ao Jest, com mais compatibilidade com Vite) e Vue Testing Library
 
 ## ⚙️ Instruções
 
