@@ -9,7 +9,7 @@
 					{{title}}
 				</router-link>
 				</h2>
-			<h4 class="product-price">R${{Number(price).toLocaleString()}}</h4>
+			<h4 class="product-price">R${{teatedPrice}}</h4>
 			<h4 class="product-rating">
 				<abbr :title="rating.count + ' votos'">
 					<star-rating :read-only="true" :round-start-rating="false" :star-size="15" :rating="rating.rate"/>
@@ -35,17 +35,23 @@
 				count: Number
 			}
 		},
+		computed: {
+			teatedPrice() {
+				return this.price.toLocaleString(undefined, {minimumFractionDigits: 2})
+			}
+		},
 		components: {
 			StarRating
 		},
 	}
 </script>
 
-<style>
+<style scoped>
 	.product-item {
 		overflow: hidden;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 		border-radius: 5px;
+		background-color: #fff;
 	}
 	.product-image-container {
 		width: 100%;
@@ -100,9 +106,10 @@
 		border: 0;
 		color: var(--main-white);
 		width: 100%;
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: bold;
 		text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+		text-transform: uppercase;
 	}
 	.add-to-cart-btn:hover {
 		background-color: var(--dark-blue);

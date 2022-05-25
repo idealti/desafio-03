@@ -6,6 +6,7 @@
 		:value="modelValue" 
 		@input="$emit('update:modelValue', $event.target.value)"
 		placeholder="Digite o que você procura..."
+		autocomplete="off"
 		>	
 	</div>
 </template>
@@ -24,9 +25,10 @@ input {
 	padding: 10px;
 	border-radius: 10px;
 	outline: 0;
-	border: 1px solid var(--main-black);
+	border: 1px solid #3030304f;
 	min-width: 200px;
 	width: 70%;
 	margin: 0 auto;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 </style>
