@@ -95,7 +95,7 @@
             <div>
                {{getCartItemsAmount[product.id] || 0}}
             </div>
-            <span>ADICIONAR AO CARRINHO</span>
+            <span>ADD TO CART</span>
          </button>
       </div>
    </div>

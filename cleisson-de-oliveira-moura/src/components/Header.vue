@@ -14,11 +14,11 @@ const { getCartLength } = storeToRefs(useCart())
       </router-link>
       <router-link to="/cart" class="cartButton">
          <div>
-            <strong>Carrinho</strong>
+            <strong>Cart</strong>
             <span v-if="getCartLength === 1">{{getCartLength}} Item</span>
             <span v-else>{{getCartLength}} Itens</span>
          </div>
-         <img :src="cartIcon" alt="Carrinho de compras">
+         <img :src="cartIcon" alt="Shopping Cart">
       </router-link>
    </header>
 </template>

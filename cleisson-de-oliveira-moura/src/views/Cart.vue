@@ -28,13 +28,13 @@ function handleRemoveProduct(productId: number) {
 <template>
    <div class="container">
       <router-link class="backToHome" to="/">
-         Voltar
+         Back
       </router-link>
       <table>
          <thead>
             <tr>
                <th aria-label="product image" />
-               <th>PRODUTO</th>
+               <th>PRODUCT</th>
                <th>QTD</th>
                <th>SUBTOTAL</th>
                <th aria-label="delete icon" />
@@ -88,10 +88,10 @@ function handleRemoveProduct(productId: number) {
       </table>
       <footer>
          <router-link v-if="getTotal > 0" to="/checkout" class="finishOrder">
-            Finalizar Pedido
+            Finish Order
          </router-link>
          <a v-else href="#" disabled class="finishOrder">
-            Finalizar Pedido
+            Finish Order
          </a>
          <div>
             <span>TOTAL</span>

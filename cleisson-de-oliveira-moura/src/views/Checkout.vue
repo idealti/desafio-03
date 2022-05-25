@@ -4,9 +4,9 @@ import { useCart } from '../stores/useCart';
 const { cleanCart } = useCart();
 
 const numberValue = ref('################')
-const holderName = ref('Nome Completo')
+const holderName = ref('Full Name')
 const monthExpire = ref('mm')
-const yearExpire = ref('aa')
+const yearExpire = ref('yy')
 const cvvValue = ref('xxx')
 </script>
 
@@ -21,11 +21,11 @@ const cvvValue = ref('xxx')
             <div class="cardNumberBox">{{numberValue}}</div>
             <div class="flexbox">
                <div class="box">
-                  <span>Titular</span>
+                  <span>Holder Name</span>
                   <div class="card-holder-name">{{holderName}}</div>
                </div>
                <div class="box">
-                  <span>Validade</span>
+                  <span>Valid thru</span>
                   <div class="expiration">
                         <span class="exp-month">{{monthExpire}}/</span>
                         <span class="exp-year">{{yearExpire}}</span>
@@ -36,16 +36,16 @@ const cvvValue = ref('xxx')
    </div>
    <form>
       <div class="inputBox">
-            <span>Número do cartão</span>
+            <span>Card Number</span>
             <input type="text" maxlength="16" class="card-number-input" v-model="numberValue" @click="numberValue = ''">
       </div>
       <div class="inputBox">
-            <span>Nome do titular</span>
+            <span>Holder Name</span>
             <input type="text" class="card-holder-input" v-model="holderName" @click="holderName = ''">
       </div>
       <div class="flexbox">
             <div class="inputBox">
-               <span>Mês de validade</span>
+               <span>Expire Month</span>
                <select name="" id="" class="month-input" v-model="monthExpire">
                   <option value="month" selected disabled>month</option>
                   <option value="01">01</option>
@@ -63,7 +63,7 @@ const cvvValue = ref('xxx')
                </select>
             </div>
             <div class="inputBox">
-               <span>Ano de validade</span>
+               <span>Expire Year</span>
                <select name="" id="" class="year-input" v-model="yearExpire">
                   <option value="year" selected disabled>year</option>
                   <option value="2021">2021</option>
@@ -84,7 +84,7 @@ const cvvValue = ref('xxx')
             </div>
       </div>
       <router-link to="/" @click="cleanCart">
-         <input type="button" href="" value="Finalizar" class="submit-btn">
+         <input type="button" href="" value="Finish Order" class="submit-btn">
       </router-link>
    </form>
 </div>    

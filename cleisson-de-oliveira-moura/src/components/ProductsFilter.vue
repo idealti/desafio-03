@@ -30,21 +30,21 @@
    <div>
       <div class="container">
          <section class="categorySelector">
-            <label for="categories">Selecione uma categoria: </label>
+            <label for="categories">Select a category: </label>
             <select name="categories" id="categories" v-model="categorySelected" @change="handleCategory">
-               <option value="all" selected>Todas</option>
+               <option value="all" selected>All</option>
                <option v-for="category in categoriesAvailable" :value="category">
                   {{ category }}
                </option>
             </select>
          </section>
          <section class="sorterInput">
-            <label for="sorter">Ordene por: </label>
+            <label for="sorter">Sort by: </label>
             <select name="sorter" id="sorter" v-model="sorterSelected" @change="handleSort">
-               <option value="descPrice">Maior preço</option>
-               <option value="ascPrice">Menor preço</option>
-               <option value="descRating">Maior avaliação</option>
-               <option value="ascRating">Menor avaliação</option>
+               <option value="descPrice">Highest price</option>
+               <option value="ascPrice">Lowest Price</option>
+               <option value="descRating">Highest rating</option>
+               <option value="ascRating">Lowest rating</option>
             </select>
          </section>
       </div>
