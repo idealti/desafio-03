@@ -5,6 +5,7 @@ const Base = createGlobalStyle`
 		font-family: 'Quicksand', sans-serif;
 		background-color: #fff;
 		font-weight: lighter;
+		color: #404040;
     }
 `;
 
