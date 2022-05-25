@@ -2,8 +2,8 @@
   <header>
     <nav>
       <ul>
-        <li class="nav-link">
-          <a>Petit Fashion </a>
+        <li>
+          <a class="nav-link" href="/">Petit Fashion </a>
         </li>
       </ul>
     </nav>
@@ -22,36 +22,38 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 header {
   width: 100%;
-  font-size: 2rem;
   background-color: #e7eaef;
   z-index: 1;
   padding: 2rem;
-  font-weight: 900;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
   height: 15vh;
   position: fixed;
-  font-style: italic;
 }
 
 nav ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-self: center;
   padding: 3%;
 }
 .nav-link {
   display: inline-flex;
   text-decoration: none;
+  font-family: "Poiret One", cursive;
+  font-weight: 900;
+  font-size: 120px;
+  letter-spacing: 5px;
+  line-height: 50px;
+  color: #333333;
 }
 .nav-link:hover {
-  background-color: #f97f51;
   color: black;
 }
 </style>

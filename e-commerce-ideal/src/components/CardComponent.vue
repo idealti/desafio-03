@@ -1,9 +1,23 @@
 <template>
   <div>
-    <h3 class="cart">
-      cart:
-      <span>{{ cart }}</span>
-    </h3>
+    <div class="cart">
+      <h3 class="cart">cart: {{ cart.length }}</h3>
+      <div class="cart-item">
+        <div v-for="item in cart" :key="item.id">
+          <img
+            class="cart__image"
+            :alt="item.image"
+            :title="item.title"
+            :src="item.image"
+          />
+          <div class="cart__info">
+            <p class="cart__info-title">{{ item.title }}</p>
+            <div class="cart__price-rate"></div>
+          </div>
+          <button @click.prevent="removeCart(item)">REMOVER CARRINHO</button>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="products" v-for="(product, index) in products" :key="index">
         <img
@@ -19,13 +33,10 @@
               {{ product.rating.rate }}
             </p>
             <p>$ {{ product.price }}</p>
-            <button @click.prevent="removeCart(product)">
-              REMOVER CARRINHO
-            </button>
-            <button v-on:click.prevent="addCart(product)">
-              ADICIONAR AO CARRINHO
-            </button>
           </div>
+          <button class="button-cart" v-on:click.prevent="addCart(product)">
+            ADICIONAR AO CARRINHO
+          </button>
         </div>
       </div>
     </div>
@@ -36,7 +47,6 @@
 import api from "@/services/api";
 export default {
   name: "CardComponent",
-  components: {},
   data() {
     return {
       products: [],
@@ -55,9 +65,11 @@ export default {
       console.log(this.cart, "cart");
     },
     removeCart(product) {
-      this.cart = this.cart.filter(
-        (product_value, index) => product != product_value
-      );
+      let index = this.cart.indexOf(product);
+      if (index === -1) {
+        return index;
+      }
+      this.cart.splice(index, 1);
     },
   },
 };
@@ -77,6 +89,8 @@ export default {
   flex-wrap: wrap;
 }
 .products {
+  background-color: #ffffff;
+
   margin: 10% auto;
   width: 70%;
   position: relative;
@@ -95,11 +109,9 @@ export default {
   height: 15rem;
 }
 
-.product__info {
-  text-align: center;
-}
 .product__info p {
   margin-top: 1%;
+  text-align: center;
 }
 .product__info-title {
   margin: 5% 10%;
@@ -111,6 +123,13 @@ export default {
   padding: 5% 10%;
   font-family: "Tenor Sans";
 }
+.button-cart {
+  background-color: #f97f51;
+  border: none;
+  width: 80%;
+  height: 3rem;
+  margin: 2% 10%;
+}
 .cart {
   z-index: 100;
   position: fixed;
@@ -119,5 +138,20 @@ export default {
   font-size: 2rem;
   font-style: italic;
   font-weight: 900;
+}
+.cart__box {
+  background-color: #f97f51;
+}
+.cart-item {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+}
+.cart__image {
+  width: 20%;
+  height: 2rem;
+  object-fit: contain;
 }
 </style>

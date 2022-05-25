@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="container-text">blablabla</div>
+    <div class="container-text">
+      <img class="container-image" src="~@/assets/4.png" />
+    </div>
     <Card />
   </div>
 </template>
@@ -22,7 +24,16 @@ body {
 }
 .container-text {
   width: 100%;
-  height: 20rem;
+  height: 30rem;
   background-color: #e7eaef;
+  background: linear-gradient(
+    180deg,
+    rgb(231, 234, 239) 80%,
+    rgb(255, 255, 255) 100%
+  );
+}
+.container-text img {
+  width: 100%;
+  height: 500px;
 }
 </style>
