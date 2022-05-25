@@ -1,8 +1,10 @@
 import React from "react";
 
-import HeaderBase from "../../styles/Header/header-base.js";
-import HeaderMenu from "../../styles/Header/header-menu.js";
-import Logo from "../../styles/Header/logo.js";
+import {
+	Logo,
+	HeaderBase,
+	HeaderMenu,
+} from "../../styles/header/styles-header.js";
 import Button from "../Button/button.js";
 
 export default function Header() {
