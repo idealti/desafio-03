@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h3>Carrinho: ({{ cart }})</h3>
-
+    <h3 class="cart">
+      cart:
+      <span>{{ cart }}</span>
+    </h3>
     <div class="container">
       <div class="products" v-for="(product, index) in products" :key="index">
         <img
@@ -17,18 +19,10 @@
               {{ product.rating.rate }}
             </p>
             <p>$ {{ product.price }}</p>
-            <button
-              @click.prevent="
-                removeCart(product)
-              "
-            >
+            <button @click.prevent="removeCart(product)">
               REMOVER CARRINHO
             </button>
-            <button
-              v-on:click.prevent="
-                addCart(product)
-              "
-            >
+            <button v-on:click.prevent="addCart(product)">
               ADICIONAR AO CARRINHO
             </button>
           </div>
@@ -71,6 +65,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
 
 .container {
   display: grid;
@@ -115,5 +110,14 @@ export default {
   justify-content: space-between;
   padding: 5% 10%;
   font-family: "Tenor Sans";
+}
+.cart {
+  z-index: 100;
+  position: fixed;
+  top: 6%;
+  right: 3%;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 900;
 }
 </style>

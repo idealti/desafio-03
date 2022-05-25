@@ -5,9 +5,6 @@
         <li class="nav-link">
           <a>Petit Fashion </a>
         </li>
-        <li>
-          <a class="nav-link">Carrinho</a>
-        </li>
       </ul>
     </nav>
   </header>
