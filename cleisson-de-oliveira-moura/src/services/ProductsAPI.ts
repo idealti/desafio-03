@@ -18,6 +18,14 @@ export default {
          })
       }
    },
+   getProduct(productId: string | string[]) {
+      return api.get(`/products/${productId}`, {
+         headers: {
+            'content-type' : 'application/json',
+            'accept':'application/json'
+         }
+      })
+   },
    getCategories(){
       return api.get('/products/categories')
    }
