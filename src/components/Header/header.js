@@ -1,10 +1,18 @@
-import styled from "styled-components";
+import React from "react";
 
-const Header = styled.header`
-	flex: 1;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-`;
+import HeaderBase from "../../styles/Header/header-base.js";
+import HeaderMenu from "../../styles/Header/header-menu.js";
+import Logo from "../../styles/Header/logo.js";
+import Button from "../Button/button.js";
 
-export default Header;
+export default function Header() {
+	return (
+		<HeaderBase>
+			<Logo>LADA</Logo>
+			<HeaderMenu>
+				<Button>oi, sou a Lada</Button>
+				<Button>instagram</Button>
+			</HeaderMenu>
+		</HeaderBase>
+	);
+}
