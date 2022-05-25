@@ -20,7 +20,7 @@
 ## ⚙️ Instruções
 
 - **Rode a aplicação em um Docker Container** <br>
-   `docker run -it -p 3000:3000 cleissonom/desafio03-vueapp:1.0.0`
+   `docker run -it -p 3000:3000 cleissonom/desafio03-vueapp:1.1.0`
 
 #### OU
 
