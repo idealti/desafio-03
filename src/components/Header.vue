@@ -31,19 +31,16 @@
 .headerPage {
     background-image: linear-gradient(rgb(255, 28, 28), rgb(219, 89, 89));
     width: 100%;
-    border: 1px solid black;
     display: flex;
     justify-content: space-between;
   }
 
   .homeButton {
-    border: 1px solid red;
     color: white;
   }
 
   .navbar {
     width: 40%;
-    border: 1px solid black;
   }
 
   .headerList {
@@ -55,13 +52,12 @@
     list-style: none;
     padding: 1rem 5rem;
     font-size: 16px;
-    border: 1px solid black;
     color: white;
   }
 
   .headerList li:hover {
     background: rgb(255, 47, 47);
     cursor: pointer;
-    transition: all 0.2;
+    transition: all 0.5s;
   }
 </style>
