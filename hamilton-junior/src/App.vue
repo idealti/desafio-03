@@ -1,10 +1,14 @@
 <template>
-  <p>teste</p>
+  <ProductsListVue />
 </template>
 
 <script>
+import ProductsListVue from "./components/ProductsList.vue";
 export default {
   name: "App",
+  components: {
+    ProductsListVue,
+  },
 };
 </script>
 
@@ -26,5 +30,10 @@ a {
 }
 ul {
   list-style: none;
+}
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>
