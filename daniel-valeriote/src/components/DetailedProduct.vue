@@ -12,7 +12,7 @@
 					({{product.rating.count}})
 				</h4>
 			</div>
-			<button class="add-to-cart-btn">Adicionar ao carrinho</button>
+			<button class="add-to-cart-btn" @click="cart.addProduct(product)">Adicionar ao carrinho <CartIcon :style="{marginLeft: '10px'}" :size="14"/></button>
 			<div class="product-desc-container">
 				<h3>DESCRIÇÃO DO PRODUTO</h3>
 				<p class="product-desc">{{product.description}}</p>
@@ -23,6 +23,9 @@
 <script setup>
 	import {computed} from 'vue';
 	import StarRating from 'vue-star-rating';
+	import CartIcon from 'vue-material-design-icons/Cart.vue';
+	import { useCartStore } from '../store/cart';
+	const cart = useCartStore();
 
 	const treadedPrice = computed(() => {
 		return props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2})
@@ -96,6 +99,7 @@
 	border-radius: 5px;
 	cursor: pointer;
 	text-transform: uppercase;
+	font-size: 14px;
 }
 .add-to-cart-btn:hover {
 	background-color: var(--dark-blue);

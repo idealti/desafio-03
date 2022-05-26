@@ -29,44 +29,62 @@
 					</router-link>
 				</li>
 			</ul>
+			<router-link to="/cart" class="navbar-custom-btn">
+				<button class="navbar-custom-btn" :style="{position: 'absolute', right: '20px', top: '22px'}">
+					<CartIcon fillColor="#fff" class="navbar">
+					</CartIcon>
+				</button>
+			</router-link>
 		</nav>
 		<!-- Mobile navbar -->
 		<nav v-if="isMobile" class="mobile-navbar">
+			<router-link to="/cart" class="navbar-custom-btn">
+				<button class="navbar-custom-btn">
+					<CartIcon fillColor="#fff" class="navbar">
+						</CartIcon>
+				</button>
+			</router-link>
+			<!-- Fixes problem caused by menu taking space at flex -->
+			<div></div> 
 			<router-link to="/" class="nav-link">Início</router-link>
-			<ul class="mobile-navbar-list" :class="[showMobileNav ? 'showNavbar' : 'hideNavbar']">
-				<li class="mobile-navbar-item">
-					<router-link to="/categories/electronics" class="nav-link" @click="toggleShowMobileNav">
-						Eletrônicos
-					</router-link>
-				</li>
-				<li class="mobile-navbar-item">
-					<router-link to="/categories/jewelery" class="nav-link" @click="toggleShowMobileNav">
-						Joalheria
-					</router-link>
-				</li>
-				<li class="mobile-navbar-item">
-					<router-link to="/categories/men's clothing" class="nav-link" @click="toggleShowMobileNav">
-						Moda masculina
-					</router-link>
-				</li>
-				<li class="mobile-navbar-item">
-					<router-link to="/categories/women's clothing" class="nav-link" @click="toggleShowMobileNav">
-						Moda feminina
-					</router-link>
-				</li>
-			</ul>
+			<div class="menu">
+				<ul class="mobile-navbar-list" :class="[showMobileNav ? 'showNavbar' : 'hideNavbar']">
+					<li class="mobile-navbar-item">
+						<router-link to="/categories/electronics" class="nav-link" @click="toggleShowMobileNav">
+							Eletrônicos
+						</router-link>
+					</li>
+					<li class="mobile-navbar-item">
+						<router-link to="/categories/jewelery" class="nav-link" @click="toggleShowMobileNav">
+							Joalheria
+						</router-link>
+					</li>
+					<li class="mobile-navbar-item">
+						<router-link to="/categories/men's clothing" class="nav-link" @click="toggleShowMobileNav">
+							Moda masculina
+						</router-link>
+					</li>
+					<li class="mobile-navbar-item">
+						<router-link to="/categories/women's clothing" class="nav-link" @click="toggleShowMobileNav">
+							Moda feminina
+						</router-link>
+					</li>
+				</ul>
+				<div class="menu-backdrop" v-show="showMobileNav" @click="toggleShowMobileNav"></div>
+			</div>
+		<button v-show="isMobile" @click="toggleShowMobileNav" class="navbar-custom-btn toggle-categories-btn" :class="[showMobileNav ? 'spinNavBtn' : 'spinNavBtnReverse']">≡</button>
 		</nav>
-		<button v-show="isMobile" @click="toggleShowMobileNav" class="toggle-categories-btn" :class="[showMobileNav ? 'spinNavBtn' : 'spinNavBtnReverse']">≡</button>
 	</header>
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
+import {ref, onMounted, watch} from 'vue';
+import CartIcon from 'vue-material-design-icons/Cart.vue'
 let isMobile = ref(false);
 let showMobileNav = ref(false);
 
 function checkForMobile() {
-	isMobile.value = window.innerWidth <= 740;
+	isMobile.value = window.innerWidth <= 750;
 };
 
 function toggleShowMobileNav() {
@@ -77,6 +95,11 @@ onMounted(() => {
 	window.addEventListener('resize', checkForMobile);
 	checkForMobile();
 });
+
+watch(showMobileNav, (curr) => {
+	if(curr) return document.body.style.overflow = 'hidden';
+	document.body.style.overflow = 'auto';
+})
 </script>
 
 <style scoped>
@@ -87,8 +110,11 @@ onMounted(() => {
 		padding: 20px;
 		position: relative;
 	}
-	.navbar-item:hover {
-		cursor: pointer;
+	.mobile-navbar {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 	.nav-link {
 		color: #f6f6f68f;
@@ -108,17 +134,20 @@ onMounted(() => {
 		gap: 25px;
 		padding-left: 20px
 	}
-	.toggle-categories-btn {
-		position: absolute;
-		right: 10px;
-		width: 40px;
-		height: 40px;
-		font-size: 35px;
-		color: var(--main-white);
-		background-color: transparent;
-		border-radius: 8px;
+	.navbar-custom-btn {
 		border: 0;
 		outline: 0;
+		background-color: transparent;
+	}
+	.navbar-custom-btn:hover {
+		cursor: pointer;
+		opacity: .8;
+	}
+	.toggle-categories-btn {
+		right: 10px;
+		font-size: 35px;
+		color: var(--main-white);
+		border-radius: 8px;
 		transition: all .5s ease;
 	}
 	.spinNavBtn {
@@ -141,6 +170,16 @@ onMounted(() => {
 		background-color: var(--main-black);
 		padding: 15px;
 		transition: all ease .4s;
+		z-index: 100;
+	}
+	.menu-backdrop {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100vh;
+		width: 100%;
+		z-index: 99;
+		background-color: rgba(0, 0, 0, 0.3);
 	}
 	.showNavbar {
 		left: 0;

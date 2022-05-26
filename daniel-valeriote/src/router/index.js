@@ -7,7 +7,7 @@ import Jewelery from '../views/Categories/Jewelery.vue';
 import MensClothing from '../views/Categories/MensClothing.vue';
 import WomensClothing from '../views/Categories/WomensClothing.vue';
 import Product from '../views/Product.vue';
-
+import Cart from '../views/Cart.vue';
 const routes = [
 	{path:'/', name:'Home', component: Home, props: {urlPath: 'products'}, meta: {title: 'Início'}},
 
@@ -16,8 +16,8 @@ const routes = [
 	{path:"/categories/men's clothing", name:"Men's clothing", component: MensClothing, props: {urlPath: "products/category/men's clothing"}, meta: {title: 'Moda masculina'}},
 	{path:"/categories/women's clothing", name:"Women's clothing", component: WomensClothing, props: {urlPath: "products/category/women's clothing"}, meta: {title: 'Moda feminina'}},
 	{path:"/products/:id", name:"Detailed product page", component: Product, meta: {title: 'Página do produto'}},
+	{path:"/cart", name:"Cart content page", component: Cart, meta: {title: 'Meu Carrinho'}},
 	
-
 	{path:'/:pathMatch(.*)*', name:'NotFound', component: NotFound}
 ];
 

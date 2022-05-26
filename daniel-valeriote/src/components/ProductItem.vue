@@ -16,15 +16,18 @@
 				</abbr>
 			</h4>
 		</div>
-		<button class="add-to-cart-btn">
-			Adicionar ao carrinho
+		<button class="add-to-cart-btn" @click="cart.addProduct(product)">
+			Adicionar ao carrinho <CartIcon :size="14" :style="{marginLeft: '10px'}"/>
 		</button>
 	</li>
 </template>
 
 <script setup>
 	import StarRating from 'vue-star-rating';
+	import CartIcon from 'vue-material-design-icons/Cart.vue'
+	import { useCartStore } from '../store/cart';
 	import { computed } from 'vue';
+
 
 	const props = defineProps({
 			product: {
@@ -38,6 +41,8 @@
 				}
 			}
 	})
+
+	const cart = useCartStore()
 
 	const treatedPrice = computed(() => props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2}))
 </script>
