@@ -6,27 +6,31 @@
       </div>
       <h3>{{ product.title }}</h3>
       <p>{{ product.price }}</p>
-      <button>Adicionar no Carrinho</button>
+      <button @click="test(product)">Adicionar no Carrinho</button>
     </div>
   </div>
 </template>
 
 <script>
-import Products from "../services/products";
-
 export default {
   name: "HomeView",
+  strict: true,
 
   data() {
     return {
       products: [],
+      cart: []
     };
   },
-
-  mounted() {
-    Products.list().then((res) => {
-      this.products = res.data;
-    });
+  created() {
+    this.$store.dispatch("fetchProducts");
+    this.products = this.$store.getters.getProducts;
+    this.cart = this.$store.getters.getCart
+  },
+  methods: {
+    test(value) {
+      this.$store.dispatch("addCart", value)
+    },
   },
 };
 </script>

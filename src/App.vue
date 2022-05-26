@@ -1,10 +1,25 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link>
-    <router-link to="/cart">Cart</router-link>
+    <router-link to="/cart">Cart <span>{{cart.length}}</span></router-link>
   </nav>
   <router-view />
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      cart: [],
+    };
+  },
+
+  created() {
+    this.cart = this.$store.getters.getCart
+  }
+};
+</script>
 
 <style>
 nav {
@@ -22,7 +37,11 @@ a {
   text-decoration: none;
 }
 
-a:visited{
+a:visited {
   color: black;
+}
+span {
+  font-size: 0.8rem;
+  color: aqua;
 }
 </style>
