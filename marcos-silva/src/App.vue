@@ -1,5 +1,5 @@
 <script setup>
-import MainHeader from './components/MainHeader.vue';
+import MainHeader from '@/components/HeaderComponent.vue';
 </script>
 
 <template>
@@ -8,14 +8,23 @@ import MainHeader from './components/MainHeader.vue';
 </template>
 
 <style lang="scss">
-@import './styles/globals';
 @import './styles/variables';
+@import './styles/colors';
 
-#app {
-  font-family: $base-font;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  color: $base-white;
 }
+
+body {
+  font-family: $base-font;
+  background-color: #F9F9F9;
+}
+
 </style>

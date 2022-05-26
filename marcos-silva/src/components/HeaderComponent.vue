@@ -1,7 +1,38 @@
+<template>
+  <header class="c-header">
+    <section class="header">
+      <router-link
+        to="/home"
+      >
+        <img
+          alt="Logotipo da ideal store"
+          :src="storeLogo"
+          class="header__logo"
+        >
+      </router-link>
+      <input
+        class="header__search"
+        type="text"
+        :value="query"
+        @keyup.stop.enter="handleSubmit"
+      />
+      <div
+        class="header__cart-link"
+      />
+    </section>
+    <nav class="nav">
+      <router-link class="nav__link" to="/men-clothing">Roupa masculina</router-link>
+      <router-link class="nav__link" to="/jewelery">Joalheria</router-link>
+      <router-link class="nav__link" to="/women-clothing">Roupa feminina</router-link>
+      <router-link class="nav__link" to="/electronics">Acessorios</router-link>
+    </nav>
+  </header>
+</template>
+
 <script setup>
 import { useStore } from 'vuex';
 import { computed } from 'vue';
-import storeLogo from '../assets/store_logo.png';
+import storeLogo from '@/assets/store_logo.png';
 
 const store = useStore();
 const query = computed(() => store.state.search.query);
@@ -14,42 +45,19 @@ function handleSubmit(event) {
 }
 </script>
 
-<template>
-  <header class="c-header">
-    <section class="header">
-      <img
-        alt="Logotipo da ideal store"
-        :src="storeLogo"
-        class="header__logo"
-      >
-      <input
-        class="header__search"
-        type="text"
-        :value="query"
-        @keyup.stop.enter="handleSubmit"
-      />
-      <div
-        class="header__cart-link"
-      />
-    </section>
-    <nav class="nav">
-      <router-link class="nav__link" to="/home">Joalheria</router-link>
-      <router-link class="nav__link" to="/home">Roupa masculina</router-link>
-      <router-link class="nav__link" to="/home">Roupa feminina</router-link>
-      <router-link class="nav__link" to="/home">Acessorios</router-link>
-    </nav>
-  </header>
-</template>
-
 <style scoped lang="scss">
-  @import '../styles/colors';
-  @import '../styles/variables';
+  @import '@/styles/colors';
+  @import '@/styles/variables';
+  h2 {
+    background-color: red;
+  }
   .c-header {
-    padding-inline: 351px;
-    height: 145px;
+    padding-inline: $page-padding;
+    height: $header-height;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    background-color: black;
   }
   .header {
     align-items: center;
@@ -66,15 +74,16 @@ function handleSubmit(event) {
       width: $cart-link-width;
       height: 39px;
       border-radius: 50%;
-      background-color: $input-color;
+      background-color: $base-white;
     }
   }
   .header__search {
-    background-color: $input-color;
+    background-color: $base-white;
     width: $input-search-width;
     border-radius: 50px;
     height: 39px;
     margin-left: auto;
+    color: black;
     &:focus {
       outline: none;
       font-size: 1.5rem;
