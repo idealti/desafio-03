@@ -11,6 +11,12 @@
           <th>SubTotal</th>
         </tr>
 
+        <ul>
+      
+       <li v-for="(item, index) in cart" :key="index">{{item.title}} qtd: {{item.qtd}}</li>
+     </ul>
+     
+
         <tr v-for="item in cart" :key="item.id">
           <td class="titleProduct">
             <img :src="item.image" :alt="item.title" />
@@ -25,7 +31,7 @@
             </div>
           </td>
           <td class="price">${{ item.totalItem.toFixed(2) }}</td>
-          <td>Remover</td>
+          <td class="remove" @click="removeProduct(item.id)"><img src="/assets/trash.svg" alt="Remove"/></td>
         </tr>
       </table>
 
@@ -62,6 +68,11 @@ export default {
     removeQty(product){
       this.$store.commit("decrementProduct", product)
 
+    },
+
+    removeProduct(product){
+      
+       this.$store.commit("removeCart", product)
     }
   },
 };
@@ -87,13 +98,21 @@ table {
   border-collapse: collapse;
   width: 100%;
   min-width: 500px;
+  
 }
+
+
 
 td,
 th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+ 
+}
+
+th{
+  color: #616161;
 }
 
 tr:nth-child(even) {
@@ -157,5 +176,16 @@ td:first-child {
   gap: 10px;
   padding: 0px 15px;
   
+}
+
+.remove img{
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s ;
+}
+
+.remove img:hover{
+  fill: red;
+  opacity: 1;
 }
 </style>

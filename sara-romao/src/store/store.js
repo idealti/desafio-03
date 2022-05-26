@@ -40,6 +40,14 @@ export const useStore = createStore({
 
       console.log("carrinho", state.cart);
     },
+
+    removeCart(state, item){
+      const inCart =  state.cart.filter(product => product.id !== item);
+      
+      state.cart = inCart
+      
+
+    }
   },
   actions: {
     increment(context) {
@@ -50,12 +58,16 @@ export const useStore = createStore({
       context.commit("addInCart");
     },
 
+    removeCart(context) {
+      context.commit("removeCart");
+    },
+
     incrementProduct(context) {
       context.commit("incrementProduct");
     },
 
     decrementProduct(context) {
-      context.commit("incrementProduct");
+      context.commit("decrementProduct");
     },
   },
 
@@ -72,8 +84,6 @@ export const useStore = createStore({
       }, 0);
     },
 
-    remove(state, item) {
-      return state.cart.find((list) => list.id !== item);
-    },
+    
   },
 });
