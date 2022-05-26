@@ -22,25 +22,28 @@ const props = defineProps({
     border-radius: 5px 0;
     width: 290px;
     height: 428px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     filter: brightness(95%);
-    display: grid;
-    grid-template-rows: 85%;
-    grid-template-areas:
-    "image"
-    "title";
     background-color: white;
     transition: 200ms;
+    flex-wrap: wrap;
     &__image {
+      flex-basis: 2;
       place-self: center;
       grid-area: image;
       overflow: hidden;
+      margin-inline: auto;
       max-width: 200px;
     }
     &__title {
+      margin-top: auto;
       display: flex;
+      width: 100%;
+      height: 82px;
       align-items: center;
       justify-content: center;
-      grid-area: title;
       background-color: black;
       color: white;
       text-align: center;
