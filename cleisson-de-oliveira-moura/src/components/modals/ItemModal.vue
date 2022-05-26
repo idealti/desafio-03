@@ -11,19 +11,19 @@ onClickOutside(modal, () => {
 </script>
 
 <template>
-   <div class="modalBackground">
-      <div class="modal" ref="modal">
-         <h1>Congratulations, the item was successfully added to cart!!</h1>
-         <div>
-            <button @click="$emit('close')">
-               Back to shopping
-            </button>
-            <router-link to="/cart" class="goToCartButton">
-               Go to cart
-            </router-link>
+      <div class="modalBackground">
+         <div class="modal" ref="modal">
+            <h1>Congratulations, the item was successfully added to cart!!</h1>
+            <div>
+               <button @click="$emit('close')">
+                  Back to shopping
+               </button>
+               <router-link to="/cart" class="goToCartButton">
+                  Go to cart
+               </router-link>
+            </div>
          </div>
       </div>
-   </div>
 </template>
 
 <style scoped lang="scss">
@@ -81,6 +81,18 @@ onClickOutside(modal, () => {
    
             color: #ffffff;
             background-color: #121414;
+         }
+      }
+   }
+}
+
+@media (max-width: 512px) {
+   .modal {
+      div {
+         flex-direction: column;
+
+         button {
+            margin-bottom: 1rem;
          }
       }
    }

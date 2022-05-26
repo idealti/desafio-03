@@ -60,7 +60,9 @@ function handleAddProduct (product: Product) {
                   <span>ADD TO CART</span>
                </button>
                <Teleport to="#modal">
-                  <ItemModal v-if="modalIsOpen" @close="modalIsOpen = false" />
+                  <Transition name="modal">
+                     <ItemModal v-if="modalIsOpen" @close="modalIsOpen = false" />
+                  </Transition>
                </Teleport>
             </div>
          </div>
@@ -162,5 +164,13 @@ function handleAddProduct (product: Product) {
          }
       }
    }
+}
+
+.modal-enter-active, .modal-leave-active {
+   transition: all 300ms ease;
+}
+.modal-enter-from, .modal-leave-to {
+   opacity: 0;
+   transform: scale(1.1);
 }
 </style>

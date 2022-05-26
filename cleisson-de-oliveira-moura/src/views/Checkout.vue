@@ -93,7 +93,9 @@ function handleFinishOrder () {
       </div>
       <button type="button" class="submit-btn" @click="handleFinishOrder">Finish Order</button>
       <Teleport to="#modal">
-         <CheckoutModal v-if="modalIsOpen" @close="modalIsOpen = false" />
+         <Transition name="modal">
+            <CheckoutModal v-if="modalIsOpen" @close="modalIsOpen = false" />
+         </Transition>
       </Teleport>
    </form>
 </div>    
@@ -173,7 +175,6 @@ function handleFinishOrder () {
     height: 15rem;
     width: 25rem;
 }
-
 .front{
     position: absolute;
     height: 100%;
@@ -214,6 +215,14 @@ function handleFinishOrder () {
          margin-right: auto;
       }
    }
+}
+
+.modal-enter-active, .modal-leave-active {
+   transition: all 300ms ease;
+}
+.modal-enter-from, .modal-leave-to {
+   opacity: 0;
+   transform: scale(1.1);
 }
 
 @media (max-width: 500px){

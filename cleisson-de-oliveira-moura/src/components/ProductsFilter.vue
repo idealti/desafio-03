@@ -53,7 +53,7 @@
 
 <style scoped lang="scss">
 div {
-   width: 100%;
+   width: 100vw;
    background-color: #fff;
    padding-top: 4rem; 
 
