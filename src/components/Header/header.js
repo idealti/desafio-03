@@ -1,17 +1,37 @@
 import React from "react";
+import { MdShoppingBasket } from "react-icons/md";
+import { useSelector } from "react-redux";
 
-import HeaderBase from "../../styles/Header/header-base.js";
-import HeaderMenu from "../../styles/Header/header-menu.js";
-import Logo from "../../styles/Header/logo.js";
-import Button from "../Button/button.js";
+import {
+	Logo,
+	HeaderBase,
+	HeaderMenu,
+} from "../../styles/header/styles-header.js";
+import { Container, Cart } from "../Cart/styles.js";
+// import { Link } from "react-router-dom";
+
+// import Button from "../Button/button.js";
 
 export default function Header() {
+	// Tamanho do array do carrinho.
+	const cartSize = useSelector((baseState) => baseState.cart.length);
 	return (
 		<HeaderBase>
 			<Logo>LADA</Logo>
 			<HeaderMenu>
-				<Button>oi, sou a Lada</Button>
-				<Button>instagram</Button>
+				<Container>
+					{/* <Link to="/">
+					<img src={logo} alt="Logo Hermes" />
+				</Link> */}
+
+					<Cart to="/cart">
+						<div>
+							<strong>Meu carrinho</strong>
+							<span>{cartSize} itens</span>
+						</div>
+						<MdShoppingBasket size={36} color="#fff" />
+					</Cart>
+				</Container>
 			</HeaderMenu>
 		</HeaderBase>
 	);

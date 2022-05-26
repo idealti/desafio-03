@@ -2,17 +2,19 @@ import React from "react";
 
 import Heading from "../../styles/elements/Headings/heading.js";
 import Subheading from "../../styles/elements/Headings/subheading.js";
-import FooterAside from "../../styles/Footer/Footer-Aside/footer-aside.js";
-import FooterHeadingTitle from "../../styles/Footer/Footer-Aside/footer-heading-title.js";
-import FooterHeadings from "../../styles/Footer/Footer-Aside/footer-headings.js";
-import { FooterPageNavigation } from "../../styles/Footer/Footer-Aside/footer-page-navigation.js";
-import FooterScrollPage from "../../styles/Footer/Footer-Aside/footer-paginacao.js";
-import { FooterScroll } from "../../styles/Footer/Footer-Aside/footer-scroll.js";
-import FooterSubheading from "../../styles/Footer/Footer-Aside/footer-subheading.js";
-import FooterBase from "../../styles/Footer/footer-base.js";
-import FooterDiv from "../../styles/Footer/Footer-div.js";
-import FooterNav from "../../styles/Footer/Footer-Nav/footer-nav.js";
-import FooterSection from "../../styles/Footer/footer-section.js";
+import {
+	FooterBase,
+	FooterSection,
+	FooterAside,
+	FooterDiv,
+	FooterScrollPage,
+	FooterHeadings,
+	FooterHeadingTitle,
+	FooterSubheading,
+	FooterScroll,
+	FooterPageNavigation,
+	FooterNav,
+} from "../../styles/footer/styles-footer.js";
 
 export default function Footer() {
 	return (
