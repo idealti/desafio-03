@@ -42,7 +42,7 @@ function handleFinishOrder () {
             </div>
       </div>
    </div>
-   <form>
+   <form @submit.prevent="handleFinishOrder">
       <div class="inputBox">
             <span>Card Number</span>
             <input type="text" maxlength="16" class="card-number-input" v-model="numberValue" @click="numberValue = ''">
@@ -91,7 +91,7 @@ function handleFinishOrder () {
                <input type="text" maxlength="4" class="cvv-input" v-model="cvvValue" @click="cvvValue = ''">
             </div>
       </div>
-      <button type="button" class="submit-btn" @click="handleFinishOrder">Finish Order</button>
+      <button type="submit" class="submit-btn">Finish Order</button>
       <Teleport to="#modal">
          <Transition name="modal">
             <CheckoutModal v-if="modalIsOpen" @close="modalIsOpen = false" />
