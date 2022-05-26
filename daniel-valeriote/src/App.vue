@@ -10,7 +10,7 @@ router.beforeEach((to) => {
 
 <template>
 <TheNavbar />
-<router-view />
+<router-view/>
 </template>
 
 <style>

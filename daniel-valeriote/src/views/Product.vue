@@ -11,13 +11,10 @@ import DetailedProduct from '../components/DetailedProduct.vue';
 import NotFound from './NotFound.vue';
 export default {
 	data() {
-		let product;
-		let isLoading = true;
-		let hasError = false;
 		return {
-			product,
-			isLoading,
-			hasError
+			product: undefined,
+			isLoading: true,
+			hasError: false
 		}
 	},
 	mounted() {
@@ -33,7 +30,6 @@ export default {
 			.catch(err => {
 				console.error(err)
 				this.hasError = true;
-				console.log('has errore')
 				this.isLoading = false;
 			})
 	},

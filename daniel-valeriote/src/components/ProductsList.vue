@@ -3,27 +3,16 @@
 		<ul class="products-list">
 			<ProductItem 
 			v-for="product in products"
-			:title="product.title"
-			:img="product.image"
-			:price="product.price"
-			:rating="product.rating"
-			:id="product.id"
+			:product="product"
 			:key="product.id"
 			/>
 		</ul>
 	</div>
 </template>
 
-<script>
-import ProductItem from './ProductItem.vue';
-export default {
-	props: {
-		products: Array
-	},
-	components: {
-		ProductItem,
-	}
-}
+<script setup>
+	import ProductItem from './ProductItem.vue';
+	const props = defineProps({products: Array});
 </script>
 
 <style>

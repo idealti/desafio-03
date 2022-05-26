@@ -1,18 +1,18 @@
 <template>
 	<li class="product-item">
 		<div class="product-image-container">
-			<img :src="img" :alt="title" class="product-image">
+			<img :src="product.image" :alt="product.title" class="product-image">
 		</div>
 		<div class="product-info-container">
 			<h2	 class="product-title">
-				<router-link :to="'/products/' + id">
-					{{title}}
+				<router-link :to="'/products/' + product.id">
+					{{product.title}}
 				</router-link>
 				</h2>
-			<h4 class="product-price">R${{teatedPrice}}</h4>
+			<h4 class="product-price">R${{treatedPrice}}</h4>
 			<h4 class="product-rating">
-				<abbr :title="rating.count + ' votos'">
-					<star-rating :read-only="true" :round-start-rating="false" :star-size="15" :rating="rating.rate"/>
+				<abbr :title="product.rating.count + ' votos'">
+					<star-rating :read-only="true" :round-start-rating="false" :star-size="15" :rating="product.rating.rate"/>
 				</abbr>
 			</h4>
 		</div>
@@ -22,28 +22,24 @@
 	</li>
 </template>
 
-<script>
+<script setup>
 	import StarRating from 'vue-star-rating';
-	export default {
-		props: {
-			id: Number || String,
-			title: String,
-			img: String,
-			price: Number,
-			rating: {
-				rate: Number,
-				count: Number
+	import { computed } from 'vue';
+
+	const props = defineProps({
+			product: {
+				id: Number || String,
+				title: String,
+				image: String,
+				price: Number,
+				rating: {
+					rate: Number,
+					count: Number
+				}
 			}
-		},
-		computed: {
-			teatedPrice() {
-				return this.price.toLocaleString(undefined, {minimumFractionDigits: 2})
-			}
-		},
-		components: {
-			StarRating
-		},
-	}
+	})
+
+	const treatedPrice = computed(() => props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2}))
 </script>
 
 <style scoped>

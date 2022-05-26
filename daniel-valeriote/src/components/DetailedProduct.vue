@@ -109,5 +109,6 @@
 	margin-top: 20px;
 	text-align: center;
 	max-width: 530px;
+	line-height: 2;
 }
 </style>
