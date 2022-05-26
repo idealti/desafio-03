@@ -23,7 +23,7 @@ export default function Footer() {
 						<FooterScrollPage>1/3</FooterScrollPage>
 						<FooterHeadings>
 							<FooterHeadingTitle>
-								<Heading>tendência</Heading>
+								<Heading>tendênciaxxxx</Heading>
 							</FooterHeadingTitle>
 							<FooterSubheading>
 								<Subheading>best-sellers</Subheading>
