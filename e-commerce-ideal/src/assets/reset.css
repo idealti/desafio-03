@@ -28,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	max-height: 100vh;
 }
 ol, ul {
 	list-style: none;

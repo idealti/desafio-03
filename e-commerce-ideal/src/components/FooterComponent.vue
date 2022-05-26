@@ -1,13 +1,17 @@
-
 <template>
   <footer>
     <nav>
-      <ul>
+      <ul class="footer">
         <li>
-          <a>{{ nome }}</a>
+          <a> nome </a>
         </li>
         <li>
-          <a href="#">Produtos</a>
+          <p href="#">
+            Desenvolvido por
+            <a href="https://www.linkedin.com/in/renan-aguiar-b89366147/">
+              Renan Aguiar</a
+            >
+          </p>
         </li>
         <li>
           <a href="/contact">Contato</a>
@@ -20,23 +24,21 @@
 <script>
 export default {
   name: "FooterComponent",
-  data() {
-    return {
-      nome: "teste",
-    };
-  },
 };
 </script>
 
 <style>
 footer {
-  background-color: rgb(54, 54, 54);
+  background-color: #f97f51;
   width: 100%;
   font-size: 2rem;
   height: 10rem;
-  padding: 2rem;
 }
-nav ul li a{
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footer li a {
   text-decoration: none;
 }
 </style>

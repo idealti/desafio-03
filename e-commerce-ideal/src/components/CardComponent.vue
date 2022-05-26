@@ -1,22 +1,36 @@
 <template>
   <div>
-    <div class="cart">
-      <h3 class="cart">cart: {{ cart.length }}</h3>
-      <div class="cart-item">
-        <div v-for="item in cart" :key="item.id">
-          <img
-            class="cart__image"
-            :alt="item.image"
-            :title="item.title"
-            :src="item.image"
-          />
-          <div class="cart__info">
-            <p class="cart__info-title">{{ item.title }}</p>
-            <div class="cart__price-rate"></div>
-          </div>
-          <button @click.prevent="removeCart(item)">REMOVER CARRINHO</button>
-        </div>
+    <div class="cart" v-on:click="modal = !modal">
+      <div v-if="modal === false" class="cart__component">
+        <p class="cart__length">{{ cart.length }}</p>
+        <CartIcon size="50" />
       </div>
+    </div>
+    <div v-if="modal" class="cart-item">
+      <button class="button-cart--close" v-on:click="modal = !modal">
+        <Close />
+      </button>
+      <p class="cart__item-text">Seu Carrinho de compras:</p>
+      <div class="cart-item-div" v-for="item in cart" :key="item.id">
+        <img
+          class="cart__image"
+          :alt="item.image"
+          :title="item.title"
+          :src="item.image"
+        />
+        <div class="cart__info">
+          <p class="cart__info-title">{{ item.title }}</p>
+          <p class="cart__info-price">${{ item.price }}</p>
+        </div>
+        <button class="button-cart--remove" @click.prevent="removeCart(item)">
+          REMOVER DO CARRINHO
+        </button>
+      </div>
+      <p v-if="cart.length > 0" class="cart__item-text">
+        Total: {{ somaCart(cart) }}
+      </p>
+      <p v-else class="cart__item-text">Nenhum item selecionado</p>
+      <button v-if="cart.length > 0">Comprar</button>
     </div>
     <div class="container">
       <div class="products" v-for="(product, index) in products" :key="index">
@@ -29,9 +43,10 @@
         <div class="product__info">
           <p class="product__info-title">{{ product.title }}</p>
           <div class="product__price-rate">
-            <p>
-              {{ product.rating.rate }}
-            </p>
+            <div>
+              <span><StarIcon fillColor="#f97f51" size="30" /></span>
+              <p class="product__rating">{{ product.rating.rate }}/5</p>
+            </div>
             <p>$ {{ product.price }}</p>
           </div>
           <button class="button-cart" v-on:click.prevent="addCart(product)">
@@ -45,12 +60,18 @@
 
 <script>
 import api from "@/services/api";
+import StarIcon from "vue-material-design-icons/Star.vue";
+import CartIcon from "vue-material-design-icons/Cart.vue";
+import Close from "vue-material-design-icons/Close.vue";
+
 export default {
   name: "CardComponent",
+  components: { StarIcon, CartIcon, Close },
   data() {
     return {
       products: [],
       cart: [],
+      modal: false,
     };
   },
   mounted() {
@@ -71,6 +92,12 @@ export default {
       }
       this.cart.splice(index, 1);
     },
+    somaCart(cart) {
+      const somaPrice = cart
+        .map((item) => item.price)
+        .reduce((prev, curr) => prev + curr, 0);
+      return somaPrice;
+    },
   },
 };
 </script>
@@ -90,7 +117,6 @@ export default {
 }
 .products {
   background-color: #ffffff;
-
   margin: 10% auto;
   width: 70%;
   position: relative;
@@ -118,10 +144,20 @@ export default {
   height: 4vh;
 }
 .product__price-rate {
+  width: calc(100%-4rem);
   display: flex;
   justify-content: space-between;
-  padding: 5% 10%;
+  padding: 2% 2rem;
   font-family: "Tenor Sans";
+  align-items: center;
+}
+.product__price-rate div {
+  display: flex;
+  justify-content: space-around;
+  padding: 5% 0;
+}
+.product__rating {
+  padding: 12% 2%;
 }
 .button-cart {
   background-color: #f97f51;
@@ -131,27 +167,86 @@ export default {
   margin: 2% 10%;
 }
 .cart {
-  z-index: 100;
+  z-index: 10;
   position: fixed;
   top: 6%;
   right: 3%;
-  font-size: 2rem;
-  font-style: italic;
+}
+.cart__component {
+  position: relative;
+}
+.cart__length {
+  font-family: "Gill Sans", sans-serif;
+  position: absolute;
+  top: -25%;
+  left: 30%;
+  font-size: 25px;
   font-weight: 900;
+  z-index: -1;
+  color: #e2460d;
 }
-.cart__box {
-  background-color: #f97f51;
-}
+
 .cart-item {
-  background-color: #ffffff;
+  background-color: #e7eaef;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  padding: 2% 5%;
+  width: 20vw;
+  height: auto;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  overflow: auto;
+}
+
+.cart__item-text {
+  text-align: center;
+  padding: 10%;
+  margin-bottom: 10%;
+  font-family: "Tenor Sans";
+  font-weight: 900;
+}
+.cart-item-div {
+  background-color: #ffffff;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
   height: auto;
 }
 .cart__image {
-  width: 20%;
-  height: 2rem;
+  margin: auto;
+  width: 70px;
+  height: 10vh;
   object-fit: contain;
+}
+.cart__info {
+  width: 95%;
+  font-size: 1.5ch;
+  margin: 5% 2.5%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Tenor Sans";
+  font-weight: 900;
+  text-align: center;
+}
+.cart__info-price {
+  margin: 10% auto;
+}
+.button-cart--remove {
+  background-color: #c70909;
+  border: none;
+  height: 3rem;
+  font-size: 1.2ch;
+  margin: 8% 0;
+  color: #e7eaef;
+}
+.button-cart--close {
+  background-color: transparent;
+  border: none;
+  width: 30%;
+  margin: 1% auto;
 }
 </style>
