@@ -4,7 +4,7 @@
       <h1 v-if="error">Ocorreu um erro com sua requisicao</h1>
       <div>
         <home-hero />
-        <home-suggested />
+        <home-categories />
       </div>
     </main>
 
@@ -16,7 +16,7 @@
 
 <script setup>
 import HomeHero from '@/components/home/HomeHero.vue';
-import HomeSuggested from '@/components/home/HomeSuggested.vue';
+import HomeCategories from '@/components/home/HomeCategories.vue';
 import LoadingComponent from '@/components/LoadingComponent.vue';
 import { onErrorCaptured, ref } from 'vue';
 

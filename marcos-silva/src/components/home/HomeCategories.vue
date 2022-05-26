@@ -1,15 +1,15 @@
 <template>
-  <section class="suggested">
-    <h1 class="suggested__title">Encontre seu melhor estilo.</h1>
-    <div class="c-suggested-cards">
-      <suggested-card
+  <section class="categories">
+    <h1 class="categories__title">Encontre seu melhor estilo.</h1>
+    <div class="c-categories-cards">
+      <categories-card
         v-for="product in products"
         :key="product.id + product.category"
         :category="product.category"
         :image="product.image"
       />
     </div>
-    <h2 class="suggested__description">
+    <h2 class="categories__description">
       As melhores peças de Alex Dubois.<br>
       Criadas pensando em <mark>você.</mark>
     </h2>
@@ -37,7 +37,7 @@
 <script setup>
 import productService from '@/services/products';
 import dubboisFace from '@/assets/dubbois.jpg';
-import SuggestedCard from './SuggestedCard.vue';
+import CategoriesCard from './CategoriesCard.vue';
 
 const categories = await productService.fetch.getCategories();
 const products = await Promise.all(categories.map(
@@ -47,11 +47,11 @@ const products = await Promise.all(categories.map(
 
 <style scoped lang="scss">
   @import '@/styles/variables';
-  .c-suggested-cards {
+  .c-categories-cards {
     display: flex;
     justify-content: space-between;
   }
-  .suggested {
+  .categories {
     padding: 52px $page-padding 0;
     height: 860px;
     gap: 40px;
