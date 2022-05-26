@@ -48,10 +48,11 @@ function handleSubmit(event) {
 <style scoped lang="scss">
   @import '@/styles/colors';
   @import '@/styles/variables';
-  h2 {
-    background-color: red;
-  }
   .c-header {
+    z-index: 2;
+    position: sticky;
+    top: 0;
+    width: 100%;
     padding-inline: $page-padding;
     height: $header-height;
     justify-content: center;
@@ -99,8 +100,9 @@ function handleSubmit(event) {
     margin-right: $cart-link-margin + $cart-link-width;
   }
   .nav__link {
-    font-weight: $regular;
-    font-size: 19px;
+    font-weight: $extra-thin;
+    font-size: 1.2rem;
+    color: white;
     &:hover {
       color: aqua;
     }

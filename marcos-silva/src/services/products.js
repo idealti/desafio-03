@@ -22,10 +22,21 @@ export default {
         return e;
       }
     },
-    getAllFromCategory: async (category) => {
+    getProductFromCategory: async (category, amount) => {
       try {
-        const response = await fakestoreapi.get(`/${category}`);
-        return response;
+        const response = await fakestoreapi.get(`/category/${category}${amount ? `?limit/${amount}` : ''}`);
+
+        if (amount > 1) return response.data.slice(0, amount);
+
+        return response.data[0];
+      } catch (e) {
+        return e;
+      }
+    },
+    getCategories: async () => {
+      try {
+        const response = await fakestoreapi.get('/categories');
+        return response.data;
       } catch (e) {
         return e;
       }

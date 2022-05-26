@@ -26,6 +26,20 @@ import { reactive } from 'vue';
 import productService from '@/services/products';
 import starIcon from '@/assets/star.png';
 
+// const topRated = {
+//   id: 1,
+//   title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+//   price: 109.95,
+//   description: 'Your perfect pack for everyday use and
+// walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
+//   category: "men's clothing",
+//   image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+//   rating: {
+//     rate: 3.9,
+//     count: 120,
+//   },
+// };
+
 const products = await productService.fetch.getAll();
 const topRated = reactive(productService.sort.sortbyRate(products)[0]);
 
@@ -48,7 +62,7 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
   }
   .details {
     position: absolute;
-    height: 358px;
+    max-height: 400px;
     opacity: 95%;
     width: 802px;
     display: flex;
@@ -59,9 +73,11 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
     margin-left: auto;
     right: $page-padding;
     padding: 28px 40px;
+    * {
+      color: white;
+    }
     &__description {
       margin-top: 15px;
-      font-size: 14px;
       font-weight: 100;
     }
   }
@@ -82,12 +98,12 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
     justify-content: space-between;
   }
   .price {
-    font-size: 36px;
+    font-size: 2.2rem;
     font-weight: $thin;
     mark {
       background-color: transparent;
       font-weight: $regular;
-      font-size: 64px;
+      font-size: 4rem;
     }
   }
   .rate {
@@ -101,7 +117,7 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
     gap: 10px;
     border-radius: 3px;
     &__value {
-      font-size: 34px;
+      font-size: 2.2rem;
       font-weight: bold;
       color: black;
     }

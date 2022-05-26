@@ -25,3 +25,9 @@ onErrorCaptured(() => {
   error.value = error;
 });
 </script>
+
+<style lang="scss">
+  * {
+    color: black;
+  }
+</style>
