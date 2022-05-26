@@ -3,7 +3,7 @@
     <h1>home {{$store.state.count}}</h1>
     <button @click="add">Increment</button>
 
-    <h2>carrinho {{carrinho.length}}</h2>
+    <h2>carrinho {{$store.getters.qtdCart}}</h2>
    
    <p>Total: {{$store.getters.total.toFixed(2)}}</p>
    <p>Qtd: {{$store.getters.qtdCart}}</p>

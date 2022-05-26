@@ -5,7 +5,7 @@
       <p class="productTitle">{{ product.title }}</p>
       <h3>${{ product.price.toFixed(2)}}</h3>
     </router-link>
-    <button @click="addCart(product.id, product.title, product.price)">
+    <button @click="addCart(product.id, product.title, product.price, product.image)">
       <div class="infoCart">
         <img src="/assets/cart-btn.svg" />
        
@@ -28,11 +28,12 @@ export default {
   },
 
   methods:{
-    addCart(id, title, price){
+    addCart(id, title, price, image){
        const product ={
         id:id,
         title:title,
         price:price,
+        image: image
       }
      
       this.$store.commit('addInCart', product)
