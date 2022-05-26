@@ -30,12 +30,9 @@ const props = defineProps({
     transition: 200ms;
     flex-wrap: wrap;
     &__image {
-      flex-basis: 2;
-      place-self: center;
-      grid-area: image;
-      overflow: hidden;
-      margin-inline: auto;
-      max-width: 200px;
+      object-fit: contain;
+      width: 100%;
+      height: 300px;
     }
     &__title {
       margin-top: auto;
