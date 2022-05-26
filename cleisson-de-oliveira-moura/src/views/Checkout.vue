@@ -11,11 +11,11 @@
    const modalIsOpen = ref(false)
 
    // Checkout form values
-   const numberValue = ref('################')
-   const holderName = ref('Full Name')
-   const monthExpire = ref('mm')
-   const yearExpire = ref('yy')
-   const cvvValue = ref('xxx')
+   const numberValue = ref('')
+   const holderName = ref('')
+   const monthExpire = ref('')
+   const yearExpire = ref('')
+   const cvvValue = ref('')
 
    // Cleaning cart items and opennig modal
    function handleFinishOrder () {
@@ -32,17 +32,17 @@
                <img src="../assets/creditCardImages/chip.png" alt="">
                <img src="../assets/creditCardImages/visa.png" alt="">
             </div>
-            <div class="cardNumberBox">{{numberValue}}</div>
+            <div class="cardNumberBox">{{numberValue ? numberValue : '################'}}</div>
             <div class="flexbox">
                <div class="box">
                   <span>Holder Name</span>
-                  <div class="card-holder-name">{{holderName}}</div>
+                  <div class="card-holder-name">{{holderName ? holderName : 'Full Name'}}</div>
                </div>
                <div class="box">
                   <span>Valid thru</span>
                   <div class="expiration">
-                        <span class="exp-month">{{monthExpire}}/</span>
-                        <span class="exp-year">{{yearExpire}}</span>
+                        <span class="exp-month">{{monthExpire ? monthExpire : 'mm'}}/</span>
+                        <span class="exp-year">{{yearExpire ? yearExpire : 'yy'}}</span>
                   </div>
                </div>
             </div>
@@ -51,16 +51,16 @@
    <form @submit.prevent="handleFinishOrder">
       <div class="inputBox">
             <span>Card Number</span>
-            <input type="text" maxlength="16" class="card-number-input" v-model="numberValue" @click="numberValue = ''">
+            <input type="text" placeholder="################" minlength="16" maxlength="16" class="card-number-input" v-model="numberValue" required>
       </div>
       <div class="inputBox">
             <span>Holder Name</span>
-            <input type="text" class="card-holder-input" v-model="holderName" @click="holderName = ''">
+            <input type="text" placeholder="Full Name" class="card-holder-input" v-model="holderName" required>
       </div>
       <div class="flexbox">
             <div class="inputBox">
                <span>Expire Month</span>
-               <select name="" id="" class="month-input" v-model="monthExpire">
+               <select class="month-input" v-model="monthExpire" required>
                   <option value="month" selected disabled>month</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -78,7 +78,7 @@
             </div>
             <div class="inputBox">
                <span>Expire Year</span>
-               <select name="" id="" class="year-input" v-model="yearExpire">
+               <select class="year-input" v-model="yearExpire" required>
                   <option value="year" selected disabled>year</option>
                   <option value="2021">2021</option>
                   <option value="2022">2022</option>
@@ -94,7 +94,7 @@
             </div>
             <div class="inputBox">
                <span>cvv</span>
-               <input type="text" maxlength="4" class="cvv-input" v-model="cvvValue" @click="cvvValue = ''">
+               <input type="text" placeholder="xxx" maxlength="3" class="cvv-input" v-model="cvvValue" required>
             </div>
       </div>
       <button type="submit" class="submit-btn">Finish Order</button>

@@ -56,10 +56,14 @@ button, a {
    cursor: pointer;
 }
 
-/* [disabled] {
-   opacity: 0.6;
-   cursor: not-allowed;
-} */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 a {
    text-decoration: none;
