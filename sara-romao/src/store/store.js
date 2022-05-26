@@ -12,10 +12,17 @@ export const useStore = createStore({
     },
 
     incrementProduct(state, item) {
-      const inCart = state.cart.find(product => product.id === item);
-       inCart.qtd++;
-       inCart.totalItem = inCart.qtd * inCart.price;
-     
+      const inCart = state.cart.find((product) => product.id === item);
+      inCart.qtd++;
+      inCart.totalItem = inCart.qtd * inCart.price;
+    },
+
+    decrementProduct(state, item) {
+      const inCart = state.cart.find((product) => product.id === item);
+      if (inCart.qtd > 1) {
+        inCart.qtd--;
+        inCart.totalItem = inCart.qtd * inCart.price;
+      }
     },
 
     addInCart(state, item) {
@@ -46,6 +53,10 @@ export const useStore = createStore({
     incrementProduct(context) {
       context.commit("incrementProduct");
     },
+
+    decrementProduct(context) {
+      context.commit("incrementProduct");
+    },
   },
 
   getters: {
@@ -59,6 +70,10 @@ export const useStore = createStore({
       return state.cart.reduce((acc, item) => {
         return (acc += item.qtd);
       }, 0);
+    },
+
+    remove(state, item) {
+      return state.cart.find((list) => list.id !== item);
     },
   },
 });
