@@ -1,24 +1,33 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+
 import { useRoute } from 'vue-router';
+
 import ProductsAPI from '../services/ProductsAPI';
+
 import { useCart } from '../stores/useCart';
 import { storeToRefs } from 'pinia';
+
 import { Product } from '../utilities/types';
+import { formatPrice } from '../utilities/format';
+
+import cartIcon from '../assets/shopping-cart.svg';
+
 import Loading from '../components/Loading.vue';
 import ItemModal from '../components/modals/ItemModal.vue';
-import { formatPrice } from '../utilities/format';
-import cartIcon from '../assets/shopping-cart.svg';
 
 const { addProduct } = useCart()
 const { getCartItemsAmount } = storeToRefs(useCart())
 
+// Modal component
 const modalIsOpen = ref(false)
 
-const route = useRoute()
-const product = ref({} as Product)
+// Loading component
 const loading = ref(true)
 
+// Fetching product by id
+const product = ref({} as Product)
+const route = useRoute()
 const fetchProduct = async () => {
    const id = route.params.id
    const { data } = await ProductsAPI.getProduct(id)
@@ -29,6 +38,7 @@ onMounted(() => {
    fetchProduct()
 })
 
+// Adding product to cart and openning modal
 function handleAddProduct (product: Product) {
    addProduct(product)
    modalIsOpen.value = true
@@ -165,7 +175,6 @@ function handleAddProduct (product: Product) {
       }
    }
 }
-
 .modal-enter-active, .modal-leave-active {
    transition: all 300ms ease;
 }

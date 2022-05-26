@@ -1,16 +1,16 @@
-import api from "./api";
+import storeApi from "./storeApi";
 
 export default {
    getProducts(category: string) {
       if (category === "all") {
-         return api.get('/products', {
+         return storeApi.get('/products', {
             headers: {
                'content-type' : 'application/json',
                'accept':'application/json'
             }
          })
       } else {
-         return api.get(`/products/category/${category}`, {
+         return storeApi.get(`/products/category/${category}`, {
             headers: {
                'content-type' : 'application/json',
                'accept':'application/json'
@@ -19,7 +19,7 @@ export default {
       }
    },
    getProduct(productId: string | string[]) {
-      return api.get(`/products/${productId}`, {
+      return storeApi.get(`/products/${productId}`, {
          headers: {
             'content-type' : 'application/json',
             'accept':'application/json'
@@ -27,6 +27,6 @@ export default {
       })
    },
    getCategories(){
-      return api.get('/products/categories')
+      return storeApi.get('/products/categories')
    }
 }

@@ -1,28 +1,33 @@
 <script setup lang="ts">
-import { useCart } from '../stores/useCart';
-import { formatPrice } from '../utilities/format';
-import { Product } from '../utilities/types';
-import deleteIcon from '../assets/trash-2.svg'
-import incrementIcon from '../assets/plus-circle.svg'
-import decrementIcon from '../assets/minus-circle.svg'
-import { storeToRefs } from 'pinia';
- 
-const { removeProduct, updateProductAmount } = useCart()
-const { getTotal, getFormattedCart } = storeToRefs(useCart())
+   import { formatPrice } from '../utilities/format';
+   import { Product } from '../utilities/types';
 
-function handleProductIncrement(product: Product) {
-   const amount = product.amount + 1;
-   updateProductAmount({ productId: product.id, amount });
-}
+   import { useCart } from '../stores/useCart';
+   import { storeToRefs } from 'pinia';
 
-function handleProductDecrement(product: Product) {
-   const amount = product.amount - 1;
-   updateProductAmount({ productId: product.id, amount });
-}
+   import deleteIcon from '../assets/trash-2.svg'
+   import incrementIcon from '../assets/plus-circle.svg'
+   import decrementIcon from '../assets/minus-circle.svg'
 
-function handleRemoveProduct(productId: number) {
-   removeProduct(productId);
-}
+   const { removeProduct, updateProductAmount } = useCart()
+   const { getTotal, getFormattedCart } = storeToRefs(useCart())
+
+   // Incrementing product amount
+   function handleProductIncrement(product: Product) {
+      const amount = product.amount + 1;
+      updateProductAmount({ productId: product.id, amount });
+   }
+
+   // Decrementing product amount
+   function handleProductDecrement(product: Product) {
+      const amount = product.amount - 1;
+      updateProductAmount({ productId: product.id, amount });
+   }
+
+   // Removing product from cart
+   function handleRemoveProduct(productId: number) {
+      removeProduct(productId);
+   }
 </script>
 
 <template>

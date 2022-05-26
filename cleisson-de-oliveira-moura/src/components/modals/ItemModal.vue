@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core';
-import { ref } from 'vue';
+   import { ref } from 'vue';
 
-const emit = defineEmits(['close'])
-const modal = ref(null)
+   import { onClickOutside } from '@vueuse/core';
 
-onClickOutside(modal, () => {
-  emit('close')
-})
+   // Defining component emit
+   const emit = defineEmits(['close'])
+
+   // Close modal
+   const modal = ref(null)
+   onClickOutside(modal, () => {
+      emit('close')
+   })
 </script>
 
 <template>

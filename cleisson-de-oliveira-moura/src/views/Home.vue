@@ -1,26 +1,32 @@
 <script setup lang="ts">
    import { onMounted, ref } from 'vue'
+
    import ProductsAPI from '../services/ProductsAPI'
+
    import { formatPrice } from '../utilities/format';
    import { Product } from '../utilities/types';
-   import { useCart } from '../stores/useCart';
+
    import cartIcon from '../assets/shopping-cart.svg';
    import starIcon from '../assets/star.svg';
+
+   import { useCart } from '../stores/useCart';
    import { storeToRefs } from 'pinia';
+
    import ProductsFilterVue from '../components/ProductsFilter.vue';
    import ItemModal from '../components/modals/ItemModal.vue';
    import Loading from '../components/Loading.vue';
 
-   const modalIsOpen = ref(false)
- 
-   // Using useCart hook
    const { addProduct } = useCart()
    const { getCartItemsAmount } = storeToRefs(useCart())
 
+   // Modal component
+   const modalIsOpen = ref(false)
 
-   // Rendering products filtered and sorted
-   const products = ref<Product[]>([]);
+   // Loading component
    const loading = ref(true);
+
+   // Rendering filtered products by category
+   const products = ref<Product[]>([]);
 
    const category = ref('all');
    const fetchProducts = async () => {
@@ -37,6 +43,7 @@
       fetchProducts()
    }
 
+   // Rendering sorted products
    const sorterProducts = ref('descRating');
    const sortProducts = (sortBy: string) => {
       products.value = products.value.sort((a: Product, b: Product): any | undefined => {
@@ -53,7 +60,6 @@
             return a.rating.rate - b.rating.rate
          }
       })
-      console.log(`Sorting by ${sortBy}`)
    }
    onMounted(() => {
       sortProducts(sorterProducts.value)
@@ -206,7 +212,6 @@
       }
    }
 }
-
 .modal-enter-active, .modal-leave-active {
    transition: all 300ms ease;
 }

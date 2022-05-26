@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+   import { useRouter } from 'vue-router';
 
-const router = useRouter();
-const emit = defineEmits(['close'])
+   // Defining component emit
+   const emit = defineEmits(['close'])
 
-function backToHome (){
-   router.push('/')
-   emit('close')
-}
+   // Close modal and back to home
+   const router = useRouter();
+   function backToHome (){
+      router.push('/')
+      emit('close')
+   }
 </script>
 
 <template>

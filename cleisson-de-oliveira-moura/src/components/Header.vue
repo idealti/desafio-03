@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
-import cartIcon from '../assets/shopping-cart.svg'
-import { useCart } from '../stores/useCart'
+   import { storeToRefs } from 'pinia';
+   import { useCart } from '../stores/useCart'
 
-const { getCartLength } = storeToRefs(useCart())
-
+   import cartIcon from '../assets/shopping-cart.svg'
+   
+   const { getCartLength } = storeToRefs(useCart())
 </script>
  
 <template>

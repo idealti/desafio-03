@@ -1,5 +1,6 @@
 <script setup lang="ts">
    import { ref } from 'vue';
+
    import ProductsAPI from '../services/ProductsAPI';
 
    // Sending the filter and sort value to Home

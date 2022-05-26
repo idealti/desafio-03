@@ -1,21 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import CheckoutModal from '../components/modals/CheckoutModal.vue';
-import { useCart } from '../stores/useCart';
+   import { ref } from 'vue';
 
-const { cleanCart } = useCart();
-const modalIsOpen = ref(false)
+   import { useCart } from '../stores/useCart';
+   
+   import CheckoutModal from '../components/modals/CheckoutModal.vue';
 
-const numberValue = ref('################')
-const holderName = ref('Full Name')
-const monthExpire = ref('mm')
-const yearExpire = ref('yy')
-const cvvValue = ref('xxx')
+   const { cleanCart } = useCart();
 
-function handleFinishOrder () {
-   cleanCart()
-   modalIsOpen.value = true
-}
+   // Modal component
+   const modalIsOpen = ref(false)
+
+   // Checkout form values
+   const numberValue = ref('################')
+   const holderName = ref('Full Name')
+   const monthExpire = ref('mm')
+   const yearExpire = ref('yy')
+   const cvvValue = ref('xxx')
+
+   // Cleaning cart items and opennig modal
+   function handleFinishOrder () {
+      cleanCart()
+      modalIsOpen.value = true
+   }
 </script>
 
 <template>
@@ -216,7 +222,6 @@ function handleFinishOrder () {
       }
    }
 }
-
 .modal-enter-active, .modal-leave-active {
    transition: all 300ms ease;
 }
