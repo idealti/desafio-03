@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdShoppingCart } from "react-icons/md";
-import { useDispatch, useSelector, Provider } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import api from "../../services/api.js";
 import * as CartActions from "../../store/modules/cart/actions.js";
@@ -41,32 +41,30 @@ export default function Main() {
 		dispatch(CartActions.addToCartRequest(id));
 	}
 	return (
-		<Provider>
-			<MainBase>
-				<ProductList>
-					{products.map((product) => (
-						<li key={product.id}>
-							<img src={product.image} alt={product.title} />
+		<MainBase>
+			<ProductList>
+				{products.map((product) => (
+					<li key={product.id}>
+						<img src={product.image} alt={product.title} />
 
-							<strong>{product.title}</strong>
-							<span>{product.priceFormatted}</span>
+						<strong>{product.title}</strong>
+						<span>{product.priceFormatted}</span>
 
-							<button
-								type="button"
-								onClick={() => handleAddProduct(product.id)}
-							>
-								<div>
-									{/* Quantidade do mesmo produto -- Adicionar ao carrinho.  */}
-									<MdShoppingCart size={16} color="#fff" />{" "}
-									{amount[product.id] || 0}
-								</div>
+						<button
+							type="button"
+							onClick={() => handleAddProduct(product.id)}
+						>
+							<div>
+								{/* Quantidade do mesmo produto -- Adicionar ao carrinho.  */}
+								<MdShoppingCart size={16} color="#fff" />{" "}
+								{amount[product.id] || 0}
+							</div>
 
-								<span>Adicionar ao carrinho</span>
-							</button>
-						</li>
-					))}
-				</ProductList>
-			</MainBase>
-		</Provider>
+							<span>Adicionar ao carrinho</span>
+						</button>
+					</li>
+				))}
+			</ProductList>
+		</MainBase>
 	);
 }
