@@ -2,9 +2,8 @@ import { createStore } from "vuex";
 
 export const useStore = createStore({
   state: {
-    count: 0,
     cart: [],
-    total: 0,
+    
   },
   mutations: {
     increment(state) {
@@ -31,28 +30,23 @@ export const useStore = createStore({
       if (!inCart) {
         item.qtd = 1;
         item.totalItem = item.price;
-        console.log("não tem");
+        
         state.cart.push(item);
       } else {
         inCart.qtd++;
         inCart.totalItem = inCart.qtd * inCart.price;
       }
 
-      console.log("carrinho", state.cart);
+     
     },
 
     removeCart(state, item){
-      const inCart =  state.cart.filter(product => product.id !== item);
-      
-      state.cart = inCart
-      
-
+      state.cart =  state.cart.filter(product => product.id != item);
+    
     }
   },
   actions: {
-    increment(context) {
-      context.commit("increment");
-    },
+    
 
     addInCart(context) {
       context.commit("addInCart");
@@ -83,6 +77,9 @@ export const useStore = createStore({
         return (acc += item.qtd);
       }, 0);
     },
+
+ 
+
 
     
   },

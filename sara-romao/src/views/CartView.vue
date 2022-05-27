@@ -13,11 +13,10 @@
 
         <ul>
       
-       <li v-for="(item, index) in cart" :key="index">{{item.title}} qtd: {{item.qtd}}</li>
      </ul>
      
 
-        <tr v-for="item in cart" :key="item.id">
+        <tr v-for="item in cart"  :key="item.id">
           <td class="titleProduct">
             <img :src="item.image" :alt="item.title" />
             {{ item.title }}
@@ -31,6 +30,8 @@
             </div>
           </td>
           <td class="price">${{ item.totalItem.toFixed(2) }}</td>
+
+
           <td class="remove" @click="removeProduct(item.id)"><img src="/assets/trash.svg" alt="Remove"/></td>
         </tr>
       </table>
