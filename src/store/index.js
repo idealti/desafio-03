@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { applyMiddleware, compose } from "redux";
+// import { configureStore } from "@reduxjs/toolkit";
+import { applyMiddleware, compose, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 
 import rootReducer from "./modules/rootReducer.js";
@@ -19,7 +19,7 @@ const enhancer =
 		? compose(console.tron.createEnhancer(), applyMiddleware(sagaMiddleware)) // Apenas para ambiente de desenvolvimento.
 		: applyMiddleware(sagaMiddleware); // Apenas para ambiente de produção.
 
-const store = configureStore({ reducer: rootReducer }, enhancer);
+const store = createStore(rootReducer, enhancer);
 
 sagaMiddleware.run(rootSaga);
 
