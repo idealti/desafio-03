@@ -24,10 +24,19 @@ export default {
     },
     getProductFromCategory: async (category, amount) => {
       try {
-        const response = await fakestoreapi.get(`/category/${category}${amount ? `?limit/${amount}` : ''}`);
+        if (amount == null) {
+          const response = await fakestoreapi.get(`/category/${category}`);
+          console.log(`/category/${category}`);
+          // console.log(response);
+          return response.data;
+        }
 
-        if (amount > 1) return response.data.slice(0, amount);
+        if (amount > 1) {
+          const response = await fakestoreapi.get(`/category/${category}?limit/${amount}`);
+          return response.data.slice(0, amount);
+        }
 
+        const response = await fakestoreapi.get(`/category/${category}?limit/1`);
         return response.data[0];
       } catch (e) {
         return e;
@@ -43,6 +52,13 @@ export default {
     },
   },
   sort: {
+    sortByQuery: (products, query) => {
+      // this will match query in any value inside the object
+      const checkValues = (product) => Object.values(product)
+        .some((value) => value.toString().toLowerCase().includes(query));
+
+      return products.filter((product) => checkValues(product));
+    },
     sortbyRate: (products) => {
       products.sort((a, b) => b.rating.rate - a.rating.rate);
       return products;

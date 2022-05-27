@@ -2,16 +2,23 @@
   <figure class="card">
     <img
       alt=""
-      :src="image"
+      :src="props.product.image"
       class="card__image"
     >
     <section class="card-details">
       <div class="c-rate-title">
-        <h2 class="card-details__title">{{ title }}</h2>
-        <p class="card-details__rate">{{ rating.count }} avaliacoes</p>
+        <h2 class="card-details__title">{{ props.product.title }}</h2>
+        <p
+          class="card-details__rate"
+        >
+          {{ props.product.rating.count }} avaliacoes.
+          <mark>{{props.showRating ? props.product.rating.rate : ''}} de 5</mark>
+        </p>
       </div>
       <div class="c-price-button">
-        <p class="card-details__price">R$ <mark>{{ price.toString().replace('.', ',') }}</mark></p>
+        <p class="card-details__price">
+          R$ <mark>{{ props.product.price.toFixed(2).toString().replace('.', ',') }}</mark>
+        </p>
         <button
           class="card-details__button"
           @click="handleButtonClick"
@@ -24,20 +31,14 @@
   </figure>
 </template>
 <script setup>
-import { defineProps, reactive } from 'vue';
+import { defineProps } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore();
 const props = defineProps({
   product: Object,
+  showRating: Boolean,
 });
-
-const {
-  title,
-  price,
-  rating,
-  image,
-} = reactive(props.product);
 
 function handleButtonClick() {
   store.commit({
@@ -82,8 +83,14 @@ function handleButtonClick() {
       overflow: hidden;
     }
     &__rate {
+      display: flex;
+      justify-content: space-between;
       color: green;
       font-size: 0.8rem;
+      mark {
+        font-weight: $bold;
+        background-color: transparent;
+      }
     }
     &__price {
       font-weight: $thin;
