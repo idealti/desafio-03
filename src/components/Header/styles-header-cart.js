@@ -13,7 +13,6 @@ export const Cart = styled(Link)`
 	align-items: center;
 	text-decoration: none;
 	transition: opacity 0.2s;
-	/* background-color: blueviolet; */
 
 	&:hover {
 		opacity: 0.8;

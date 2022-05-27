@@ -7,19 +7,19 @@ export const ProductList = styled.ul`
 	/* grid-gap: 1em; */
 	gap: 1em;
 	list-style: none;
-	margin: 2em 4em;
+	margin: 1em 4em;
 
 	li {
 		display: flex;
 		flex-direction: column;
 		border-radius: 4px;
-		padding: 1em;
-		background: #fff;
+		padding: 0.5em;
+		background: #f7f3f7;
 		width: 25%;
 
 		img {
 			align-self: center;
-			max-width: 30%;
+			max-width: 100%;
 			/*
 			o tamanho n acho, pq tá relacionado a tudo que
 			tá dentro e ligados ao padding.

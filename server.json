@@ -28,39 +28,39 @@
 	"products": [
 	  {
 		 "id": 1,
-		 "title": "Tênis de Caminhada Leve Confortável",
-		 "price": 179.9,
-		 "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg"
+		 "title": "Regata cropped com estampa de logo",
+		 "price": 279.90,
+		 "image": "https://cdn-images.farfetch-contents.com/18/21/71/76/18217176_38957412_1000.jpg"
 	  },
 	  {
 		 "id": 2,
-		 "title": "Tênis VR Caminhada Confortável Detalhes Couro Masculino",
-		 "price": 139.9,
-		 "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis2.jpg"
+		 "title": "Blazer slim estilo espartilho",
+		 "price": 239.90,
+		 "image": "https://cdn-images.farfetch-contents.com/17/00/54/95/17005495_37939055_1000.jpg"
 	  },
 	  {
 		 "id": 3,
-		 "title": "Tênis Adidas Duramo Lite 2.0",
-		 "price": 219.9,
-		 "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis3.jpg"
+		 "title": "Vestido de jacquard monogramado",
+		 "price": 319.90,
+		 "image": "https://cdn-images.farfetch-contents.com/17/08/33/59/17083359_34377901_1000.jpg"
 	  },
 	  {
 		 "id": 5,
-		 "title": "Tênis VR Caminhada Confortável Detalhes Couro Masculino",
-		 "price": 139.9,
-		 "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis2.jpg"
+		 "title": "Calça esportiva com estampa monogramada",
+		 "price": 239.90,
+		 "image": "https://cdn-images.farfetch-contents.com/16/83/41/65/16834165_33359621_1000.jpg"
 	  },
 	  {
 		 "id": 6,
-		 "title": "Tênis Adidas Duramo Lite 2.0",
-		 "price": 219.9,
-		 "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis3.jpg"
+		 "title": "Blazer de lã com abotoamento duplo",
+		 "price": 319.90,
+		 "image": "https://cdn-images.farfetch-contents.com/17/17/63/06/17176306_36380286_1000.jpg"
 	  },
 	  {
 		 "id": 4,
-		 "title": "Tênis de Caminhada Leve Confortável",
-		 "price": 179.9,
-		 "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg"
+		 "title": "Jaqueta matelassê Bady com capuz",
+		 "price": 279.90,
+		 "image": "https://cdn-images.farfetch-contents.com/15/38/56/90/15385690_28309705_1000.jpg"
 	  }
 	]
  }

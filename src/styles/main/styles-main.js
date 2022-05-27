@@ -4,7 +4,7 @@ const MainBase = styled.main`
 	flex: 6;
 	display: flex;
 	justify-content: space-between;
-	/* background: blueviolet; */
+	background: #f7f3f7;
 	/* overflow-y: hidden;
 	overflow-x: scroll; */
 `;
