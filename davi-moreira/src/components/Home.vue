@@ -6,43 +6,47 @@
             <label class="input_container">
               <input
               type="checkbox" checked
-              id="mens clothing" 
-              value="mens clothing" 
+              id="men's clothing"
+              value="men's clothing"
               v-model="categoriesSelected"
-              @click="emitCategories('mens clothing')">
+              >
               Men's clothing
             </label>
             <label class="input_container">
-              <input 
+              <input
               type="checkbox" checked
-              id="womens clothing"
-              value="womens clothing" 
+              id="women's clothing"
+              value="women's clothing"
               v-model="categoriesSelected"
-              @click="emitCategories('womens clothing')">
+              >
               Women's clothing
             </label>
             <label class="input_container">
-              <input 
+              <input
               type="checkbox"  checked
-              id="jewelery" 
-              value="jewelery" 
+              id="jewelery"
+              value="jewelery"
               v-model="categoriesSelected"
-              @click="emitCategories('jewelery')">
+              >
               Jewelery
             </label>
             <label class="input_container">
-              <input 
+              <input
               type="checkbox" checked
               id="electronics"
-              value="electronics" 
+              value="electronics"
               v-model="categoriesSelected"
-              @click="emitCategories('electronics')">
+              v-on:click="matchCategoryAndProduct"
+              >
               Electronics
             </label>
         </section>
-          <section class="products_section">
-            <ProductCard :products='products' v-for="product in product" :key="product"/>
-          </section>
+        <section class="products_section">
+          <ProductCard
+          v-for="product in productsInCategorySelected"
+          v-bind:product='product'
+          :key="product.id"/>
+        </section>
     </div>
   </div>
 </template>
@@ -58,16 +62,40 @@ export default defineComponent( {
     Header,
     ProductCard
   },
+  data() {
+    return {
+      categoriesSelected: ["men's clothing", "women's clothing", 'jewelery', 'electronics'],
+      productsInCategorySelected: [],
+    }
+  },
   props: {
-    products: Array
+    products: Object,
   },
   methods: {
-    emitCategories(category) {
-      this.$emit('emit-categories',category)
-       console.log(this.products)
+    //  fillCategoriesArray(category) {
+    //    if(this.categoriesSelected.includes(category)) {
+    //      for( var i = 0; i < this.categoriesSelected.length; i++){
+    //        if ( this.categoriesSelected[i] === category) {
+    //            this.categoriesSelected.splice(i, 1);
+    //        }
+    //      }
+    //    }
+    //    else {
+    //      this.categoriesSelected.push(category)
+    //    }
+    //  this.products.forEach(this.checkCategory)
+    //  },
+    matchCategoryAndProduct(product) {
+     
+        if(this.categoriesSelected.includes(product.category) && !this.productsInCategorySelected.includes(product.category)) {
+          this.productsInCategorySelected.push(product)
+        }
+      
     }
   }
 })
+// se o product.category esta na categoriesSelected empurre-o p a productsInCategorySelected
+// caso
 </script>
 
 <style scoped>
@@ -83,7 +111,7 @@ export default defineComponent( {
   margin-top: 19px;
 }
 
- 
+
 .input_container {
   display: block;
   margin: auto 15px 32px 15px;
@@ -100,12 +128,11 @@ export default defineComponent( {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(3, 1fr);
-} 
+}
 
 @media only screen and (max-width: 1135px) {
   .grid_container {
     display: block;
-    margin-left: 1em;
   }
 
   .categories_section {
@@ -117,7 +144,7 @@ export default defineComponent( {
     display: flex;
     justify-content: center;
     flex-wrap: wrap
-  } 
+  }
 }
 
 

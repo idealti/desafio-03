@@ -1,13 +1,25 @@
 <template>
   <div class="card_body">
     <div class="container">
-      <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="" class="product_img">
+      <img :src='product.image' alt="" class="product_img">
     </div>
     <div class="container">
-      <h2 class="product_name">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h2>
+      <h2 class="product_name"> {{ product.title }} </h2>
     </div>
     <div class="container">
-      <p class="product_desc">Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday</p>
+      <p class="product_categ">{{ product.category }}</p>
+    </div>
+    <div class="container">
+      <p class="product_desc">{{ product.description }}</p>
+    </div>
+    <div class="product_price_container">
+      <p class="product_price">${{ product.price }}</p>
+    </div>
+    <div class="rating_product_container">
+      <p class="product_rating">Rating: {{ product.rating.rate }}</p>
+    </div>
+    <div class="btn_cart_container">
+      <button class="btn_cart" @click="$emit(product.id)">Add to cart</button>
     </div>
   </div>
 </template>
@@ -18,7 +30,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'Product-card',
   props: {
-    
+    product: Object
   },
 })
 </script>
@@ -41,7 +53,7 @@ export default defineComponent({
   justify-content: center;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .product_img {
@@ -49,6 +61,32 @@ export default defineComponent({
 }
 
 .product_name {
-  font-size: 1em;
+  font-size: 1.2em;
+}
+
+.product_categ {
+  font-size: 1.2em;
+}
+
+.product_price {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product_rating {
+  font-size: 20px;
+}
+
+.btn_cart {
+  margin-top: 7px;
+  width: 95px;
+  font-size: 18px;
+  border: transparent;
+  border-radius: 5px;
+  background: #000;
+  color: #FFF;
+  text-align: center;
+  cursor: pointer;
 }
 </style>

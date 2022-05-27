@@ -1,8 +1,7 @@
 <template>
   <div class="body">
     <Home
-    v-bind:products='products'
-    @emit-categories="fillCategoriesArray"
+    :products='products'
     />
   </div>
 </template>
@@ -20,29 +19,13 @@ export default defineComponent({
   data() {
     return {
       products: [],
-      categoriesSelected: ['mens clothing', 'womens clothing', 'jewelery', 'electronics']
     }
   },
   mounted() {
     products.list().then(response => {
-      console.log(response.data)
       this.products = response.data
+      console.log(response.data)
     })
-  },
-  methods: {
-    fillCategoriesArray(category) {
-      if(this.categoriesSelected.includes(category)) {
-        for( var i = 0; i < this.categoriesSelected.length; i++){ 
-          if ( this.categoriesSelected[i] === category) { 
-              this.categoriesSelected.splice(i, 1); 
-          }
-        }
-      }
-      else {
-        this.categoriesSelected.push(category)
-      }
-      // console.log(this.categoriesSelected)
-    }
   },
 })
 </script>
