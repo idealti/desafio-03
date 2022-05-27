@@ -5,10 +5,13 @@ import MainHeader from '@/components/shared/HeaderComponent.vue';
 
 <template>
   <Suspense>
-    <div>
-      <MainHeader/>
-      <router-view/>
-    </div>
+    <template #default>
+      <div>
+        <MainHeader/>
+        <router-view/>
+        <footer>Made by Marcos</footer>
+      </div>
+    </template>
     <template #fallback>
       <LoadingComponent />
     </template>

@@ -1,25 +1,17 @@
 <template>
   <main class="c-search-result">
     <loading-component v-if="isLoading"/>
-    <section
-      class="search-result"
-      v-else
-    >
+    <section v-else class="search-result">
       <div class="search-result__details" v-if="products !== null">
         <h1 class="search-result__query" v-if="query == ''">
           Mostrando todos os produtos<b v-if="category !== ''">: {{category}}.</b>
         </h1>
-        <h1
-          class="search-result__query"
-          v-else
-        >
+        <h1 v-else class="search-result__query">
           Resultados de <mark>{{ query }}</mark> em:
           <mark>{{ category ? `${category}` : 'all'}}.</mark>
         </h1>
         <h3 class="search-result__quantity">Encontramos {{ products.length }} produtos.</h3>
-        <label
-          for="sortingMethod"
-        >
+        <label for="sortingMethod">
           Ordernar por:
           <select
             class="search-result__sorting"
@@ -33,9 +25,7 @@
           </select>
         </label>
       </div>
-      <div
-        class="search-result__products"
-      >
+      <div class="search-result__products">
         <product-card
           v-for="product in products"
           :key="product.id"
@@ -45,7 +35,6 @@
       </div>
     </section>
   </main>
-  <footer>Made by Marcos Silva</footer>
 </template>
 
 <script setup>

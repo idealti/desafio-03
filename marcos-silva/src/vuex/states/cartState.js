@@ -3,6 +3,7 @@ export default {
   state() {
     return {
       products: new Set(),
+      showCart: false,
     };
   },
   mutations: {

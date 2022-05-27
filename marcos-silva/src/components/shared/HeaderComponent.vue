@@ -18,12 +18,12 @@
         @keyup.stop.enter="handleSubmit"
         placeholder="Buscar produtos"
       />
+      <!-- reset key to force animation reset below -->
       <button
         class="cart-link"
         :key="store.getters['cart/cartSize']"
       >
         <img alt="Cart icon" :src="cartIcon" class="cart-link__icon">
-        <!-- set key to force animation reset -->
         <span class="cart-link__counter">
           {{ store.getters['cart/cartSize'] }}
         </span>>

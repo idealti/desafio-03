@@ -8,9 +8,7 @@
     <section class="card-details">
       <div class="c-rate-title">
         <h2 class="card-details__title">{{ props.product.title }}</h2>
-        <p
-          class="card-details__rate"
-        >
+        <p class="card-details__rate">
           {{ props.product.rating.count }} avaliacoes.
           <mark>{{props.showRating ? props.product.rating.rate : ''}} de 5</mark>
         </p>
