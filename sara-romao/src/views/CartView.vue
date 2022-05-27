@@ -54,11 +54,14 @@
 
 
 <script>
+import {mapGetters} from "vuex";
 export default {
-  data() {
-    return {
-      cart: this.$store.state.cart,
-    };
+  
+
+  computed:{
+    ...mapGetters({
+      cart:"getCart"
+    })
   },
   methods: {
     addQty(product) {

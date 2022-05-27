@@ -77,7 +77,8 @@ export const useStore = createStore({
         return (acc += item.qtd);
       }, 0);
     },
-
+   
+    getCart: state =>state.cart
  
 
 
