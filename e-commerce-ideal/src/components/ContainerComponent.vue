@@ -19,9 +19,7 @@ export default {
 </script>
 
 <style>
-body {
-  font-family: "Bodoni Moda", serif;
-}
+
 .container-text {
   width: 100%;
   height: 30rem;

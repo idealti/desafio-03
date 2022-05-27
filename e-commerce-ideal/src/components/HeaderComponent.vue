@@ -22,7 +22,6 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 header {
   width: 100%;
@@ -33,7 +32,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  height: 15vh;
+  height: 18vh;
   position: fixed;
 }
 

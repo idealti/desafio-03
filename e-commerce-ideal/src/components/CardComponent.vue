@@ -23,14 +23,16 @@
           <p class="cart__info-price">${{ item.price }}</p>
         </div>
         <button class="button-cart--remove" @click.prevent="removeCart(item)">
-          REMOVER DO CARRINHO
+          Remover
         </button>
       </div>
       <p v-if="cart.length > 0" class="cart__item-text">
         Total: {{ somaCart(cart) }}
       </p>
       <p v-else class="cart__item-text">Nenhum item selecionado</p>
-      <button v-if="cart.length > 0">Comprar</button>
+      <button class="cart__item-buy" v-if="cart.length > 0">
+        <a href="/comprar">Finalizar compra</a>
+      </button>
     </div>
     <div class="container">
       <div class="products" v-for="(product, index) in products" :key="index">
@@ -50,7 +52,7 @@
             <p>$ {{ product.price }}</p>
           </div>
           <button class="button-cart" v-on:click.prevent="addCart(product)">
-            ADICIONAR AO CARRINHO
+            Adicionar ao carrinho
           </button>
         </div>
       </div>
@@ -96,7 +98,7 @@ export default {
       const somaPrice = cart
         .map((item) => item.price)
         .reduce((prev, curr) => prev + curr, 0);
-      return somaPrice;
+      return somaPrice.toFixed(2);
     },
   },
 };
@@ -104,7 +106,6 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
 
 .container {
   display: grid;
@@ -126,29 +127,34 @@ export default {
   position: relative;
 }
 .product__image {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 10% auto;
+  display: flex;
+  margin: 2rem auto;
   background-color: rgb(255, 255, 255, 0.9);
   object-fit: contain;
   width: 50%;
-  height: 15rem;
+  height: 10rem;
 }
-
+.product__info {
+  font-size: 1vw;
+  font-weight: 900;
+  text-align: center;
+  font-family: "Tenor Sans";
+}
 .product__info p {
   margin-top: 1%;
   text-align: center;
 }
 .product__info-title {
-  margin: 5% 10%;
-  height: 4vh;
+  margin: 1% 10% 10%;
+  height: 5vh;
+  text-align: center;
+  word-break: break-all;
 }
 .product__price-rate {
-  width: calc(100%-4rem);
+  width: calc(100%-3rem);
   display: flex;
   justify-content: space-between;
-  padding: 2% 2rem;
-  font-family: "Tenor Sans";
+  padding: 2% 1.5rem;
   align-items: center;
 }
 .product__price-rate div {
@@ -190,21 +196,20 @@ export default {
   background-color: #e7eaef;
   display: flex;
   flex-direction: column;
-  padding: 2% 5%;
+  padding: 2% 1%;
   width: 20vw;
   height: auto;
   z-index: 5;
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh;
+  height: 100%;
   overflow: auto;
 }
 
 .cart__item-text {
   text-align: center;
-  padding: 10%;
-  margin-bottom: 10%;
+  padding: 5%;
   font-family: "Tenor Sans";
   font-weight: 900;
 }
@@ -212,6 +217,7 @@ export default {
   background-color: #ffffff;
   width: auto;
   display: flex;
+  width: 90%;
   justify-content: space-between;
   padding: 5%;
   height: auto;
@@ -236,17 +242,34 @@ export default {
   margin: 10% auto;
 }
 .button-cart--remove {
-  background-color: #c70909;
+  background-color: #7e7e7e;
   border: none;
-  height: 3rem;
+  height: 2rem;
   font-size: 1.2ch;
   margin: 8% 0;
-  color: #e7eaef;
+  color: #ffffff;
 }
 .button-cart--close {
   background-color: transparent;
   border: none;
   width: 30%;
   margin: 1% auto;
+}
+.cart__item-buy {
+  padding: 1% auto;
+  background-color: #89e83a;
+  border: none;
+  height: 3rem;
+  color: #e7eaef;
+  margin-bottom: 20%;
+}
+.cart__item-buy a {
+  font-family: "Gill Sans", sans-serif;
+  color: #000000;
+  font-size: 2ch;
+  font-weight: 900;
+}
+.cart__item-buy:hover {
+  background-color: #bbee5b;
 }
 </style>
