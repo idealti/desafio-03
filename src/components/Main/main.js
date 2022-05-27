@@ -56,7 +56,7 @@ export default function Main() {
 						>
 							<div>
 								{/* Quantidade do mesmo produto -- Adicionar ao carrinho.  */}
-								<MdShoppingCart size={16} color="#fff" />{" "}
+								<MdShoppingCart size={17} color="#fff" />{" "}
 								{amount[product.id] || 0}
 							</div>
 

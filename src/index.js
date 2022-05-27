@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App.js";
-// import ResetCSS from "./generic/resetCSS.js";
+import ResetCSS from "./generic/resetCSS.js";
 import store from "./store/index.js";
 import Base from "./styles/elements/Base.js";
 
@@ -13,7 +13,7 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<BrowserRouter>
-				{/* <ResetCSS /> */}
+				<ResetCSS />
 				<Base />
 				<App />
 			</BrowserRouter>

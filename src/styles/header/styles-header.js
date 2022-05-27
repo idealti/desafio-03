@@ -4,7 +4,7 @@ export const Logo = styled.div`
 	width: fit-content;
 	height: fit-content;
 	margin-left: 8%;
-	font-size: 3rem;
+	font-size: 2.5rem;
 	font-weight: lighter;
 `;
 

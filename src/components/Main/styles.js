@@ -2,32 +2,39 @@ import { darken } from "polished";
 import styled from "styled-components";
 
 export const ProductList = styled.ul`
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 20px;
+	display: flex;
+	/* grid-template-columns: repeat(3, 2fr); */
+	/* grid-gap: 1em; */
+	gap: 1em;
 	list-style: none;
+	margin: 2em 4em;
 
 	li {
 		display: flex;
 		flex-direction: column;
 		border-radius: 4px;
-		padding: 20px;
+		padding: 1em;
 		background: #fff;
+		width: 25%;
 
 		img {
 			align-self: center;
-			max-width: 250px;
+			max-width: 30%;
+			/*
+			o tamanho n acho, pq tá relacionado a tudo que
+			tá dentro e ligados ao padding.
+			*/
 		}
 
 		> strong {
-			font-size: 16px;
-			line-height: 20px;
-			margin-top: 5px;
+			font-size: 0.8rem;
+			line-height: 1.2rem;
+			margin-top: 1em;
 			color: #333;
 		}
 
 		> span {
-			font-size: 21px;
+			font-size: 1.3rem;
 			font-weight: bold;
 			margin: 5px 0 20px;
 		}
@@ -64,6 +71,7 @@ export const ProductList = styled.ul`
 				text-align: center;
 				font-weight: bold;
 				text-transform: uppercase;
+				font-size: 0.7rem;
 			}
 		}
 	}
