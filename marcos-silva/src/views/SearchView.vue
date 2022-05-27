@@ -6,12 +6,15 @@
       v-else
     >
       <div class="search-result__details" v-if="products !== null">
-        <h1 class="search-result__query" v-if="query == ''">Mostrando todos os produtos.</h1>
+        <h1 class="search-result__query" v-if="query == ''">
+          Mostrando todos os produtos<b v-if="category !== ''">: {{category}}.</b>
+        </h1>
         <h1
           class="search-result__query"
           v-else
         >
-        Resultados de <mark>{{ query }}</mark>{{ category ? ` em ${category}` : ''}}.
+          Resultados de <mark>{{ query }}</mark> em:
+          <mark>{{ category ? `${category}` : 'all'}}.</mark>
         </h1>
         <h3 class="search-result__quantity">Encontramos {{ products.length }} produtos.</h3>
         <label

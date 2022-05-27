@@ -32,6 +32,13 @@
     <nav class="nav">
       <a
         class="nav__link"
+        @click="handleSearchRedirect('')"
+        @keydown="handleSearchRedirect('')"
+      >
+        All
+      </a>
+      <a
+        class="nav__link"
         v-for="(category, index) in categories"
         @click="handleSearchRedirect(category)"
         @keydown="handleSearchRedirect(category)"
