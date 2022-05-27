@@ -8,18 +8,26 @@
     <section class="card-details">
       <div class="c-rate-title">
         <h2 class="card-details__title">{{ title }}</h2>
-        <p class="card-details__rate">{{rating.count}} avaliacoes</p>
+        <p class="card-details__rate">{{ rating.count }} avaliacoes</p>
       </div>
       <div class="c-price-button">
         <p class="card-details__price">R$ <mark>{{ price.toString().replace('.', ',') }}</mark></p>
-        <button class="card-details__button">Comprar</button>
+        <button
+          class="card-details__button"
+          @click="handleButtonClick"
+          @keydown="handleButtonClick"
+        >
+          Comprar
+        </button>
       </div>
     </section>
   </figure>
 </template>
 <script setup>
 import { defineProps, reactive } from 'vue';
+import { useStore } from 'vuex';
 
+const store = useStore();
 const props = defineProps({
   product: Object,
 });
@@ -31,6 +39,12 @@ const {
   image,
 } = reactive(props.product);
 
+function handleButtonClick() {
+  store.commit({
+    type: 'cart/addToCart',
+    value: props.product,
+  });
+}
 </script>
 
 <style scoped lang="scss">

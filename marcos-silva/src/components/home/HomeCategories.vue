@@ -7,6 +7,7 @@
         :key="product.id + product.category"
         :category="product.category"
         :image="product.image"
+        :route="product.category.replace(' ', '-')"
       />
     </div>
     <h2 class="categories__description">

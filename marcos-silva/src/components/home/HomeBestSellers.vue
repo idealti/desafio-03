@@ -26,7 +26,6 @@ const topEightProducts = productService.sort.sortByRateCount(products).slice(0, 
     padding: 2.2rem $page-padding;
     background-color: $base-purple;
     width: 100%;
-    height: 100vh;
     &__title {
       color: white;
       margin-bottom: 2rem;

@@ -1,19 +1,39 @@
 <template>
-  <router-link :to="category.replace(' ', '-')">
+  <a
+    @click="handleRedirect(props.category)"
+    @keydown="handleRedirect(props.category)"
+  >
     <div class="suggested-card">
       <img class="suggested-card__image" alt="cool" :src="props.image">
-      <h1 class="suggested-card__title">{{ props.category }}</h1>
+      <div class="suggested-card__title">
+        <h2>{{ props.category }}</h2>
+      </div>
     </div>
-  </router-link>
+  </a>
 </template>
 
 <script setup>
 import { defineProps } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const store = useStore();
 
 const props = defineProps({
   category: String,
   image: String,
+  route: String,
 });
+
+function handleRedirect(category) {
+  store.commit({
+    type: 'search/updateCategory',
+    value: category,
+  });
+
+  router.push('/search');
+}
 </script>
 
 <style scoped lang="scss">
@@ -34,23 +54,29 @@ const props = defineProps({
       width: 100%;
       height: 300px;
     }
-    &__title {
-      margin-top: auto;
-      display: flex;
-      width: 100%;
-      height: 82px;
-      align-items: center;
-      justify-content: center;
-      background-color: black;
-      color: white;
-      text-align: center;
-      font-style: italic;
-      font-weight: $bold;
-      font-size: 2rem;
-    }
     &:hover {
       transform: scale(1.02);
       filter: brightness(100%);
     }
+  }
+  .suggested-card__title {
+    h2 {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+      text-align: center;
+      font-style: italic;
+      font-weight: $bold;
+      color: white;
+      font-size: 2rem;
+    }
+    margin-top: auto;
+    display: flex;
+    width: 100%;
+    height: 82px;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+
   }
 </style>

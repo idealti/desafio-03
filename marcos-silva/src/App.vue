@@ -1,10 +1,18 @@
 <script setup>
+import LoadingComponent from '@/components/LoadingComponent.vue';
 import MainHeader from '@/components/HeaderComponent.vue';
 </script>
 
 <template>
-  <MainHeader/>
-  <router-view/>
+  <Suspense>
+    <div>
+      <MainHeader/>
+      <router-view/>
+    </div>
+    <template #fallback>
+      <LoadingComponent />
+    </template>
+  </Suspense>
 </template>
 
 <style lang="scss">

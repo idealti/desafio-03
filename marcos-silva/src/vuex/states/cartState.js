@@ -2,11 +2,14 @@ export default {
   namespaced: true,
   state() {
     return {
-      products: [],
+      products: new Set(),
       total: 0,
     };
   },
   mutations: {
     updateTotal() {},
+    addToCart(state, payload) {
+      state.products.add(payload.value);
+    },
   },
 };
