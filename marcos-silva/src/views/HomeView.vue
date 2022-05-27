@@ -7,30 +7,24 @@
         <home-hero />
         <home-categories />
         <home-best-sellers />
-        <footer>Made by Marcos</footer>
       </div>
     </main>
     <template #fallback>
       <LoadingComponent />
     </template>
   </Suspense>
+  <footer>Made by Marcos</footer>
 </template>
 
 <script setup>
 import HomeHero from '@/components/home/HomeHero.vue';
 import HomeCategories from '@/components/home/HomeCategories.vue';
 import HomeBestSellers from '@/components/home/HomeBestSellers.vue';
-import LoadingComponent from '@/components/LoadingComponent.vue';
+import LoadingComponent from '@/components/shared/LoadingComponent.vue';
 import {
   onErrorCaptured,
   ref,
 } from 'vue';
-// import { useRouter } from 'vue-router';
-// import { useStore } from 'vuex';
-
-// const router = useRouter();
-// const store = useStore();
-// const teste = toRef('Estou testando');
 
 const error = ref(null);
 

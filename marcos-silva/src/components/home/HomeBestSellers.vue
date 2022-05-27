@@ -2,7 +2,7 @@
   <section class="best-sellers">
     <h1 class="best-sellers__title">Campeões de venda.</h1>
     <div class="c-best-seller-cards">
-      <best-seller-card
+      <product-card
         v-for="product in topEightProducts"
         :key="product.id + product.title"
         :product="product"
@@ -13,7 +13,7 @@
 
 <script setup>
 import productService from '@/services/products';
-import BestSellerCard from './BestSellerCard.vue';
+import ProductCard from '@/components/shared/ProductCard.vue';
 
 const products = await productService.fetch.getAll();
 const topEightProducts = productService.sort.sortByRateCount(products).slice(0, 8);

@@ -14,4 +14,12 @@ export default {
       state.category = payload.value;
     },
   },
+  getters: {
+    getCategory(state) {
+      return state.category;
+    },
+    getQuery(state) {
+      return state.query;
+    },
+  },
 };

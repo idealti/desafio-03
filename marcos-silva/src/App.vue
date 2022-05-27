@@ -1,6 +1,6 @@
 <script setup>
-import LoadingComponent from '@/components/LoadingComponent.vue';
-import MainHeader from '@/components/HeaderComponent.vue';
+import LoadingComponent from '@/components/shared/LoadingComponent.vue';
+import MainHeader from '@/components/shared/HeaderComponent.vue';
 </script>
 
 <template>
@@ -33,6 +33,12 @@ import MainHeader from '@/components/HeaderComponent.vue';
 body {
   font-family: $base-font;
   background-color: #F9F9F9;
+}
+
+footer {
+  height: 50px;
+  display: grid;
+  place-items: center;
 }
 
 </style>
