@@ -103,14 +103,29 @@ export default createStore({
 },
 actions: {
   async getSpecificCategory({ commit }, payload) {
-    const req = await fetch(`https://fakestoreapi.com/products/category/${payload}`)
-    const res = await req.json()
-    commit(ADD_TO_DATA_CONTAINER, res)
+    try{
+      const req = await fetch(`https://fakestoreapi.com/products/category/${payload}`)
+      if(navigator.onLine === false) throw new Error('Erro de rede, erifique sua conexão com a Internet')
+      if(req.status === 408) throw new Error('Tempo de resposta excedido, verifique sua conexão')
+      if(req.status === 500) throw new Error('Erro no servidor')
+      const res = await req.json()
+      commit(ADD_TO_DATA_CONTAINER, res)
+    }catch(error){
+      window.alert(error)
+    }
   },
   async getAllData({ commit, state }) {
-    const req = await fetch(state.allItensUrl)
-    const res = await req.json()
-    commit(ADD_TO_DATA_CONTAINER, res)
+    try{
+      const req = await fetch(state.allItensUrl)
+      if(navigator.onLine === false) throw new Error('Errp de rede, verifique sua conexão com a Internet')
+      if(req.status === 408) throw new Error('Tempo de resposta excedido, verifique sua conexão')
+      if(req.status === 500) throw new Error('Erro no servidor')
+      const res = await req.json()
+      commit(ADD_TO_DATA_CONTAINER, res)
+    } catch(error){
+      window.alert(error)
+    }
+    
   }
 },
   modules: {

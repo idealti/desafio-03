@@ -1,6 +1,8 @@
 <template>
     <div>
-        <button class="toggle-btn" @mouseover="openView()" @click.prevent="toggleCartView()"><ion-icon name="basket" size="large"></ion-icon></button>
+        <button class="toggle-btn" @mouseover="openView()" @click.prevent="toggleCartView()">
+            <img class="basket-img" src="../assets/image/shopping-basket.png" alt="">
+        </button>
     </div>
 </template>
 
@@ -32,6 +34,9 @@ export default {
         background-color: $grey-var;
         border: 2px solid $militar-green-var;
         transition: .5s;
+        & .basket-img{
+            width: 30px;
+        }
         & ion-icon{
             color: $militar-green-var;
         }

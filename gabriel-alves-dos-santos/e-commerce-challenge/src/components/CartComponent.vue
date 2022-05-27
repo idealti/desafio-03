@@ -4,7 +4,7 @@
         <div class="scroll">
             <div class="vazio" v-show="state.cartData.length === 0">
                 <small>Nada a mostrar! Adicione itens ao carrinho.</small>
-                <ion-icon name="sad" size="large"></ion-icon>
+                &#128528;
             </div>
 
             <div class="cont"
