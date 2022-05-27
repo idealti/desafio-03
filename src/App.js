@@ -11,10 +11,10 @@ import Main from "./components/Main/main.js";
 function App() {
 	return (
 		<Container>
+			<ToastContainer autoClose={3000} /> {/* Tempos que ficará em tela. */}
 			<Header />
 			<Main />
 			<Footer />
-			<ToastContainer autoClose={3000} /> {/* Tempos que ficará em tela. */}
 		</Container>
 	);
 }

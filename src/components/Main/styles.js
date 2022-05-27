@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 export const ProductList = styled.ul`
 	display: flex;
-	/* grid-template-columns: repeat(3, 2fr); */
-	/* grid-gap: 1em; */
 	gap: 1em;
 	list-style: none;
 	margin: 1em 4em;
@@ -19,24 +17,23 @@ export const ProductList = styled.ul`
 
 		img {
 			align-self: center;
-			max-width: 100%;
-			/*
-			o tamanho n acho, pq tá relacionado a tudo que
-			tá dentro e ligados ao padding.
-			*/
+			max-width: 90%;
+			border-radius: 0.5em;
 		}
 
 		> strong {
 			font-size: 0.8rem;
 			line-height: 1.2rem;
+			font-weight: 600;
 			margin-top: 1em;
-			color: #333;
+			color: #383738;
 		}
 
 		> span {
 			font-size: 1.3rem;
-			font-weight: bold;
+			font-weight: 500;
 			margin: 5px 0 20px;
+			color: #915454;
 		}
 
 		button {
@@ -45,20 +42,20 @@ export const ProductList = styled.ul`
 			overflow: hidden;
 			margin-top: auto;
 			color: #fff;
-			background: #7159c1;
+			background: #ab96ab;
 
 			display: flex;
 			align-items: center;
 			transition: background 0.2s;
 
 			&:hover {
-				background: ${darken(0.03, "#7159c1")};
+				background: ${darken(0.03, "#9AABA8")};
 			}
 
 			div {
 				display: flex;
 				align-items: center;
-				padding: 13px;
+				padding: 1em;
 				background: rgba(0, 0, 0, 0.1);
 
 				svg {

@@ -13,6 +13,7 @@ export const HeaderBase = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0.7em 0;
 `;
 
 export const HeaderMenu = styled.div`
