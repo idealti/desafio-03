@@ -127,7 +127,7 @@ function toggleCart() {
   }
   .header__search {
     background-color: $base-white;
-    width: $input-search-width;
+    width: $input-search-width-medium;
     border-radius: 50px;
     height: 39px;
     margin-left: auto;
@@ -166,7 +166,7 @@ function toggleCart() {
     margin-top: 5px;
     margin-left: auto;
     justify-content: space-between;
-    width: $input-search-width;
+    width: $input-search-width-medium;
     margin-right: $cart-link-margin + $cart-link-width;
   }
   .nav__link {
@@ -184,6 +184,20 @@ function toggleCart() {
   @media screen and (max-width: 1900px) {
     .c-header {
       padding-inline: $desktop-medium-padding;
+    }
+  }
+
+  @media screen and (max-width: 1600px) {
+    .c-header {
+      padding-inline: $desktop-small-padding;
+    }
+    .header__search, .nav {
+      width: $input-search-width-small;
+    }
+    .nav {
+      &__link {
+        font-size: 1rem;
+      }
     }
   }
 </style>

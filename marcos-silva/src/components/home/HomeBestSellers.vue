@@ -47,4 +47,9 @@ const topEightProducts = productService.sort.sortByRateCount(products).slice(0, 
       padding-inline: $desktop-medium-padding;
     }
   }
+  @media screen and (max-width: 1600px) {
+    .best-sellers {
+      padding-inline: $desktop-small-padding;
+    }
+  }
 </style>

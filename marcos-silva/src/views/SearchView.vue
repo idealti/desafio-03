@@ -139,4 +139,10 @@ onMounted(async () => {
       padding-inline: $desktop-medium-padding;
     }
   }
+
+  @media screen and (max-width: 1600px) {
+    .search-result{
+      padding-inline: $desktop-small-padding;
+    }
+  }
 </style>

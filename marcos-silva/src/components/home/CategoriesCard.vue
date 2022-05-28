@@ -87,4 +87,15 @@ function handleRedirect(category) {
       }
     }
   }
+
+  @media screen and(max-width: 1600px) {
+    .category-card {
+      width: 19vw;
+      &__title {
+        h2 {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
 </style>

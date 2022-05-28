@@ -106,4 +106,9 @@ const products = await Promise.all(categories.map(
       padding-inline: $desktop-medium-padding;
     }
   }
+  @media screen and(max-width: 1600px) {
+    .categories {
+      padding-inline: $desktop-small-padding;
+    }
+  }
 </style>

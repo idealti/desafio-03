@@ -117,4 +117,21 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
       padding-inline: $desktop-medium-padding;
     }
   }
+
+  @media screen and (max-width: 1600px) {
+    .hero {
+      padding-inline: $desktop-small-padding;
+    }
+    .details {
+      &__description {
+        font-size: 0.9rem;
+      }
+    }
+    .price {
+      font-size: 1.5rem;
+      mark {
+        font-size: 3rem;
+      }
+    }
+  }
 </style>
