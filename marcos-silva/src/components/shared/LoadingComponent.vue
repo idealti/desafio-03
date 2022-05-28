@@ -4,6 +4,7 @@
 <template>
   <div class="loading-container">
     <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    <span>The API used in this project may present some instability.</span>
   </div>
 </template>
 

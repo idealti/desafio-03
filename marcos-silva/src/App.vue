@@ -1,14 +1,12 @@
-<script setup>
-import LoadingComponent from '@/components/shared/LoadingComponent.vue';
-import MainHeader from '@/components/shared/HeaderComponent.vue';
-</script>
-
 <template>
   <Suspense>
     <template #default>
-      <div>
-        <MainHeader/>
-        <router-view/>
+      <div @click="watchClickOutsideCart" @keydown="watchClickOutsideCart">
+        <CartComponent/>
+        <div :id="showCart && 'blurry'">
+          <MainHeader/>
+          <router-view/>
+        </div>
         <footer>Made by Marcos</footer>
       </div>
     </template>
@@ -17,6 +15,27 @@ import MainHeader from '@/components/shared/HeaderComponent.vue';
     </template>
   </Suspense>
 </template>
+
+<script setup>
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+import LoadingComponent from '@/components/shared/LoadingComponent.vue';
+import MainHeader from '@/components/shared/HeaderComponent.vue';
+import CartComponent from './components/shared/CartComponent.vue';
+
+const store = useStore();
+const showCart = computed(() => store.getters['cart/showCart']);
+
+// not sure if this is the best approach but hey, it looks pretty
+function watchClickOutsideCart(event) {
+  if (showCart.value && !event.target.classList.contains('cart_element')) {
+    store.commit({
+      type: 'cart/DISABLE_CART',
+    });
+  }
+}
+
+</script>
 
 <style lang="scss">
 @import './styles/variables';
@@ -35,7 +54,20 @@ import MainHeader from '@/components/shared/HeaderComponent.vue';
 
 body {
   font-family: $base-font;
+}
+
+main {
   background-color: #F9F9F9;
+}
+
+button, mark {
+  background-color: transparent;
+}
+
+#blurry {
+  pointer-events: none;
+  transition: 200ms;
+  filter: brightness(50%) blur(2px);
 }
 
 footer {

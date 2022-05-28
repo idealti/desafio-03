@@ -22,6 +22,8 @@
       <button
         class="cart-link"
         :key="store.getters['cart/cartSize']"
+        id="toggleCart"
+        @click.stop="toggleCart"
       >
         <img alt="Cart icon" :src="cartIcon" class="cart-link__icon">
         <span class="cart-link__counter">
@@ -66,7 +68,7 @@ const query = computed(() => store.state['search/query']);
 
 function handleSubmit(event) {
   store.commit({
-    type: 'search/updateQuery',
+    type: 'search/UPDATE_QUERY',
     value: event.target.value,
   });
 
@@ -74,7 +76,7 @@ function handleSubmit(event) {
 }
 function handleHomeRedirect() {
   store.commit({
-    type: 'search/updateQuery',
+    type: 'search/UPDATE_QUERY',
     value: '',
   });
 
@@ -82,11 +84,16 @@ function handleHomeRedirect() {
 }
 function handleSearchRedirect(category) {
   store.commit({
-    type: 'search/updateCategory',
+    type: 'search/UPDATE_CATEGORY',
     value: category,
   });
 
   router.push('/search');
+}
+function toggleCart() {
+  store.commit({
+    type: 'cart/TOGGLE_CART',
+  });
 }
 </script>
 
@@ -137,7 +144,6 @@ function handleSearchRedirect(category) {
     position: relative;
     margin-left: $cart-link-margin;
     border-radius: 50%;
-    background-color: transparent;
     &__counter {
       display: flex;
       justify-content: center;

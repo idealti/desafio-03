@@ -65,7 +65,6 @@ const products = await Promise.all(categories.map(
     }
     &__description {
       mark {
-        background-color: transparent;
         color: purple;
       }
       font-weight: $regular;
@@ -96,7 +95,6 @@ const products = await Promise.all(categories.map(
     }
     &__author {
       mark {
-        background-color: transparent;
         font-style: italic;
         font-weight: $bold;
         grid-area: author;

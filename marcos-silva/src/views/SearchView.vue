@@ -115,7 +115,6 @@ onMounted(async () => {
       width: 100%;
       mark {
         font-weight: $bold;
-        background-color: transparent;
       }
     }
     &__quantity {

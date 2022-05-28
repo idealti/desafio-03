@@ -87,7 +87,6 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
     font-size: 2.2rem;
     font-weight: $thin;
     mark {
-      background-color: transparent;
       font-weight: $regular;
       font-size: 4rem;
     }

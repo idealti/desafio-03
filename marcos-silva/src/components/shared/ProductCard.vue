@@ -40,7 +40,7 @@ const props = defineProps({
 
 function handleButtonClick() {
   store.commit({
-    type: 'cart/addToCart',
+    type: 'cart/ADD_TO_CART',
     value: props.product,
   });
 }
@@ -87,14 +87,12 @@ function handleButtonClick() {
       font-size: 0.8rem;
       mark {
         font-weight: $bold;
-        background-color: transparent;
       }
     }
     &__price {
       font-weight: $thin;
       mark {
         font-weight: $bold;
-        background-color: transparent;
         font-size: 2rem;
       }
     }

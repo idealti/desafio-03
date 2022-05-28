@@ -26,8 +26,6 @@ export default {
       try {
         if (amount == null) {
           const response = await fakestoreapi.get(`/category/${category}`);
-          console.log(`/category/${category}`);
-          // console.log(response);
           return response.data;
         }
 

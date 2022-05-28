@@ -28,7 +28,7 @@ const props = defineProps({
 
 function handleRedirect(category) {
   store.commit({
-    type: 'search/updateCategory',
+    type: 'search/UPDATE_CATEGORY',
     value: category,
   });
 
