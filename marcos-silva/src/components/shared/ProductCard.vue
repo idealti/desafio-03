@@ -10,7 +10,7 @@
         <h2 class="card-details__title">{{ props.product.title }}</h2>
         <p class="card-details__rate">
           {{ props.product.rating.count }} avaliacoes.
-          <mark>{{props.showRating ? props.product.rating.rate : ''}} de 5</mark>
+          <mark v-if="props.showRating">{{ props.product.rating.rate }} de 5</mark>
         </p>
       </div>
       <div class="c-price-button">
@@ -28,6 +28,7 @@
     </section>
   </figure>
 </template>
+
 <script setup>
 import { defineProps } from 'vue';
 import { useStore } from 'vuex';
@@ -48,6 +49,7 @@ function handleButtonClick() {
 
 <style scoped lang="scss">
   @import '@/styles/variables';
+
   @import '@/styles/colors';
   * {
     color: white;
@@ -55,14 +57,14 @@ function handleButtonClick() {
   .card {
     display: flex;
     flex-direction: column;
-    width: 290px;
-    height: 390px;
+    width: 300px;
     background-color: white;
     justify-content: space-between;
     &__image {
+      margin-top: auto;
+      margin-bottom: 10px;
       object-fit: contain;
-      width: 100%;
-      height: 250px;
+      height: 240px;
     }
   }
   .card-details {
@@ -97,7 +99,6 @@ function handleButtonClick() {
       }
     }
   }
-
   .card-details__button {
     padding: 5px 10px;
     font-weight: $bold;

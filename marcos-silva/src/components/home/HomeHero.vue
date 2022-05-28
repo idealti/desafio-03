@@ -33,6 +33,7 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
 
 <style scoped lang="scss">
   @import '@/styles/variables';
+
   .hero {
     background-color: white;
     position: relative;
@@ -40,24 +41,22 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
     display: flex;
     align-items: center;
     height: 532px;
-    padding-inline: $page-padding;
+    padding-inline: $desktop-big-padding;
     &__image {
       max-width: 450px;
-      left: $page-padding;
     }
   }
   .details {
-    position: absolute;
+    position: relative;
     max-height: 400px;
     opacity: 95%;
-    width: 802px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: black;
     border-radius: 2px;
     margin-left: auto;
-    right: $page-padding;
+    right: 30px;
     padding: 28px 40px;
     * {
       color: white;
@@ -110,6 +109,12 @@ const topRated = reactive(productService.sort.sortbyRate(products)[0]);
       width: 35px;
       height: 33px;
       aspect-ratio: 1 / 1;
+    }
+  }
+
+  @media screen and (max-width: 1900px) {
+    .hero {
+      padding-inline: $desktop-medium-padding;
     }
   }
 </style>

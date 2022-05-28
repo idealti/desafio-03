@@ -77,13 +77,8 @@ function hideCart() {
     width: 0;
     opacity: 0.5;
   }
-  .cart-enter-to {
-    opacity: 1;
-    width: 40vw;
-  }
   .cart-leave-to {
     width: 0;
-    opacity: 0;
   }
   /* cart item */
   .cart_item-leave-active {

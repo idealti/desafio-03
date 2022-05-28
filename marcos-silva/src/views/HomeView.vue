@@ -2,12 +2,9 @@
   <Suspense>
     <template #default>
       <main>
-        <h1 v-if="error">Ocorreu um erro com sua requisicao</h1>
-        <div>
-          <home-hero />
-          <home-categories />
-          <home-best-sellers />
-        </div>
+        <home-hero />
+        <home-categories />
+        <home-best-sellers />
       </main>
     </template>
     <template #fallback>

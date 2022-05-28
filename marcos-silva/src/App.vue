@@ -38,8 +38,8 @@ function watchClickOutsideCart(event) {
 </script>
 
 <style lang="scss">
-@import './styles/variables';
-@import './styles/colors';
+@import '@/styles/variables';
+@import '@/styles/colors';
 
 * {
   box-sizing: border-box;
@@ -67,7 +67,8 @@ button, mark {
 #blurry {
   pointer-events: none;
   transition: 200ms;
-  filter: brightness(50%) blur(2px);
+  filter: brightness(50%) blur(1px);
+  border: 0;
 }
 
 footer {

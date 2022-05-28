@@ -1,7 +1,7 @@
 <template>
   <section class="best-sellers">
     <h1 class="best-sellers__title">Campeões de venda.</h1>
-    <div class="c-best-seller-cards">
+    <div class="best-sellers__c-cards">
       <product-card
         v-for="product in topEightProducts"
         :key="product.id + product.title"
@@ -22,8 +22,9 @@ const topEightProducts = productService.sort.sortByRateCount(products).slice(0, 
 <style scoped lang="scss">
   @import '@/styles/colors';
   @import '@/styles/variables';
+
   .best-sellers {
-    padding: 2.2rem $page-padding;
+    padding: 2.2rem $desktop-big-padding;
     background-color: $base-purple;
     width: 100%;
     &__title {
@@ -34,10 +35,16 @@ const topEightProducts = productService.sort.sortByRateCount(products).slice(0, 
       font-weight: $regular;
     }
   }
-
-  .c-best-seller-cards {
+  .best-sellers__c-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px
+    flex-basis: 0;
+    justify-content: center;
+    gap: 5px;
+  }
+  @media screen and (max-width: 1900px) {
+    .best-sellers {
+      padding-inline: $desktop-medium-padding;
+    }
   }
 </style>

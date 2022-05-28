@@ -106,7 +106,7 @@ function toggleCart() {
     position: sticky;
     top: 0;
     width: 100%;
-    padding-inline: $page-padding;
+    padding-inline: $desktop-big-padding;
     height: $header-height;
     justify-content: center;
     display: flex;
@@ -178,6 +178,12 @@ function toggleCart() {
     color: white;
     &:hover {
       color: aqua;
+    }
+  }
+
+  @media screen and (max-width: 1900px) {
+    .c-header {
+      padding-inline: $desktop-medium-padding;
     }
   }
 </style>

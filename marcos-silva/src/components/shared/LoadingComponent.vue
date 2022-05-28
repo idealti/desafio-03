@@ -9,7 +9,8 @@
 </template>
 
 <style scoped lang="scss">
-@import '@/styles/_variables.scss';
+@import '@/styles/variables';
+
 .loading-container {
   width: 100%;
   height: calc(100vh - $header-height);

@@ -1,7 +1,7 @@
 <template>
   <section class="categories">
     <h1 class="categories__title">Encontre seu melhor estilo.</h1>
-    <div class="c-categories-cards">
+    <div class="categories__c-cards">
       <categories-card
         v-for="product in products"
         :key="product.id + product.category"
@@ -48,12 +48,12 @@ const products = await Promise.all(categories.map(
 
 <style scoped lang="scss">
   @import '@/styles/variables';
-  .c-categories-cards {
+  .categories__c-cards {
     display: flex;
     justify-content: space-between;
   }
   .categories {
-    padding: 52px $page-padding 0;
+    padding: 52px  $desktop-big-padding 0;
     height: 860px;
     gap: 40px;
     text-align: center;
@@ -99,6 +99,11 @@ const products = await Promise.all(categories.map(
         font-weight: $bold;
         grid-area: author;
       }
+    }
+  }
+  @media screen and(max-width: 1900px) {
+    .categories {
+      padding-inline: $desktop-medium-padding;
     }
   }
 </style>

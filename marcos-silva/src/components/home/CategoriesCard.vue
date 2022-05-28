@@ -3,9 +3,9 @@
     @click="handleRedirect(props.category)"
     @keydown="handleRedirect(props.category)"
   >
-    <div class="suggested-card">
-      <img class="suggested-card__image" alt="cool" :src="props.image">
-      <div class="suggested-card__title">
+    <div class="category-card">
+      <img class="category-card__image" alt="cool" :src="props.image">
+      <div class="category-card__title">
         <h2>{{ props.category }}</h2>
       </div>
     </div>
@@ -38,9 +38,9 @@ function handleRedirect(category) {
 
 <style scoped lang="scss">
   @import '@/styles/variables';
-  .suggested-card {
+  .category-card {
     border-radius: 5px 0;
-    width: 290px;
+    width: 16vw;
     height: 428px;
     display: flex;
     justify-content: space-between;
@@ -59,7 +59,7 @@ function handleRedirect(category) {
       filter: brightness(100%);
     }
   }
-  .suggested-card__title {
+  .category-card__title {
     h2 {
       &::first-letter {
         text-transform: uppercase;
@@ -77,6 +77,14 @@ function handleRedirect(category) {
     align-items: center;
     justify-content: center;
     background-color: black;
-
+  }
+  @media screen and(max-width: 1900px) {
+    .category-card {
+      &__title {
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 </style>

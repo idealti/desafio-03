@@ -25,7 +25,7 @@
           </select>
         </label>
       </div>
-      <div class="search-result__products">
+      <div class="search-result__c-products">
         <product-card
           v-for="product in products"
           :key="product.id"
@@ -101,13 +101,15 @@ onMounted(async () => {
 
 <style scoped lang="scss">
   @import '@/styles/variables';
+
   .search-result {
-    padding: 30px $page-padding;
+    padding: 30px  $desktop-big-padding;
     min-height: 80vh;
-    &__products {
+    &__c-products {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px
+      gap: 5px;
+      justify-content: center;
     }
     &__query {
       font-weight: $thin;
@@ -130,5 +132,11 @@ onMounted(async () => {
   .search-result__sorting {
     border-radius: 1px;
     height: 30px;
+  }
+
+  @media screen and (max-width: 1900px) {
+    .search-result{
+      padding-inline: $desktop-medium-padding;
+    }
   }
 </style>
