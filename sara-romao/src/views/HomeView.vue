@@ -1,24 +1,7 @@
 <template>
   <div class="home">
-    <h1>home {{$store.state.count}}</h1>
-    <button @click="add">Increment</button>
-
-    <h2>carrinho {{$store.getters.qtdCart}}</h2>
    
-   <p>Total: {{$store.getters.total.toFixed(2)}}</p>
-   <p>Qtd: {{$store.getters.qtdCart}}</p>
     
-
-   
-     <ul>
-      
-       <li v-for="(item, index) in carrinho" :key="index">{{item.title}} qtd: {{item.qtd}}</li>
-     </ul>
-     
-
-    <main class="listProducts">
-      <!--  <Product nome="sara"/> -->
-
       <div class="filters">
         <ul>
           <li>Electronics</li>
@@ -27,6 +10,9 @@
           <li>Women's clothing</li>
         </ul>
       </div>
+
+    <main class="listProducts">
+  
 
       <div class="productsContainer" v-if="listProducts !== null">
         <div v-for="product in listProducts" :key="product.id">
@@ -90,7 +76,7 @@ main {
 
 .productsContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 50px 20px;
 }
 </style>
