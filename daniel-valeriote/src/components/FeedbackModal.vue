@@ -19,7 +19,7 @@ const props = defineProps({open: { type: Boolean, default: false }})
 
 <style scoped>
 .v-enter-active, .v-leave-active {
-	transition: all .2s ease;
+	transition: all .6s ease;
 }
 .v-enter-from, .v-leave-to{
 	opacity: 0;
@@ -41,6 +41,5 @@ const props = defineProps({open: { type: Boolean, default: false }})
 	border: 1px solid rgba(0,0,0,0.3);
 	box-shadow: 0px 0px 7px rgba(0,0,0,0.3);
 	color: white;
-	transition: all .6s ease;
 }
 </style>
