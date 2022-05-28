@@ -62,7 +62,7 @@
    
       div {
          text-align: right;
-         margin-right: 10px;
+         margin-right: 1.5rem;
    
          strong {
             display: block;

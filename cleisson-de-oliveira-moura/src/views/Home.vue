@@ -229,6 +229,11 @@
 @media (max-width: 648px) {
    .wrapProducts {
       grid-template-columns: 1fr;
+
+      .product {
+         width: 90vw;
+         margin: 2rem auto;
+      }
    }
 }
 </style>

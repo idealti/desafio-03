@@ -92,18 +92,34 @@ div {
 
       .categorySelector {
          margin-left: 2rem;
+
+         select {
+            border: none;
+            background-color: #333;
+            color: #fff;
+         }
       }
       .sorterInput {
          margin-right: 1rem;
+
+         select {
+            border: none;
+            background-color: #333;
+            color: #fff;
+         }
       }
    }
    @media (max-width: 648px) {
       .container {
          flex-direction: column;
+         .categorySelector {
+            margin: 0;
+         }
+         .sorterInput {
+            margin: 1rem 0 0;
+         }
       }
-      .sorterInput {
-         margin-top: 1rem;
-      }
+
    }
 }
 

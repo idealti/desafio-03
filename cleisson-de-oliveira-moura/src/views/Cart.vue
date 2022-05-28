@@ -171,6 +171,9 @@
       p {
          font-size: 0.85rem;
          margin-top: 0.35rem;
+
+         text-align: justify;
+         padding-right: 1rem;
       }
 
       div {
