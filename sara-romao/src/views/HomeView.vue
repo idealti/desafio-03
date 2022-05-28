@@ -2,18 +2,29 @@
   <div class="home">
    
     
-      <div class="filters">
+    
+      <div class="filters container">
         <ul>
-          <li>Electronics</li>
-          <li>Jewelery</li>
-          <li>Mens's clothing</li>
-          <li>Women's clothing</li>
+          <li @click="filterCategory('')">All</li>
+          <li @click="filterCategory('/category/electronics')">Electronics</li>
+          <li @click="filterCategory('/category/jewelery')">Jewelery</li>
+          <li @click="filterCategory(`/category/men's%20clothing`)">Mens's clothing</li>
+          <li @click="filterCategory(`/category/women's%20clothing`)">Women's clothing</li>
+          <li @click="filterCategory(`?sort=desc`)">Price Desc</li>
+          <li @click="filterCategory(`?sort=asc`)">Price Asc</li>
         </ul>
+
+        <div class="filterContent">
+          <label for="filter">Filter</label>
+          <select name="" id="" v-model="filter">
+            <option value="">Desc - Asc</option>
+          </select>
+        </div>
+         
+        
       </div>
-
-    <main class="listProducts">
-  
-
+    <main class="listProducts container">
+      
       <div class="productsContainer" v-if="listProducts !== null">
         <div v-for="product in listProducts" :key="product.id">
           <Product :product="product"/>
@@ -51,10 +62,22 @@ export default {
       this.listProducts = data;
     },
 
+    async apiFilter(category) {
+      const res = await fetch(`https://fakestoreapi.com/products${category}`);
+      const data = await res.json();
+      console.log(data)
+      this.listProducts = data;
+    },
+
+
     add(){
       this.$store.commit('increment')
       
       console.log("carrinho", this.$store.state.cart)
+    },
+
+    filterCategory(category){
+      this.apiFilter(category)
     }
     
   },
@@ -67,16 +90,60 @@ export default {
 
 <style scoped>
 main {
-  max-width: 1200px;
-  margin: 0 auto;
-  border: 1px solid red;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+ 
+  border-top: 2px solid rgb(228, 228, 228);
+ 
 }
 
 .productsContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 50px 20px;
+  grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: center;
+  gap: 30px 10px;
+}
+
+.filters{
+/*   border: 1px solid red; */
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.filters ul{
+  display: flex;
+  gap:20px;
+
+ 
+}
+
+.filters ul li{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.filters ul li:after{
+  content: '';
+  width: 0%;
+  height: 5px;
+  border-radius: 5px;
+  background: #75e8a4;
+  transition: 0.8s;
+}
+
+.filters ul li:hover::after{
+ 
+  width: 100%;
+  
+ 
+}
+
+
+.filterContent{
+  display:flex;
+  flex-direction:column;
 }
 </style>
