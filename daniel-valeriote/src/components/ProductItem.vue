@@ -16,7 +16,7 @@
 				</abbr>
 			</h4>
 		</div>
-		<button class="add-to-cart-btn" @click="cart.addProduct(product)">
+		<button class="add-to-cart-btn" @click="cart.addProduct(product); $emit('addToCart')">
 			Adicionar ao carrinho <CartIcon :size="14" :style="{marginLeft: '10px'}"/>
 		</button>
 	</li>
@@ -27,7 +27,6 @@
 	import CartIcon from 'vue-material-design-icons/Cart.vue'
 	import { useCartStore } from '../store/cart';
 	import { computed } from 'vue';
-
 
 	const props = defineProps({
 			product: {
@@ -43,7 +42,6 @@
 	})
 
 	const cart = useCartStore()
-
 	const treatedPrice = computed(() => props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2}))
 </script>
 

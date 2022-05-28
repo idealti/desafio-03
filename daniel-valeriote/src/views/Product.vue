@@ -1,11 +1,12 @@
 <template>
 	<TheLoader v-if="isLoading"/>
-	<DetailedProduct v-else-if="product" :product="product"/>
+	<DetailedProduct v-else-if="product" :product="product" @addToCart="openModal"/>
 	<NotFound v-if="hasError" customMessage="Produto não encontrado."/>
+	<FeedbackModal :open="isModalOpen">Produto adicionado ao carrinho de compras</FeedbackModal>
 </template>
 
 <script>
-import fetchProducts from '../utils/fetchProducts';
+import fetchProduct from '../utils/fetchProducts';
 import TheLoader from '../components/TheLoader.vue';
 import DetailedProduct from '../components/DetailedProduct.vue';
 import NotFound from './NotFound.vue';
@@ -19,12 +20,13 @@ export default {
 	},
 	mounted() {
 		const id = this.$route.params.id
-		fetchProducts('https://fakestoreapi.com/products/' + id)
+		fetchProduct('https://fakestoreapi.com/products/' + id)
 			.then(res => {
-				if(!res) {
-					this.hasError = true;
+				if(!res) this.hasError = true;
+				else {
+					this.product = res;
+					if(res.title) document.title = res.title.trim()
 				} 
-				else this.product = res;
 				this.isLoading = false;
 			})
 			.catch(err => {
@@ -38,5 +40,19 @@ export default {
 		DetailedProduct,
 		NotFound
 	}
+}
+</script>
+
+<script setup>
+// modal logic
+import FeedbackModal from '../components/FeedbackModal.vue';
+import {ref} from 'vue';
+const isModalOpen = ref(false);
+
+function openModal () {
+	isModalOpen.value = true;
+	setTimeout(() => {
+		isModalOpen.value = false;
+	}, 1350)
 }
 </script>

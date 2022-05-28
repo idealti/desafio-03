@@ -3,6 +3,7 @@
 	<TheLoader v-if="isLoading"/>
 	<NotFound customMessage="Erro, Produtos não encontrados." :backHomeBtn="false" v-else-if="hasError"/>
 	<ProductsList v-else-if="products" :products="filteredProducts"/>
+	<TemporaryModal v-show="modalActive">Produto adicionado ao carrinho.</TemporaryModal>
 </template>
 
 <script setup>
@@ -10,6 +11,7 @@ import ProductsList from '../components/ProductsList.vue';
 import TheLoader from './TheLoader.vue';
 import SearchInput from './SearchInput.vue';
 import NotFound from '../views/NotFound.vue';
+import TemporaryModal from './FeedbackModal.vue';
 
 import filterProducts from '../utils/filterProducts';
 import fetchProducts from '../utils/fetchProducts';
@@ -20,6 +22,7 @@ const filteredProducts = ref([]);
 const isLoading = ref(true);
 const hasError = ref(false);
 const searchText = ref('');
+const modalActive = ref(false);
 
 const props = defineProps({
 	urlPath: String

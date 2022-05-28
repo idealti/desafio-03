@@ -32,7 +32,7 @@ export const useCartStore = defineStore('cart', {
 		decreaseProductCount(id) {
 			this.products.forEach(p => {
 				if(p.id != id) return;
-				if(p.count == 1) return this.removeProduct(id);
+				if(p.count == 1) return;
 				p.count--;
 			})
 		},

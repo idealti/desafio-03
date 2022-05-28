@@ -12,7 +12,7 @@
 					({{product.rating.count}})
 				</h4>
 			</div>
-			<button class="add-to-cart-btn" @click="cart.addProduct(product)">Adicionar ao carrinho <CartIcon :style="{marginLeft: '10px'}" :size="14"/></button>
+			<button class="add-to-cart-btn" @click="cart.addProduct(product); $emit('addToCart')">Adicionar ao carrinho <CartIcon :style="{marginLeft: '10px'}" :size="14"/></button>
 			<div class="product-desc-container">
 				<h3>DESCRIÇÃO DO PRODUTO</h3>
 				<p class="product-desc">{{product.description}}</p>

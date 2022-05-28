@@ -1,9 +1,10 @@
 <template>
 	<div>
 		<h1 class="page-title">Meu Carrinho</h1>
-		<TheCartProductsList  v-if="products.length > 0" :products="products"/>
-		<h2 v-else class="empty-cart-message">O carrinho está vazio.</h2>
+		<TheCartProductsList  v-show="products.length > 0" :products="products"/>
+		<h2 v-if="products.length == 0" class="empty-cart-message">O carrinho está vazio.</h2>
 	</div>
+
 </template>
 
 <script setup>

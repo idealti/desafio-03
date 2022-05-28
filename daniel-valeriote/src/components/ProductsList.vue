@@ -5,14 +5,26 @@
 			v-for="product in products"
 			:product="product"
 			:key="product.id"
+			@addToCart="openModal"
 			/>
 		</ul>
 	</div>
+	<FeedbackModal :open="isModalOpen" @closeModal="isModalOpen = false">Produto adicionado ao carrinho de compras</FeedbackModal>
 </template>
 
 <script setup>
+	import {ref} from 'vue';
 	import ProductItem from './ProductItem.vue';
-	const props = defineProps({products: Array});
+	import FeedbackModal from './FeedbackModal.vue';
+	defineProps({products: Array});
+	const isModalOpen = ref(false)
+	function openModal () {
+		isModalOpen.value = true;
+		// closes modal after 2 seconds
+		setTimeout(() => {
+			isModalOpen.value = false;
+		}, 1350)
+	}
 </script>
 
 <style>

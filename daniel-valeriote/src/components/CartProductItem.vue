@@ -1,20 +1,22 @@
 <template>
-<li class="cart-product-item">
-	<img class="cart-product-image" :src="product.image" :alt="product.title">
-	<h3 class="cart-product-title">{{product.title}}</h3>
-	<div class="price-container">
-		<h4 class="product-count-and-price">{{product.count}}x R$ {{treatedPrice}}</h4>
-		<h4 class="product-total">Total: <b>R$ {{total}}</b></h4>
-	</div>
-	<div class="buttons">
-		<div class="change-count-buttons">
-			<button class="change-count-btn" @click="cart.decreaseProductCount(product.id)">-</button>
-			{{product.count}}
-			<button class="change-count-btn" @click="cart.increaseProductCount(product.id)">+</button>
+<div class="cart-product-container">
+	<li class="cart-product-item">
+		<img class="cart-product-image" :src="product.image" :alt="product.title">
+		<h3 class="cart-product-title">{{product.title}}</h3>
+		<div class="price-container">
+			<h4 class="product-count-and-price">{{product.count}}x R$ {{treatedPrice}}</h4>
+			<h4 class="product-total">Total: <b>R$ {{total}}</b></h4>
 		</div>
-		<button class="remove-product-btn" @click="cart.removeProduct(product.id)"><DeleteIcon /></button>
-	</div>
-</li>
+		<div class="buttons">
+			<div class="change-count-buttons">
+				<button class="change-count-btn" @click="cart.decreaseProductCount(product.id)">-</button>
+				{{product.count}}
+				<button class="change-count-btn" @click="cart.increaseProductCount(product.id)">+</button>
+			</div>
+			<button class="remove-product-btn" @click="cart.removeProduct(product.id); $emit('removeFromCart')"><DeleteIcon /></button>
+		</div>
+	</li>
+</div>
 </template>
 
 <script setup>
@@ -22,7 +24,6 @@ import {computed} from 'vue';
 import DeleteIcon from 'vue-material-design-icons/Delete.vue';
 import { useCartStore } from '../store/cart';
 const cart = useCartStore();
-
 const props = defineProps({
 	product: {
 		title: String,
@@ -33,24 +34,26 @@ const props = defineProps({
 	}
 });
 const total = computed(() => (props.product.price * props.product.count).toLocaleString(undefined, {minimumFractionDigits: 2}));
-const treatedPrice = computed(() => props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2}))
-
+const treatedPrice = computed(() => props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2}));
 </script>
 
 <style>
+	.cart-product-container {
+		background-color: #fff;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+		box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+	}
 	.cart-product-item {
 		display: grid;
 		height: 180px;
-		overflow: hidden;
 		padding: 20px;
 		grid-template: 
 		"img title title" 3fr
 		"img price buttons" 1fr
 		/1fr 1fr 1fr;
 		column-gap: 20px;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-		background-color: #fff;
-		box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+		max-width: 700px;
+		margin: 0 auto;
 	}
 	.cart-product-image {
 		width: 180px;
