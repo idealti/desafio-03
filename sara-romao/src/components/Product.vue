@@ -4,6 +4,16 @@
       <img :src="product.image" :alt="product.title" class="productImg" />
       <p class="productTitle">{{ product.title }}</p>
       <h3>${{ product.price.toFixed(2)}}</h3>
+      <small v-if="product.rating.rate.toFixed() >= 4  ">
+         {{product.rating.rate}}
+         <img src="/assets/starYellow.svg" alt="start">
+         <img src="/assets/starYellow.svg" alt="start">
+         <img src="/assets/starYellow.svg" alt="start">
+         <img src="/assets/starYellow.svg" alt="start">
+         <img src="/assets/starGrey.svg" alt="start">
+          
+      </small>
+     
     </router-link>
     <button @click="addCart(product.id, product.title, product.price, product.image)">
       <div class="infoCart">

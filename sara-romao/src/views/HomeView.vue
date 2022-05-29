@@ -16,9 +16,14 @@
 
         <div class="filterContent">
           <label for="filter">Filter</label>
-          <select name="" id="" v-model="filter">
-            <option value="">Desc - Asc</option>
-          </select>
+         <select v-model="selected" @change="ordemBy(selectFilter)">
+          <option disabled value="">Escolha um item</option>
+          <option>Popularity</option>
+          <option>Low to High</option>
+          <option>High to Low</option>
+        </select>
+        <br>
+        <span>Selecionado: {{ selected }}</span>
         </div>
          
         
@@ -52,6 +57,7 @@ export default {
       listProducts: null,
       id: 1,
       carrinho: this.$store.state.cart,
+      selected: ''
     };
   },
 
@@ -60,6 +66,8 @@ export default {
       const res = await fetch(`https://fakestoreapi.com/products`);
       const data = await res.json();
       this.listProducts = data;
+
+      console.log(data[1].rating)
     },
 
     async apiFilter(category) {
@@ -78,12 +86,36 @@ export default {
 
     filterCategory(category){
       this.apiFilter(category)
+    },
+
+    ordemBy(selectFilter){
+
+
+      const lista =  this.listProducts.map(product => product.rating.rate)
+      
+      console.log("rating", lista)
+
+
+      this.listProducts.sort(function (b, a) {
+        if (a.rating.rate > b.rating.rate) {
+          return 1;
+        }
+        if (a.rating.rate < b.rating.rate) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+
+      console.log(this.listProducts)
+
     }
     
   },
 
   mounted() {
     this.fetchApi();
+
   },
 };
 </script>
