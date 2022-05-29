@@ -19,7 +19,7 @@
 
 <script setup>
 	import {ref} from 'vue';
-	const isDropdownOpen = ref(false)
+	const isDropdownOpen = ref(false);
 </script>
 
 <style scoped>

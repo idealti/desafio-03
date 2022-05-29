@@ -31,7 +31,7 @@ const orderedBy = ref('rating');
 
 const props = defineProps({
 	urlPath: String
-})
+});
 
 function sortProducts(order) {
 	if(!filterProducts || filterProducts?.length === 0) return
@@ -46,8 +46,7 @@ function sortProducts(order) {
 			filteredProducts.value.sort((a, b) => b.rating.rate - a.rating.rate)
 		}
 	}
-	console.log(order || 'executed')
-	orders && orders[order]()
+	order && orders[order]();
 }
 
 onMounted(() => {
@@ -62,9 +61,9 @@ onMounted(() => {
 			hasError.value = true;
 			isLoading.value = false
 		})
-})
+});
 
 watch(searchText, () => {
 	filteredProducts.value = filterProducts(searchText.value.toLowerCase(), products.value);
-})
+});
 </script>

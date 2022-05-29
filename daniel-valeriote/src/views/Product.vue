@@ -19,18 +19,18 @@ export default {
 		}
 	},
 	mounted() {
-		const id = this.$route.params.id
+		const id = this.$route.params.id;
 		fetchProduct('https://fakestoreapi.com/products/' + id)
 			.then(res => {
 				if(!res) this.hasError = true;
 				else {
 					this.product = res;
-					if(res.title) document.title = res.title.trim()
+					if(res.title) document.title = res.title.trim();
 				} 
 				this.isLoading = false;
 			})
 			.catch(err => {
-				console.error(err)
+				console.error(err);
 				this.hasError = true;
 				this.isLoading = false;
 			})
@@ -51,8 +51,6 @@ const isModalOpen = ref(false);
 
 function openModal () {
 	isModalOpen.value = true;
-	setTimeout(() => {
-		isModalOpen.value = false;
-	}, 1350)
+	setTimeout(() => isModalOpen.value = false, 1350);
 }
 </script>

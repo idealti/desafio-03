@@ -24,7 +24,7 @@
 
 <script setup>
 	import StarRating from 'vue-star-rating';
-	import CartIcon from 'vue-material-design-icons/Cart.vue'
+	import CartIcon from 'vue-material-design-icons/Cart.vue';
 	import { useCartStore } from '../store/cart';
 	import { computed } from 'vue';
 
@@ -41,8 +41,8 @@
 			}
 	})
 
-	const cart = useCartStore()
-	const treatedPrice = computed(() => props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2}))
+	const cart = useCartStore();
+	const treatedPrice = computed(() => props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2}));
 </script>
 
 <style scoped>

@@ -4,5 +4,5 @@
 
 <script setup>
 import ProductsPageTemplate from '../components/ProductsPageTemplate.vue';
-defineProps({urlPath: String})
+defineProps({urlPath: String});
 </script>

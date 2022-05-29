@@ -27,9 +27,7 @@
 	import { useCartStore } from '../store/cart';
 	const cart = useCartStore();
 
-	const treadedPrice = computed(() => {
-		return props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2})
-	})
+	const treadedPrice = computed(() => props.product.price.toLocaleString(undefined, {minimumFractionDigits: 2}))
 
 	const props = defineProps({
 		product: {

@@ -17,13 +17,10 @@
 	import ProductItem from './ProductItem.vue';
 	import FeedbackModal from './FeedbackModal.vue';
 	defineProps({products: Array});
-	const isModalOpen = ref(false)
+	const isModalOpen = ref(false);
 	function openModal () {
 		isModalOpen.value = true;
-		// closes modal after 2 seconds
-		setTimeout(() => {
-			isModalOpen.value = false;
-		}, 1350)
+		setTimeout(() => isModalOpen.value = false, 1350);
 	}
 </script>
 

@@ -5,7 +5,7 @@
 			<CheckIcon :size="45"/>
 		</slot>
 		<p>
-			<slot/>
+			<slot />
 		</p>
 	</div>
 </transition>
@@ -14,7 +14,7 @@
 <script setup>
 import CheckIcon from 'vue-material-design-icons/CheckCircle.vue';
 const emit = defineEmits(['closeModal']);
-const props = defineProps({open: { type: Boolean, default: false }})
+const props = defineProps({open: { type: Boolean, default: false }});
 </script>
 
 <style scoped>

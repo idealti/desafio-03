@@ -79,17 +79,12 @@
 
 <script setup>
 import {ref, onMounted, watch} from 'vue';
-import CartIcon from 'vue-material-design-icons/Cart.vue'
+import CartIcon from 'vue-material-design-icons/Cart.vue';
 let isMobile = ref(false);
 let showMobileNav = ref(false);
 
-function checkForMobile() {
-	isMobile.value = window.innerWidth <= 750;
-};
-
-function toggleShowMobileNav() {
-	showMobileNav.value = !showMobileNav.value;
-};
+const checkForMobile = () => isMobile.value = window.innerWidth <= 750;
+const toggleShowMobileNav = () => showMobileNav.value = !showMobileNav.value;
 
 onMounted(() => {
 	window.addEventListener('resize', checkForMobile);
