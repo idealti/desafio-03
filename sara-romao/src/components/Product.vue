@@ -3,28 +3,90 @@
     <router-link to="/">
       <img :src="product.image" :alt="product.title" class="productImg" />
       <p class="productTitle">{{ product.title }}</p>
-      <h3>${{ product.price.toFixed(2)}}</h3>
-      <small v-if="product.rating.rate.toFixed() >= 4  ">
-         {{product.rating.rate}}
-         <img src="/assets/starYellow.svg" alt="start">
-         <img src="/assets/starYellow.svg" alt="start">
-         <img src="/assets/starYellow.svg" alt="start">
-         <img src="/assets/starYellow.svg" alt="start">
-         <img src="/assets/starGrey.svg" alt="start">
-          
+      <h3>${{ product.price.toFixed(2) }}</h3>
+      <small v-if="product.rating.rate == 5">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
       </small>
-     
+      <small v-else-if="product.rating.rate >= 4.5 && product.rating.rate < 5">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYG.svg" alt="start" />
+      </small>
+      <small v-else-if="product.rating.rate >= 4 && product.rating.rate < 4.5">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+      </small>
+      <small v-else-if="product.rating.rate >= 3 && product.rating.rate <= 3.4">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+      </small>
+
+      <small v-else-if="product.rating.rate >= 3.5 && product.rating.rate < 4">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYG.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+      </small>
+      <small v-else-if="product.rating.rate >= 2 && product.rating.rate <= 2.4">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+      </small>
+
+      <small v-else-if="product.rating.rate >= 2.5 && product.rating.rate < 3">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYG.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+      </small>
+      <small v-else-if="product.rating.rate >= 1 && product.rating.rate <= 1.4">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+      </small>
+
+      <small v-else-if="product.rating.rate >= 1.5 && product.rating.rate < 2">
+        <img src="/assets/starYellow.svg" alt="start" />
+        <img src="/assets/starYG.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+      </small>
+      <small v-else>
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+        <img src="/assets/starGrey.svg" alt="start" />
+      </small>
+      {{ product.rating.rate }}
     </router-link>
-    <button @click="addCart(product.id, product.title, product.price, product.image)">
+    <button
+      @click="addCart(product.id, product.title, product.price, product.image)"
+    >
       <div class="infoCart">
         <img src="/assets/cart-btn.svg" />
-       
       </div>
       Add
     </button>
-
-   
-     
   </div>
 </template>
 
@@ -37,23 +99,18 @@ export default {
     return {};
   },
 
-  methods:{
-    addCart(id, title, price, image){
-       const product ={
-        id:id,
-        title:title,
-        price:price,
-        image: image
-      }
-     
-      this.$store.commit('addInCart', product)
-     
+  methods: {
+    addCart(id, title, price, image) {
+      const product = {
+        id: id,
+        title: title,
+        price: price,
+        image: image,
+      };
+
+      this.$store.commit("addInCart", product);
     },
-
-   
-  }
-
- 
+  },
 };
 </script>
 
@@ -68,7 +125,6 @@ export default {
 .productCart a {
   text-decoration: none;
   color: rgb(49, 49, 49);
-
   transition: 0.3s;
 }
 
@@ -95,6 +151,7 @@ export default {
 .productCart button {
   width: 100%;
   height: 35px;
+  margin-top: 10px;
   background: #75e8a4;
   border: none;
   border-radius: 5px;
@@ -107,7 +164,7 @@ export default {
 }
 
 .productCart button:hover {
-  background: #5cee99;
+  background: #3de282;
 }
 
 .infoCart {
