@@ -39,7 +39,6 @@
 
 <script setup>
 import { useStore } from 'vuex';
-import productsServices from '@/services/products';
 import LoadingComponent from '@/components/shared/LoadingComponent.vue';
 import ProductCard from '@/components/shared/ProductCard.vue';
 
@@ -49,6 +48,7 @@ import {
   onMounted,
   ref,
 } from 'vue';
+import useProducts from '@/hooks/useProducts';
 
 const store = useStore();
 const category = computed(() => store.getters['search/getCategory']);
@@ -57,33 +57,30 @@ const query = computed(() => store.getters['search/getQuery']);
 const products = ref(null);
 const isLoading = ref(false);
 
-async function updateFoundProducts() {
+async function updateProducts() {
   isLoading.value = true;
-  let allProducts;
-  if (category.value === '') {
-    allProducts = await productsServices.fetch.getAll();
-  } else {
-    allProducts = await productsServices.fetch.getProductFromCategory(category.value);
-  }
-  products.value = productsServices.sort
-    .sortByQuery(allProducts, store.getters['search/getQuery'])
-    .sort((a, b) => a.price - b.price);
+
+  const shouldIncludeCategory = category.value ? category.value : false;
+  const [, methods] = await useProducts(false, shouldIncludeCategory);
+
+  products.value = methods.sortByQuery(query.value);
+
   isLoading.value = false;
 }
 
 function sortProducts(event) {
   switch (event.target.value) {
     case 'priceAsc':
-      products.value.sort((a, b) => a.price - b.price);
+      products.value.sortByPrice();
       break;
     case 'priceDesc':
-      products.value.sort((a, b) => b.price - a.price);
+      products.value.sortByPrice('desc');
       break;
     case 'rateAsc':
-      products.value.sort((a, b) => a.rating.rate - b.rating.rate);
+      products.value.sortByRate();
       break;
     case 'rateDesc':
-      products.value.sort((a, b) => b.rating.rate - a.rating.rate);
+      products.value.sortByRate('desc');
       break;
     default:
       break;
@@ -91,11 +88,11 @@ function sortProducts(event) {
 }
 
 watch([category, query], async () => {
-  updateFoundProducts();
+  updateProducts();
 });
 
 onMounted(async () => {
-  updateFoundProducts();
+  updateProducts();
 });
 </script>
 

@@ -2,6 +2,7 @@
   <a
     @click="handleRedirect(props.category)"
     @keydown="handleRedirect(props.category)"
+    data-cy="category_card"
   >
     <div class="category-card">
       <img class="category-card__image" alt="cool" :src="props.image">

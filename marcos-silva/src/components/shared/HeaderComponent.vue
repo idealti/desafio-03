@@ -36,6 +36,7 @@
         class="nav__link"
         @click="handleSearchRedirect('')"
         @keydown="handleSearchRedirect('')"
+        data-cy="nav-link"
       >
         All
       </a>
@@ -58,9 +59,9 @@ import { computed, ref } from 'vue';
 import storeLogo from '@/assets/store_logo.png';
 import cartIcon from '@/assets/cart_icon.svg';
 import { useRouter } from 'vue-router';
-import productsService from '@/services/products';
+import getCategories from '@/utils/getCategories';
 
-const categories = ref(await productsService.fetch.getCategories());
+const categories = ref(await getCategories());
 
 const store = useStore();
 const router = useRouter();

@@ -22,12 +22,12 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
-import productService from '@/services/products';
+import { ref } from 'vue';
 import starIcon from '@/assets/star.png';
+import useProducts from '@/hooks/useProducts';
 
-const products = await productService.fetch.getAll();
-const topRated = reactive(productService.sort.sortbyRate(products)[0]);
+const [list] = await useProducts(false, false, 3);
+const topRated = ref(list);
 
 </script>
 

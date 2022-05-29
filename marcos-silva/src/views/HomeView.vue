@@ -25,8 +25,8 @@ import {
 
 const error = ref(false);
 
-onErrorCaptured(() => {
-  error.value = error;
+onErrorCaptured((e) => {
+  error.value = e;
 });
 
 </script>

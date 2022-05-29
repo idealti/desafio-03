@@ -12,11 +12,13 @@
 </template>
 
 <script setup>
-import productService from '@/services/products';
 import ProductCard from '@/components/shared/ProductCard.vue';
+import useProducts from '@/hooks/useProducts';
+import { reactive } from 'vue';
 
-const products = await productService.fetch.getAll();
-const topEightProducts = productService.sort.sortByRateCount(products).slice(0, 8);
+const [, methods] = await useProducts(8);
+const topEightProducts = reactive(methods.sortByRateCount());
+
 </script>
 
 <style scoped lang="scss">
