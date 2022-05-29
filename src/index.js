@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import App from "./App.js";
 import ResetCSS from "./generic/resetCSS.js";
@@ -15,7 +15,9 @@ root.render(
 			<BrowserRouter>
 				<ResetCSS />
 				<Base />
-				<App />
+				<Routes>
+					<Route path="/" element={<App />} />
+				</Routes>
 			</BrowserRouter>
 		</Provider>
 	</React.StrictMode>
