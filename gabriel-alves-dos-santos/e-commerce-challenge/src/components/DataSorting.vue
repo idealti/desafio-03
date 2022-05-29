@@ -46,7 +46,6 @@ export default {
     }
     function sortByAZ() {
         store.commit (SORT_BY_AZ)
-
     }
     function sortByZA () {
         store.commit (SORT_BY_ZA)

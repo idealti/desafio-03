@@ -21,7 +21,7 @@ export default {
     const state = reactive({
         msg: ''
     })
-    state.msg = computed(() => store.state.loadingMessage)
+    state.msg = computed(() => store.state.dados.loadingMessage)
     return{
         state
     }
