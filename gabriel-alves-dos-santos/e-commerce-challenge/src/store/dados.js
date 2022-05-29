@@ -1,10 +1,10 @@
 import { types } from './mutationTypes'
 const {ADD_TO_DATA_CONTAINER, CHANGE_LOADING_MSG} = types
+import fetchData from '@/services/axiosConfig'
 export default {
     state: () => ({
         dataContainer: [],
         loadingMessage: 'Carregando dados',
-        allItensUrl: 'https://fakestoreapi.com/products',
         selectedCategory: '',
     }),
     mutations: { 
@@ -60,22 +60,20 @@ export default {
     actions: {
         async getSpecificCategory({ commit }, payload) {
             try{
-                const req = await fetch(`https://fakestoreapi.com/products/category/${payload}`)
+                const req = await fetchData.get(`/products/category/${payload}`)
                 if(req.status === 408) throw new Error(`Erro ${req.status} - Tempo de resposta excedido, verifique sua conexão`)
                 if(req.status === 500) throw new Error(`Erro ${req.status} - Erro no servidor`)
-                const res = await req.json()
-                commit(ADD_TO_DATA_CONTAINER, res)
+                commit(ADD_TO_DATA_CONTAINER, req.data)
             }catch(error){
                 commit(CHANGE_LOADING_MSG, error)
             }
         },
         async getAllData({ commit, state }) {
             try{
-                const req = await fetch(state.allItensUrl)
+                const req = await fetchData.get('/products')
                 if(req.status === 408) throw new Error('Tempo de resposta excedido, verifique sua conexão')
                 if(req.status === 500) throw new Error('Erro no servidor')
-                const res = await req.json()
-                commit(ADD_TO_DATA_CONTAINER, res)
+                commit(ADD_TO_DATA_CONTAINER, req.data)
             } catch(error){
                 commit(CHANGE_LOADING_MSG, error)
             }

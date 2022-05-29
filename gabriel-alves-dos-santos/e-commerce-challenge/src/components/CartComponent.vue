@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { reactive, ref } from '@vue/reactivity'
+import { reactive } from '@vue/reactivity'
 import { useStore } from 'vuex'
 import { computed } from '@vue/runtime-core'
 import { types } from '../store/mutationTypes'

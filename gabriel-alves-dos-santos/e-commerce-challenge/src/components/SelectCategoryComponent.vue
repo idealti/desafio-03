@@ -4,7 +4,6 @@
         <div v-else>
             <label  for="categoria">Categoria: </label>
             <select name="categoria" id="categoria" v-model="state.selectedCategory">
-                <option value="">Selecione</option>
                 <option value="tudo">Tudo</option>
                 <option :value="category"
                     v-for="category in state.categoryList" :key="category"
@@ -15,6 +14,7 @@
 </template>
 
 <script>
+import fetchData from '@/services/axiosConfig'
 import { reactive } from '@vue/reactivity'
 import { onMounted, watch } from '@vue/runtime-core'
 import LoadingComponent from './LoadingComponent.vue'
@@ -36,9 +36,8 @@ export default {
     const { ADD_CATEGORY } = types
 
     async function getAllCategories () {
-      const req = await fetch('https://fakestoreapi.com/products/categories')
-      const res = await req.json()
-      state.categoryList = [...res]
+      const req = await fetchData.get('/products/categories')
+      state.categoryList = [...req.data]
     }
 
     function sendOpt (category) { // send option
