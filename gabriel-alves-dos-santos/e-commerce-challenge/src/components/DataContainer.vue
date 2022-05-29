@@ -1,7 +1,7 @@
 <template>
     <section>
         <div v-if="state.turnToLoad">
-            <loading-component />
+            <loading-component/>
         </div>
         <section v-else class="data-container"
             v-for="item in state.data" :key="item.id"
@@ -92,7 +92,8 @@ export default {
     return {
       state,
       cartAdd,
-      turnToPrice
+      turnToPrice,
+      getAll
     }
   }
 

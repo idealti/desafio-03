@@ -1,12 +1,13 @@
 import { createStore } from 'vuex'
 import { types } from '../store/mutationTypes'
-const { ADD_TO_DATA_CONTAINER } = types
+const { ADD_TO_DATA_CONTAINER, CHANGE_LOADING_MSG } = types
 export default createStore({
   state: {
     listaDeCompras: [],
     dataContainer: [],
     selectedCategory: '',
-    allItensUrl: 'https://fakestoreapi.com/products'
+    allItensUrl: 'https://fakestoreapi.com/products',
+    loadingMessage: 'Carregando dados'
   },
   getters: {
       getTotalPrice (state){
@@ -99,19 +100,22 @@ export default createStore({
           return state.listaDeCompras.splice(state.listaDeCompras.indexOf(x),1)
         }
       })
-    }        
+    },
+    CHANGE_LOADING_MSG (state, payload) {
+      state.loadingMessage = payload
+    }      
 },
 actions: {
   async getSpecificCategory({ commit }, payload) {
     try{
       const req = await fetch(`https://fakestoreapi.com/products/category/${payload}`)
-      if(navigator.onLine === false) throw new Error('Erro de rede, erifique sua conexão com a Internet')
-      if(req.status === 408) throw new Error('Tempo de resposta excedido, verifique sua conexão')
-      if(req.status === 500) throw new Error('Erro no servidor')
+      if(navigator.onLine === false) throw new Error('Erro de rede, verifique sua conexão com a Internet')
+      if(req.status === 408) throw new Error(`Erro ${req.status} - Tempo de resposta excedido, verifique sua conexão`)
+      if(req.status === 500) throw new Error(`Erro ${req.status} - Erro no servidor`)
       const res = await req.json()
       commit(ADD_TO_DATA_CONTAINER, res)
     }catch(error){
-      window.alert(error)
+      commit(CHANGE_LOADING_MSG, error)
     }
   },
   async getAllData({ commit, state }) {
@@ -123,7 +127,7 @@ actions: {
       const res = await req.json()
       commit(ADD_TO_DATA_CONTAINER, res)
     } catch(error){
-      window.alert(error)
+        commit(CHANGE_LOADING_MSG, error)
     }
     
   }
