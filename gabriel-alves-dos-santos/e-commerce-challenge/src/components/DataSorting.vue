@@ -3,10 +3,12 @@
         <label for="sort">Ordenar Por: </label>
         <select name="sort" id="sort" v-model="state.selected">
             <option >Selecione</option>
-            <option @click="sortByDesc()" value="1">Maiores preços</option>
-            <option @click="sortByAsc()" value="2">Menores preços</option>
-            <option @click="sortByAscRate()" value="3">Menor avaliação</option>
-            <option @click="sortByDescRate()" value="4">Maior avaliação</option>
+            <option  value="1">Maior preço</option>
+            <option  value="2">Menor preço</option>
+            <option  value="3">Menor avaliação</option>
+            <option  value="4">Maior avaliação</option>
+            <option  value="5">A-Z</option>
+            <option  value="6">Z-A</option>
         </select>
     </div>
 </template>
@@ -26,7 +28,9 @@ export default {
         SORT_BY_ASC,
         SORT_BY_DESC,
         SORT_BY_ASC_RATE,
-        SORT_BY_DESC_RATE
+        SORT_BY_DESC_RATE,
+        SORT_BY_AZ,
+        SORT_BY_ZA
     } = types
     function sortByDesc () {
         store.commit (SORT_BY_DESC)
@@ -40,6 +44,14 @@ export default {
     function sortByDescRate () {
         store.commit (SORT_BY_DESC_RATE)
     }
+    function sortByAZ() {
+        store.commit (SORT_BY_AZ)
+
+    }
+    function sortByZA () {
+        store.commit (SORT_BY_ZA)
+
+    }
     watch(
         () => state.selected,
         () => {
@@ -47,6 +59,8 @@ export default {
             if(state.selected === '2'){sortByAsc()}
             if(state.selected === '3'){sortByAscRate()}
             if(state.selected === '4'){sortByDescRate()}
+            if(state.selected === '5'){sortByAZ()}
+            if(state.selected === '6'){sortByZA()}
         }
     )
     return{
