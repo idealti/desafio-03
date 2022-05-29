@@ -3,7 +3,7 @@
     <h1 class="title">My Cart</h1>
 
     <main>
-      <table v-if="cart.length !==0">
+      <table v-if="cart.length !== 0">
         <tr>
           <th>Product</th>
           <th>Price</th>
@@ -11,11 +11,13 @@
           <th>SubTotal</th>
           <th></th>
         </tr>
-        
-        <tr v-for="item in cart" :key="item.id" >
+
+        <tr v-for="item in cart" :key="item.id">
           <td class="titleProduct">
-            <img :src="item.image" :alt="item.title" />
-            {{ item.title }}
+            <router-link to="/">
+              <img :src="item.image" :alt="item.title" />
+              {{ item.title }}
+            </router-link>
           </td>
           <td class="price">$ {{ item.price.toFixed(2) }}</td>
           <td class="qtyCount">
@@ -34,11 +36,9 @@
       </table>
 
       <div class="noProducts" v-else>
-        
-        <img src="/assets/cart-green.svg" alt="Cart">
+        <img src="/assets/cart-green.svg" alt="Cart" />
         <p>Your Cart is Empty</p>
-        <router-link to="/" >+ Add item</router-link>
-
+        <router-link to="/">+ Add item</router-link>
       </div>
     </main>
     <div class="infoCart">
@@ -85,27 +85,30 @@ export default {
 
 .title {
   text-align: center;
+  margin-top: 20px;
 }
 
 main {
   overflow: auto;
+  min-height: 70vh;
 }
 
-.noProducts{
-  height: 60vh;
+.noProducts {
+  height: 50vh;
   display: flex;
+  margin-top: 50px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.noProducts p{
+.noProducts p {
   font-size: 1.3rem;
   font-weight: bold;
   color: #616161;
 }
 
-.noProducts a{
+.noProducts a {
   border: 2px solid #50e08c;
   border-radius: 5px;
   color: #0eaa4f;
@@ -113,12 +116,13 @@ main {
   text-decoration: none;
   height: 35px;
   width: 120px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.noProducts a:hover{
+.noProducts a:hover {
   background: #d2f8e2;
 }
 
@@ -152,10 +156,17 @@ td:first-child {
   text-align: left;
 }
 
-.titleProduct {
+.titleProduct a {
   display: flex;
   align-items: center;
   gap: 10px;
+  max-width: 100%;
+  text-decoration: none;
+  color: #616161;
+}
+
+.titleProduct a:hover {
+  color: #000;
 }
 
 .titleProduct img {
@@ -163,23 +174,9 @@ td:first-child {
   height: 50px;
   object-fit: contain;
 }
-.titleProduct {
-  max-width: 100%;
-}
+
 .price {
   width: 100px;
-}
-
-.qtyCount div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.infoCart {
-  display: flex;
-  flex-direction: column;
 }
 
 button {
@@ -197,6 +194,24 @@ button:hover {
   background: #50e08c;
 }
 
+.qtyCount div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.qtyCount button{
+  margin: 0px;
+}
+
+.infoCart {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
 .infoCart button {
   margin-top: 10px;
   height: 40px;
@@ -209,6 +224,7 @@ button:hover {
   align-items: center;
   gap: 10px;
   padding: 0px 15px;
+  height: 40px;
 }
 
 .remove img {
