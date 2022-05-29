@@ -1,47 +1,69 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link>
-    <router-link to="/cart">Cart <span>{{cart.length}}</span></router-link>
+    <router-link to="/cart"
+      ><span>{{ this.getCart.length }}</span
+      ><img src="./assets/cart.png" alt="carrinho de compras"
+    /></router-link>
   </nav>
   <router-view />
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "App",
-  data() {
-    return {
-      cart: [],
-    };
-  },
 
+  computed: {
+    ...mapGetters(["getCart"]),
+  },
+  watch: {
+    getCart: {
+      handler() {
+        this.$store.commit("calculateTotalPrice");
+      },
+      deep: true,
+    },
+  },
   created() {
-    this.cart = this.$store.getters.getCart
-  }
+    this.$store.dispatch("fetchProducts");
+  },
 };
 </script>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", "Arial", "Sans-serif";
+  background-color: whitesmoke;
+}
 nav {
   padding: 30px;
-  width: 80%;
-  margin: auto;
-  max-width: 1920px;
+  width: 100vh - 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: violet;
+  background: #6444f2;
+  border-radius: 0 0 20px 20px;
 }
 
 a {
   text-decoration: none;
+  margin: 0 10rem;
+  color: bisque;
+  font-size: 1.5rem;
 }
 
 a:visited {
-  color: black;
+  color: bisque;
 }
 span {
   font-size: 0.8rem;
-  color: aqua;
+  color: bisque;
+}
+img {
+  height: 50px;
+  width: auto;
 }
 </style>

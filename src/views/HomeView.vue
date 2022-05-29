@@ -1,17 +1,29 @@
 <template>
   <div class="container">
-    <div class="card" v-for="product in products" :key="product.id">
-      <div class="image">
-        <img :src="product.image" alt="" />
-      </div>
-      <h3>{{ product.title }}</h3>
-      <p>{{ product.price }}</p>
-      <button @click="test(product)">Adicionar no Carrinho</button>
+    <div class="filters-and-ordenations">
+      <ordenation :products="products" />
+      <button
+        class="btn-default"
+        v-for="(category, index) in categorys"
+        :key="index"
+        @click="filterCategory($event)"
+      >
+        {{ capitalize(category) }}
+      </button>
+    </div>
+    <div class="container-cards">
+      <card
+        :products="products"
+        :handleAddCartAndQuantity="handleAddCartAndQuantity"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import Card from "../components/Card.vue";
+import Ordenation from "../components/Ordenation.vue";
+
 export default {
   name: "HomeView",
   strict: true,
@@ -19,17 +31,79 @@ export default {
   data() {
     return {
       products: [],
-      cart: []
+      productsNotChangeable: [],
+      cart: [],
+      categorys: [],
     };
   },
+  components: {
+    card: Card,
+    ordenation: Ordenation,
+  },
+  watch: {
+    products: {
+      handler() {
+        this.productsNotChangeable.forEach((product) => {
+          const existingCategory = this.categorys.find((category) => {
+            return category === product.category;
+          });
+          if (!existingCategory) this.categorys.push(product.category);
+        });
+      },
+      deep: true,
+    },
+  },
   created() {
-    this.$store.dispatch("fetchProducts");
     this.products = this.$store.getters.getProducts;
-    this.cart = this.$store.getters.getCart
+    this.productsNotChangeable = this.$store.getters.getProducts;
+    this.cart = this.$store.getters.getCart;
   },
   methods: {
-    test(value) {
-      this.$store.dispatch("addCart", value)
+    handleAddCartAndQuantity(value) {
+      this.$store.commit("addCart", value);
+    },
+    filterCategory(event) {
+      const isClassActive = event.target.classList.value.includes("active");
+      if (!isClassActive) {
+        event.target.classList.toggle("active");
+        const allCategorysSelects = [
+          ...document.getElementsByClassName("active"),
+        ];
+        const categorysSelecteds = [];
+        allCategorysSelects.forEach((categorySelect) => {
+          this.productsNotChangeable.forEach((product) => {
+            if (
+              product.category.toUpperCase() ===
+              categorySelect.outerText.toUpperCase()
+            ) {
+              categorysSelecteds.push(product);
+            }
+          });
+        });
+        this.products = categorysSelecteds;
+      } else {
+        event.target.classList.remove("active");
+        const allCategorysSelects = [
+          ...document.getElementsByClassName("active"),
+        ];
+        const categorysSelecteds = [];
+        allCategorysSelects.forEach((categorySelect) => {
+          this.productsNotChangeable.forEach((product) => {
+            if (
+              product.category.toUpperCase() ===
+              categorySelect.outerText.toUpperCase()
+            ) {
+              categorysSelecteds.push(product);
+            }
+          });
+        });
+        this.products = categorysSelecteds;
+        if (allCategorysSelects.length === 0)
+          this.products = this.productsNotChangeable;
+      }
+    },
+    capitalize(value) {
+      return value.charAt(0).toUpperCase() + value.slice(1);
     },
   },
 };
@@ -38,36 +112,36 @@ export default {
 <style scoped>
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 100%;
-  max-width: 400px;
-  height: 600px;
-  display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   flex-wrap: wrap;
-  text-align: center;
-  margin: 30px;
-  overflow: hidden;
+  width: 80%;
+  margin: 20px auto 0;
 }
-
-.image {
-  width: 100%;
-  height: 400px;
+.filters-and-ordenations {
+  display: flex;
+  align-items: center;
+  margin-left: 5rem;
+}
+.btn-default {
+  background-color: #4954db;
+  color: bisque;
+  padding: 16px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  border-radius: 20px;
+}
+.btn-default:hover {
+  background-color: #4480f2;
+}
+.active {
+  background-color: #4480f2;
+}
+.container-cards {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-img {
-  width: auto;
-  height: auto;
-  max-width: 250px;
-  max-height: 350px;
+  flex-wrap: wrap;
 }
 </style>
