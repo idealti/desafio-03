@@ -30,10 +30,10 @@ export const ProductList = styled.ul`
 		}
 
 		> span {
-			font-size: 1.3rem;
-			font-weight: 500;
+			font-size: 1.5rem;
+			font-weight: lighter;
 			margin: 5px 0 20px;
-			color: #915454;
+			color: #404040;
 		}
 
 		button {
@@ -42,14 +42,14 @@ export const ProductList = styled.ul`
 			overflow: hidden;
 			margin-top: auto;
 			color: #fff;
-			background: #ab96ab;
+			background: #404040;
 
 			display: flex;
 			align-items: center;
 			transition: background 0.2s;
 
 			&:hover {
-				background: ${darken(0.03, "#9AABA8")};
+				background: ${darken(0.03, "#593E3E")};
 			}
 
 			div {

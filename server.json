@@ -29,37 +29,37 @@
 	  {
 		 "id": 1,
 		 "title": "Regata cropped com estampa de logo",
-		 "price": 279.90,
+		 "price": 279,
 		 "image": "https://cdn-images.farfetch-contents.com/18/21/71/76/18217176_38957412_1000.jpg"
 	  },
 	  {
 		 "id": 2,
 		 "title": "Blazer slim estilo espartilho",
-		 "price": 239.90,
+		 "price": 239,
 		 "image": "https://cdn-images.farfetch-contents.com/17/00/54/95/17005495_37939055_1000.jpg"
 	  },
 	  {
 		 "id": 3,
 		 "title": "Vestido de jacquard monogramado",
-		 "price": 319.90,
+		 "price": 319,
 		 "image": "https://cdn-images.farfetch-contents.com/17/08/33/59/17083359_34377901_1000.jpg"
 	  },
 	  {
 		 "id": 5,
 		 "title": "Calça esportiva com estampa monogramada",
-		 "price": 239.90,
+		 "price": 239,
 		 "image": "https://cdn-images.farfetch-contents.com/16/83/41/65/16834165_33359621_1000.jpg"
 	  },
 	  {
 		 "id": 6,
 		 "title": "Blazer de lã com abotoamento duplo",
-		 "price": 319.90,
+		 "price": 319,
 		 "image": "https://cdn-images.farfetch-contents.com/17/17/63/06/17176306_36380286_1000.jpg"
 	  },
 	  {
 		 "id": 4,
 		 "title": "Jaqueta matelassê Bady com capuz",
-		 "price": 279.90,
+		 "price": 279,
 		 "image": "https://cdn-images.farfetch-contents.com/15/38/56/90/15385690_28309705_1000.jpg"
 	  }
 	]

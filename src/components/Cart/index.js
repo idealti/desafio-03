@@ -7,6 +7,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 import * as CartActions from "../../store/modules/cart/actions.js";
+import MainBase from "../../styles/main/styles-main.js";
 import { formatPrice } from "../../util/format.js";
 import { Container, ProductTable, Total } from "./styles.js";
 
@@ -40,86 +41,93 @@ export default function Cart() {
 	}
 
 	return (
-		<Container>
-			<ProductTable>
-				<thead>
-					<tr>
-						<th>PRODUTO</th>
-						<th>QTD</th>
-						<th>SUBTOTAL</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					{cart.map((product) => (
+		<MainBase>
+			<Container>
+				<ProductTable>
+					<thead>
 						<tr>
-							<td>
-								{/* PRODUTO - Imagem do produto. */}
-								<img src={product.image} alt={product.title} />
-							</td>
-
-							<td>
-								{/* QUANTIDADE - Descrição e valor do produto. */}
-								<strong>{product.title}</strong>
-								<span>{product.priceFormatted}</span>
-							</td>
-
-							<td>
-								<div>
-									{/* Botão de adicionar ou subtrair itens. */}
-									<button
-										type="button"
-										onClick={() => decrement(product)}
-									>
-										<MdRemoveCircleOutline
-											size={20}
-											color="#7159c1"
-										/>
-									</button>
-									<input
-										type="number"
-										value={product.amount}
-										readOnly
-									/>
-									<button
-										type="button"
-										onClick={() => increment(product)}
-									>
-										<MdAddCircleOutline size={20} color="#7159c1" />
-									</button>
-								</div>
-							</td>
-
-							<td>
-								{/* SUBTOTAL */}
-								<strong>{product.subtotal}</strong>
-							</td>
-
-							<td>
-								{/* Botão de delete. */}
-								<button
-									type="button"
-									onClick={() =>
-										dispatch(CartActions.removeFromCart(product.id))
-									}
-								>
-									<MdDelete size={20} color="#7159c1" />
-								</button>
-							</td>
+							<th>PRODUTO</th>
+							<th>QTD</th>
+							<th>SUBTOTAL</th>
 						</tr>
-					))}
-				</tbody>
-			</ProductTable>
+					</thead>
 
-			<footer>
-				<button type="button">Finalizar pedido</button>
+					<tbody>
+						{cart.map((product) => (
+							<tr>
+								<td>
+									{/* PRODUTO - Imagem do produto. */}
+									<img src={product.image} alt={product.title} />
+								</td>
 
-				{/* Valor total da compra. */}
-				<Total>
-					<span>TOTAL</span>
-					<strong>{total}</strong>
-				</Total>
-			</footer>
-		</Container>
+								<td>
+									{/* QUANTIDADE - Descrição e valor do produto. */}
+									<strong>{product.title}</strong>
+									<span>{product.priceFormatted}</span>
+								</td>
+
+								<td>
+									<div>
+										{/* Botão de adicionar ou subtrair itens. */}
+										<button
+											type="button"
+											onClick={() => decrement(product)}
+										>
+											<MdRemoveCircleOutline
+												size={20}
+												color="#7159c1"
+											/>
+										</button>
+										<input
+											type="number"
+											value={product.amount}
+											readOnly
+										/>
+										<button
+											type="button"
+											onClick={() => increment(product)}
+										>
+											<MdAddCircleOutline
+												size={20}
+												color="#7159c1"
+											/>
+										</button>
+									</div>
+								</td>
+
+								<td>
+									{/* SUBTOTAL */}
+									<strong>{product.subtotal}</strong>
+								</td>
+
+								<td>
+									{/* Botão de delete. */}
+									<button
+										type="button"
+										onClick={() =>
+											dispatch(
+												CartActions.removeFromCart(product.id)
+											)
+										}
+									>
+										<MdDelete size={20} color="#7159c1" />
+									</button>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</ProductTable>
+
+				<footer>
+					<button type="button">Finalizar pedido</button>
+
+					{/* Valor total da compra. */}
+					<Total>
+						<span>TOTAL</span>
+						<strong>{total}</strong>
+					</Total>
+				</footer>
+			</Container>
+		</MainBase>
 	);
 }
