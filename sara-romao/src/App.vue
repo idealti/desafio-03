@@ -49,4 +49,12 @@ body {
     transform: scale(1);
   }
 }
+
+@keyframes animeRotate {
+ 
+  to {
+   
+    transform: rotate(360deg);
+  }
+}
 </style>
