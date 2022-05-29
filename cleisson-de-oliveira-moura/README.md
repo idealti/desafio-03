@@ -1,7 +1,10 @@
 ### Vue3 ( SFC + CompositionAPI + script-setup ) + TypeScript + Vite + Pinia + vue-router + Vitest + Vue Testing Library + Docker
-- Aprendi bastante com esse desafio!
+- Aprendi bastante com esse desafio! Aprendi muitas coisas e detalhes no ambiente VueJs, principalmente o controle e gerência de estado de um hook, e a compatibilidade do Vue com o TypeScript. Sinto que esse foi só um começo nessa jornada de aprendizado e me sinto ansioso de poder enfrentar novos desafios com a equipe da Ide@l
 
 ---
+
+## Deploy
+- Fiz o deploy utilizando [Vercel](https://vercel.com/), podem conferir neste [link](https://ideal-store.vercel.app/)
 
 ## 📝 Detalhes
 - Para criar um e-commerce com a melhor performance, eu utilizaria Nuxt, mas neste desafio utilizei Vue.js demostrando as funcionalidades de um e-commerce assim como foi requerido
@@ -15,7 +18,7 @@
 - Adicionei filtros para todas as categorias fornecidas pela API e ordenação por preço e avaliação 
 - Pinia para gerenciamento e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
 - Docker para conteinerização da aplicação
-- Testes unitários e componentes com Vitest(similar ao Jest, com mais compatibilidade com Vite) e Vue Testing Library
+- Testando o hook com Vitest(similar ao Jest, com mais compatibilidade com Vite) e Vue Testing Library
 
 ## ⚙️ Instruções
 
