@@ -37,13 +37,21 @@ export default {
         },
         SORT_BY_AZ (state){
             const newData = state.dataContainer.sort((a, b) => {
-                return a.title > b.title
+                if(a.title < b.title) {
+                    return -1;
+                } else {
+                    return true;
+                }
             })
             state.dataContainer = [...newData]
         },
         SORT_BY_ZA (state){
             const newData = state.dataContainer.sort((a, b) => {
-                return a.title < b.title
+                if(a.title > b.title) {
+                    return -1;
+                } else {
+                    return true;
+                }
             })
             state.dataContainer = [...newData]
         },
