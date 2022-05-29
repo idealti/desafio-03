@@ -1,0 +1,21 @@
+{
+  "name": "daniel-valeriote",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^2.0.14",
+    "vue": "^3.2.25",
+    "vue-material-design-icons": "^5.0.0",
+    "vue-router": "^4.0.15",
+    "vue-star-rating": "^2.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "vite": "^2.9.9"
+  }
+}
