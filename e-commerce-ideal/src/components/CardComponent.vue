@@ -32,7 +32,7 @@
           />
           <div class="cart__products--infos">
             <p>{{ item.title }}</p>
-            <p class="cart__products--infos-price">${{ item.price }}</p>
+            <p>${{ item.price }}</p>
           </div>
           <button
             class="cart__products--remove"
