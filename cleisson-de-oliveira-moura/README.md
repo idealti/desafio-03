@@ -31,6 +31,9 @@
 - **Instale as dependencias** <br>
   `yarn` ou `npm install`
 
+- **Rode os tests unitários** <br>
+  `yarn test:unit` ou `npm run test:unit`
+
 - **Rode o Projeto em ambiente de desenvolvimento** <br>
   `yarn dev` ou `npm run dev`
 
