@@ -48,7 +48,7 @@
             </div>
       </div>
    </div>
-   <form @submit.prevent="handleFinishOrder">
+   <form @submit.prevent="handleFinishOrder" id="checkoutForm">
       <div class="inputBox">
             <span>Card Number</span>
             <input type="text" placeholder="################" minlength="16" maxlength="16" class="card-number-input" v-model="numberValue" required>
