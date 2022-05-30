@@ -35,7 +35,7 @@
       <router-link class="backToHome" to="/">
          Back
       </router-link>
-      <table>
+      <table v-if="getTotal != 0">
          <thead>
             <tr>
                <th aria-label="product image" />
@@ -91,6 +91,9 @@
             </tr>
          </tbody>
       </table>
+      <div v-else class="emptyCart">
+         Empty Cart :(
+      </div>
       <footer>
          <router-link v-if="getTotal > 0" to="/checkout" class="finishOrder">
             Finish Order
@@ -218,6 +221,14 @@
             }
          }
       }
+   }
+
+   div.emptyCart {
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+
+      margin-top: 3rem;
    }
 
    footer {

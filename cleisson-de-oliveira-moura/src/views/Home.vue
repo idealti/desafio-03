@@ -112,7 +112,6 @@
    </div>
 </template>
 
-
 <style scoped lang="scss">
 .wrapProducts {
    display: grid;
