@@ -70,6 +70,9 @@
 - ### CheckoutPage
 <img src="./.github/checkout.png" width="50%">
 
+- ### Testes E2E
+<img src="./.github/cypresstests.png" width="50%">
+
 
 <!-- 
    Vue.js
