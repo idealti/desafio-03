@@ -1,6 +1,6 @@
 ### Vue3 ( SFC + CompositionAPI + script-setup ) + TypeScript + Vite + Pinia + vue-router + Vitest + Vue Testing Library + Docker
-- Aprendi bastante com esse desafio! Aprendi muitas coisas e detalhes no ambiente VueJs, principalmente o controle e gerenciamento de estado de um hook. Também aprendi bastante sobre o Docker e testes(algo que quero melhorar e aprender MUITO). Sinto que esse foi só um começo nessa jornada de aprendizado e me sinto ansioso de poder enfrentar novos desafios com a equipe da Ide@l!
-   - obs: Uma das melhores partes foi quando eu fiquei encalhado em um problema/erro kkkkkk O perrengue é ruim, mas quando a gente resolve a sensação é ótima e essa é a recompensa
+- Aprendi bastante com esse desafio! Aprendi muitas coisas e detalhes no ambiente VueJs, principalmente o controle e gerenciamento de estado de um hook. Também aprendi bastante sobre o Docker e testes(algo que quero melhorar e aprender MUITO)!
+   - obs: Um das melhores partes de tudo que aprendi foi os problemas que bati de frente e no final deu certo, a satisfação de um problema resolvido é muito bom.
 
 ---
 
@@ -19,7 +19,7 @@
 - Adicionei filtros para todas as categorias fornecidas pela API e ordenação por preço e avaliação 
 - Pinia para gerenciamento e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
 - Docker para conteinerização da aplicação
-- Testando o hook com Vitest(similar ao Jest) e Vue Testing Library
+- Testi o useCart(hook) com Vitest(similar ao Jest) e Vue Testing Library
 
 ## ⚙️ Instruções
 
@@ -65,3 +65,15 @@
 
 - ### CheckoutPage
 <img src="./.github/checkout.png" width="50%">
+
+
+<!-- 
+   Vue.js
+   Vite
+   VueUse
+   vue-router
+   Pinia (Vuex)
+   Vitest (Jest)
+   @testing-library/vue
+   Cypress.io
+ -->

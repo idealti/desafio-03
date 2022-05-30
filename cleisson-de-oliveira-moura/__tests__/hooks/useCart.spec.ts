@@ -5,7 +5,7 @@
 import { createPinia, setActivePinia } from 'pinia';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { useCart } from '../../src/stores/useCart';
-import { CartItemsAmount, Product, UpdateProductAmountProps } from '../../src/utilities/types';
+import { Product } from '../../src/utilities/types';
 
 const mockProduct = {
    id: 1,
