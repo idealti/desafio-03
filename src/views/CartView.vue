@@ -145,7 +145,7 @@ export default {
   width: 20%;
 }
 .quantity input {
-  width: 10px;
+  width: 30px;
   text-align: center;
   border: none;
   color: #4954db;
@@ -181,5 +181,23 @@ button {
 }
 .total h2 {
   margin-right: 0.6rem;
+}
+@media only screen and (max-width: 1165px){
+  .product-in-cart{
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .thumb {
+    margin: 0;
+  }
+  .text-products {
+    text-align: center;
+  }
+  .prices {
+    margin: 0;
+  }
 }
 </style>

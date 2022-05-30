@@ -159,4 +159,18 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
 }
+@media only screen and (max-width: 1185px) {
+  .btn-default {
+    font-size: 1rem;
+    margin: 0.8rem 1rem;
+    width: 12rem;
+    }
+  .filters-and-ordenations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+}
 </style>

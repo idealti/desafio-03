@@ -66,4 +66,24 @@ img {
   height: 50px;
   width: auto;
 }
+@media only screen and (max-width: 1253px) {
+  * {
+    font-size: 0.92rem;
+  }
+  img {
+    height: 45px;
+  }
+  a {
+    margin: 0 4rem;
+  }
+}
+@media only screen and (max-width: 785px) {
+  nav {
+    width: 100vw - 5px;
+    padding: 30px 5px;
+  }
+  img {
+    height: 30px;
+  }
+}
 </style>

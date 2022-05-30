@@ -254,4 +254,11 @@ export default {
 .show {
   display: block;
 }
+@media only screen and (max-width: 1185px) {
+  .btn-default {
+    font-size: 1rem;
+    margin: 0.8rem 1rem;
+    width: 12rem;
+  }
+}
 </style>
