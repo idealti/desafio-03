@@ -1,6 +1,6 @@
 import { useLocalStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import { formatPrice } from "../utilities/format";
 import { CartItemsAmount, Product, UpdateProductAmountProps } from '../utilities/types';
 
