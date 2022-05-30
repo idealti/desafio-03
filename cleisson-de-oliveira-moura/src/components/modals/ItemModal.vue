@@ -18,9 +18,9 @@
          <div class="modal" ref="modal">
             <h1>Congratulations, the item was successfully added to cart!!</h1>
             <div>
-               <button @click="$emit('close')">
+               <router-link @click="$emit('close')" to="/" class="backToShopping">
                   Back to shopping
-               </button>
+               </router-link>
                <router-link to="/cart" class="goToCartButton">
                   Go to cart
                </router-link>
@@ -62,7 +62,7 @@
          justify-content: space-around;
          align-items: center;
 
-         button {
+         .backToShopping {
             height: 3rem;
             font-size: 1rem;
    

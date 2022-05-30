@@ -62,10 +62,11 @@
                     :disabled="product.amount <= 1"
                     @click="handleProductDecrement(product)"
                   >
-                    <img class="icon" :src="decrementIcon" alt="Retirar um item">
+                    <img class="icon" data-decrement="decrementIcon" :src="decrementIcon" alt="Retirar um item">
                   </button>
                   <input
                     type="text"
+                    data-amount="productAmount"
                     readOnly
                     :value="product.amount"
                   />
@@ -73,7 +74,7 @@
                     type="button"
                     @click="handleProductIncrement(product)"
                   >
-                    <img class="icon" :src="incrementIcon" alt="Adicionar um item">
+                    <img class="icon" data-increment="incrementIcon" :src="incrementIcon" alt="Adicionar um item">
                   </button>
                 </div>
               </td>
@@ -84,6 +85,7 @@
                 <button
                   type="button"
                   @click="handleRemoveProduct(product.id)"
+                  data-remove="removeIcon"
                 >
                   <img class="icon" :src="deleteIcon" alt="Deletar item">
                 </button>
@@ -92,13 +94,13 @@
          </tbody>
       </table>
       <div v-else class="emptyCart">
-         Empty Cart :(
+         Your cart is Empty :(
       </div>
       <footer>
-         <router-link v-if="getTotal > 0" to="/checkout" class="finishOrder">
+         <router-link v-if="getTotal > 0" to="/checkout" class="finishOrder" data-button="finishOrder">
             Finish Order
          </router-link>
-         <a v-else href="#" disabled class="finishOrder">
+         <a v-else href="#" disabled class="finishOrder" data-button="finishOrder">
             Finish Order
          </a>
          <div>

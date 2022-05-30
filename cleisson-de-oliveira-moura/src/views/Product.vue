@@ -62,6 +62,7 @@ function handleAddProduct (product: Product) {
                <button
                   type="button"
                   @click="handleAddProduct(product)"
+                  data-button="addToCart"
                >
                   <img :src="cartIcon" alt="icone de Carrinho de compras">
                   <div>

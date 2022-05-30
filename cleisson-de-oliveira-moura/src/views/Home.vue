@@ -85,7 +85,7 @@
       <div class="product" v-else v-for="product in products" :key="product.id">
          <img class="productImage" :src="product.image" :alt="product.title" />
          <section>
-            <router-link :to="{name: 'Product', params: {id: product.id}}">
+            <router-link :to="{name: 'Product', params: {id: product.id}}" data-product="productView">
                <h4>{{ product.title }}</h4>
             </router-link>
             <div>
@@ -96,6 +96,7 @@
          <button
             type="button"
             @click="handleAddProduct(product)"
+            data-button="addToCart"
          >
             <img :src="cartIcon" alt="icone de Carrinho de compras">
             <div>
