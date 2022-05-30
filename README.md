@@ -1,5 +1,9 @@
 # fake-store
 
+
+### Preview do Projeto
+See [Clique Aqui](https://desafio-ideal.vercel.app).
+
 ## Project setup
 ```
 npm install
