@@ -9,8 +9,10 @@
   "dependencies": {
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "stars-rating-component-vue": "^1.2.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
+    "vue-star-rating": "^2.1.0",
     "vuex": "^4.0.0"
   },
   "devDependencies": {

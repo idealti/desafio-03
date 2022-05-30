@@ -3,7 +3,7 @@
     <button @click="toggleOrdenation()" class="btn-default dropbtn">
       Ordenation
     </button>
-    <div id="dropDownOrdenation" class="dropdown-ordenation-content">
+    <div id="dropDownOrdenation" class="dropdown-content">
       <ul>
         <li @click="lowerPrice()">Low Price</li>
         <li @click="higherPrice()">Higher Price</li>
@@ -19,7 +19,11 @@
 export default {
   props: {
     products: {
-      type: [],
+      type: Object,
+      default: {},
+    },
+    ordenationCallback: {
+      type: Function,
       required: true,
     },
   },
@@ -27,7 +31,7 @@ export default {
     window.onclick = (event) => {
       if (!event.target.matches(".dropbtn")) {
         var dropdowns = document.getElementsByClassName(
-          "dropdown-ordenation-content"
+          "dropdown-content"
         );
         var i;
         for (i = 0; i < dropdowns.length; i++) {
@@ -44,39 +48,44 @@ export default {
       document.getElementById("dropDownOrdenation").classList.toggle("show");
     },
     lowerPrice() {
-      this.products = this.products.sort((a, b) => {
+      const newProducts = this.products.sort((a, b) => {
         if (a.price < b.price) return -1;
         if (a.price > b.price) return 1;
         return 0;
       });
+      this.ordenationCallback(newProducts);
     },
     higherPrice() {
-      this.products = this.products.sort((a, b) => {
+      const newProducts = this.products.sort((a, b) => {
         if (a.price > b.price) return -1;
         if (a.price > b.price) return 1;
         return 0;
       });
+      this.ordenationCallback(newProducts);
     },
     ascendingOrder() {
-      this.products = this.products.sort((a, b) => {
+      const newProducts = this.products.sort((a, b) => {
         if (a.title < b.title) return -1;
         if (a.title > b.title) return 1;
         return 0;
       });
+      this.ordenationCallback(newProducts);
     },
     descendigOrder() {
-      this.products = this.products.sort((a, b) => {
+      const newProducts = this.products.sort((a, b) => {
         if (a.title > b.title) return -1;
         if (a.title < b.title) return 1;
         return 0;
       });
+      this.ordenationCallback(newProducts);
     },
     ordenationDefault() {
-      this.products = this.products.sort((a, b) => {
+      const newProducts = this.products.sort((a, b) => {
         if (a.id < b.id) return -1;
         if (a.id > b.id) return 1;
         return 0;
       });
+      this.ordenationCallback(newProducts);
     },
   },
 };
@@ -102,7 +111,7 @@ export default {
   position: relative;
   display: inline-block;
 }
-.dropdown-ordenation-content {
+.dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -110,11 +119,11 @@ export default {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 5px;
 }
-.dropdown-ordenation-content ul {
+.dropdown-content ul {
   margin: 0;
   padding: 0;
 }
-.dropdown-ordenation-content li {
+.dropdown-content li {
   color: black;
   padding: 8px 12px;
   text-decoration: none;
@@ -123,7 +132,7 @@ export default {
   margin: 0;
   cursor: pointer;
 }
-.dropdown-ordenation-content li:hover {
+.dropdown-content li:hover {
   background-color: #f1f1f1;
 }
 .show {

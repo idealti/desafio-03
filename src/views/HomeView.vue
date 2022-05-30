@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="filters-and-ordenations">
-      <ordenation :products="products" />
+      <ordenation
+        :products="products"
+        :ordenationCallback="changeOrdenationProducts"
+      />
       <button
         class="btn-default"
         v-for="(category, index) in categorys"
@@ -10,10 +13,17 @@
       >
         {{ capitalize(category) }}
       </button>
+      <rating
+        :products="products"
+        :productsNotChangeable="productsNotChangeable"
+        :ratingCallback="changeOrdenationProducts"
+      />
     </div>
     <div class="container-cards">
       <card
-        :products="products"
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
         :handleAddCartAndQuantity="handleAddCartAndQuantity"
       />
     </div>
@@ -23,6 +33,7 @@
 <script>
 import Card from "../components/Card.vue";
 import Ordenation from "../components/Ordenation.vue";
+import Rating from "../components/Rating.vue";
 
 export default {
   name: "HomeView",
@@ -39,6 +50,7 @@ export default {
   components: {
     card: Card,
     ordenation: Ordenation,
+    rating: Rating,
   },
   watch: {
     products: {
@@ -61,6 +73,10 @@ export default {
   methods: {
     handleAddCartAndQuantity(value) {
       this.$store.commit("addCart", value);
+      console.log(this.products);
+    },
+    changeOrdenationProducts(newProducts) {
+      this.products = newProducts;
     },
     filterCategory(event) {
       const isClassActive = event.target.classList.value.includes("active");
@@ -141,7 +157,6 @@ export default {
 .container-cards {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
 }
 </style>

@@ -72,7 +72,6 @@ export default {
   methods: {
     handleAddProduct(value) {
       this.$store.commit("addCart", value);
-      console.log(this.getCart);
     },
     handleRemoveProduct(value) {
       this.$store.commit("removeCart", value);

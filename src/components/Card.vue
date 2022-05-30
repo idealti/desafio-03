@@ -1,10 +1,19 @@
 <template>
-  <div class="card" v-for="product in products" :key="product.id">
+  <div class="card">
     <div class="image">
       <img :src="product.image" alt="" />
     </div>
-    <div>
+    <div class="text-product">
       <h3>{{ product.title }}</h3>
+    </div>
+    <div>
+      <star-rating
+        :rating="product.rating.rate"
+        :read-only="true"
+        :increment="0.1"
+        :star-size="20"
+      ></star-rating>
+      <p class="reviews">Reviews ({{product.rating.count}})</p>
     </div>
     <div>
       <p>R${{ product.price.toFixed(2) }}</p>
@@ -19,16 +28,21 @@
 </template>
 
 <script>
+import StarRating from "vue-star-rating";
 export default {
+  strict: true,
   props: {
-    products: {
-      type: [],
+    product: {
+      type: Object,
       required: true,
     },
     handleAddCartAndQuantity: {
       type: Function,
       required: true,
     },
+  },
+  components: {
+    StarRating,
   },
 };
 </script>
@@ -37,10 +51,10 @@ export default {
 .card {
   width: 100%;
   max-width: 420px;
-  height: 600px;
+  height: 650px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
@@ -70,8 +84,18 @@ img {
   max-width: 250px;
   max-height: 350px;
 }
+.text-product {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 h3 {
-  padding: 10px;
+  padding: 0 10px;
+  margin: 0;
+}
+.reviews {
+  font-size: 0.8rem;
 }
 .button-add-cart {
   background-color: #4954db;
