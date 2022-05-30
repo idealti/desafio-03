@@ -1,5 +1,5 @@
 <script setup lang="ts">
-   import { onMounted, ref } from 'vue'
+   import { onBeforeMount, ref } from 'vue'
 
    import ProductsAPI from '../services/ProductsAPI'
 
@@ -35,7 +35,7 @@
       console.log(`Filtering by ${category.value}`)
       loading.value = false
    }
-   onMounted(() => {
+   onBeforeMount(() => {
       fetchProducts()
    })
    const setCategory = (newCategory: string) => {
@@ -61,7 +61,7 @@
          }
       })
    }
-   onMounted(() => {
+   onBeforeMount(() => {
       sortProducts(sorterProducts.value)
    })
    const setSorterProducts = (newSort: string) => {

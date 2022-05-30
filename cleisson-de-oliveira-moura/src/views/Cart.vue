@@ -140,11 +140,11 @@
       thead th {
          color: #999;
          text-align: left;
-         padding: 12px;
+         padding: 1rem;
       }
 
       tbody td {
-         padding: 12px;
+         padding: 1rem;
          border-bottom: 1px solid #eee;
       }
 
