@@ -2,15 +2,17 @@
   <main class="c-search-result">
     <loading-component v-if="isLoading"/>
     <section v-else class="search-result">
-      <div class="search-result__details" v-if="products !== null">
+      <div class="search-result__details">
         <h1 class="search-result__query" v-if="query == ''">
-          Mostrando todos os produtos<b v-if="category !== ''">: {{category}}.</b>
+          Mostrando todos os produtos<b v-if="category !== ''">: {{ category }}.</b>
         </h1>
         <h1 v-else class="search-result__query">
           Resultados de <mark>{{ query }}</mark> em:
           <mark>{{ category ? `${category}` : 'all'}}.</mark>
         </h1>
-        <h3 class="search-result__quantity">Encontramos {{ products.length }} produtos.</h3>
+        <h3 class="search-result__quantity">
+          Encontramos {{ queryFilteredProducts.length }} produtos.
+        </h3>
         <label for="sortingMethod">
           Ordernar por:
           <select
@@ -27,8 +29,8 @@
       </div>
       <div class="search-result__c-products">
         <product-card
-          v-for="product in products"
-          :key="product.id"
+          v-for="product in queryFilteredProducts"
+          :key="product.id + product.title"
           :product="product"
           :showRating="true"
         />
@@ -38,62 +40,36 @@
 </template>
 
 <script setup>
-import { useStore } from 'vuex';
 import LoadingComponent from '@/components/shared/LoadingComponent.vue';
 import ProductCard from '@/components/shared/ProductCard.vue';
-
-import {
-  watch,
-  computed,
-  onMounted,
-  ref,
-} from 'vue';
 import useProducts from '@/hooks/useProducts';
 
-const store = useStore();
-const category = computed(() => store.getters['search/getCategory']);
-const query = computed(() => store.getters['search/getQuery']);
-
-const products = ref(null);
-const isLoading = ref(false);
-
-async function updateProducts() {
-  isLoading.value = true;
-
-  const shouldIncludeCategory = category.value ? category.value : false;
-  const [, methods] = await useProducts(false, shouldIncludeCategory);
-
-  products.value = methods.sortByQuery(query.value);
-
-  isLoading.value = false;
-}
+const {
+  isLoading,
+  queryFilteredProducts,
+  category,
+  query,
+  products,
+} = await useProducts();
 
 function sortProducts(event) {
   switch (event.target.value) {
     case 'priceAsc':
-      products.value.sortByPrice();
+      products.sortByPrice();
       break;
     case 'priceDesc':
-      products.value.sortByPrice('desc');
+      products.sortByPrice('desc');
       break;
     case 'rateAsc':
-      products.value.sortByRate();
+      products.sortbyRate();
       break;
     case 'rateDesc':
-      products.value.sortByRate('desc');
+      products.sortbyRate('desc');
       break;
     default:
       break;
   }
 }
-
-watch([category, query], async () => {
-  updateProducts();
-});
-
-onMounted(async () => {
-  updateProducts();
-});
 </script>
 
 <style scoped lang="scss">

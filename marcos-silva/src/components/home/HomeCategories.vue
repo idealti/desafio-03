@@ -38,16 +38,12 @@
 <script setup>
 import getCategories from '@/utils/getCategories';
 import dubboisFace from '@/assets/dubbois.jpg';
-import useProducts from '@/hooks/useProducts';
+import fetchProducts from '@/utils/getProducts';
 import CategoriesCard from './CategoriesCard.vue';
 
 const categories = await getCategories();
 const products = await Promise.all(categories.map(
-  async (category) => {
-    // not sure if i should use hooks outside the root of the component
-    const [list] = await useProducts(1, category);
-    return list[0];
-  },
+  (category) => fetchProducts({ category, amount: 1 }).then((result) => result[0]),
 ));
 
 </script>

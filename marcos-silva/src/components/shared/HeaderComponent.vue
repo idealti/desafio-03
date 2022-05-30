@@ -103,7 +103,7 @@ function toggleCart() {
   @import '@/styles/variables';
   @import '@/styles/animations';
   .c-header {
-    z-index: 2;
+    z-index: 100;
     position: sticky;
     top: 0;
     width: 100%;
@@ -159,7 +159,7 @@ function toggleCart() {
       right: -5px;
       background-color: white;
       border: 2px solid green;
-      z-index: 2;
+      z-index: 100;
     }
   }
   .nav {

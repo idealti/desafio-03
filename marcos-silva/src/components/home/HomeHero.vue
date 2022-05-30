@@ -26,8 +26,8 @@ import { ref } from 'vue';
 import starIcon from '@/assets/star.png';
 import useProducts from '@/hooks/useProducts';
 
-const [list] = await useProducts(false, false, 3);
-const topRated = ref(list);
+const { products } = await useProducts(false, 3);
+const topRated = ref(products.list[0]);
 
 </script>
 

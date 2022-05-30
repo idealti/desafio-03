@@ -3,7 +3,7 @@
     <h1 class="best-sellers__title">Campeões de venda.</h1>
     <div class="best-sellers__c-cards">
       <product-card
-        v-for="product in topEightProducts"
+        v-for="product in products.list"
         :key="product.id + product.title"
         :product="product"
       />
@@ -14,10 +14,9 @@
 <script setup>
 import ProductCard from '@/components/shared/ProductCard.vue';
 import useProducts from '@/hooks/useProducts';
-import { reactive } from 'vue';
 
-const [, methods] = await useProducts(8);
-const topEightProducts = reactive(methods.sortByRateCount());
+const { products } = await useProducts(8);
+products.sortByRateCount();
 
 </script>
 

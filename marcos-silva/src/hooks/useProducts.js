@@ -1,66 +1,83 @@
-import fakestoreapi from '@/axios/fakeStoreApi';
+import {
+  computed,
+  reactive,
+  ref,
+  watch,
+} from 'vue';
+import { useStore } from 'vuex';
+import fetchProducts from '@/utils/getProducts';
 
 class Products {
   constructor(products) {
-    this.products = products;
+    this.list = products;
   }
 
-  sortByQuery(query) {
+  filterByQuery(query) {
     // this will match query in any value inside the object
     const checkValues = (product) => Object.values(product)
       .some((value) => value.toString().toLowerCase().includes(query));
 
-    return this.products.filter((product) => checkValues(product));
+    return this.list.filter((product) => checkValues(product));
   }
 
-  sortbyRate(desc) {
+  sortbyRate(desc = '') {
     if (desc) {
-      return [...this.products].sort((a, b) => b.rating.rate - a.rating.rate);
+      this.list.sort((a, b) => b.rating.rate - a.rating.rate);
+      return;
     }
-    return [...this.products].sort((a, b) => a.rating.rate - b.rating.rate);
+    this.list.sort((a, b) => a.rating.rate - b.rating.rate);
   }
 
   sortByRateCount() {
-    return [...this.products].sort((a, b) => b.rating.count - a.rating.count);
+    this.list.sort((a, b) => b.rating.count - a.rating.count);
   }
 
   sortByPrice(desc = '') {
     if (desc === 'desc') {
-      return [...this.products].sort((a, b) => b.price - a.price);
+      this.list.sort((a, b) => b.price - a.price);
+      return;
     }
-    return [...this.products].sort((a, b) => a.price - b.price);
+    this.list.sort((a, b) => a.price - b.price);
+  }
+
+  updateList(newProducts) {
+    this.list = newProducts;
   }
 }
 
-export default async function useProducts(amount, category, id) {
-  let products;
+export default async function useProducts(amount, id) {
   let error;
-  const INCLUDE_AMOUNT = `${amount ? `?limit=${amount}` : ''}`;
+  const isLoading = ref(true);
+  const store = useStore();
+  const category = computed(() => store.getters['search/getCategory']);
+  const query = computed(() => store.getters['search/getQuery']);
+  const productsInstance = reactive(new Products(
+    await fetchProducts({ amount, id, category: category.value }),
+  ));
+  const queryFilteredProducts = ref(productsInstance.list);
 
-  if (id) {
-    try {
-      const response = await fakestoreapi.get(`/${id}`);
-      products = response.data;
-    } catch (e) {
-      error = e;
-    }
-  } else if (category) {
-    try {
-      const response = await fakestoreapi.get(`/category/${category}${INCLUDE_AMOUNT}`);
-      products = response.data;
-    } catch (e) {
-      error = e;
-    }
-  } else {
-    try {
-      const response = await fakestoreapi.get(INCLUDE_AMOUNT);
-      products = response.data;
-    } catch (e) {
-      error = e;
-    }
-  }
+  productsInstance.sortByPrice();
 
   if (error) return error;
-  const productList = new Products(products);
-  return [productList.products, productList];
+  isLoading.value = false;
+
+  watch([category, query], async () => {
+    isLoading.value = true;
+
+    const newProducts = await fetchProducts({ amount, id, category: category.value });
+    productsInstance.updateList(newProducts);
+    isLoading.value = false;
+  });
+
+  watch(productsInstance, () => {
+    queryFilteredProducts.value = productsInstance.filterByQuery(query.value);
+  });
+
+  return {
+    queryFilteredProducts,
+    products: productsInstance,
+    query,
+    category,
+    isLoading,
+  };
 }

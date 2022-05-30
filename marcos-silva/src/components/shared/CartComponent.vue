@@ -49,7 +49,7 @@ function hideCart() {
     height: 100vh;
     padding-bottom: 80px;
     background-color: white;
-    z-index: 100;
+    z-index: 1000;
     &__total {
       position: fixed;
       padding: 5px;
@@ -60,7 +60,6 @@ function hideCart() {
       width: 50%;
       color: white;
       text-align: center;
-      z-index: 1000;
     }
     &__close {
       width: 30px;
@@ -69,9 +68,10 @@ function hideCart() {
   .cart-enter-active,
   .cart-leave-active {
     transition: 200ms ease-in;
-  }
-  .cart-leave-active {
     position: absolute;
+  }
+  .cart-leave-from {
+    height: 100%;
   }
   .cart-enter-from {
     width: 0;
