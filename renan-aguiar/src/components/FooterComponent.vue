@@ -4,7 +4,7 @@
       <ul class="footer">
         <li>
           <p href="#">
-            <a href="/"> Petit Store &copy; </a>
+            <a href="/"> Petit Fashion &copy; </a>
           </p>
         </li>
         <li>
