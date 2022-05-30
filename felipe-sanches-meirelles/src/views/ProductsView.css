@@ -1,0 +1,80 @@
+img {
+  width: 70px;
+  margin: 10px;
+}
+.filterSection {
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  gap: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#categoryFilter {
+  display: flex;
+  flex-direction: column;
+}
+#categoryFilter input{
+  margin-right: 5px;
+}
+.div-allSearch {
+  display: flex;
+  justify-content: space-around;
+}
+.filter-rate {
+  display: flex;
+}
+.rateFilter {
+  display: flex;
+  align-self: flex-start;
+}
+.search-input {
+  border: 1px solid black;
+  align-self: flex-start;
+}
+.search-input input {
+  padding: 5px 300px 5px 5px;
+  border: none
+}
+.search-input input:focus {
+  border: none
+}
+.search-input button {
+  padding: 5px;
+  border-right: none;
+  border-bottom:none;
+  border-top: none;
+}
+select {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background-color: white;
+}
+.elements-father {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.element-children {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 200px;
+  height: 230px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 1px solid rgba(100, 100, 111, 0.2) ;
+  text-align: center;
+  border-radius: 5%;
+  padding: 10px;
+}
+.element-children:hover {
+  opacity: 0.5;
+  border: 1px solid black;
+}

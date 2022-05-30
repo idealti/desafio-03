@@ -1,6 +1,8 @@
 # felipe-sanches-challenge-3
 
-This template should help get you started developing with Vue 3 in Vite.
+ Markup : - Shopping Cart Project
+          - Front-end challenge project
+          - Vue.js (vue 3) with Pinia
 
 ## Recommended IDE Setup
 
@@ -39,21 +41,15 @@ npm run dev
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run build
-npm run test:e2e # or `npm run test:e2e:ci` for headless testing
-```
-
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
 ```
+### Screen Shots
+
+![plot](./public/screenshots/screenshot1.png)
+
+![plot](./public/screenshots/screenshot2.png)
+
+![plot](./public/screenshots/screenshot3.png)

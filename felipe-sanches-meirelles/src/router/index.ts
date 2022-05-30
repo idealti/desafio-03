@@ -18,6 +18,6 @@ const router = createRouter({
     },
     { path: '/product/:id', name: 'product', component: SingleProductView }
   ]
-})
+});
 
-export default router
+export default router;

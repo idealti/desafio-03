@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  font-family: 'Lato', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.navbar-app {
+  display: flex;
+  gap: 100%;
+  margin-right: 50px;
+}
+
+.wrapper a {
+  font-size: xx-large;
+  text-decoration: none;
+}
