@@ -1,11 +1,7 @@
 <template>
   <header>
     <nav>
-      <ul>
-        <li>
-          <a class="nav-link" href="/">Petit Fashion </a>
-        </li>
-      </ul>
+      <a class="nav-link" href="/">Petit Fashion </a>
     </nav>
   </header>
 </template>
@@ -24,35 +20,34 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 header {
-  width: 100%;
-  background-color: #e7eaef;
+  width: 100vw;
+  background-color: var(--grey-scale-1);
   z-index: 1;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
   height: 18vh;
   position: fixed;
 }
 
-nav ul {
+nav {
   display: flex;
-  justify-content: center;
-  align-self: center;
-  padding: 3%;
+  justify-content: start;
+  transform: translateY(70%);
 }
 .nav-link {
-  display: inline-flex;
-  text-decoration: none;
   font-family: "Poiret One", cursive;
   font-weight: 900;
-  font-size: 120px;
+  font-size: 7vw;
   letter-spacing: 5px;
   line-height: 50px;
-  color: #333333;
+  color: var(--grey-scale-4);
+  padding: 0 5%;
+
 }
 .nav-link:hover {
-  color: black;
+  color: var(--grey-scale-3);
+}
+@media (max-width: 900px) {
+  .nav-link {
+    font-size: 10vw;
+  }
 }
 </style>

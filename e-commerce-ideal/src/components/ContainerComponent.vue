@@ -1,37 +1,32 @@
 <template>
   <div>
-    <div class="container-text">
-      <img class="container-image" src="~@/assets/4.png" />
+    <div class="image-below-header">
+      <img src="~@/assets/4.png" />
     </div>
-    <Card />
+    <Cards />
   </div>
 </template>
 
 <script>
-import Card from "./CardComponent.vue";
+import Cards from "./CardComponent.vue";
 
 export default {
   name: "ContainerComponent",
   components: {
-    Card,
+    Cards,
   },
 };
 </script>
 
 <style>
-
-.container-text {
+.image-below-header {
   width: 100%;
-  height: 30rem;
+  height: 25rem;
   background-color: #e7eaef;
-  background: linear-gradient(
-    180deg,
-    rgb(231, 234, 239) 80%,
-    rgb(255, 255, 255) 100%
-  );
+  background: linear-gradient(#e7eaef 50%, var(--primary-color) 100%);
 }
-.container-text img {
+.image-below-header img {
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 </style>

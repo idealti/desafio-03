@@ -104,7 +104,9 @@ section {
   display: block;
 }
 body {
+  font-family: "Tenor Sans";
   line-height: 1;
+  font-size: 14px;
   max-height: 100vh;
 }
 ol,
@@ -125,10 +127,31 @@ q:after {
 a {
   text-decoration: none;
 }
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+a:visited {
+  color: var(--grey-scale-4);
+}
+
 button {
   cursor: pointer;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #f4d376;
+  --tertiary-color: #f2ad27;
+  --quaternary-color: #d06321;
+  --quinary-color: #e2460d;
+
+  --grey-scale-1: #e7eaef;
+  --grey-scale-2: #7e7e7e;
+  --grey-scale-3: #333333;
+  --grey-scale-4: #000000;
 }

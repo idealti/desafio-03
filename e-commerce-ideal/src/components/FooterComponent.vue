@@ -3,7 +3,9 @@
     <nav>
       <ul class="footer">
         <li>
-          <a> nome </a>
+          <p href="#">
+            <a href="/"> Petit Store &copy; </a>
+          </p>
         </li>
         <li>
           <p href="#">
@@ -12,9 +14,6 @@
               Renan Aguiar</a
             >
           </p>
-        </li>
-        <li>
-          <a href="/contact">Contato</a>
         </li>
       </ul>
     </nav>
@@ -29,16 +28,37 @@ export default {
 
 <style>
 footer {
-  background-color: #f97f51;
+  background-color: var(--quaternary-color);
   width: 100%;
-  font-size: 2rem;
+  font-size: 2vw;
   height: 10rem;
 }
 .footer {
+  font-family: "Poiret One", cursive;
+  font-weight: 900;
+  margin-top: 5%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1vw 2vw;
 }
 .footer li a {
   text-decoration: none;
+}
+
+.footer li a:hover {
+  color: var(--secondary-color);
+}
+@media (max-width: 900px) {
+  footer {
+    font-size: 1.5rem;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+  }
 }
 </style>

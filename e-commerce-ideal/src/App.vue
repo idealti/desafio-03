@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :cart="cart"/>
+    <Header :cart="cart" />
     <Container />
     <Footer />
   </div>
@@ -21,4 +21,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+@import url("./assets/global.css");
+</style>
