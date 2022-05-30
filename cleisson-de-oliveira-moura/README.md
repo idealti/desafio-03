@@ -1,6 +1,7 @@
-### Vue3 ( SFC + CompositionAPI + script-setup ) + TypeScript + Vite + Pinia + vue-router + Vitest + Vue Testing Library + Docker
-- Aprendi bastante com esse desafio! Aprendi muitas coisas e detalhes no ambiente VueJs, principalmente o controle e gerenciamento de estado de um hook. Também aprendi bastante sobre o Docker e testes(algo que quero melhorar e aprender MUITO)!
-   - obs: Um das melhores partes de tudo que aprendi foi os problemas que bati de frente e no final deu certo, a satisfação de um problema resolvido é muito bom.
+### Vue3 ( SFC + CompositionAPI + script-setup ) + TypeScript + Vite + Pinia + vue-router + Vitest + Vue Testing Library + Cypress + Docker
+---
+- Aprendi bastante com esse desafio! Aprendi muitas coisas e detalhes no ambiente VueJs, gerenciamento de estado de um hook, também aprendi bastante sobre o Docker e testes(algo que quero melhorar e aprender MUITO) unitários e E2E!
+   - obs: Um das melhores partes de tudo que aprendi foi os problemas que bati de frente e no final deu certo kkkkkk a satisfação de um problema resolvido é muito bom.
 
 ---
 
@@ -19,7 +20,8 @@
 - Adicionei filtros para todas as categorias fornecidas pela API e ordenação por preço e avaliação 
 - Pinia para gerenciamento e compartilhamento de estado, utilizando localStorage para salvar informações do carrinho
 - Docker para conteinerização da aplicação
-- Testi o useCart(hook) com Vitest(similar ao Jest) e Vue Testing Library
+- Testei o useCart(hook) com Vitest(similar ao Jest) e Vue Testing Library
+- Utilizei Cypress.io para testes E2E
 
 ## ⚙️ Instruções
 
@@ -31,8 +33,11 @@
 - **Instale as dependencias** <br>
   `yarn` ou `npm install`
 
-- **Rode os tests unitários** <br>
+- **Rode os testes unitários** <br>
   `yarn test:unit` ou `npm run test:unit`
+
+- **Rode os testes E2E Cypress** <br>
+  `yarn cypress:open` ou `npm run cypress:open`
 
 - **Rode o Projeto em ambiente de desenvolvimento** <br>
   `yarn dev` ou `npm run dev`
@@ -46,8 +51,7 @@
 ## 🗓 To-Do
 - Adicionar um Checkout completo, com integração com alguma API de pagamentos
 - Coleta de informações do usuário, como endereço de entrega
-- Testar Views e Components
-- Implementar testes E2E com Cypress
+- Aperfeoçoar os testes
 
 ## 🧰 IDE Setup
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
