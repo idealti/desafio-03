@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+
 .spinner {
   min-height: 100vh;
   justify-content: center;
   display: flex;
   padding: 5%;
 }
+
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -23,31 +25,27 @@
   padding: 6vw;
   width: 40vw;
 }
+
 .products {
   background-color: var(--primary-color);
   width: 18vw;
   margin: 8% auto;
   border-width: 5px;
   border-style: solid;
-  border-image: linear-gradient(
-      to bottom,
+  border-image: linear-gradient(to bottom,
       var(--grey-scale-1),
-      var(--quaternary-color)
-    )
-    1 10%;
+      var(--quaternary-color)) 1 10%;
   position: relative;
 }
+
 .productsWithopenCart {
   background-color: var(--primary-color);
   width: 20vw;
   border-width: 5px;
   border-style: solid;
-  border-image: linear-gradient(
-      to bottom,
+  border-image: linear-gradient(to bottom,
       var(--grey-scale-1),
-      var(--quaternary-color)
-    )
-    1 10%;
+      var(--quaternary-color)) 1 10%;
   position: relative;
 }
 
@@ -61,22 +59,26 @@
   width: 80%;
   height: 10rem;
 }
+
 .product__info {
   font-size: 1vw;
   font-weight: 900;
   text-align: center;
   font-family: "Tenor Sans";
 }
+
 .product__info p {
   margin-top: 1%;
   text-align: center;
 }
+
 .product__info-title {
   margin: 1% 8% 10%;
   height: 1rem;
   text-align: center;
   word-break: break-all;
 }
+
 .product__price-rate {
   width: calc(100%-3rem);
   display: flex;
@@ -84,13 +86,16 @@
   padding: 2% 1.5rem;
   align-items: center;
 }
+
 .product__price-rate div {
   display: flex;
   padding: 5% 0;
 }
+
 .product__rating {
   align-self: center;
 }
+
 .product__button--add-cart {
   background-color: var(--tertiary-color);
   border: none;
@@ -98,15 +103,18 @@
   height: 3rem;
   margin: 2% auto;
 }
+
 .cart {
   z-index: 10;
   position: fixed;
   top: 10%;
   right: 5%;
 }
+
 .cart__icon {
   position: relative;
 }
+
 .cart__icon--length {
   font-family: "Gill Sans", sans-serif;
   position: absolute;
@@ -132,6 +140,7 @@
   height: 100%;
   overflow: auto;
 }
+
 .cart__products--clean-cart {
   background-color: var(--grey-scale-2);
   border: none;
@@ -140,12 +149,14 @@
   margin: 1% 0;
   color: var(--primary-color);
 }
+
 .cart__products-title {
   text-align: center;
   padding: 5%;
   font-family: "Tenor Sans";
   font-weight: 900;
 }
+
 .cart__products--list {
   justify-content: space-between;
   padding: 3% 5%;
@@ -159,28 +170,33 @@
   display: flex;
   justify-content: space-between;
   height: auto;
+  align-items: center;
 }
+
 .cart__products--image {
   width: 15%;
   height: auto;
   object-fit: contain;
 }
+
 .cart__products--infos {
   height: 10vh;
   font-size: 0.6rem;
   word-wrap: break-all;
-  margin: 5% 2.5%;
   font-family: "Tenor Sans";
   font-weight: 900;
   text-align: center;
 }
-.cart__products--infos-price {
-  margin: 10% auto;
+
+.cart__products--infos p {
+  margin: 7% auto;
 }
-.cart__products--info-description{
+
+.cart__products--info-description {
   font-size: 0.6rem;
   text-align: justify;
 }
+
 .cart__products--remove {
   background-color: var(--grey-scale-2);
   border: none;
@@ -189,12 +205,14 @@
   margin: 8% 0;
   color: var(--primary-color);
 }
+
 .cart__products--close {
   background-color: transparent;
   border: none;
   width: 30%;
   margin: 1% auto;
 }
+
 .cart__products--button-buy {
   padding: 1% auto;
   background-color: #89e83a;
@@ -203,15 +221,18 @@
   color: var(--grey-scale-1);
   margin-bottom: 20%;
 }
+
 .cart__products--button-buy a {
   font-family: "Gill Sans", sans-serif;
   color: var(--grey-scale-4);
   font-size: 1.2rem;
   font-weight: 900;
 }
+
 .cart__products--button-buy a:hover {
   color: var(--grey-scale-4);
 }
+
 .cart__products--button-buy:hover {
   background-color: #bbee5b;
 }
@@ -220,22 +241,26 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1.5vw;
-  background-color: var(--primary-color);
   flex-wrap: wrap;
   padding: 3vw;
+  justify-self: center;
 }
+
 .filterWithopenCart {
   display: flex;
+  grid-gap: 1.5vw;
   justify-content: start;
   background-color: var(--primary-color);
   padding: 0 6vw;
 }
+
 input {
   font-family: "Tenor Sans";
   font-weight: 900;
   font-size: 1rem;
   border: 2px solid var(--quaternary-color);
 }
+
 select {
   height: 2rem;
   font-family: "Tenor Sans";
@@ -254,6 +279,7 @@ select {
   border: none;
   background-color: var(--tertiary-color);
 }
+
 .filter__button:last-child {
   background-color: var(--quaternary-color);
 }
@@ -262,12 +288,15 @@ select {
   .products {
     width: 25vw;
   }
+
   .containerWithopenCart {
     padding: 4vw;
   }
+
   .filterWithopenCart {
     display: none;
   }
+
   .cart__products {
     width: 25vw;
     height: 100%;
@@ -278,9 +307,11 @@ select {
   .products {
     width: 30vw;
   }
+
   .product__info {
     font-size: 1.5vw;
   }
+
   .product__info-title {
     font-size: 1.5vw;
   }
@@ -289,19 +320,24 @@ select {
     padding: 1% 1rem;
     font-size: 1.5vw;
   }
+
   .product__price-rate div {
     padding: 1% 0;
   }
+
   .product__button--add-cart {
     height: 2rem;
   }
+
   .containerWithopenCart {
     grid-template-columns: 1fr;
   }
+
   .productsWithopenCart {
     width: 35vw;
     margin: 3vw;
   }
+
   .cart__products {
     width: 45vw;
   }
@@ -311,40 +347,50 @@ select {
   .products {
     width: 45vw;
   }
+
   .product__info-title {
     font-size: 2vw;
   }
+
   .product__price-rate {
     font-size: 2vw;
   }
+
   .cart__products {
     padding: 0;
     width: 100vw;
   }
+
   .cart__products--list {
     width: 80%;
     margin: 2% auto;
   }
+
   .cart__products--button-buy {
     width: 80%;
     margin: auto;
   }
 }
+
 @media (max-width: 400px) {
   .container {
     margin: 10% auto;
     justify-content: center;
   }
+
   .products {
     width: 60vw;
   }
+
   .product__info-title {
     font-size: 4vw;
   }
+
   .product__price-rate div {
     font-size: 4vw;
     padding: 15% 0;
   }
+
   .cart__products--infos {
     font-size: 3vw;
   }
