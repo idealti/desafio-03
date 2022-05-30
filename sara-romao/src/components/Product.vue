@@ -98,6 +98,7 @@ export default {
   data() {
     return {};
   },
+  emits: ['show-msg'],
 
   methods: {
     addCart(id, title, price, image) {
@@ -109,6 +110,9 @@ export default {
       };
 
       this.$store.commit("addInCart", product);
+      
+
+      this.$emit('show-msg', "Your product has been added to cart")
     },
   },
 };

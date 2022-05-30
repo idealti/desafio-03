@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+   
     <div class="categoryFilter container">
       <ul>
         <li @click="filterCategory('')">All</li>
@@ -24,9 +25,11 @@
     </div>
 
     <main class="listProducts container">
+       
+    <Message :msg="msg" v-show="msg"  />
       <div class="productsContainer" v-if="listProducts !== null">
         <div v-for="product in listProducts" :key="product.id">
-          <Product :product="product" />
+          <Product :product="product" @show-msg="msgAddCart" />
         </div>
       </div>
 
@@ -40,11 +43,12 @@
 
 <script>
 import Product from "../components/Product.vue";
-
+import Message from '../components/Message.vue'
 export default {
   name: "HomeView",
   components: {
     Product,
+    Message,
   },
 
   data() {
@@ -54,6 +58,7 @@ export default {
       carrinho: this.$store.state.cart,
       selected: "",
       isActive: false,
+      msg:null
     };
   },
 
@@ -72,19 +77,12 @@ export default {
       this.listProducts = data;
     },
 
-    add() {
-      this.$store.commit("increment");
-
-      console.log("carrinho", this.$store.state.cart);
-    },
-
     filterCategory(category) {
       this.apiCategory(category);
     },
 
     orderBy() {
-      console.log(this.selected);
-
+      
       if (this.selected == "Popularity") {
         this.listProducts.sort(function (b, a) {
           if (a.rating.rate > b.rating.rate) {
@@ -120,6 +118,13 @@ export default {
         });
       }
     },
+
+    msgAddCart(txtMsg){
+      this.msg= txtMsg
+      setTimeout(() => this.msg ="", 1500)
+    },
+
+    
   },
 
   mounted() {
@@ -131,6 +136,7 @@ export default {
 <style scoped>
 main {
   border-top: 2px solid rgb(228, 228, 228);
+  
 }
 
 .productsContainer {

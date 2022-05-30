@@ -3,6 +3,7 @@
     <h1 class="title">My Cart</h1>
 
     <main>
+      <Message :msg="msg" v-show="msg" />
       <table v-if="cart.length !== 0">
         <tr>
           <th>Product</th>
@@ -54,7 +55,18 @@
 
 <script>
 import { mapGetters } from "vuex";
+import Message from '../components/Message.vue'
 export default {
+  components: {
+    Message,
+  },
+
+  data() {
+    return {
+      
+      msg:null
+    };
+  },
   computed: {
     ...mapGetters({
       cart: "getCart",
@@ -71,7 +83,11 @@ export default {
 
     removeProduct(product) {
       this.$store.commit("removeCart", product);
+      this.msg= "Product was removed from cart"
+      setTimeout(() => this.msg ="", 1500)
     },
+
+   
   },
 };
 </script>
@@ -131,6 +147,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   min-width: 500px;
+  margin-top: 20px;
 }
 
 td,
