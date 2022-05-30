@@ -2,7 +2,7 @@
 
 
 ### Preview do Projeto
-See [Clique Aqui](https://desafio-ideal.vercel.app).
+[Clique Aqui](https://desafio-ideal.vercel.app).
 
 ## Project setup
 ```
