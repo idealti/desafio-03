@@ -81,11 +81,7 @@
       >
         Ordenar por avaliação
       </button>
-      <button
-        class="filter__button"
-        title="Limpar filtro"
-        @click="cleanFilter"
-      >
+      <button class="filter__button" title="Limpar filtro" @click="cleanFilter">
         Limpar filtros
       </button>
     </div>
