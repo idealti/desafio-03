@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import localStorageContent from "../pages/cart.vue";
 </script>
 
 <template>
@@ -14,12 +14,13 @@
     </div>
     <nav class="navbar"><!--navbar-->
       <ul class="headerList">
-        <li>
-          <router-link to="/about">About</router-link>
-        </li>
 
         <li>
           <router-link to="/cart">Carrinho</router-link>
+        </li>
+
+        <li>
+          <router-link to="/about">About</router-link>
         </li>
 
       </ul>
