@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <select v-if="allCategories && allProductsData" v-model="categoryFilter">
       <option disabled value="">Selecione uma categoria</option>
       <option
@@ -86,6 +86,7 @@ export default {
 }
 html {
   font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
 }
 img {
   display: block;
@@ -101,5 +102,24 @@ ul {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+}
+.btn {
+  background: #000;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+}
+.btn:hover {
+  background: #e80;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
 }
 </style>
