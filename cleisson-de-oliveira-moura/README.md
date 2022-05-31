@@ -51,7 +51,7 @@
 ## 🗓 To-Do
 - Adicionar um Checkout completo, com integração com alguma API de pagamentos
 - Coleta de informações do usuário, como endereço de entrega
-- Aperfeoçoar os testes
+- Aperfeiçoar os testes
 
 ## 🧰 IDE Setup
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
