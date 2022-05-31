@@ -1,5 +1,4 @@
 <template>
-  <Header />
   <div class="filter">
     <span>Filte aqui: </span>
     <select name="options" v-on:change="changeFilter($event)">
@@ -17,7 +16,14 @@
       <div class="infos">
         <h3>{{ products.title }}</h3>
         <h2>R${{ products.price }}</h2>
-        <p>{{ products.description }}</p>
+        <button>
+          <img
+            class="cart-img"
+            src="src\assets\pngaaa.com-3531901.png"
+            alt=""
+          />
+          Add to Cart
+        </button>
       </div>
     </div>
   </div>
@@ -25,25 +31,18 @@
 
 <script>
 import api from "../services/api";
-import Header from "./Header.vue";
 
 export default {
   name: "myProducts",
   data() {
     return {
-      teste: "",
       productsData: [],
-      filterChange: this.$route.href,
     };
-  },
-  components: {
-    Header,
   },
   methods: {
     async changeFilter(e) {
       await api.get(e.target.value).then((resp) => {
         this.productsData = resp.data;
-        console.log(this.$router, "ezequiel");
       });
     },
   },
@@ -70,16 +69,31 @@ export default {
 }
 
 .item {
-  width: 25%;
+  width: 30%;
+  height: 100%;
   margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: 12rem;
+  width: 100%;
 }
 
 img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
+  padding: 10px 10px;
 }
 
 select {
@@ -99,5 +113,30 @@ select:focus {
 
 span {
   font-size: 1.2rem;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+h3 {
+  height: 5rem;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #461723;
+  color: white;
+  border-radius: 3px;
+  padding: 0.5 rem;
+  font-size: 1.2rem;
+}
+
+.cart-img {
+  width: 50px;
+  height: 50px;
+  color: white;
 }
 </style>
