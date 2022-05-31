@@ -4,7 +4,6 @@ import api from '../services/api';
 import { IProducts } from '../types/products.type';
 
 let products = ref(<IProducts[]>[]);
-let carrinho = null;
 
 async function fetchProducts() {
   try {
@@ -26,7 +25,7 @@ onMounted(() => {
 //filtrando itens
 async function filterEletronics() {
   try {
-    const productsData = await api.get("/products/category/electronics");
+    const productsData = await api.get("/products/category/electronics?limit=4");
     products.value = productsData.data;
   }
   catch (error) {
@@ -37,8 +36,9 @@ async function filterEletronics() {
 
 async function filterClothing() {
   try {
-    const productsData = await api.get("/products/category/men's clothing");
+    const productsData = await api.get("/products?limit=4");
     products.value = productsData.data;
+    console.log(products.value);
   }
   catch (error) {
     alert(error);
@@ -57,40 +57,17 @@ async function filterJewelery() {
   }
 }
 
-// const teste = {
-//   name: "Produtos",
-//   data() {
-//     return {
-//       produtos: [],
-//       produto: {
-//         id: "",
-//         titulo: "",
-//         preco: "",
-//         descricao: "",
-//         categoria: "",
-//         img: ""
-//       }
-//     }
-//   }
-// }
 
 
-// methods: {
-//   fetchProducts() {
-//     fetch('https://fakestoreapi.com/products/1')
-//             .then(res=>res.json())
-//             .then(json=>console.log(json))
-//             }
-  
-// }
-function loadProduto(productId: number) {
- console.log(productId);
 
- carrinho = productId;
- console.log(carrinho);
+let cart: any = [];
 
-// var teste = document.getElementsByClassName("teste");
-// console.log(teste);
+function addInCart(product: { id: number, title: string }) {
+ 
+  cart.push(product)
+  const addItem = localStorage.setItem('products', JSON.stringify(cart));
+  alert("Produto adicionado ao carrinho")
+
 }
 
 
@@ -103,11 +80,11 @@ function loadProduto(productId: number) {
 
       <fieldset>
         <legend>Filtrar por:</legend>
-        <input type="radio" name="option" value="allProducts" id="roupas" @click="fetchProducts"/>
+        <input type="radio" name="option" value="allProducts" id="roupas" @click="fetchProducts" />
         <label>Todos os produtos</label> <br />
-        
 
-        <input type="radio" name="option" value="clothing" />
+
+        <input type="radio" name="option" value="clothing" @click="filterClothing"/>
         <label>Roupas</label> <br />
 
         <input type="radio" name="option" value="jewel" @click="filterJewelery" />
@@ -121,13 +98,13 @@ function loadProduto(productId: number) {
 
     <div class="galerie">
       <div class="productBox" v-for="product in products" :key="product.id">
-      <div class="imageBox">
-        <img :src="product.image" />
-      </div>
-        <p class="teste">{{product.id}}</p>
+        <div class="imageBox">
+          <img :src="product.image" />
+        </div>
         <h3>{{ product.title }}</h3>
         <p>R$ {{ product.price }}</p>
-        <button class="buyButton" @click="loadProduto(product.id)">Add ao carrinho</button>
+        <p>Avaliação {{product.rating.rate}}/5.0</p>
+        <button class="buyButton" @click="addInCart(product, products.id)">Add ao carrinho</button>
       </div>
     </div>
 
@@ -156,26 +133,19 @@ function loadProduto(productId: number) {
 .productBox {
   width: 20rem;
   margin: 10px;
-  border: 1px solid blue;
 }
 
 .imageBox {
   width: 20rem;
   height: 300px;
-  border: 1px solid black;
 }
 
-img {
+.imageBox img {
   max-width: 100%;
   max-height: 100%;
-  border: 1px solid red;
   align-items: center;
 }
 
-/* .galerie img {
-  width: 18rem;
-  height: 16rem;
-} */
 
 .buyButton {
   width: 20rem;
@@ -188,6 +158,6 @@ img {
 
 .buyButton:hover {
   background: rgb(224, 18, 18);
-   transition: all 0.5s;
+  transition: all 0.5s;
 }
 </style>
