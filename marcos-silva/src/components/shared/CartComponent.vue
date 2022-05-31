@@ -31,7 +31,7 @@ const totalPrice = computed(() => store.getters['cart/totalPrice']
 
 function hideCart() {
   store.commit({
-    type: 'cart/TOGGLE_CART',
+    type: 'cart/toggleCart',
   });
 }
 

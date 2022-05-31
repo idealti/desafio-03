@@ -1,6 +1,6 @@
 <template>
   <main class="c-search-result">
-    <loading-component v-if="isLoading"/>
+    <loading-component v-if="isFetching"/>
     <section v-else class="search-result">
       <div class="search-result__details">
         <h1 class="search-result__query" v-if="query == ''">
@@ -11,7 +11,7 @@
           <mark>{{ category ? `${category}` : 'all'}}.</mark>
         </h1>
         <h3 class="search-result__quantity">
-          Encontramos {{ queryFilteredProducts.length }} produtos.
+          Encontramos {{ productsList.length }} produtos.
         </h3>
         <label for="sortingMethod">
           Ordernar por:
@@ -29,7 +29,7 @@
       </div>
       <div class="search-result__c-products">
         <product-card
-          v-for="product in queryFilteredProducts"
+          v-for="product in productsList"
           :key="product.id + product.title"
           :product="product"
           :showRating="true"
@@ -41,30 +41,30 @@
 
 <script setup>
 import LoadingComponent from '@/components/shared/LoadingComponent.vue';
+import { useStore } from 'vuex';
+import { computed } from 'vue';
 import ProductCard from '@/components/shared/ProductCard.vue';
 import useProducts from '@/hooks/useProducts';
 
-const {
-  isLoading,
-  queryFilteredProducts,
-  category,
-  query,
-  products,
-} = await useProducts();
+const store = useStore();
+const category = computed(() => store.getters['search/getCategory']);
+const query = computed(() => store.getters['search/getQuery']);
+
+const { productsList, productsController, isFetching } = await useProducts();
 
 function sortProducts(event) {
   switch (event.target.value) {
     case 'priceAsc':
-      products.sortByPrice();
+      productsController.sortByPrice();
       break;
     case 'priceDesc':
-      products.sortByPrice('desc');
+      productsController.sortByPrice('desc');
       break;
     case 'rateAsc':
-      products.sortbyRate();
+      productsController.sortbyRate();
       break;
     case 'rateDesc':
-      products.sortbyRate('desc');
+      productsController.sortbyRate('desc');
       break;
     default:
       break;

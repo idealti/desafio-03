@@ -3,7 +3,7 @@
     <h1 class="best-sellers__title">Campeões de venda.</h1>
     <div class="best-sellers__c-cards">
       <product-card
-        v-for="product in products.list"
+        v-for="product in productsList"
         :key="product.id + product.title"
         :product="product"
       />
@@ -15,8 +15,8 @@
 import ProductCard from '@/components/shared/ProductCard.vue';
 import useProducts from '@/hooks/useProducts';
 
-const { products } = await useProducts(8);
-products.sortByRateCount();
+const { productsList, productsController } = await useProducts(8);
+productsController.sortByRateCount();
 
 </script>
 

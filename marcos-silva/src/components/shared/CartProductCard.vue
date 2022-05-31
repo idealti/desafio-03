@@ -44,21 +44,21 @@ const subtotal = computed(() => (props.product.price * props.product.quantity).t
 
 function increaseQuantity() {
   store.commit({
-    type: 'cart/INCREASE_QUANTITY',
+    type: 'cart/increaseQuantity',
     value: props.product.id,
   });
 }
 
 function decreaseQuantity() {
   store.commit({
-    type: 'cart/DECREASE_QUANTITY',
+    type: 'cart/decreaseQuantity',
     value: props.product.id,
   });
 }
 
 function removeProduct() {
   store.commit({
-    type: 'cart/REMOVE_PRODUCT',
+    type: 'cart/removeProduct',
     value: props.product.id,
   });
 }

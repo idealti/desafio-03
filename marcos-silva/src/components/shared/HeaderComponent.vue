@@ -69,7 +69,7 @@ const query = computed(() => store.state['search/query']);
 
 function handleSubmit(event) {
   store.commit({
-    type: 'search/UPDATE_QUERY',
+    type: 'search/updateQuery',
     value: event.target.value,
   });
 
@@ -77,7 +77,7 @@ function handleSubmit(event) {
 }
 function handleHomeRedirect() {
   store.commit({
-    type: 'search/UPDATE_QUERY',
+    type: 'search/updateQuery',
     value: '',
   });
 
@@ -85,7 +85,7 @@ function handleHomeRedirect() {
 }
 function handleSearchRedirect(category) {
   store.commit({
-    type: 'search/UPDATE_CATEGORY',
+    type: 'search/updateCategory',
     value: category,
   });
 
@@ -93,7 +93,7 @@ function handleSearchRedirect(category) {
 }
 function toggleCart() {
   store.commit({
-    type: 'cart/TOGGLE_CART',
+    type: 'cart/toggleCart',
   });
 }
 </script>

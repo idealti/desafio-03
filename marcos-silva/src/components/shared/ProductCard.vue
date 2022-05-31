@@ -41,7 +41,7 @@ const props = defineProps({
 
 function handleButtonClick() {
   store.commit({
-    type: 'cart/ADD_TO_CART',
+    type: 'cart/addToCart',
     value: props.product,
   });
 }

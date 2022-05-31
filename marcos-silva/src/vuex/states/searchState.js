@@ -7,10 +7,10 @@ export default {
     };
   },
   mutations: {
-    UPDATE_QUERY(state, payload) {
+    updateQuery(state, payload) {
       state.query = payload.value;
     },
-    UPDATE_CATEGORY(state, payload) {
+    updateCategory(state, payload) {
       state.category = payload.value;
     },
   },

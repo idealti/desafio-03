@@ -6,8 +6,8 @@
         <div :id="showCart && 'blurry'">
           <MainHeader/>
           <router-view/>
+          <footer>Made by Marcos</footer>
         </div>
-        <footer>Made by Marcos</footer>
       </div>
     </template>
     <template #fallback>
@@ -30,7 +30,7 @@ const showCart = computed(() => store.getters['cart/showCart']);
 function watchClickOutsideCart(event) {
   if (showCart.value && !event.target.classList.contains('cart_element')) {
     store.commit({
-      type: 'cart/DISABLE_CART',
+      type: 'cart/hideCart',
     });
   }
 }

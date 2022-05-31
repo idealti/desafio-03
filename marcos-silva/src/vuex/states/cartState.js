@@ -7,26 +7,26 @@ export default {
     };
   },
   mutations: {
-    ADD_TO_CART(state, payload) {
+    addToCart(state, payload) {
       const productIsInCart = state.products.some((value) => value.id === payload.value.id);
 
       if (!productIsInCart) {
         state.products.push({ ...payload.value, quantity: 1 });
       }
     },
-    TOGGLE_CART(state) {
+    toggleCart(state) {
       state.showCart = !state.showCart;
     },
-    DISABLE_CART(state) {
+    hideCart(state) {
       state.showCart = false;
     },
-    INCREASE_QUANTITY(state, payload) {
+    increaseQuantity(state, payload) {
       const productIndex = state.products
         .indexOf(state.products.find((product) => product.id === payload.value));
 
       state.products[productIndex].quantity += 1;
     },
-    DECREASE_QUANTITY(state, payload) {
+    decreaseQuantity(state, payload) {
       const productIndex = state.products
         .indexOf(state.products.find((product) => product.id === payload.value));
       if (state.products[productIndex].quantity === 1) {
@@ -36,7 +36,7 @@ export default {
 
       state.products[productIndex].quantity -= 1;
     },
-    REMOVE_PRODUCT(state, payload) {
+    removeProduct(state, payload) {
       const QUANTITY_TO_REMOVE = 1;
       const productIndex = state.products
         .indexOf(state.products.find((product) => product.id === payload.value));

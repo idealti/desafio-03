@@ -22,12 +22,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import starIcon from '@/assets/star.png';
-import useProducts from '@/hooks/useProducts';
+import fetchProducts from '@/utils/getProducts';
+import { ref } from 'vue';
 
-const { products } = await useProducts(false, 3);
-const topRated = ref(products.list[0]);
+const product = await fetchProducts({ id: 3 });
+const topRated = ref(product[0]);
 
 </script>
 
