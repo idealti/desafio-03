@@ -15,7 +15,7 @@ const StylesNavAccordion = styled.div`
 		text-decoration: none;
 		text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.35);
 
-		background: #bfbfbf;
+		background: #f2f2f2;
 		background: linear-gradient(top, #6c6e74 0%, #4b4d51 100%);
 	}
 
