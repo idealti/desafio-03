@@ -30,6 +30,7 @@
 
    const category = ref('all');
    const fetchProducts = async () => {
+      loading.value = true;
       const { data } = await ProductsAPI.getProducts(category.value)
       products.value = data
       console.log(`Filtering by ${category.value}`)
@@ -92,6 +93,7 @@
                <h6>{{product.rating.rate}}/5 <img :src="starIcon" alt="Estrela"> - {{product.rating.count}}</h6>
                <h5>{{ formatPrice(product.price) }}</h5>
             </div>
+            <p>{{product.description}}</p>
          </section>
          <button
             type="button"
@@ -154,12 +156,12 @@
             display: flex;
             justify-content: space-around;
 
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
 
             h6 {
                font-size: 0.8rem;
                font-weight: 400;
-               color: gray;
+               color: #5d5d5d;
 
                img {
                   display: inline-block;
@@ -177,6 +179,16 @@
                align-items: center;
 
             }
+         }
+         p {
+            max-height: 4rem;
+            overflow-y: scroll;
+            margin-bottom: 1rem;
+
+            font-size: 0.75rem;
+            padding: 0 0.5rem;
+            opacity: 0.9;
+            text-align: justify;
          }
       }
 
