@@ -1,14 +1,27 @@
 <template>
   <main>
-    <ul v-if="productsList" class="productsList">
+    <ul v-if="productsList" class="products_list">
       <li v-for="product in productsList" :key="product.id" class="product">
-        <div class="productImage">
+        <div class="product_image">
           <img :src="product.image" :alt="product.title" />
         </div>
-        <div class="productContent">
+        <div class="product_content">
           <h2>{{ product.title }}</h2>
           <span>{{ product.price }}</span>
-          <button class="btn">Adicionar ao carrinho</button>
+          <button
+            class="btn"
+            @click="
+              addItem(
+                product.id,
+                product.title,
+                product.description,
+                product.image,
+                product.price
+              )
+            "
+          >
+            Adicionar ao carrinho
+          </button>
         </div>
       </li>
     </ul>
@@ -19,11 +32,24 @@
 export default {
   name: "ProductsList",
   props: ["productsList"],
+  methods: {
+    addItem(id, name, description, image, price) {
+      let product = {
+        id,
+        name,
+        description,
+        image,
+        price,
+        amount: 1,
+      };
+      this.$emit("addProduct", product);
+    },
+  },
 };
 </script>
 
 <style scoped>
-.productsList {
+.products_list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 3rem;
@@ -43,14 +69,14 @@ export default {
 .product:hover {
   box-shadow: 0 6px 12px rgba(30, 60, 90, 0.9);
 }
-.productImage {
+.product_image {
   align-self: center;
 }
-.productImage img {
+.product_image img {
   max-width: 300px;
   max-height: 300px;
 }
-.productContent {
+.product_content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
