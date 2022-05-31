@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header :class="state.scroll" @scroll="getScroll()">
         <a href="/">Petit <br>Store</a>
         <div>
             <cart-button @toggleBtn='toggleCartView()' @openView='open()' />
@@ -20,7 +20,8 @@ export default {
   },
   setup () {
     const state = reactive({
-        appearCart: false    
+        appearCart: false,
+        scroll: ''
     })
     function open(){
         state.appearCart = true
@@ -28,10 +29,26 @@ export default {
     function toggleCartView() {
         state.appearCart = !state.appearCart 
     }
+    function getScroll(){
+        console.log(window.scrollY)
+    }
+    /*
+        'trabalha em conjunto' com o o cart component,
+        caso o header diminua, o top do cart diminui tb,
+        para não sobrar espaço entre eles
+    */
+    window.addEventListener('scroll',() => {
+        if(window.scrollY > 99){
+            state.scroll = 'scroll'
+        } else {
+            state.scroll = ''
+        }
+    })
     return{
         state,
         toggleCartView,
-        open
+        open,
+        getScroll
     }
   }
 }
@@ -43,8 +60,14 @@ export default {
         justify-content: space-around;
         align-items: center;
         height: 120px;
+        width: 100%;
         background-color: $grey-var;
-        position: relative;
+        position: fixed;
+        z-index: 100;
+        transition: .5s;
+        &.scroll {
+            height: 80px;
+        }
         & a{
             text-decoration: none;
             text-transform: uppercase;

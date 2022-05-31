@@ -1,5 +1,5 @@
 <template>
-    <section class="cart-container" @mouseleave="close()">
+    <section :class="state.scroll" class="cart-container" @mouseleave="close()">
         <h4>Carrinho</h4>
         <div class="scroll">
             <div class="vazio" v-show="state.cartData.length === 0">
@@ -47,8 +47,21 @@ export default {
         cartData: null,
         totalPrice: null,
         totalItens: null,
-        msg: null
+        msg: null,
+        scroll: ''
 
+    })
+    /*
+        Esse eventListener serve para subir o cart component
+        ao mesmo tempo que o header (que tb tem um event listener) 
+        diminui ao scrollar +99 pixels.
+    */
+    window.addEventListener('scroll', () => { 
+        if(window.scrollY > 99){
+            state.scroll = 'scroll'
+        } else {
+            state.scroll = ''
+        }
     })
     function close (){
         emit('closeView')
@@ -104,6 +117,9 @@ export default {
         box-shadow: 1px 1px 10px black;
         background-color: rgb(228, 226, 226);
         padding: 10px;
+        &.scroll{
+            top: 80px;
+        }
         & h4{
             text-transform: uppercase;
             margin:10px 0;
