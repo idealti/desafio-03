@@ -10,7 +10,7 @@ export default function Header() {
 	const cartSize = useSelector((baseState) => baseState.cart.length);
 	return (
 		<HeaderBase>
-			<Logo>LADA</Logo>
+			<Logo to="/">LADA</Logo>
 
 			<Container>
 				<Cart to="/cart">

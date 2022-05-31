@@ -6,16 +6,12 @@ import {
 } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-	Container,
-	ProductTable,
-	Total,
-} from "../../components/Cart/styles.js";
 import * as CartActions from "../../store/modules/cart/actions.js";
 import MainBase from "../../styles/main/styles-main.js";
 import { formatPrice } from "../../util/format.js";
+import { Container, ProductTable, Total } from "./styles.js";
 
-export default function Page() {
+export default function Cart() {
 	const total = useSelector((baseState) =>
 		formatPrice(
 			baseState.cart.reduce((totalSum, product) => {

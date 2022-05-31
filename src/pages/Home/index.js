@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { MdShoppingCart } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 
-import { ProductList } from "../../components/Main/styles.js";
 import api from "../../services/api.js";
 import * as CartActions from "../../store/modules/cart/actions.js";
 import MainBase from "../../styles/main/styles-main.js";
 import { formatPrice } from "../../util/format.js";
+import { ProductList } from "./styles.js";
 
-export default function Page() {
+export default function Home() {
 	const [products, setProducts] = useState([]);
 
 	const amount = useSelector((baseState) =>

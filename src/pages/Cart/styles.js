@@ -13,7 +13,7 @@ export const Container = styled.div`
 		align-items: center;
 
 		button {
-			background: #7159c1;
+			background: #5fc65c;
 			color: #fff;
 			border: 0;
 			border-radius: 4px;

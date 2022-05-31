@@ -1,11 +1,25 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
 	width: fit-content;
 	height: fit-content;
 	margin-left: 8%;
 	font-size: 2.5rem;
 	font-weight: lighter;
+	text-decoration: none;
+	transition: opacity 0.2s;
+	color: inherit;
+
+	&:hover {
+		animation: logo-animation 4s 1;
+
+		@keyframes logo-animation {
+			50% {
+				letter-spacing: 0.5rem;
+			}
+		}
+	}
 `;
 
 export const HeaderBase = styled.header`
