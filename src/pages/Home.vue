@@ -68,6 +68,10 @@ function addInCart(product: { id: number, title: string }) {
   const addItem = localStorage.setItem('products', JSON.stringify(cart));
   alert("Produto adicionado ao carrinho")
 
+  const countProducts = JSON.parse(localStorage.getItem("products")!).length;
+
+  console.log(countProducts);
+
 }
 
 
@@ -104,7 +108,7 @@ function addInCart(product: { id: number, title: string }) {
         <h3>{{ product.title }}</h3>
         <p>R$ {{ product.price }}</p>
         <p>Avaliação {{product.rating.rate}}/5.0</p>
-        <button class="buyButton" @click="addInCart(product, products.id)">Add ao carrinho</button>
+        <button class="buyButton" @click="addInCart(product)">Add ao carrinho</button>
       </div>
     </div>
 
