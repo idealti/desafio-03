@@ -1,23 +1,19 @@
 <template>
   <header>
     <div class="main">
+      <div class="identidade">
+        <img
+          src="https://avatars.githubusercontent.com/u/32362019?s=200&v=4"
+          alt="Ide@lti Logo"
+          class="logo"
+        />
+        <span>Ide@lti</span>
+      </div>
       <img
-        src="https://avatars.githubusercontent.com/u/32362019?s=200&v=4"
-        alt=""
+        src="src\assets\pngaaa.com-3531901.png"
+        alt="Carrinho de compras"
+        class="cart"
       />
-      <span>Ide@lti</span>
-      <!-- <div id="nav">
-        <router-link to="/" class="link"> Home</router-link>
-        <router-link to="/products/category/electronics" class="link"
-          >Eletronicos</router-link
-        >
-        <router-link to="/products/category/jewelery" class="link"
-          >Jóias</router-link
-        >
-        <router-link to="/products/category/men's clothing" class="link"
-          >Roupas Masculinas</router-link
-        >
-      </div> -->
     </div>
   </header>
 </template>
@@ -33,7 +29,12 @@ header {
   background-color: #461723;
   width: 100%;
 }
-header img {
+
+.identidade {
+  display: flex;
+  align-items: center;
+}
+.logo {
   width: 5rem;
   height: 5rem;
 }
@@ -53,6 +54,7 @@ header img {
 .main {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 80%;
   margin: 0 auto;
 }
@@ -83,5 +85,10 @@ select:focus {
   outline: 2px solid #a33954;
   box-shadow: 0 0 0 0;
   border: 0;
+}
+
+.cart {
+  width: 50px;
+  height: 50px;
 }
 </style>
