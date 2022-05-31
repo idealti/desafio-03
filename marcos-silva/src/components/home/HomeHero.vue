@@ -1,0 +1,137 @@
+<template>
+  <section class="hero">
+    <img
+      class="hero__image"
+      :src="topRated.image"
+      :alt="topRated.description"
+    >
+    <div class="details">
+      <h1 class="details__title">{{ topRated.title }}</h1>
+      <p class="details__description"> {{ topRated.description }}</p>
+      <div class="c-rate-price">
+        <div class="rate">
+          <p class="rate__value"> {{topRated.rating.rate}}</p>
+          <img alt="Star icon" class="rate__icon" :src="starIcon">
+        </div>
+        <h2 class="price">
+          R$  <mark>{{topRated.price.toString().replace('.', ',')}}</mark>
+        </h2>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+import starIcon from '@/assets/star.png';
+import fetchProducts from '@/utils/getProducts';
+import { ref } from 'vue';
+
+const product = await fetchProducts({ id: 3 });
+const topRated = ref(product[0]);
+
+</script>
+
+<style scoped lang="scss">
+  @import '@/styles/variables';
+
+  .hero {
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 532px;
+    padding-inline: $desktop-big-padding;
+    &__image {
+      max-width: 450px;
+    }
+  }
+  .details {
+    position: relative;
+    max-height: 400px;
+    opacity: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
+    border-radius: 2px;
+    margin-left: auto;
+    right: 30px;
+    padding: 28px 40px;
+    * {
+      color: white;
+    }
+    &__description {
+      margin-top: 15px;
+      font-weight: 100;
+    }
+  }
+  .details__title {
+    &::after {
+      content: '';
+      height: 4px;
+      width: 40%;
+      display: block;
+      background-color: white;
+      margin-top: 10px;
+    }
+  }
+  .c-rate-price {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .price {
+    font-size: 2.2rem;
+    font-weight: $thin;
+    mark {
+      font-weight: $regular;
+      font-size: 4rem;
+    }
+  }
+  .rate {
+    display: flex;
+    padding: 13px 10px;
+    width: 129px;
+    height: 61px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    gap: 10px;
+    border-radius: 3px;
+    &__value {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: black;
+    }
+    &__icon {
+      width: 35px;
+      height: 33px;
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  @media screen and (max-width: 1900px) {
+    .hero {
+      padding-inline: $desktop-medium-padding;
+    }
+  }
+
+  @media screen and (max-width: 1600px) {
+    .hero {
+      padding-inline: $desktop-small-padding;
+    }
+    .details {
+      &__description {
+        font-size: 0.9rem;
+      }
+    }
+    .price {
+      font-size: 1.5rem;
+      mark {
+        font-size: 3rem;
+      }
+    }
+  }
+</style>
