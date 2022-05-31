@@ -1,3 +1,25 @@
+# Link do Projeto: 
+> O link do projeto concluído: https://desafio-03-rho.vercel.app/
+
+# Explicando algumas funcionalidades:
+
+Adicionei algumas pequenas funcionalidades no carrinho de compras para trazer um pouco mais de realismo com um real carrinho de compras (não sei se era permitido), como: 
+* Botão de remover uma unidade de um item;
+* Botão de remover toda as unidades de um item;
+* Botão de finalizar a compra (o botão apenas simula uma operação de compra apagando a lista, não utilizei requisições para simular);
+
+> * Também adicionei componentes de carregamento pelo fato de que em alguns momentos os dados da API demoram a ser carregados. Além disso, o componente tem a funcionalidade de mostrar erro caso dê problema ao carregar os dados, pedindo ao usuário que cheque sua conexão a internet e atualize a página.
+> * A conexão com a API foi feita com AXIOS;
+> * Utilizei o VUEX para armazenar dados em nível global e facilitar o compartilhamento de dados entre os componentes;
+> * O projeto foi feito utilizando pré-processador SASS para melhor organização da folha de estilos. O site é responsivo.
+> * Componentizei o App ao máximo para melhor entendimento, além de poder reutilizar alguns componentes, como o 'loading'.
+ 
+
+
+
+
+
+
 # Desafio 3 - Vaga de Pessoa Desenvolvedora Frontend Jr
 
 Olá para esse desafio estamos buscando alguém que consiga combinar habilidades para:
