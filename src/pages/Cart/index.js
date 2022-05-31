@@ -5,6 +5,7 @@ import {
 	MdDelete,
 } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import * as CartActions from "../../store/modules/cart/actions.js";
 import MainBase from "../../styles/main/styles-main.js";
@@ -120,6 +121,11 @@ export default function Cart() {
 
 				<footer>
 					<button type="button">Finalizar pedido</button>
+					<Link to="/">
+						<button type="button" className="btnVoltar">
+							Voltar
+						</button>
+					</Link>
 
 					{/* Valor total da compra. */}
 					<Total>

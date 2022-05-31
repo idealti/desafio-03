@@ -2,18 +2,21 @@ import { darken } from "polished";
 import styled from "styled-components";
 
 export const Container = styled.div`
-	padding: 30px;
+	padding: 2em 7em;
+	width: 100%;
 	background: #fff;
 	border-radius: 4px;
 
 	footer {
-		margin-top: 30px;
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
 		align-items: center;
+		margin-top: 30px;
+		gap: 2em;
+		flex: 1;
 
 		button {
-			background: #5fc65c;
+			background: #62cd5c;
 			color: #fff;
 			border: 0;
 			border-radius: 4px;
@@ -23,7 +26,15 @@ export const Container = styled.div`
 			transition: background 0.2s;
 
 			&:hover {
-				background: ${darken(0.03, "#7159c1")};
+				background: ${darken(0.15, "#62cd5c")};
+			}
+		}
+
+		.btnVoltar {
+			background-color: #bfbfbf;
+
+			&:hover {
+				background: ${darken(0.1, "#ffb3b3")};
 			}
 		}
 	}
@@ -76,12 +87,19 @@ export const ProductTable = styled.table`
 		padding: 6px;
 		border: 0;
 		background: none;
+
+		svg {
+			fill: #805959;
+		}
 	}
 `;
 
 export const Total = styled.div`
 	display: flex;
 	align-items: baseline;
+	justify-content: flex-end;
+	margin-right: 1.5em;
+	flex: 2;
 
 	span {
 		color: #999;
@@ -89,7 +107,7 @@ export const Total = styled.div`
 	}
 
 	strong {
-		font-size: 20px;
-		margin-left: 5px;
+		font-size: 2rem;
+		margin-left: 0.5em;
 	}
 `;

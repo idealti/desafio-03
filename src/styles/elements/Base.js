@@ -8,6 +8,10 @@ const Base = createGlobalStyle`
 		font-weight: lighter;
 		color: #404040;
     }
+
+	 button {
+		cursor: pointer;
+	 }
 `;
 
 export default Base;
