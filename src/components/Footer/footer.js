@@ -15,6 +15,7 @@ import {
 	FooterPageNavigation,
 	FooterNav,
 } from "../../styles/footer/styles-footer.js";
+import NavAccordion from "../nav/nav-accordion.js";
 
 export default function Footer() {
 	return (
@@ -42,7 +43,9 @@ export default function Footer() {
 				</FooterAside>
 			</FooterSection>
 			<FooterSection>
-				<FooterNav>Navlist</FooterNav>
+				<FooterNav>
+					<NavAccordion />
+				</FooterNav>
 			</FooterSection>
 		</FooterBase>
 	);

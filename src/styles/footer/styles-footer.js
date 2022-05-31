@@ -106,7 +106,7 @@ export const FooterPageNavigation = styled.div`
 export const FooterNav = styled.nav`
 	height: 100%;
 	width: 50%;
-	background-color: gold;
+	background-color: #bfbfbf;
 `;
 
 export const Navlist = styled.nav`
