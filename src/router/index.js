@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Products from "../components/Products.vue";
+import Home from "../views/Home.vue";
+import Cart from "../views/Cart.vue";
 
 const routerHistory = createWebHistory();
 const router = createRouter({
@@ -8,23 +9,11 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: Products,
+      component: Home,
     },
     {
-      path: "/products",
-      component: Products,
-    },
-    {
-      path: "/products/:category/:electronics",
-      component: Products,
-    },
-    {
-      path: "/products/:category/:jewelery",
-      component: Products,
-    },
-    {
-      path: "/products/:category/:men's clothing",
-      component: Products,
+      path: "/carrinho",
+      component: Cart,
     },
   ],
 });
