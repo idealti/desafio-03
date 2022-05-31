@@ -12,5 +12,6 @@ export const types = {
     REMOVE_ALL: 'REMOVE_ALL',
     CHANGE_LOADING_MSG: 'CHANGE_LOADING_MSG',
     SORT_BY_ZA: 'SORT_BY_ZA',
-    SORT_BY_AZ: 'SORT_BY_AZ'
+    SORT_BY_AZ: 'SORT_BY_AZ',
+    ADD_ONE: 'ADD_ONE'
 }

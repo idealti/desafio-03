@@ -1,7 +1,9 @@
 <template>
     <div>
-        <button class="remove-one" @click.prevent="removeOne(id)">Remover 1</button>
-        <button class="remove-all" @click.prevent="removeAll(id)">Remover Tudo</button>
+        <button @click.prevent="addOne(id)">+</button>
+        <span> {{ quantidade }} </span>
+        <button class="remove-one" @click.prevent="removeOne(id)">-</button>
+        <button class="remove-all" @click.prevent="removeAll(id)">🗑️</button>
     </div>
 </template>
 
@@ -12,21 +14,25 @@ export default {
   name: 'RemoveFromCartBtn',
   props: {
     id: Number,
-    objeto: Object
+    quantidade: Number
   },
   setup () {
     const store = useStore()
-    const { REMOVE_ONE, REMOVE_ALL } = types 
+    const { REMOVE_ONE, REMOVE_ALL, ADD_ONE } = types 
      
     function removeOne (id) {
-        store.commit(REMOVE_ONE, id)
+      store.commit(REMOVE_ONE, id)
     }
     function removeAll(id) {
-        store.commit(REMOVE_ALL, id)
+      store.commit(REMOVE_ALL, id)
+    }
+    function addOne(id) {
+      store.commit(ADD_ONE, id)
     }
     return{
-        removeOne,
-        removeAll
+      removeOne,
+      removeAll,
+      addOne
     }
   }
 }
@@ -36,16 +42,14 @@ export default {
 @import '../variaveis/variaveis.scss';
   div{
     & button{
-      padding: 5px 8px;
+      width: 30px;
+      height: 30px;
       border-radius: 8px;
       margin: 0 10px;
       cursor: pointer;
       font-weight: bold;
-    }
-    & .remove-one{
-      background-color: orange;
-      border: none;
-      box-shadow: 1px 1px 5px orangered;
+      background-color: black;
+      color:white;
     }
     & .remove-all{
       background-color: red;
@@ -54,5 +58,4 @@ export default {
       border: none;
     }
   }
-
 </style>

@@ -1,9 +1,6 @@
 <template>
     <header>
         <a href="/">Petit <br>Store</a>
-        <nav>
-            <router-link to="/">Início</router-link>
-        </nav>
         <div>
             <cart-button @toggleBtn='toggleCartView()' @openView='open()' />
             <cart-component v-show="state.appearCart" @closeView='toggleCartView()' />

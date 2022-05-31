@@ -17,8 +17,8 @@
                 <div class="description">
                     <small style="text-align: justify;"> <strong>Descrição:</strong> {{ props.description }} </small> <br>
                     <small> Preço Unitário: {{ turnToPrice(props.price) }} </small>
-                    <small> Nº de Itens: {{ props.amount }}</small><small> Total: {{ turnToPrice(props.totalPrice) }} </small>
-                    <remove-from-cart-btn :id="props.id"/>
+                    <small> Subtotal: {{ turnToPrice(props.totalPrice) }} </small>
+                    <remove-from-cart-btn :id="props.id" :quantidade="props.amount"/>
                 </div>
             </div>
         </div>
@@ -174,13 +174,6 @@ export default {
         }
     }
     @media screen and (max-width: 767px) {
-        section{
-            width: 70%;
-            left:30%;
-
-        }
-    }
-    @media screen and (max-width: 485px) {
         section{
             width: 100%;
             left:0;

@@ -19,7 +19,7 @@ export default {
         totalItens: 0
     })
     const store = useStore()
-    state.totalItens = computed(() => store.getters.getTotalItens)
+    state.totalItens = computed(() => store.state.cart.listaDeCompras.length)
     function toggleCartView(){
         emit('toggleBtn')
     }

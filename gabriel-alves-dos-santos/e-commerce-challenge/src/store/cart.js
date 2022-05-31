@@ -43,6 +43,14 @@ export default {
       CLEAN_LIST (state) {
         state.listaDeCompras = []
       },
+      ADD_ONE (state, payload) {
+        state.listaDeCompras.find((x) => {
+          if(x.id === payload){
+            x.amount++
+            x.totalPrice += x.price
+          }
+        })
+      },
       REMOVE_ONE (state, payload) {
         state.listaDeCompras.find((x) => {
           if(x.id === payload){
