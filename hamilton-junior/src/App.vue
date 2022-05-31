@@ -1,5 +1,18 @@
 <template>
-  <ProductsListVue />
+  <div>
+    <select v-if="allCategories" v-model="categoryFilter">
+      <option disabled value="">Selecione uma categoria</option>
+      <option
+        v-for="category in allCategories"
+        :value="category"
+        :key="category"
+      >
+        {{ category }}
+      </option>
+    </select>
+
+    <ProductsListVue :productsList="allProductsData" />
+  </div>
 </template>
 
 <script>
@@ -8,6 +21,42 @@ export default {
   name: "App",
   components: {
     ProductsListVue,
+  },
+  data() {
+    return {
+      allProductsData: null,
+      allCategories: null,
+      categoryFilter: null,
+    };
+  },
+  methods: {
+    async getAllCategories() {
+      const req = await fetch("https://fakestoreapi.com/products/categories");
+      const res = await req.json();
+      this.allCategories = res;
+    },
+    async getAllProducts() {
+      this.allProductsData = null;
+      const req = await fetch("https://fakestoreapi.com/products");
+      const res = await req.json();
+      this.allProductsData = res;
+    },
+    async chooseProductsByCategory() {
+      const req = await fetch(
+        `https://fakestoreapi.com/products/category/${this.categoryFilter}`
+      );
+      const res = await req.json();
+      this.allProductsData = res;
+    },
+  },
+  watch: {
+    categoryFilter() {
+      this.chooseProductsByCategory();
+    },
+  },
+  created() {
+    this.getAllProducts();
+    this.getAllCategories();
   },
 };
 </script>

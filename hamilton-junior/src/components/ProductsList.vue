@@ -1,7 +1,7 @@
 <template>
   <main class="container">
-    <ul v-if="allProductsData" class="productsList">
-      <li v-for="product in allProductsData" :key="product.id">
+    <ul v-if="productsList" class="productsList">
+      <li v-for="product in productsList" :key="product.id">
         <div>
           <div>
             <img :src="product.image" :alt="product.title" />
@@ -18,21 +18,7 @@
 <script>
 export default {
   name: "ProductsList",
-  data() {
-    return {
-      allProductsData: null,
-    };
-  },
-  methods: {
-    getAllProducts() {
-      fetch("https://fakestoreapi.com/products")
-        .then((res) => res.json())
-        .then((data) => (this.allProductsData = data));
-    },
-  },
-  created() {
-    this.getAllProducts();
-  },
+  props: ["productsList"],
 };
 </script>
 
