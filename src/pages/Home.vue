@@ -9,11 +9,11 @@ async function fetchProducts() {
   try {
     const productsData = await api.get("/products?limit=12");
     products.value = productsData.data;
-    console.log(products.value);
+
   }
   catch (error) {
     alert(error);
-    console.log(error);
+   
   }
 }
 
@@ -30,7 +30,6 @@ async function filterEletronics() {
   }
   catch (error) {
     alert(error);
-    console.log(error);
   }
 }
 
@@ -38,11 +37,11 @@ async function filterClothing() {
   try {
     const productsData = await api.get("/products?limit=4");
     products.value = productsData.data;
-    console.log(products.value);
+   
   }
   catch (error) {
     alert(error);
-    console.log(error);
+    
   }
 }
 
@@ -53,24 +52,22 @@ async function filterJewelery() {
   }
   catch (error) {
     alert(error);
-    console.log(error);
+    
   }
 }
 
 
 
 
-let cart: any = [];
+
 
 function addInCart(product: { id: number, title: string }) {
- 
-  cart.push(product)
-  const addItem = localStorage.setItem('products', JSON.stringify(cart));
+
+  let getCart = JSON.parse(localStorage.getItem("products")!) || []; 
+
+  getCart.push(product)
+  const addItem = localStorage.setItem('products', JSON.stringify(getCart));
   alert("Produto adicionado ao carrinho")
-
-  const countProducts = JSON.parse(localStorage.getItem("products")!).length;
-
-  console.log(countProducts);
 
 }
 

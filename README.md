@@ -20,7 +20,9 @@ Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu esti
 
 #### Detalhes sobre o projeto 
 
-Foi minha primeira vez usando vueJs e TypeScript, já tinha usado ReactJs com Javascript diversas vezes, tive um pouco de dificuldade no ínicio e com algumas questões referentes ao armazenamento do Local Storage, mas no fim consegui fazer o projeto rodar.
+Foi minha primeira vez usando VueJs e TypeScript, já tinha usado ReactJs com Javascript diversas vezes, tive um pouco de dificuldade no ínicio e com algumas questões referentes ao armazenamento do Local Storage, mas no fim consegui fazer o projeto rodar.
+
+Usei do armazenamento no local storage para incluir produtos e mostrar-los no carrinho.
 
 
 #### Como rodar o projeto
