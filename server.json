@@ -1,0 +1,66 @@
+{
+	"stock": [
+	  {
+		 "id": 1,
+		 "amount": 3
+	  },
+	  {
+		 "id": 2,
+		 "amount": 5
+	  },
+	  {
+		 "id": 3,
+		 "amount": 2
+	  },
+	  {
+		 "id": 4,
+		 "amount": 1
+	  },
+	  {
+		 "id": 5,
+		 "amount": 5
+	  },
+	  {
+		 "id": 6,
+		 "amount": 10
+	  }
+	],
+	"products": [
+	  {
+		 "id": 1,
+		 "title": "Blusa de jersey com decote U",
+		 "price": 279,
+		 "image": "https://cdn-images.farfetch-contents.com/18/29/83/33/18298333_39163466_1000.jpg"
+	  },
+	  {
+		 "id": 2,
+		 "title": "Calça cargo de couro",
+		 "price": 239,
+		 "image": "https://cdn-images.farfetch-contents.com/17/59/05/08/17590508_38475200_1000.jpg"
+	  },
+	  {
+		 "id": 3,
+		 "title": "Vestido de jacquard monogramado",
+		 "price": 319,
+		 "image": "https://cdn-images.farfetch-contents.com/17/08/33/59/17083359_34377901_1000.jpg"
+	  },
+	  {
+		 "id": 5,
+		 "title": "Calça esportiva com estampa monogramada",
+		 "price": 239,
+		 "image": "https://cdn-images.farfetch-contents.com/16/83/41/65/16834165_33359621_1000.jpg"
+	  },
+	  {
+		 "id": 6,
+		 "title": "Blazer de lã com abotoamento duplo",
+		 "price": 319,
+		 "image": "https://cdn-images.farfetch-contents.com/17/17/63/06/17176306_36380286_1000.jpg"
+	  },
+	  {
+		 "id": 4,
+		 "title": "Clutch Python",
+		 "price": 279,
+		 "image": "https://cdn-images.farfetch-contents.com/18/08/03/36/18080336_38649678_1000.jpg"
+	  }
+	]
+ }
