@@ -8,12 +8,14 @@
           class="logo"
         />
         <span>Ide@lti</span>
+        <router-link to="/" class="home">Home</router-link>
       </div>
-      <img
-        src="src\assets\pngaaa.com-3531901.png"
-        alt="Carrinho de compras"
-        class="cart"
-      />
+      <router-link to="/carrinho"
+        ><img
+          src="src\assets\pngaaa.com-3531901.png"
+          alt="Carrinho de compras"
+          class="cart"
+      /></router-link>
     </div>
   </header>
 </template>
@@ -64,6 +66,13 @@ span {
   font-weight: bold;
   font-size: 3rem;
   color: white;
+}
+
+.home {
+  margin-left: 3rem;
+  font-size: 1.3rem;
+  color: white;
+  text-decoration: none;
 }
 
 label {

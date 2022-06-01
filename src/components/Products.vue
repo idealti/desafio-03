@@ -132,11 +132,13 @@ button {
   border-radius: 3px;
   padding: 0.5 rem;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .cart-img {
   width: 50px;
   height: 50px;
   color: white;
+  cursor: pointer;
 }
 </style>
