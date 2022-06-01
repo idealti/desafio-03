@@ -25,7 +25,7 @@ localStorageContent = JSON.parse(localStorage.getItem("products")!);
       id:{{product.id}}
       </div>
       <div>R$ {{ product.price }}</div>
-      <div>Qtd: </div>
+
     </div>
     
   </div>
