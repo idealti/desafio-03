@@ -5,6 +5,7 @@ let localStorageContent: any[];
 
 localStorageContent = JSON.parse(localStorage.getItem("products")!);
 
+
 </script>
 
 <template>
