@@ -5,9 +5,6 @@ let localStorageContent: any[];
 
 localStorageContent = JSON.parse(localStorage.getItem("products")!);
 
-
-
-
 </script>
 
 <template>
@@ -22,10 +19,10 @@ localStorageContent = JSON.parse(localStorage.getItem("products")!);
         <img :src="product.image" />
       </div>
       <div>{{ product.title }}
-      id:{{product.id}}
       </div>
       <div>R$ {{ product.price }}</div>
 
+     
     </div>
     
   </div>
