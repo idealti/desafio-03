@@ -7,7 +7,7 @@ Tecnologias utilizadas:
 
 ### Desafio
 
-Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu estilista Alexs Dubois ambos querendo construir um e-commerce. Eles já possuem todas as informações cadastradas de seus produtos e estão disponibilizando para você em uma [API](https://fakestoreapi.com/). 
+Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu estilista Alexs Dubois ambos querendo construir um e-commerce. Eles já possuem todas as informações cadastradas de seus produtos e estão disponibilizando para você em uma [API](https://fakestoreapi.com/) 
 
 
 #### Casos de uso
