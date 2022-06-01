@@ -1,14 +1,12 @@
-# vue-project
+# Desafio Ide@lti
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+Entrego o projeto quase finalizado, faltando apenas a integração de produtos para o carrinho, porém tendo o design já feito.
+Infelizmente o desafio caio justo nas semanas que estava com muitas provas e trabalhos e não pude me dedicar tanto quando gostaria. Caso tivesse mais tempo teria entregado completo.
+Espero que gostem do projeto e possamos conversar em um breve futuro para ter um feedback sobre!
+Gostei bastante de realizar o projeto, foram horas bem divertidas e de imenso aprendizado (primeira vez que tenho contato com vue)!
 
 ## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
