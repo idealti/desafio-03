@@ -1,15 +1,13 @@
 # Desafio 3 - Vaga de Pessoa Desenvolvedora Frontend Jr
 
-Olá para esse desafio estamos buscando alguém que consiga combinar habilidades para:
+Tecnologias utilizadas:
 
-- Elaborar wireframes propondo iterações mais objetivas e consistentes entre cliente e sistema;
-- Converter wireframes em componentes e páginas que serão reutilizados pela equipe;
-- Transcrever iterações em funcionalidades junto com o time.
-- Colaborar com a experiência do usuário propondo melhorias no uso do sistema.
+- VueJs;
+- TypeScript;
 
 ### Desafio
 
-Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu estilista Alexs Dubois ambos querendo construir um e-commerce. Eles já possuem todas as informações cadastradas de seus produtos e estão disponibilizando para você em uma [API](https://fakestoreapi.com/). 
+Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu estilista Alexs Dubois ambos querendo construir um e-commerce. Eles já possuem todas as informações cadastradas de seus produtos e estão disponibilizando para você em uma [API](https://fakestoreapi.com/) 
 
 
 #### Casos de uso
@@ -20,17 +18,17 @@ Imagine que você conheceu o dono de uma loja, chamado Nicollas Petit e seu esti
 
 3) Exibir detalhes do carrinho de compra. Mostre o valor total dos produtos, descrição, thumbnail, valor unitário e quantidade.
 
-#### Requisitos 
+#### Detalhes sobre o projeto 
 
-- Nesse desafio você não poderá usar um framework css;
-- O projeto deve ser entregue com Vue.js;
+Foi minha primeira vez usando VueJs e TypeScript, já tinha usado ReactJs com Javascript diversas vezes, tive um pouco de dificuldade no ínicio e com algumas questões referentes ao armazenamento do Local Storage, mas no fim consegui fazer o projeto rodar.
 
+Usei do armazenamento no local storage para incluir produtos e mostrar-los no carrinho.
 
-#### Como enviar
+Infelizmente tive bastante dificuldade com a questão de mostrar a quantidade do produto e do valor total dentro do carrinho, optei por deixar sem.
 
-- Crie um fork do projeto;
-- Crie um diretório com seu-nome incluindo o seu nome no formato lowercase usando hífen (-) quando necessário;
-- Crie os arquivos que achar necessário;
-- Envie o PULL-REQUEST;
-- Esperamos que você se divirta e aprenda algo fazendo esse desafio. Se não conseguir algum detalhe, pode nos mandar mesmo assim, que avaliaremos com todo o prazer (e talvez possamos-lhe auxiliar no que faltou).
-- Esse repositório ficará disponível para receber o seu PR até `2022-05-31T23:59:59-03:00`.
+#### Como rodar o projeto
+
+- npm install --global yarn
+- yarn --version;
+- yarn (instalar dependências);
+- yarn dev (abrir o projeto no seu ambiente de desenvolvimento);
