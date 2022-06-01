@@ -24,6 +24,7 @@ Foi minha primeira vez usando VueJs e TypeScript, já tinha usado ReactJs com Ja
 
 Usei do armazenamento no local storage para incluir produtos e mostrar-los no carrinho.
 
+Infelizmente tive bastante dificuldade com a questão de mostrar a quantidade do produto e do valor total dentro do carrinho, optei por deixar sem.
 
 #### Como rodar o projeto
 
