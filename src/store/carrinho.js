@@ -17,12 +17,5 @@ export default {
       commit('addProduto', payload)
     }
 
-  },
-  getters: {
-/*     total (state) {
-      return state.carrinho
-        .forEach(item => item.price)
-        .reduce((preventValue, currentValue) => preventValue + currentValue, 0)
-    } */
   }
 }
