@@ -10,6 +10,7 @@ Home do e-commerce:
 
 Link do deploy realizado:
 
+https://e-commerce-ideal.vercel.app/
 
 ## Descrição do teste para vaga de Pessoa Desenvolvedora Frontend Jr
 <a id="ancora"></a>
