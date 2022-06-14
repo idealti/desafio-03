@@ -6,6 +6,10 @@
 
 Home do e-commerce:
 
+![home](https://raw.githubusercontent.com/rednand/e-commerce-petit/main/renan-aguiar/src/assets/screencapture-e-commerce-ideal-vercel-app-2022-06-06-12_04_55.png)
+
+Link do deploy realizado:
+
 
 ## Descrição do teste para vaga de Pessoa Desenvolvedora Frontend Jr
 <a id="ancora"></a>
