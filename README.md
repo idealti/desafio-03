@@ -12,8 +12,7 @@ Link do deploy realizado:
 
 https://e-commerce-ideal.vercel.app/
 
-## Descrição do teste para vaga de Pessoa Desenvolvedora Frontend Jr
-<a id="ancora"></a>
+## <a id="ancora"></a> Descrição do teste para vaga de Pessoa Desenvolvedora Frontend Jr
 
 Olá para esse desafio estamos buscando alguém que consiga combinar habilidades para:
 
