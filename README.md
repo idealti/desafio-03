@@ -1,4 +1,14 @@
-# Desafio 3 - Vaga de Pessoa Desenvolvedora Frontend Jr
+# E-commerce Petit Fashion
+
+## Projeto de E-commerce realizado como desafio técnico para vaga de Pessoa Desenvolvedora Front-end Jr. na Ide@l tecnologia.
+
+<span>&darr;</span> [Abaixo](#ancora) está a descrição do teste.
+
+Home do e-commerce:
+
+
+## Descrição do teste para vaga de Pessoa Desenvolvedora Frontend Jr
+<a id="ancora"></a>
 
 Olá para esse desafio estamos buscando alguém que consiga combinar habilidades para:
 
